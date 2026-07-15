@@ -1,0 +1,26 @@
+phenotype: myocarditis
+
+paths:
+  edf_dir: data/raw/edf
+  codes_path: data/raw/codes/codes.csv
+  gold_dir: data/gold
+  processed_dir: data/processed
+
+retrieval:
+  lexical_weight: 0.5
+  embedding_weight: 0.5
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  top_k: 25
+
+llm:
+  model: claude-opus-4-8
+  rank_effort: low
+  classify_effort: low
+  max_retries: 3
+
+uncertainty:
+  confidence_threshold: 0.7
+  possible_requires_review: true
+
+evaluation:
+  narrow_only_as_positive: true
