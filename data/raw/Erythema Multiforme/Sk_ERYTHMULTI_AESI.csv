@@ -1,0 +1,489 @@
+event_definition,coding_system,code,code_name,concept,concept_name,tags,origin,system,event_abbreviation,type
+Erythema multiforme,ICD10CM,L51.9,Erythema multiforme major NOS,C0263322,Erythema iris,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,P83.1,Neonatal erythema toxicum,C0263324,Erythema toxicum neonatorum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L51.0,Nonbullous erythema multiforme,C0406541,Non-bullous erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L30.4,Erythema intertrigo,C0021807,Intertrigo,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L95.1,Erythema elevatum diutinum,C0263398,Erythema elevatum diutinum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L10.4,Pemphigus erythematosus,C0263312,Pemphigus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L53.0,Toxic erythema,C0152251,Toxic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L93.0,Discoid lupus erythematosus,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T23.17,Burn of first degree of wrist,C0274084,Epidermal burn of wrist,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L66.4,Folliculitis ulerythematosa reticulata,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T20.17,Burn of first degree of neck,C0433302,Epidermal burn of neck,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L51.3,Stevens-Johnson syndrome-toxic epidermal necrolysis overlap syndrome,C3661878,Stevens Johnson syndrome AND toxic epidermal necrolysis overlap,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L51.1,Stevens-Johnson syndrome,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,A67.1,Erythematous plaques of pinta,C0275747,Erythematous pinta plaque,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L93.2,Lupus erythematosus profundus,C0030327,"Panniculitis, Lupus Erythematosus",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,A26.0,Erythema migrans,C0014740,Erythema Chronicum Migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L51,Erythema multiforme,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,A18.4,"Erythema induratum, tuberculous",C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,M32.12,Pericarditis in systemic lupus erythematosus,C0587239,Systemic lupus erythematosus with pericarditis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T22.13,Burn of first degree of upper arm,C0433327,Epidermal burn of upper arm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T22.11,Burn of first degree of forearm,C0433329,Epidermal burn of forearm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,M32.9,"Systemic lupus erythematosus, unspecified",C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,M32,Systemic lupus erythematosus (SLE),C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L93.1,Subacute cutaneous lupus erythematosus,C0024140,"Lupus Erythematosus, Subacute Cutaneous",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L93,Lupus erythematosus,C0409974,Lupus Erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T22.15,Burn of first degree of shoulder,C0433325,Epidermal burn of shoulder,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L52,Erythema nodosum,C0014743,Erythema Nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,M32.1,Systemic lupus erythematosus with organ or system involvement,C0409976,Systemic lupus erythematosus with organ/system involvement,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L59.0,Erythema ab igne [dermatitis ab igne],C0494853,Erythema Ab Igne,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T21.11,Burn of first degree of breast,C0433319,Epidermal burn of breast,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L53.1,Erythema annulare centrifugum,C0263358,Erythema annulare centrifugum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L53.2,Erythema marginatum,C0085659,Erythema marginatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T21.12,Burn of first degree of abdominal wall,C0433317,Burn erythema of abdominal wall,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L53.9,"Erythematous condition, unspecified",C0041834,Erythema,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L51.8,Other erythema multiforme,C0477492,Other erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,M32.0,Drug-induced systemic lupus erythematosus,C0263591,Drug-induced lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T21.1,Burn of first degree of trunk,C0433310,Burn erythema of trunk,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L51.2,Toxic epidermal necrolysis [Lyell],C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,K14.1,Geographic tongue,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T25.11,Burn of first degree of ankle,C0433344,Epidermal burn of ankle,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T25.12,Burn of first degree of foot,C0433345,Epidermal burn of foot,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T24.11,Burn of first degree of thigh,C0433341,Epidermal burn of thigh,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T24.12,Burn of first degree of knee,C0433342,Epidermal burn of knee,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T24.13,Burn of first degree of lower leg,C0433343,Epidermal burn of lower leg,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T69.1,Chilblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T23.16,Burn of first degree of back of hand,C0433333,Epidermal burn of back of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T23.15,Burn of first degree of palm,C0433334,Epidermal burn of palm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,T23.1,Burn of first degree of wrist and hand,C0433331,Epidermal burn of wrist and hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,L98.5,Reticular erythematous mucinosis,C0406656,Reticular erythematous mucinosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,B08.3,Erythema infectiosum [fifth disease],C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD10CM,H01.12,Discoid lupus erythematosus of eyelid,C0155180,Discoid lupus erythematosus of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,949.1,"Erythema [first degree], unspecified site",C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.11,Erythema multiforme minor,C0857751,Erythema multiforme minor,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.0,Toxic erythema,C0152251,Toxic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,944.17,Erythema [first degree] of wrist,C0274084,Epidermal burn of wrist,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.14,Stevens-Johnson syndrome-toxic epidermal necrolysis overlap syndrome,C3661878,Stevens Johnson syndrome AND toxic epidermal necrolysis overlap,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.13,Stevens-Johnson syndrome,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,944.10,"Erythema [first degree] of hand, unspecified site",C0274090,Epidermal burn of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.1,Erythema multiforme,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.10,"Erythema multiforme, unspecified",C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,710.0,Systemic lupus erythematosus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.4,Lupus erythematosus,C0409974,Lupus Erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,690,Erythematosquamous dermatosis,C0014747,Erythematosquamous dermatosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,017.1,Erythema nodosum with hypersensitivity reaction in tuberculosis,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,017.10,"Erythema nodosum with hypersensitivity reaction in tuberculosis, unspecified",C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.2,Erythema nodosum,C0014743,Erythema Nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695,Erythematous conditions,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.9,Unspecified erythematous condition,C0041834,Erythema,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.19,Other erythema multiforme,C0477492,Other erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.15,Toxic epidermal necrolysis,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,529.1,Geographic tongue,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,991.5,Chilblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,944.16,Erythema [first degree] of back of hand,C0433333,Epidermal burn of back of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,695.12,Erythema multiforme major,C3241919,Erythema Multiforme Major,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,057.0,Erythema infectiosum (fifth disease),C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,ICD9CM,373.34,Discoid lupus erythematosus of eyelid,C0155180,Discoid lupus erythematosus of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200951007,Erythema marginatum in acute rheumatic fever,C0451910,Erythema marginatum in acute rheumatic fever,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,860800001,Erythema multiforme due to systemic fungal infection,C5395902,Erythema multiforme due to systemic fungal infection,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,77830003,Erythema of multiple specified sites,C0274185,Epidermal burn of multiple sites,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403486000,Acute systemic lupus erythematosus,C1274832,Acute systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,723166008,Acute erythematous eruption of skin,C4302028,Acute erythematous eruption of skin,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,38966005,Erythema of neck,C0857246,Red neck,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,81487000,Erythema iris,C0263322,Erythema iris,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,240302002,Neonatal erythroderma,C0263324,Erythema toxicum neonatorum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,32698008,Erythema neonatorum,C0263324,Erythema toxicum neonatorum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,206550006,Toxic erythema of the newborn,C0263324,Erythema toxicum neonatorum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,1162449005,Neonatal toxic erythema,C0263324,Erythema toxicum neonatorum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,195666007,Acute erythematous tonsillitis,C0396017,Acute erythematous tonsillitis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238675007,Sarcoidosis-induced erythema nodosum,C0406390,Sarcoidosis-induced erythema nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,28664002,Herpes iris,C0263323,Herpes iris,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,73658009,"Erythema multiforme, epidermal type",C0263320,"Erythema multiforme, epidermal type",narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211963000,Superficial burn of toe(s),C0562096,Epidermal burn of toe,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,68628004,Erythema of toe,C0562096,Epidermal burn of toe,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238820002,Erythema multiforme of pregnancy,C0406543,Erythema multiforme of pregnancy,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200926006,Non-bullous erythema multiforme,C0406541,Non-bullous erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238818000,Non-bullous erythema multiforme,C0406541,Non-bullous erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200927002,Other specified erythema multiforme,C0406540,Other specified erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,235071003,Oral erythematous candidiasis,C0341021,Oral erythematous candidiasis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,49523001,Erythema of multiple sites of upper limb,C1536330,Erythema of multiple sites of upper limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,196138005,Lung disease with systemic lupus erythematosus,C0339908,Lung disease with systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,290070001,Red breast,C0238819,Red breast,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,35501005,Epidermal burn of breast,C0238819,Red breast,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,86563000,"Erythema multiforme, mixed dermal-epidermal type",C0263319,"Erythema multiforme, mixed dermal-epidermal type",narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,400126005,Ulerythema ophryogenes,C5700076,Ulerythema ophryogenes,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,22972008,"Erythema multiforme, dermal type",C0263318,"Erythema multiforme, dermal type",narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,213338000,Erythema at injection site,C0581287,Erythema at injection site,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,768961004,Toxic epidermal necrolysis due to infection,C4708605,Toxic epidermal necrolysis due to infection,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200947005,Intertrigo,C0021807,Intertrigo,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156366001,Intertrigo,C0021807,Intertrigo,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,58759008,Intertrigo,C0021807,Intertrigo,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403190006,Epidermal burn of skin,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,212131009,First degree burn,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,269248005,Superficial burn NOS,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,77140003,Erythema ab igne,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,284183005,Recalcitrant erythematous desquamating disorder,C0562027,Recalcitrant erythematous desquamating disorder,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,123571000119104,Erythema multiforme minor,C0857751,Erythema multiforme minor,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,762375006,Erythema multiforme due to viral disease,C4546426,Erythema multiforme due to viral disease,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,58872001,Erythema elevatum diutinum,C0263398,Erythema elevatum diutinum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201300002,Erythema elevatum diutinum,C0263398,Erythema elevatum diutinum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,1137447008,Erythema of skin of eyelid,C5545368,Erythema of skin of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,36739006,Pemphigus erythematosus,C0263312,Pemphigus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,273863009,Systemic lupus erythematosus disease activity index,C0451528,Systemic lupus erythematosus disease activity index,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,111718007,Erythema of multiple sites of wrist and hand,C1536343,Erythema of multiple sites of wrist and hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,433164007,Family history of lupus erythematosus,C2315023,Family history of lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238993006,Acral erythema,C0239343,Acral erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,277172003,Erythematous ear canal,C0456495,Erythematous ear canal,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,20490007,Erythema of lower leg,C1536345,Erythema of lower leg,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,58767000,Erythema venenatum,C0152251,Toxic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156361006,Erythema venenatum,C0152251,Toxic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200918003,Erythema venenatum,C0152251,Toxic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,13902000,Discoid lupus erythematosus,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156365002,Discoid lupus erythematosus,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200938002,Discoid lupus erythematosus,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,239163008,Wound erythema,C0406833,Wound erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,768946000,"Stevens-Johnson syndrome, toxic epidermal necrolysis spectrum",C3658302,Stevens-Johnson Syndrome Toxic Epidermal Necrolysis Spectrum,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,27346001,Epidermal burn of ankle,C0238652,Erythema of ankle,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,402971008,Erythema multiforme due to mycoplasma infection,C1274382,Erythema multiforme due to mycoplasma infection,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211891007,"Erythema of wrist and hand,first degree burn",C0274084,Epidermal burn of wrist,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,56710004,Epidermal burn of wrist,C0274084,Epidermal burn of wrist,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201154005,Atrophoderma vermiculatum,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,13768009,Folliculitis ulerythematosa reticulata,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,2736005,Atrophoderma vermiculatum,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,7719008,Folliculitis ulerythematosa reticulata,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,402359006,Toxic epidermal necrolysis due to graft-versus-host disease,C1304159,Toxic epidermal necrolysis due to graft-versus-host disease,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,46156007,Erythema of chest wall,C1536318,Erythema of chest wall,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403609001,Drug-induced Stevens-Johnson syndrome,C1274933,Drug-Induced Stevens Johnson Syndrome,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,9063003,Erythema of back,C1536319,Erythema of back,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,111716006,Epidermal burn of trunk,C0241482,Erythema of trunk,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,110183007,Epidermal burn of forehead,C0433304,Epidermal burn of forehead,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,7765006,Erythema of scalp,C0433305,Epidermal burn of scalp,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,58340008,Erythema of nose,C0433306,Epidermal burn of nose,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,737346001,Streptococcal toxin-mediated perineal erythema,C4545066,Streptococcal toxin-mediated perineal erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,110187008,Epidermal burn of cheek,C0433303,Epidermal burn of cheek,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,206555001,Erythroderma neonatorum,C5848048,Neonatal erythroderma,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,76097009,Erythema nodosum migrans,C0030331,"Panniculitis, Subacute Nodular Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,69025008,Epidermal burn of thumb,C0274126,Epidermal burn of thumb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,124911000119100,Stevens Johnson syndrome AND toxic epidermal necrolysis overlap,C3661878,Stevens Johnson syndrome AND toxic epidermal necrolysis overlap,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,72470008,"Sarcoidosis, lupus pernio type",C4551515,Chilblain lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238928005,Chilblain lupus erythematosus,C4551515,Chilblain lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,11361009,Chilblain lupus erythematosus,C4551515,Chilblain lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,41030002,Coccidioidomycosis with erythema multiforme,C0276672,Coccidioidomycosis with erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,73442001,Stevens-Johnson syndrome,C0038325,Stevens-Johnson Syndrome,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156362004,Stevens-Johnson synd.,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,267848009,Stevens-Johnson synd.,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238819008,Bullous erythema multiforme,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,413217006,Erythematous gastropathy,C1446309,Erythematous gastropathy,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,14664006,Epidermal burn of hand,C0274090,Epidermal burn of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211892000,"Superficial burn of hand, unspecified",C0274090,Epidermal burn of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,62242007,Erythema of upper limb,C1536323,Erythema of upper limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,402419007,Roseolar erythema,C1304207,Roseolar erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,718311001,Erythema chronica migrans suspected,C4274969,Erythema chronica migrans suspected,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,204919003,Erythematous pinta plaque,C0275747,Erythematous pinta plaque,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,240683000,Erythematous pinta plaque,C0275747,Erythematous pinta plaque,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,90911007,Erythematous plaques of pinta,C0275747,Erythematous pinta plaque,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,15084002,Lupus erythematosus profundus,C0030327,"Panniculitis, Lupus Erythematosus",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,239888002,Lupus panniculitis,C0030327,"Panniculitis, Lupus Erythematosus",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,69588003,Erythema chronica migrans,C0014740,Erythema Chronicum Migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,59032001,Geographic tongue,C0014740,Erythema Chronicum Migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,186979009,Erythema chronicum migrans,C0014740,Erythema Chronicum Migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200919006,Erythema multiforme,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200928007,Erythema multiforme NOS,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,36715001,Erythema multiforme,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,11354005,Tuberculosis cutis indurativa,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,2028007,Erythema induratum,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,860869003,Erythema multiforme due to Herpes simplex infection,C5395940,Erythema multiforme due to Herpes simplex infection,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,860870002,Erythema multiforme due to Mycoplasma pneumoniae infection,C5395941,Erythema multiforme due to Mycoplasma pneumoniae infection,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,69688007,Chronic erythema nodosum,C0263645,Chronic erythema nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,72768000,Erythematous plaque,C0332477,Erythematous plaque,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201438002,Systemic lupus erythematosus with pericarditis,C0587239,Systemic lupus erythematosus with pericarditis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,309762007,Systemic lupus erythematosus with pericarditis,C0587239,Systemic lupus erythematosus with pericarditis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,70432004,Epidermal burn of upper arm,C0433327,Epidermal burn of upper arm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,707314000,Erythema multiforme co-occurrent with ulcer of oral mucous membrane,C3873407,Erythema multiforme co-occurrent with ulcer of oral mucous membrane,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,251354007,Minimal erythema dose,C0429195,Minimal erythema dose,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,65467000,Epidermal burn of forearm,C0433329,Epidermal burn of forearm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,68815009,SLE glomerulonephritis syndrome,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,197608009,Lupus nephritis,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211829001,"Superficial burn of the arm, unspecified",C0433322,Superficial burn of arm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211831005,Superficial burn of the arm NOS,C0433322,Superficial burn of arm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211828009,"Erythema of arm, first degree burn",C0433322,Superficial burn of arm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156450004,Systemic lupus erythematosus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201439005,Systemic lupus erythematosus NOS,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,55464009,Systemic lupus erythematosus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201435004,Systemic lupus erythematosus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,239886003,Limited lupus erythematosus,C0409975,Limited lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200943009,Subacute cutaneous lupus erythematosus,C0024140,"Lupus Erythematosus, Subacute Cutaneous",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,239891002,Subacute cutaneous lupus erythematosus,C0024140,"Lupus Erythematosus, Subacute Cutaneous",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200936003,Lupus erythematosus,C0409974,Lupus Erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200944003,Lupus erythematosus NOS,C0409974,Lupus Erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,193248005,Myopathy due to disseminated lupus erythematosus,C0410201,Myopathy due to disseminated lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,72882005,Epidermal burn of shoulder,C0433325,Epidermal burn of shoulder,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,277249005,Vocal cords erythematous,C0456568,Vocal cords erythematous,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,54792008,Erythematosquamous dermatosis,C0014747,Erythematosquamous dermatosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200768000,Erythematosquamous dermatosis NOS,C0014747,Erythematosquamous dermatosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200762004,Erythematosquamous dermatosis,C0014747,Erythematosquamous dermatosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,402744003,Toxic epidermal necrolysis caused by drug,C1274191,Toxic epidermal necrolysis caused by drug,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,186257009,Erythema nodosum with tuberculosis NOS,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,74610006,Erythema nodosum due to tuberculosis,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,186256000,Tuberculous erythema nodosum,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,186255001,Tuberculous erythema nodosum,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,32861005,Erythema nodosum,C0014743,Erythema Nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200929004,Erythema nodosum,C0014743,Erythema Nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156363009,Erythema nodosum,C0014743,Erythema Nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,239887007,Systemic lupus erythematosus with organ/system involvement,C0409976,Systemic lupus erythematosus with organ/system involvement,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201437007,Systemic lupus erythematosus with organ/system involvement,C0409976,Systemic lupus erythematosus with organ/system involvement,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,95609003,Neonatal lupus erythematosus,C0409979,Neonatal Systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,56940005,Palmar erythema,C0014745,Palmar erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200866009,Erythema ab igne,C0494853,Erythema Ab Igne,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156367005,Erythema ab igne,C0494853,Erythema Ab Igne,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238510001,Erythema ab igne,C0494853,Erythema Ab Igne,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,58942006,Erythema dyschromicum perstans,C0263359,Erythema dyschromicum perstans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,399914006,Erythema annulare centrifugum,C0263358,Erythema annulare centrifugum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,81542001,Erythema annulare centrifugum,C0263358,Erythema annulare centrifugum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,50610002,Erythema annulare rheumaticum,C0085659,Erythema marginatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238817005,Erythema annulare rheumaticum,C0085659,Erythema marginatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,77300003,Erythema gyratum repens,C0263357,Erythema gyratum repens,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200952000,Erythema gyratum repens,C0263357,Erythema gyratum repens,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,49615009,Erythema of abdominal wall,C0433317,Burn erythema of abdominal wall,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156360007,Erythematous disorder,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,70819003,Erythema,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,267850001,Erythematous conditions NOS,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200954004,Erythematous conditions NOS,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,247441003,Erythema,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,86735004,Erythematous condition,C0041834,Erythema,,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,444827008,Erythema of skin,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,156368000,Erythematous conditions NOS,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201381000,[X]Other erythema multiforme,C0477492,Other erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,277256004,Supraglottic erythema,C0456575,Supraglottic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,287132002,Epidermal burn of eyelid,C0564885,Epidermal burn of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157580001,Burn to eyelid - erythema,C0564885,Epidermal burn of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,201436003,Drug-induced systemic lupus erythematosus,C0263591,Drug-induced lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,80258006,Drug-induced lupus erythematosus,C0263591,Drug-induced lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211770007,Superficial burn of the trunk NOS,C0433310,Burn erythema of trunk,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157595004,Superficial burn of trunk,C0433310,Burn erythema of trunk,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200940007,Lupus erythematosus nodularis,C0406635,Lupus erythematosus nodularis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200939005,Lupus erythematosus migrans,C0406634,Lupus erythematosus migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157600008,Burn to arm - erythema,C0274036,Epidermal burn of upper limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,287144004,Burn to arm - erythema,C0274036,Epidermal burn of upper limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200937007,Lupus erythematosus chronicus,C0406633,Lupus erythematosus chronicus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,23067006,Lyell's syndrome,C0014518,Toxic Epidermal Necrolysis,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,768962006,Lyell syndrome,C0014518,Toxic Epidermal Necrolysis,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,297942002,Drug-induced erythema multiforme,C0574715,Drug-induced erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200942004,Lupus erythematosus unguium mutilans,C0406638,Lupus erythematosus unguium mutilans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238926009,Lupus erythematosus and erythema multiforme-like syndrome,C0406637,Lupus erythematosus and erythema multiforme-like syndrome,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403491004,Erythema multiforme-like lupus erythematosus,C0406637,Lupus erythematosus and erythema multiforme-like syndrome,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,297940005,Erythema nodosum caused by drug,C0574713,Erythema nodosum caused by drug,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,366986007,O/E - erythematous rash,C1277298,On examination - erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,135888007,O/E - erythematous rash,C1277298,On examination - erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,367211009,O/E - erythematous rash,C1277298,On examination - erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,95331002,Ocular-mucous membrane syndrome,C0236036,Oculomucocutaneous syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200941006,Lupus erythematosus tumidus,C0406636,Lupus erythematosus tumidus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,297941009,Toxic erythema caused by drug,C0574714,Toxic erythema caused by drug,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,724510007,Geographic stomatitis,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,155667007,Geographic tongue,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,266496009,Geographic tongue,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403215006,Erythema multiforme/toxic epidermal necrolysis overlap,C1274611,Toxic epidermal necrolysis - erythema multiforme overlap syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403214005,Toxic epidermal necrolysis associated with infection,C1274610,Toxic epidermal necrolysis associated with infection,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,95644001,Systemic lupus erythematosus encephalitis,C0393968,Systemic lupus erythematosus encephalitis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200920000,Annular erythema,C0234906,Annular Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,40986008,Epidermal burn of foot,C0433345,Epidermal burn of foot,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,81094005,Epidermal burn of thigh,C0433341,Epidermal burn of thigh,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,1163528001,Erythema multiforme due to bacterial infection,C5567140,Erythema multiforme due to bacterial infection,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,62952004,Epidermal burn of knee,C0433342,Epidermal burn of knee,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,724833000,Stevens-Johnson and toxic epidermal necrolysis overlap syndrome caused by drug,C4518364,Stevens-Johnson and toxic epidermal necrolysis overlap syndrome caused by drug,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238684007,Erythema fugax,C0406402,Erythema fugax,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238652000,Lichen planus-lupus erythematosus overlap,C0406368,Lichen planus-lupus erythematosus overlap,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211668006,Burn of cornea NOS,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,269388002,Burn - cornea - eye,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,287135000,Burn - cornea - eye,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157588008,Burn of cornea NOS,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211658001,Corneal burns,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157584005,Burn - cornea - eye,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,274204004,Corneal burn,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,263791008,Large macular erythema,C0443242,Large macular erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,827160004,Erythematous rash,C0234913,Erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403498005,Discoid lupus erythematosus of face,C1274844,Discoid lupus erythematosus of face,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403497000,Discoid lupus erythematosus of scalp,C1274843,Discoid lupus erythematosus of scalp,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,269421007,Chilblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,37869000,Chilblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157719006,Chilblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,30098003,Hyperemia,C0020452,Hyperemia,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,307755009,Renal tubulo-interstitial disorder due to systemic lupus erythematosus,C0585622,Renal tubulo-interstitial disorder due to systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,197746009,Renal tubulo-interstitial disorder in systemic lupus erythematosus,C0585622,Renal tubulo-interstitial disorder due to systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,698694005,Systemic lupus erythematosus in remission,C3697170,Systemic lupus erythematosus in remission,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238927000,Chronic discoid lupus erythematosus,C0024138,Chronic discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,193178008,Polyneuropathy in disseminated lupus erythematosus,C0393853,Polyneuropathy in disseminated lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,7119001,Cutaneous lupus erythematosus,C0024137,"Lupus Erythematosus, Cutaneous",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403212009,Vesicobullous form erythema multiforme,C1274608,Vesicobullous form erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,713229006,Gingival disease due to erythema multiforme,C4075433,Gingival disease due to erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,288288004,Burn leg/foot - erythema,C0433338,Epidermal burn of lower limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,70250009,Epidermal burn of lower limb,C0433338,Epidermal burn of lower limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157610004,Burn leg/foot - erythema,C0433338,Epidermal burn of lower limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211962005,"Superficial burn of leg, unspecified",C0433338,Epidermal burn of lower limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211965007,Superficial burn of the leg NOS,C0433338,Epidermal burn of lower limb,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403211002,Papular form erythema multiforme,C1274607,Papular form erythema multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,412740002,Periorbital erythema,C0877440,Periorbital erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403213004,Erythema multiforme due to malignancy,C1274609,Erythema multiforme due to malignancy,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,91146006,Epidermal burn of back of hand,C0433333,Epidermal burn of back of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,125118008,Exfoliative erythema,C1265579,Exfoliative erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,16898231000119107,Erythema multiforme major,C3241919,Erythema Multiforme Major,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,704143006,Maternal history of systemic lupus erythematosus,C3874264,Maternal history of systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,29418006,Epidermal burn of palm,C0433334,Epidermal burn of palm,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200922008,Erythema tuberculatum,C0406532,Erythema tuberculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200921001,Erythema papulatum,C0406531,Erythema papulatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,125115006,Acute erythema,C1265576,Acute erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,289485008,Erythema of vulva,C0241712,Erythema of vulva,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,269243001,Epidermal burn of wrist and hand,C0433331,Epidermal burn of wrist and hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211897006,Superficial burn of the wrist or hand NOS,C0433331,Epidermal burn of wrist and hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,157605003,Superficial burn of wrist and hand,C0433331,Epidermal burn of wrist and hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211690006,"Superficial burn of the face, head or neck NOS",C0433299,"Superficial burn of face, head or neck",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,211684007,"Erythema of head or neck, first degree burn",C0433299,"Superficial burn of face, head or neck",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238946004,Reticular erythematous mucinosis,C0406656,Reticular erythematous mucinosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,257006,"Rosacea, erythematous telangiectatic type",C1449852,Erythematotelangiectatic Rosacea,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200924009,Erythema vesiculosum,C0406534,Erythema vesiculosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,200923003,Erythema urticatum,C0406533,Erythema urticatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238816001,Toxic urticated erythema,C0406539,Toxic urticated erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,154344005,Fifth disease,C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,266193008,Fifth disease,C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,34730008,Primate erythroparvovirus 1 infection,C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,79291003,Discoid lupus erythematosus of eyelid,C0155180,Discoid lupus erythematosus of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,238515006,Solar erythema,C3249880,Solar Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,SNOMEDCT_US,403194002,Solar erythema,C3249880,Solar Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10038194,Red neck,C0857246,Red neck,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10056274,Erythema toxicum neonatorum,C0263324,Erythema toxicum neonatorum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10049685,Redness in breast,C0238819,Red breast,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10022098,Injection site redness,C0581287,Erythema at injection site,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10022061,Injection site erythema,C0581287,Erythema at injection site,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10022622,Intertrigo,C0021807,Intertrigo,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10006797,Burns first degree,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10016700,First degree burns,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042504,Superficial burn,C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015208,"Erythema due to burn (first degree), unspecified site",C0332686,First degree burn injury,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015221,Erythema multiforme minor,C0857751,Erythema multiforme minor,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10050514,Erythema diutinum,C0263398,Erythema elevatum diutinum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10056968,Erythema elevatum diutinum,C0263398,Erythema elevatum diutinum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015237,Erythema of eyelid,C5545368,Erythema of skin of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10051630,Erythema eyelid,C5545368,Erythema of skin of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10058917,Pemphigus erythematosus,C0263312,Pemphigus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10057055,Pemphigus erythematosis,C0263312,Pemphigus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10034281,Pemphigus erythematous,C0263312,Pemphigus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10070580,Acral erythema,C0239343,Acral erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10079323,Erythema of extremities,C0239343,Acral erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10052439,Erythema ear canal,C0456495,Erythematous ear canal,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10052135,Ear canal erythema,C0456495,Erythematous ear canal,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10044224,Toxic erythema,C0152251,Toxic erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10013071,Discoid lupus erythematosis,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025138,Lupus erythematosus discoides,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025137,Lupus erythematosus discoid,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10013583,DLE,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025132,Lupus erythematosis discoid,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10013072,Discoid lupus erythematosus,C5574816,Discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10049543,Wound erythema,C0406833,Wound erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015206,Erythema due to burn (first degree) of wrist,C0274084,Epidermal burn of wrist,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10083839,Atrophoderma vermiculata,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10083837,Folliculitis ulerythematosa reticulata,C0263429,Atrophoderma vermiculatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10074626,Chilblain lupus erythematosus,C4551515,Chilblain lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025141,Lupus pernio,C4551515,Chilblain lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042033,Stevens-Johnson syndrome,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042032,Stevens Jonhson syndrome,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10006561,Bullous erythema multiforme,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015211,Erythema exudativum multiforme,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042029,Stevens Johnson reaction,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015219,Erythema multiforme exudativum,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015209,Erythema exsudativum multiforme,C0038325,Stevens-Johnson Syndrome,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042030,Stevens Johnson syndrome,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042849,Syndrome Stevens-Johnson,C0038325,Stevens-Johnson Syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015200,Erythema due to burn (first degree) of unspecified site of hand,C0274090,Epidermal burn of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10074627,Lupus erythematosus profundus,C0030327,"Panniculitis, Lupus Erythematosus",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10074630,Lupus erythematosus panniculitis,C0030327,"Panniculitis, Lupus Erythematosus",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015157,Erythema chronicum migrans,C0014740,Erythema Chronicum Migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10062488,Erythema migrans,C0014740,Erythema Chronicum Migrans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10014493,EM,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10087609,Oral erythema multiforme,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10057866,Erythaema polymorphe,C0014742,Erythema Multiforme,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015218,Erythema multiforme,C0014742,Erythema Multiforme,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10057783,Erythema polymorphe,C0014742,Erythema Multiforme,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10004186,Bazin's syndrome,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10044763,Tuberculosis indurativa,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10004185,Bazin's disease,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10054203,Tuberculosis cutis indurativa,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015213,Erythema induratum,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10021725,Induration erythema,C0014741,Erythema Induratum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10089276,Lupus-like nephritis,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10040970,SLE nephritis,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10029141,Nephritis SLE,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025140,Lupus nephritis,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10029142,Nephritis systemic lupus erythematosus,C0024143,Lupus Nephritis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10013446,Disseminated lupus erythematosus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025139,Lupus erythematosus systemic,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042820,Syndrome lupus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10024067,LE systemic,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042800,Syndrome disseminated lupus erythematosis,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10024065,LE syndrome,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042945,Systemic lupus erythematosus,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025133,Lupus erythematosis disseminated,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042944,Systemic lupus erythematosis,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042947,Systemic lupus erythematosus synd,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025142,Lupus syndrome,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10040967,SLE,C0024141,"Lupus Erythematosus, Systemic",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10057903,Subacute cutaneous lupus erythematosus,C0024140,"Lupus Erythematosus, Subacute Cutaneous",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025134,Lupus erythematosus,C0409974,Lupus Erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025131,Lupus erythematosis (NOS),C0409974,Lupus Erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015239,Erythematosquamous dermatosis,C0014747,Erythematosquamous dermatosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015235,"Erythema nodosum with hypersensitivity reaction in tuberculosis, unspecified examination",C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015227,Erythema nodosum tuberculous,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015228,Erythema nodosum with hypersensitivity reaction in tuberculosis,C0014744,Erythema nodosum due to tuberculosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015226,Erythema nodosum,C0014743,Erythema Nodosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10057887,Neonatal lupus erythematosus,C0409979,Neonatal Systemic lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10033551,Palmar erythema,C0014745,Palmar erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015152,Erythema ab igne,C0494853,Erythema Ab Igne,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10055035,Erythema dyschromicum perstans,C0263359,Erythema dyschromicum perstans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10090123,Ashy dermatosis,C0263359,Erythema dyschromicum perstans,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015154,Erythema annulare centrifugum,C0263358,Erythema annulare centrifugum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015216,Erythema marginatum,C0085659,Erythema marginatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10052585,Erythema annulare rheumaticum,C0085659,Erythema marginatum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015151,Erythemas,C0041834,Erythema,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015240,Erythematous conditions,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10040916,Skin red,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10045865,Unspecified erythematous condition,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015225,Erythema NOS,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10040842,Skin erythema,C0041834,Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015150,Erythema,C0041834,Erythema,possible,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10013706,Drug-induced lupus erythematosus,C0263591,Drug-induced lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10044223,Toxic epidermal necrolysis,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10043221,TEN,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10044222,Toxic epideoneal necrolysis,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025167,Lyell's disease,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025168,Lyell's syndrome,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10042821,Syndrome Lyell's,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025165,Lyell,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10025166,Lyell syndrome,C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10028849,Necrolysis epidermal toxic (Lyell type),C0014518,Toxic Epidermal Necrolysis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10069916,Rowell's syndrome,C0406637,Lupus erythematosus and erythema multiforme-like syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10028077,Muco-cutaneo-ocular syndrome,C0236036,Oculomucocutaneous syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10030068,Oculo-muco-cutaneous syndrome,C0236036,Oculomucocutaneous syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10030081,Oculomucocutaneous syndrome,C0236036,Oculomucocutaneous syndrome,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10074628,Lupus erythematosus tumidus,C0406636,Lupus erythematosus tumidus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10018201,Geographic tongue,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10079071,Benign migratory glossitis,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10043957,Tongue geographic,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10024519,Lingua geographica,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10043958,Tongue gergraphic,C0017677,"Glossitis, Benign Migratory",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10076332,Cerebral lupus,C0393968,Systemic lupus erythematosus encephalitis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015153,Erythema annulare,C0234906,Annular Erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10068161,Corneal burn,C0239116,Corneal burn,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015241,Erythematous eruption,C0234913,Erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015243,Erythematous rash,C0234913,Erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015244,Erythematous skin rash,C0234913,Erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10037855,Rash erythematous,C0234913,Erythematous rash,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10034698,Pernio,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10008528,Chillblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10079820,Perniosis,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10008508,Chilblains,C0008058,Chilblains,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10020565,Hyperaemia,C0020452,Hyperemia,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10020619,Hyperemia,C0020452,Hyperemia,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10057929,Chronic cutaneous lupus erythematosus,C0024138,Chronic discoid lupus erythematosus,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10056509,Cutaneous lupus erythematosus,C0024137,"Lupus Erythematosus, Cutaneous",exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10049135,Erythema periorbital,C0877440,Periorbital erythema,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015164,Erythema due to burn (first degree) of back of hand,C0433333,Epidermal burn of back of hand,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015220,Erythema multiforme major,C3241919,Erythema Multiforme Major,narrow,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10056504,Vulval erythema,C0241712,Erythema of vulva,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10064945,Reticular erythematous mucinosis,C0406656,Reticular erythematous mucinosis,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10076536,Erythematotelangiectatic rosacea,C1449852,Erythematotelangiectatic Rosacea,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10016670,Fifth disease,C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015214,Erythema infectiosum,C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10015215,Erythema infectiosum (fifth disease),C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10034099,Parvovirus B19 infection,C0085273,Erythema Infectiosum,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10013073,Discoid lupus erythematosus of eyelid,C0155180,Discoid lupus erythematosus of eyelid,exclude,,Sk,ERYTHMULTI,AESI
+Erythema multiforme,MDR,10072196,Solar erythema,C3249880,Solar Erythema,exclude,,Sk,ERYTHMULTI,AESI

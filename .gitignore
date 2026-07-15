@@ -1,0 +1,44 @@
+.claude/
+.qwen/
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+*.egg-info/
+build/
+dist/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Pipeline caches/outputs (regenerated from data/raw and data/codes)
+data/processed/*.parquet
+data/processed/*.npz
+data/processed/results/
+

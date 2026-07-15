@@ -88,6 +88,60 @@ def load_code_corpus(codes_path: str | Path = "data/raw/codes/codes.csv") -> pd.
     return df
 
 
+def load_aesi_dataset(csv_path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Load a raw AESI (Adverse Event of Special Interest) review export and
+    split it into a candidate code corpus and expert-curated gold labels.
+
+    These CSV exports (e.g. ``C_MYOCARD_AESI_filtered.csv``) contain the full
+    set of candidate codes considered during expert phenotype curation, with
+    one row per (code, vocabulary) pair and a ``tags`` column holding the
+    reviewer's final classification (``narrow``/``possible``/``exclude``).
+
+    Parameters
+    ----------
+    csv_path : str or Path
+        Path to the raw AESI CSV export.
+
+    Returns
+    -------
+    tuple[pd.DataFrame, pd.DataFrame]
+        ``(codes, gold_labels)`` where ``codes`` has columns
+        ``code``, ``description``, ``vocabulary`` and ``gold_labels`` has
+        columns ``code``, ``vocabulary``, ``label`` (Narrow/Possible/Exclude).
+    """
+    path = Path(csv_path)
+    if not path.exists():
+        raise FileNotFoundError(f"AESI dataset not found: {path}")
+
+    raw = pd.read_csv(path, dtype=str)
+    required = {"code", "code_name", "coding_system", "tags"}
+    missing = required - set(raw.columns)
+    if missing:
+        raise ValueError(f"AESI dataset missing required columns: {missing}")
+
+    df = raw.dropna(subset=["tags"]).copy()
+    df["label"] = df["tags"].str.strip().str.title()
+
+    valid_labels = {"Narrow", "Possible", "Exclude"}
+    invalid = set(df["label"]) - valid_labels
+    if invalid:
+        raise ValueError(f"AESI dataset contains invalid tag values: {invalid}")
+
+    codes = (
+        df[["code", "code_name", "coding_system"]]
+        .rename(columns={"code_name": "description", "coding_system": "vocabulary"})
+        .drop_duplicates(subset=["code", "vocabulary"], keep="first")
+        .reset_index(drop=True)
+    )
+    gold_labels = (
+        df[["code", "coding_system", "label"]]
+        .rename(columns={"coding_system": "vocabulary"})
+        .drop_duplicates(subset=["code", "vocabulary"], keep="first")
+        .reset_index(drop=True)
+    )
+    return codes, gold_labels
+
+
 def load_gold_labels(name: str, gold_dir: str | Path = "data/gold") -> pd.DataFrame:
     """Load expert-curated reference labels for a phenotype as a DataFrame with
     columns: code, vocabulary, label (Narrow/Possible/Exclude)."""

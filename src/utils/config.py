@@ -12,6 +12,9 @@ class PathsConfig:
     codes_path: str = "data/raw/codes/codes.csv"
     gold_dir: str = "data/gold"
     processed_dir: str = "data/processed"
+    results_dir: str = "data/processed/results"
+    aesi_datasets: dict[str, str] = field(default_factory=dict)
+    code_systems: dict[str, str] = field(default_factory=lambda: {"ICD10CM": "data/codes/icd10.xlsx"})
 
 
 @dataclass
@@ -19,12 +22,15 @@ class RetrievalConfig:
     lexical_weight: float = 0.5
     embedding_weight: float = 0.5
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
-    top_k: int = 25
+    top_k: int = 50
+    vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM"])
 
 
 @dataclass
 class LLMConfig:
-    model: str = "claude-opus-4-8"
+    provider: str = "auto"  # "auto", "anthropic", or "openai"
+    anthropic_model: str = "claude-opus-4-8"
+    openai_model: str = "gpt-4o"
     rank_effort: str = "low"
     classify_effort: str = "low"
     max_retries: int = 3
@@ -39,11 +45,13 @@ class UncertaintyConfig:
 @dataclass
 class EvaluationConfig:
     narrow_only_as_positive: bool = True
+    compare_vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM"])
 
 
 @dataclass
 class PipelineConfig:
     phenotype: str = "myocarditis"
+    verbose: bool = True
     paths: PathsConfig = field(default_factory=PathsConfig)
     retrieval: RetrievalConfig = field(default_factory=RetrievalConfig)
     llm: LLMConfig = field(default_factory=LLMConfig)
@@ -59,6 +67,7 @@ def load_config(path: str | Path) -> PipelineConfig:
 
     return PipelineConfig(
         phenotype=raw.get("phenotype", PipelineConfig.phenotype),
+        verbose=raw.get("verbose", PipelineConfig.verbose),
         paths=PathsConfig(**raw.get("paths", {})),
         retrieval=RetrievalConfig(**raw.get("retrieval", {})),
         llm=LLMConfig(**raw.get("llm", {})),

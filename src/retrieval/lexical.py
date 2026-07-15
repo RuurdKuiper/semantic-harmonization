@@ -122,9 +122,9 @@ def retrieve_lexical(
         results = [
             LexicalCandidate(
                 rank=r + 1,
-                code=row["code"],
-                description=row["description"],
-                vocabulary=row.get("vocabulary", ""),
+                code=df.iloc[r]["code"],
+                description=df.iloc[r]["description"],
+                vocabulary=df.iloc[r].get("vocabulary", ""),
                 score=round(float(scores[r]), 6),
             )
             for r in range(len(df))
