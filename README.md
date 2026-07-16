@@ -75,6 +75,11 @@ whether to use Anthropic or OpenAI (`resolve_provider()`, based on
 `llm.provider` in config or auto-detection from whichever `*_API_KEY` is set
 in `.env`) before dispatching the request.
 
+> **Note:** step 4 (LLM ranking) is currently **disabled** — candidates go
+> straight from retrieval to classification via `src/llm/rank.py::skip_rank`.
+> The `llm_rank` function is still implemented and tested, just not called by
+> `main.py` or `app.py`, so it can be re-enabled later without rewriting it.
+
 ## Setup
 
 ```bash
@@ -85,6 +90,8 @@ cp .env.example .env  # then set ANTHROPIC_API_KEY and/or OPENAI_API_KEY
 ```
 
 ## Usage
+
+### Command line
 
 ```bash
 python main.py --phenotype myocarditis --config configs/default.yaml
@@ -98,6 +105,18 @@ i.e. `data/processed/results/`):
   `concept`, `concept_name`, `tags`).
 - `<phenotype>_metrics.json` — review items, review rate, and evaluation
   metrics (also printed to stdout).
+
+### Web UI
+
+```bash
+streamlit run app.py
+```
+
+A single-page Streamlit UI mirrors the same pipeline stages interactively:
+coding-system selection, EDF input (paste, upload, or load a bundled
+example), hybrid retrieval with a live results table, LLM classification
+(provider/model picker), and a final block to upload a ground-truth AESI CSV
+and view the computed metrics.
 
 Note: the first run for a given vocabulary will be slow (~30s for the full
 ICD-10-CM list) while it builds and caches the embedding index; subsequent

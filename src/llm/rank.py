@@ -28,6 +28,30 @@ class RankedCandidate:
         return self.relevance_score > other.relevance_score
 
 
+def skip_rank(candidates: list[HybridCandidate]) -> list[RankedCandidate]:
+    """Wrap hybrid retrieval candidates into ``RankedCandidate`` objects without
+    calling the LLM, preserving their original hybrid retrieval order.
+
+    The LLM ranking step (:func:`llm_rank`) is currently disabled in the
+    pipeline/UI (an extra LLM call that duplicates work also done by
+    classification) but is kept available for future use. This helper lets
+    downstream code (``llm_classify``) keep consuming ``RankedCandidate``
+    objects uniformly regardless of whether ranking actually ran.
+    """
+    results = [
+        RankedCandidate(
+            rank=c.rank,
+            code=c.code,
+            description=c.description,
+            vocabulary=c.vocabulary,
+            relevance_score=0.0,
+            retrieval_score=c.score,
+        )
+        for c in candidates
+    ]
+    return results
+
+
 def llm_rank(
     candidates: list[HybridCandidate],
     edf: EventDefinitionForm,

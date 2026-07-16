@@ -149,8 +149,6 @@ def _call_openai(
     if reasoning_effort and _is_reasoning_model(model):
         kwargs["reasoning_effort"] = reasoning_effort
 
-
-    print(user_prompt)
     response = client.chat.completions.create(
         model=model,
         max_completion_tokens=max_tokens,

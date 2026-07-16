@@ -23,7 +23,7 @@ from src.evaluation.metrics import (
 )
 from src.llm.classify import llm_classify
 from src.llm.client import resolve_provider
-from src.llm.rank import llm_rank
+from src.llm.rank import skip_rank
 from src.retrieval.embeddings import EmbeddingIndex
 from src.retrieval.hybrid import hybrid_retrieval
 from src.uncertainty.selection import review_rate, select_uncertain
@@ -105,10 +105,10 @@ def run_pipeline(config: PipelineConfig) -> dict:
     provider = resolve_provider(config.llm.provider)
     model = config.llm.anthropic_model if provider == "anthropic" else config.llm.openai_model
 
-    # Step 4: LLM ranking — re-order the retrieved candidates by clinical
-    # relevance using the full EDF context.
-    logger.info("Ranking candidates with LLM (provider=%s, model=%s)", provider, model)
-    ranked = llm_rank(candidates, edf, provider=provider, model=model, max_retries=config.llm.max_retries)
+    # Step 4: Skip LLM ranking (disabled — see src/llm/rank.py::llm_rank, kept
+    # for potential future use but not currently run) and pass retrieval
+    # candidates straight through to classification.
+    ranked = skip_rank(candidates)
 
     # Step 5: LLM classification — assign each candidate a Narrow/Possible/
     # Exclude label, a confidence score, and a short explanation.
