@@ -1,15 +1,15 @@
 # Semantic Harmonization Pipeline
 
-An AI-assisted pipeline for phenotype codelist generation and expert code
-review, supporting the workflow described in *"Can Large Language Models
-Support Semantic Harmonization?"*.
+An AI-assisted pipeline for phenotype codelist generation and reduce the time needed
+for expert code review.
 
 ## Pipeline
 
-The EDF (built from the phenotype's `.docx` description) is the actual input.
+The EDF (Event Definition Form) (in .yaml format, currenlty manually extracted 
+from the phenotype's `.docx` description) is the input for this system.
 The system's job is to search the **full** clinical coding systems (currently
-ICD-10-CM; SNOMED CT (US) and MedDRA planned) for codes matching that EDF. The
-AESI `.csv` files are **not** the retrieval corpus — they are the expert
+only ICD-10-CM; SNOMED CT (US), MedDRas and others still need to be implemented) 
+for codes matching that EDF. The AESI `.csv` files are used as the expert
 generated ground truth used only to score the pipeline's output.
 
 Each run (`main.py`) executes the following steps in order for a single
@@ -26,17 +26,17 @@ phenotype:
    > hand from the original `.docx` phenotype descriptions in
    > `data/raw/<Phenotype>/*.docx`. There is no code that parses `.docx` at
    > runtime — this needs to be done manually when adding a new phenotype.
+   > We will let an LLM do this in future versions.
 
 2. **Load the full reference code system(s)** (`src/data/code_systems.py::load_code_system_corpus`) —
-   loads the *complete* code list for each vocabulary in `retrieval.vocabularies`
-   (e.g. all ~74k ICD-10-CM codes from `data/codes/icd10.xlsx`), **not** just
-   phenotype-specific candidates. Each vocabulary is parsed once and cached to
-   `data/processed/codes_<VOCAB>.parquet`; subsequent runs read the cache
-   instead of re-parsing the source file. The corpus is then normalized by
-   `src/data/preprocessing.py::preprocess_corpus` (code standardization,
+   loads the full code list for each vocabulary in `retrieval.vocabularies`
+   (e.g. all ~74k ICD-10-CM codes from `data/codes/icd10.xlsx`). Each vocabulary
+   is parsed once and cached to `data/processed/codes_<VOCAB>.parquet`; subsequent
+   runs read the cache instead of re-parsing the source file. The corpus is then
+   normalized by `src/data/preprocessing.py::preprocess_corpus` (code standardization,
    deduplication, text normalization).
 
-3. **Hybrid retrieval** (`src/retrieval/hybrid.py::hybrid_retrieval`) —
+4. **Hybrid retrieval** (`src/retrieval/hybrid.py::hybrid_retrieval`) —
    ranks every code in the full corpus against the EDF text using a weighted
    combination of BM25 lexical matching (`src/retrieval/lexical.py`) and
    sentence-embedding cosine similarity (`src/retrieval/embeddings.py`),
@@ -45,29 +45,29 @@ phenotype:
    `data/processed/embeddings_<VOCAB>_<model>.npz`, so a large corpus is only
    ever embedded once, not on every run (`EmbeddingIndex.from_cache_or_build`).
 
-4. **LLM ranking** (`src/llm/rank.py::llm_rank`) — sends the EDF context and
+5. **LLM ranking** (`src/llm/rank.py::llm_rank`) — sends the EDF context and
    the retrieved candidates to the configured LLM, which re-orders them by
    clinical relevance (`relevance_score`). Any candidate the LLM omits from
    its response is appended at the end so nothing is silently dropped.
 
-5. **LLM classification** (`src/llm/classify.py::llm_classify`) — sends the
+6. **LLM classification** (`src/llm/classify.py::llm_classify`) — sends the
    ranked candidates back to the LLM, which assigns each one a label
    (`Narrow`/`Possible`/`Exclude`), a confidence score, and a short
    explanation, using the same EDF context for grounding.
 
-6. **Uncertainty selection** (`src/uncertainty/selection.py::select_uncertain`) —
+7. **Uncertainty selection** (`src/uncertainty/selection.py::select_uncertain`) —
    flags candidates for human review when their confidence is below
    `uncertainty.confidence_threshold` and/or they were classified as
    `Possible` (configurable via `uncertainty.possible_requires_review`).
 
-7. **Evaluation** (`src/evaluation/metrics.py`) — the classified candidates are
+8. **Evaluation** (`src/evaluation/metrics.py`) — the classified candidates are
    rendered into the ground-truth CSV schema via `to_predicted_codelist()`
    (`coding_system`, `code`, `code_name`, `concept`, `concept_name`, `tags`).
-   If a ground-truth AESI export is registered for the phenotype
+   If there is a ground-truth AESI export for the phenotype
    (`paths.aesi_datasets`), the predicted codelist is compared against it
    (both filtered to `evaluation.compare_vocabularies`, currently `[ICD10CM]`
    since that's the only full reference list loaded), computing retrieval
-   sensitivity/precision/F1 (Narrow codes as positives) and classification
+   sensitivity/precision/F1 ('Narrow codes' as positives) and classification
    accuracy/Cohen's kappa.
 
 The LLM calls in steps 4–5 go through `src/llm/client.py`, which resolves
