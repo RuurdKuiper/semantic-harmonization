@@ -63,6 +63,10 @@ def run_pipeline(config: PipelineConfig) -> dict:
     edf = load_edf(phenotype, edf_dir=config.paths.edf_dir)
     query = edf.to_prompt_context()
 
+    from sentence_transformers import SentenceTransformer
+
+    query_model = SentenceTransformer(config.retrieval.embedding_model)
+
     # Step 2: Load the full reference code system(s) to retrieve from (e.g.
     # the complete ICD-10-CM code list), not just phenotype-specific
     # candidates. Each vocabulary's processed corpus is cached to Parquet so
@@ -96,7 +100,9 @@ def run_pipeline(config: PipelineConfig) -> dict:
         embedding_weight=config.retrieval.embedding_weight,
         embedding_model=config.retrieval.embedding_model,
         top_k=config.retrieval.top_k,
+        per_vocabulary_top_k=config.retrieval.per_vocabulary_top_k,
         embedding_index=embedding_index,
+        query_model=query_model,
         lexical_query=edf.to_lexical_query(),
         embedding_query=edf.to_embedding_query(),
     )

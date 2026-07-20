@@ -164,6 +164,11 @@ st.divider()
 st.header("3. Run hybrid retrieval")
 
 top_k = st.number_input("Top-K candidates to retrieve", min_value=1, max_value=500, value=CONFIG.retrieval.top_k)
+per_vocabulary_top_k = st.checkbox(
+    "Retrieve top-K per code list",
+    value=getattr(CONFIG.retrieval, "per_vocabulary_top_k", True),
+    help="If enabled, retrieves the top-K candidates within each selected vocabulary. If disabled, retrieves the top-K overall after combining vocabularies.",
+)
 
 
 @st.cache_resource(show_spinner="Loading code system corpus...")
@@ -187,12 +192,20 @@ def _load_embedding_index(vocabularies: tuple[str, ...]) -> EmbeddingIndex:
     )
 
 
+@st.cache_resource(show_spinner="Loading query embedding model...")
+def _load_query_model() -> object:
+    from sentence_transformers import SentenceTransformer
+
+    return SentenceTransformer(CONFIG.retrieval.embedding_model)
+
+
 run_retrieval = st.button("Run hybrid retrieval", disabled=(edf is None or not selected_vocabularies))
 
 if run_retrieval and edf is not None and selected_vocabularies:
     vocab_tuple = tuple(sorted(selected_vocabularies))
     codes = _load_corpus(vocab_tuple)
     embedding_index = _load_embedding_index(vocab_tuple)
+    query_model = _load_query_model()
     with st.spinner(f"Retrieving top {top_k} candidates from {len(codes)} codes..."):
         candidates = hybrid_retrieval(
             edf.to_prompt_context(),
@@ -201,7 +214,9 @@ if run_retrieval and edf is not None and selected_vocabularies:
             embedding_weight=CONFIG.retrieval.embedding_weight,
             embedding_model=CONFIG.retrieval.embedding_model,
             top_k=int(top_k),
+            per_vocabulary_top_k=bool(per_vocabulary_top_k),
             embedding_index=embedding_index,
+            query_model=query_model,
             lexical_query=edf.to_lexical_query(),
             embedding_query=edf.to_embedding_query(),
         )

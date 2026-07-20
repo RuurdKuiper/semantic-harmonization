@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import pandas as pd
+from sentence_transformers import SentenceTransformer
 
 from src.retrieval.embeddings import EmbeddingIndex, retrieve_embeddings
 from src.retrieval.lexical import build_lexical_index, retrieve_lexical
@@ -42,7 +43,9 @@ def hybrid_retrieval(
     embedding_weight: float = 0.5,
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2",
     top_k: int | None = 25,
+    per_vocabulary_top_k: bool = True,
     embedding_index: EmbeddingIndex | None = None,
+    query_model: SentenceTransformer | None = None,
     lexical_query: str | None = None,
     embedding_query: str | None = None,
 ) -> list[HybridCandidate]:
@@ -64,8 +67,14 @@ def hybrid_retrieval(
     top_k : int, optional
         Number of ranked results to return per vocabulary. ``None`` returns the
         full corpus.
+    per_vocabulary_top_k : bool
+        If ``True`` (default), apply ``top_k`` separately within each selected
+        vocabulary. If ``False``, apply ``top_k`` after combining all selected
+        vocabularies.
     embedding_index : EmbeddingIndex, optional
         Pre-built embedding index to reuse across multiple queries.
+    query_model : SentenceTransformer, optional
+        Cached transformer used to embed the EDF/query text.
     lexical_query : str, optional
         Text used for the BM25 lexical score. If omitted, *query* is used.
     embedding_query : str, optional
@@ -92,7 +101,7 @@ def hybrid_retrieval(
         lexical_scores_by_code = {(c.code, c.vocabulary): c.score for c in lexical_results}
 
         if embedding_index is not None:
-            embedding_results = embedding_index.retrieve(embedding_query, top_k=None)
+            embedding_results = embedding_index.retrieve(embedding_query, top_k=None, model=query_model)
             embedding_results = [c for c in embedding_results if c.vocabulary == vocabulary]
         else:
             embedding_results = retrieve_embeddings(embedding_query, vocab_df, model_name=embedding_model, top_k=None)
@@ -116,12 +125,12 @@ def hybrid_retrieval(
     norm_all_embedding = _min_max_normalize(all_embedding)
 
     combined: list[HybridCandidate] = []
-    offset = 0
+    flat_idx = 0
     for _, vocab_candidates in per_vocab_candidates:
         scored: list[HybridCandidate] = []
         for idx, (row, raw_lexical, raw_embedding) in enumerate(vocab_candidates):
-            norm_lexical = norm_all_lexical[offset + idx]
-            norm_embedding = norm_all_embedding[offset + idx]
+            norm_lexical = norm_all_lexical[flat_idx + idx]
+            norm_embedding = norm_all_embedding[flat_idx + idx]
             score = lexical_weight * norm_lexical + embedding_weight * norm_embedding
             scored.append(
                 HybridCandidate(
@@ -135,12 +144,14 @@ def hybrid_retrieval(
                 )
             )
         scored.sort(key=lambda c: -c.score)
-        if top_k is not None:
+        if per_vocabulary_top_k and top_k is not None:
             scored = scored[:top_k]
         combined.extend(scored)
-        offset += len(vocab_candidates)
+        flat_idx += len(vocab_candidates)
 
     combined.sort(key=lambda c: -c.score)
+    if not per_vocabulary_top_k and top_k is not None:
+        combined = combined[:top_k]
     for r, c in enumerate(combined):
         c.rank = r + 1
     return combined

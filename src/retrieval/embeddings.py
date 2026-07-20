@@ -56,7 +56,7 @@ class EmbeddingIndex:
             descriptions=descs,
             codes=df["code"].astype(str).tolist(),
             vocabularies=df["vocabulary"].astype(str).tolist(),
-            embeddings=np.asarray(embs),
+            embeddings=np.asarray(embs, dtype=np.float32),
         )
 
     def save(self, path: str | Path) -> None:
@@ -66,7 +66,7 @@ class EmbeddingIndex:
         path.parent.mkdir(parents=True, exist_ok=True)
         np.savez_compressed(
             path,
-            embeddings=self.embeddings,
+            embeddings=np.asarray(self.embeddings, dtype=np.float32),
             codes=np.array(self.codes, dtype=object),
             descriptions=np.array(self.descriptions, dtype=object),
             vocabularies=np.array(self.vocabularies, dtype=object),
@@ -77,16 +77,16 @@ class EmbeddingIndex:
         cls,
         path: str | Path,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model: SentenceTransformer | None = None,
     ) -> "EmbeddingIndex":
         """Load a previously-saved embedding index from disk."""
         data = np.load(path, allow_pickle=True)
-        model = SentenceTransformer(model_name)
         return cls(
             model=model,
             descriptions=list(data["descriptions"]),
             codes=list(data["codes"]),
             vocabularies=list(data["vocabularies"]),
-            embeddings=data["embeddings"],
+            embeddings=np.asarray(data["embeddings"], dtype=np.float32),
         )
 
     @classmethod
@@ -95,6 +95,7 @@ class EmbeddingIndex:
         codes: pd.DataFrame,
         cache_path: str | Path,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model: SentenceTransformer | None = None,
     ) -> "EmbeddingIndex":
         """Load a cached embedding index if present, otherwise build it from
         *codes* and cache the result for subsequent runs.
@@ -104,7 +105,7 @@ class EmbeddingIndex:
         """
         cache_path = Path(cache_path)
         if cache_path.exists():
-            return cls.load(cache_path, model_name=model_name)
+            return cls.load(cache_path, model_name=model_name, model=model)
         index = cls.from_codes(codes, model_name=model_name)
         index.save(cache_path)
         return index
@@ -115,7 +116,6 @@ class EmbeddingIndex:
         if not indexes:
             raise ValueError("At least one embedding index must be provided.")
 
-        model = indexes[0].model
         descriptions: list[str] = []
         codes: list[str] = []
         vocabularies: list[str] = []
@@ -128,11 +128,11 @@ class EmbeddingIndex:
             embeddings.append(np.asarray(index.embeddings))
 
         return cls(
-            model=model,
+            model=indexes[0].model,
             descriptions=descriptions,
             codes=codes,
             vocabularies=vocabularies,
-            embeddings=np.vstack(embeddings) if embeddings else np.empty((0, 0)),
+            embeddings=np.vstack(embeddings).astype(np.float32) if embeddings else np.empty((0, 0), dtype=np.float32),
         )
 
     @classmethod
@@ -156,16 +156,34 @@ class EmbeddingIndex:
                 continue
             cache_path = cache_dir / f"embeddings_{vocabulary}_{model_name.replace('/', '_')}.npz"
             _ensure_embedding_asset(cache_path)
-            indexes.append(cls.from_cache_or_build(vocab_df, cache_path=cache_path, model_name=model_name))
-
-        return cls.combine(indexes)
+            indexes.append(
+                cls.from_cache_or_build(
+                    vocab_df,
+                    cache_path=cache_path,
+                    model_name=model_name,
+                )
+            )
+        return cls(
+            model=None,
+            descriptions=[d for index in indexes for d in index.descriptions],
+            codes=[c for index in indexes for c in index.codes],
+            vocabularies=[v for index in indexes for v in index.vocabularies],
+            embeddings=
+            np.vstack([np.asarray(index.embeddings, dtype=np.float32) for index in indexes]).astype(np.float32)
+            if indexes
+            else np.empty((0, 0), dtype=np.float32),
+        )
 
     def retrieve(
         self,
         query: str,
         top_k: int | None = None,
+        model: SentenceTransformer | None = None,
     ) -> list[EmbeddingCandidate]:
-        q_emb = self.model.encode(query, show_progress_bar=False, normalize_embeddings=True)
+        query_model = model or self.model
+        if query_model is None:
+            raise ValueError("A SentenceTransformer model is required to embed the query.")
+        q_emb = query_model.encode(query, show_progress_bar=False, normalize_embeddings=True)
         scores = self.embeddings @ q_emb  # cosine similarity (both normalised)
         if top_k is not None and len(scores) > top_k:
             top_indices = np.argpartition(scores, -top_k)[-top_k:]

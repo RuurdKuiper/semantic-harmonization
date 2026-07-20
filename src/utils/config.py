@@ -30,6 +30,7 @@ class RetrievalConfig:
     embedding_weight: float = 0.5
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = 50
+    per_vocabulary_top_k: bool = True
     vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM", "ICPC", "RCD2", "SNOMEDCT_US"])
 
 
