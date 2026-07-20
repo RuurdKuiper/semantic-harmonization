@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import os
 from pathlib import Path
 from typing import Sequence
+from urllib.error import URLError
+from urllib.request import urlopen
 
 import numpy as np
 import pandas as pd
@@ -152,9 +155,39 @@ class EmbeddingIndex:
             if vocab_df.empty:
                 continue
             cache_path = cache_dir / f"embeddings_{vocabulary}_{model_name.replace('/', '_')}.npz"
+            _ensure_embedding_asset(cache_path)
             indexes.append(cls.from_cache_or_build(vocab_df, cache_path=cache_path, model_name=model_name))
 
         return cls.combine(indexes)
+
+
+def _release_asset_url(asset_name: str) -> str | None:
+    owner = os.getenv("GITHUB_REPOSITORY_OWNER")
+    repo = os.getenv("GITHUB_REPOSITORY_NAME")
+    tag = os.getenv("GITHUB_RELEASE_TAG")
+    if not owner or not repo or not tag:
+        return None
+    return f"https://github.com/{owner}/{repo}/releases/download/{tag}/{asset_name}"
+
+
+def _ensure_embedding_asset(cache_path: Path) -> None:
+    """Ensure an embedding asset exists locally, downloading it from a GitHub Release if needed."""
+    if cache_path.exists():
+        return
+
+    asset_name = cache_path.name
+    url = _release_asset_url(asset_name)
+    if url is None:
+        return
+
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with urlopen(url) as response, cache_path.open("wb") as fh:
+            fh.write(response.read())
+    except URLError:
+        if cache_path.exists():
+            cache_path.unlink(missing_ok=True)
+        raise
 
     def retrieve(
         self,

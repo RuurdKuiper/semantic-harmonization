@@ -45,6 +45,39 @@ phenotype:
    `data/processed/embeddings_<VOCAB>_<model>.npz`, so a large corpus is only
    ever embedded once, not on every run (`EmbeddingIndex.from_cache_or_build`).
 
+   If you want to ship those precomputed embeddings with a deployment, use:
+
+   ```bash
+   python scripts/package_embeddings.py
+   gh release upload v1.0.0 dist/release-assets/*
+   ```
+
+   The packaging script copies the four vocabulary-specific `.npz` files from
+   `data/processed/` into `dist/release-assets/` and writes an
+   `embeddings-manifest.json` with file sizes. The Streamlit app can then
+   download missing assets from a GitHub Release instead of rebuilding them.
+
+   When embeddings change, update them like this:
+
+   1. Regenerate the affected `.npz` file(s) in `data/processed/`.
+   2. Run `python scripts/package_embeddings.py` again.
+   3. Create a new GitHub release tag, or reuse the same tag if you are
+      intentionally replacing an unreleased draft release.
+   4. Upload the staged assets with `gh release upload <tag> dist/release-assets/*`.
+   5. Update `GITHUB_RELEASE_TAG` in the Streamlit deployment to that release.
+
+   When adding a new vocabulary:
+
+   1. Add the vocabulary loader and source file in `src/data/code_systems.py`
+      and place the new `.npz` in `data/processed/` using the same naming
+      pattern: `embeddings_<VOCAB>_<model>.npz`.
+   2. Add the new vocabulary to the release packaging script if you want it
+      included in the packaged asset set.
+   3. Re-run `python scripts/package_embeddings.py`.
+   4. Create a new release and upload the refreshed asset bundle.
+   5. Update the Streamlit app config if the new vocabulary should be selected
+      by default.
+
 5. **LLM ranking** (`src/llm/rank.py::llm_rank`) — sends the EDF context and
    the retrieved candidates to the configured LLM, which re-orders them by
    clinical relevance (`relevance_score`). Any candidate the LLM omits from
@@ -127,11 +160,11 @@ runs reuse that cache and are fast.
 - `data/raw/edf/*.yaml` — structured phenotype definitions (EDFs), hand-authored
   from the source `.docx` files described in step 1 above. This is the actual
   input to the system.
-- `data/codes/icd10.xlsx` — the full ICD-10-CM reference code list, registered
-  in `configs/default.yaml` under `paths.code_systems`. This is the retrieval
-  universe for step 2/3 (see `src/data/code_systems.py`). Its processed form
-  and embeddings are cached under `data/processed/` (gitignored, regenerated
-  automatically).
+- `data/codes/*.csv` — the full reference code lists, registered in
+  `configs/default.yaml` under `paths.code_systems`. These are the retrieval
+  universes for step 2/3 (see `src/data/code_systems.py`). Their processed
+  forms and embeddings are cached under `data/processed/` (gitignored,
+  regenerated automatically).
 - `data/raw/<Phenotype>/*_AESI_*.csv` — expert-review exports used as **ground
   truth for evaluation only** (not for retrieval), registered per phenotype in
   `configs/default.yaml` under `paths.aesi_datasets`.
@@ -151,4 +184,3 @@ its ground-truth AESI CSV in `configs/default.yaml`. Adding a new vocabulary
 pytest                      # full suite
 pytest -m "not embeddings"  # skip tests that download a sentence-transformers model
 ```
-
