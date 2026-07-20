@@ -81,11 +81,11 @@ def run_pipeline(config: PipelineConfig) -> dict:
     # sentence-embedding semantic similarity, keeping the top-k candidates.
     # The embedding index is cached to disk (per vocabulary set + model) so
     # the (potentially large) corpus is only embedded once, not every run.
-    vocab_key = "-".join(sorted(config.retrieval.vocabularies))
-    model_slug = config.retrieval.embedding_model.replace("/", "_")
-    embedding_cache_path = Path(config.paths.processed_dir) / f"embeddings_{vocab_key}_{model_slug}.npz"
-    embedding_index = EmbeddingIndex.from_cache_or_build(
-        codes, cache_path=embedding_cache_path, model_name=config.retrieval.embedding_model
+    embedding_index = EmbeddingIndex.load_for_vocabularies(
+        codes,
+        vocabularies=config.retrieval.vocabularies,
+        cache_dir=config.paths.processed_dir,
+        model_name=config.retrieval.embedding_model,
     )
 
     logger.info("Running hybrid retrieval over %d candidate codes", len(codes))
@@ -97,6 +97,8 @@ def run_pipeline(config: PipelineConfig) -> dict:
         embedding_model=config.retrieval.embedding_model,
         top_k=config.retrieval.top_k,
         embedding_index=embedding_index,
+        lexical_query=edf.to_lexical_query(),
+        embedding_query=edf.to_embedding_query(),
     )
     logger.info("Retrieved %d candidates", len(candidates))
 
@@ -113,7 +115,14 @@ def run_pipeline(config: PipelineConfig) -> dict:
     # Step 5: LLM classification — assign each candidate a Narrow/Possible/
     # Exclude label, a confidence score, and a short explanation.
     logger.info("Classifying candidates with LLM (provider=%s, model=%s)", provider, model)
-    classified = llm_classify(ranked, edf, provider=provider, model=model, max_retries=config.llm.max_retries)
+    classified = llm_classify(
+        ranked,
+        edf,
+        provider=provider,
+        model=model,
+        max_retries=config.llm.max_retries,
+        batch_size=10,
+    )
 
     # Step 6: Uncertainty selection — flag low-confidence and/or 'Possible'
     # classifications for targeted human review.
@@ -213,4 +222,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

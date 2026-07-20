@@ -87,10 +87,12 @@ def evaluate_retrieval(
 ) -> RetrievalMetrics:
     """Evaluate concept retrieval as an information-retrieval task.
 
-    True positives are retrieved codes labeled 'Narrow' in the gold standard.
-    False positives are retrieved codes that are either labeled 'Possible'/'Exclude'
-    in the gold standard, or absent from it entirely.
-    False negatives are gold-standard 'Narrow' codes that were not retrieved.
+    True positives are retrieved codes labeled 'Narrow' or 'Possible' in the gold
+    standard.
+    False positives are retrieved codes labeled 'Exclude' in the gold standard,
+    or codes absent from it entirely.
+    False negatives are gold-standard 'Narrow' or 'Possible' codes that were not
+    retrieved.
 
     Parameters
     ----------
@@ -107,15 +109,15 @@ def evaluate_retrieval(
         _standardized_key(row["code"], row["vocabulary"]): row["label"]
         for _, row in gold_labels.iterrows()
     }
-    narrow_keys = {k for k, label in gold_by_key.items() if label == "Narrow"}
+    positive_keys = {k for k, label in gold_by_key.items() if label in {"Narrow", "Possible"}}
 
     retrieved_keys = {
         _standardized_key(r["code"], r["vocabulary"]) for r in retrieved_codes
     }
 
-    tp = len(retrieved_keys & narrow_keys)
-    fp = len(retrieved_keys - narrow_keys)
-    fn = len(narrow_keys - retrieved_keys)
+    tp = len(retrieved_keys & positive_keys)
+    fp = len(retrieved_keys - positive_keys)
+    fn = len(positive_keys - retrieved_keys)
 
     sensitivity = tp / (tp + fn) if (tp + fn) > 0 else 0.0
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
@@ -182,9 +184,14 @@ def evaluate_classification(
     for item in classified:
         key = _standardized_key(item["code"], item["vocabulary"])
         gold_label = gold_by_key.get(key)
-        if gold_label is None:
-            continue
         pred_label = item["label"]
+        if gold_label is None:
+            if pred_label == "Exclude":
+                total += 1
+                correct += 1
+                per_label_counts["Exclude"]["tp"] += 1
+            continue
+
         total += 1
         confusion[(gold_label, pred_label)] = confusion.get((gold_label, pred_label), 0) + 1
         if pred_label == gold_label:
@@ -206,6 +213,9 @@ def evaluate_classification(
         recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0.0
         per_label[lbl] = {
+            "tp": tp,
+            "fp": fp,
+            "fn": fn,
             "precision": round(precision, 4),
             "recall": round(recall, 4),
             "f1": round(f1, 4),

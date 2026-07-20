@@ -15,48 +15,114 @@ from pathlib import Path
 import pandas as pd
 
 
-def load_icd10_full(xlsx_path: str | Path = "data/codes/icd10.xlsx") -> pd.DataFrame:
-    """Load the full ICD-10-CM code list from the CMS-style reference workbook.
+def _load_codelist_csv(
+    path: str | Path,
+    *,
+    vocabulary: str,
+    delimiter: str = ",",
+) -> pd.DataFrame:
+    """Load a code list CSV into the canonical retrieval schema.
 
-    Parameters
-    ----------
-    xlsx_path : str or Path
-        Path to the ICD-10 reference workbook. Expects a "Valid ICD10 ..."
-        sheet with ``CODE`` and a ``LONG DESCRIPTION (...)`` column.
-
-    Returns
-    -------
-    pd.DataFrame
-        Columns: ``code``, ``description``, ``vocabulary`` (``"ICD10CM"``).
+    The source files in ``data/codes`` are plain text CSV exports, but the
+    description field may contain commas wrapped in quotes. We therefore rely
+    on the CSV parser rather than manual splitting so those commas stay inside
+    the description instead of being treated as extra columns.
     """
-    path = Path(xlsx_path)
+    path = Path(path)
     if not path.exists():
-        raise FileNotFoundError(f"Full ICD10 code list not found: {path}")
+        raise FileNotFoundError(f"Full {vocabulary} code list not found: {path}")
 
-    xls = pd.ExcelFile(path)
-    sheet_name = next((s for s in xls.sheet_names if s.lower().startswith("valid icd10")), xls.sheet_names[0])
-    raw = xls.parse(sheet_name, dtype=str)
+    raw = pd.read_csv(
+        path,
+        dtype=str,
+        sep=delimiter,
+        engine="python",
+        quotechar='"',
+        escapechar="\\",
+        on_bad_lines="skip",
+    )
 
-    desc_col = next((c for c in raw.columns if c.upper().startswith("LONG DESCRIPTION")), None)
-    if desc_col is None or "CODE" not in raw.columns:
-        raise ValueError(
-            f"Unexpected ICD10 workbook schema in sheet '{sheet_name}': columns={list(raw.columns)}"
-        )
+    if raw.empty:
+        raise ValueError(f"No rows loaded from {path}")
 
-    df = raw[["CODE", desc_col]].rename(columns={"CODE": "code", desc_col: "description"})
+    # Normalize the first two columns into code/description regardless of the
+    # exact header names used in the export.
+    columns = list(raw.columns)
+    if len(columns) < 2:
+        raise ValueError(f"Unexpected {vocabulary} CSV schema in {path}: columns={columns}")
+
+    code_col = columns[0]
+    desc_col = columns[1]
+    df = raw[[code_col, desc_col]].rename(columns={code_col: "code", desc_col: "description"})
     df = df.dropna(subset=["code", "description"]).copy()
-    df["code"] = df["code"].str.strip()
-    df["description"] = df["description"].str.strip()
-    df["vocabulary"] = "ICD10CM"
+    df["code"] = df["code"].astype(str).str.strip().str.strip('"')
+    df["description"] = df["description"].astype(str).str.strip().str.strip('"')
+    df["vocabulary"] = vocabulary
+    df = df[df["code"] != ""]
+    df = df[df["description"] != ""]
     df = df.drop_duplicates(subset=["code", "vocabulary"], keep="first").reset_index(drop=True)
     return df
 
 
-# Registry of loaders for each supported coding system. SNOMED CT (US) and
-# MedDRA are planned but not yet wired up — a source file/loader needs to be
-# added here before those vocabularies can be used for retrieval.
+def _load_two_column_text(
+    path: str | Path,
+    *,
+    vocabulary: str,
+    delimiter: str,
+) -> pd.DataFrame:
+    """Load a very loose delimited export by splitting only on the first separator.
+
+    Some vendor exports include trailing separators or extra empty columns. This
+    parser keeps the first field as the code and the remainder of the line as the
+    description so embedded punctuation in the description is preserved.
+    """
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(f"Full {vocabulary} code list not found: {path}")
+
+    rows: list[tuple[str, str]] = []
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.lower().startswith("code"):
+            continue
+        if delimiter not in line:
+            continue
+        code, description = line.split(delimiter, 1)
+        code = code.strip().strip('"')
+        description = description.strip().strip(";").strip(delimiter).strip().strip('"')
+        if code and description:
+            rows.append((code, description))
+
+    if not rows:
+        raise ValueError(f"No rows loaded from {path}")
+
+    df = pd.DataFrame(rows, columns=["code", "description"])
+    df["vocabulary"] = vocabulary
+    df = df.drop_duplicates(subset=["code", "vocabulary"], keep="first").reset_index(drop=True)
+    return df
+
+
+def load_icd10cm_full(csv_path: str | Path = "data/codes/ICD10CM@2026-codes.csv") -> pd.DataFrame:
+    return _load_codelist_csv(csv_path, vocabulary="ICD10CM", delimiter=",")
+
+
+def load_icpc_full(csv_path: str | Path = "data/codes/ICPC@1993-codes.csv") -> pd.DataFrame:
+    return _load_codelist_csv(csv_path, vocabulary="ICPC", delimiter=",")
+
+
+def load_rcd2_full(csv_path: str | Path = "data/codes/RCD2@20200401-codes.csv") -> pd.DataFrame:
+    return _load_two_column_text(csv_path, vocabulary="RCD2", delimiter=",")
+
+
+def load_snomedct_full(csv_path: str | Path = "data/codes/SNOMEDCT_US@2025_09_01-codes.csv") -> pd.DataFrame:
+    return _load_two_column_text(csv_path, vocabulary="SNOMEDCT_US", delimiter=",")
+
+
 CODE_SYSTEM_LOADERS = {
-    "ICD10CM": load_icd10_full,
+    "ICD10CM": load_icd10cm_full,
+    "ICPC": load_icpc_full,
+    "RCD2": load_rcd2_full,
+    "SNOMEDCT_US": load_snomedct_full,
 }
 
 

@@ -13,7 +13,10 @@ paths:
     erythema_multiforme: "data/raw/Erythema Multiforme/Sk_ERYTHMULTI_AESI.csv"
     guillain_barre: "data/raw/Guillain barre syndrome (GBS)/N_GBS_AESI_filtered.csv"
   code_systems:
-    ICD10CM: "data/codes/icd10.xlsx"
+    ICD10CM: "data/codes/ICD10CM@2026-codes.csv"
+    ICPC: "data/codes/ICPC@1993-codes.csv"
+    RCD2: "data/codes/RCD2@20200401-codes.csv"
+    SNOMEDCT_US: "data/codes/SNOMEDCT_US@2025_09_01-codes.csv"
 
 retrieval:
   lexical_weight: 0.5
@@ -22,6 +25,9 @@ retrieval:
   top_k: 5
   vocabularies:
     - ICD10CM
+    - ICPC
+    - RCD2
+    - SNOMEDCT_US
 
 llm:
   provider: auto
@@ -39,3 +45,6 @@ evaluation:
   narrow_only_as_positive: true
   compare_vocabularies:
     - ICD10CM
+    - ICPC
+    - RCD2
+    - SNOMEDCT_US

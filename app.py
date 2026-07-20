@@ -45,9 +45,13 @@ st.set_page_config(page_title="Semantic Harmonization", layout="wide")
 CONFIG = load_config("configs/default.yaml")
 EDF_DIR = Path(CONFIG.paths.edf_dir)
 
-# Coding systems we can currently retrieve from vs. planned-but-not-yet-available.
-AVAILABLE_VOCABULARIES = {"ICD10CM": "ICD-10-CM"}
-PLANNED_VOCABULARIES = {"SNOMEDCT_US": "SNOMED CT (US)", "MDR": "MedDRA"}
+# Coding systems currently available in the local corpus.
+AVAILABLE_VOCABULARIES = {
+    "ICD10CM": "ICD-10-CM",
+    "ICPC": "ICPC",
+    "RCD2": "RCD2",
+    "SNOMEDCT_US": "SNOMED CT (US)",
+}
 
 
 def _init_state() -> None:
@@ -76,17 +80,13 @@ st.caption(
 st.header("1. Select coding system(s)")
 st.caption("Choose which full reference code systems to retrieve candidates from.")
 
-vocab_cols = st.columns(len(AVAILABLE_VOCABULARIES) + len(PLANNED_VOCABULARIES))
+vocab_cols = st.columns(len(AVAILABLE_VOCABULARIES))
 selected_vocabularies: list[str] = []
 
 for col, (vocab, label) in zip(vocab_cols, AVAILABLE_VOCABULARIES.items()):
     with col:
         if st.checkbox(label, value=True, key=f"vocab_{vocab}"):
             selected_vocabularies.append(vocab)
-
-for col, (vocab, label) in zip(vocab_cols[len(AVAILABLE_VOCABULARIES):], PLANNED_VOCABULARIES.items()):
-    with col:
-        st.checkbox(f"{label} (no reference list loaded yet)", value=False, disabled=True, key=f"vocab_{vocab}")
 
 if not selected_vocabularies:
     st.warning("Select at least one coding system to continue.")
@@ -179,10 +179,12 @@ def _load_corpus(vocabularies: tuple[str, ...]) -> pd.DataFrame:
 @st.cache_resource(show_spinner="Building/loading embedding index (only happens once per corpus)...")
 def _load_embedding_index(vocabularies: tuple[str, ...]) -> EmbeddingIndex:
     codes = _load_corpus(vocabularies)
-    vocab_key = "-".join(sorted(vocabularies))
-    model_slug = CONFIG.retrieval.embedding_model.replace("/", "_")
-    cache_path = Path(CONFIG.paths.processed_dir) / f"embeddings_{vocab_key}_{model_slug}.npz"
-    return EmbeddingIndex.from_cache_or_build(codes, cache_path=cache_path, model_name=CONFIG.retrieval.embedding_model)
+    return EmbeddingIndex.load_for_vocabularies(
+        codes,
+        vocabularies=vocabularies,
+        cache_dir=CONFIG.paths.processed_dir,
+        model_name=CONFIG.retrieval.embedding_model,
+    )
 
 
 run_retrieval = st.button("Run hybrid retrieval", disabled=(edf is None or not selected_vocabularies))
@@ -200,6 +202,8 @@ if run_retrieval and edf is not None and selected_vocabularies:
             embedding_model=CONFIG.retrieval.embedding_model,
             top_k=int(top_k),
             embedding_index=embedding_index,
+            lexical_query=edf.to_lexical_query(),
+            embedding_query=edf.to_embedding_query(),
         )
     st.session_state.retrieval_candidates = candidates
     st.session_state.classified = None
@@ -215,14 +219,14 @@ if st.session_state.retrieval_candidates:
                     "code": c.code,
                     "vocabulary": c.vocabulary,
                     "description": c.description,
-                    "lexical_score": c.lexical_score,
-                    "embedding_score": c.embedding_score,
+                    "normalized_lexical_score": c.lexical_score,
+                    "normalized_embedding_score": c.embedding_score,
                     "score": c.score,
                 }
                 for c in st.session_state.retrieval_candidates
             ]
         ),
-        use_container_width=True,
+        width='stretch',
         hide_index=True,
     )
 
@@ -260,6 +264,11 @@ run_classification = st.button(
 
 if run_classification and st.session_state.retrieval_candidates and edf is not None:
     try:
+        progress = st.progress(0.0, text="Classifying candidates...")
+
+        def _update_progress(completed: int, total: int) -> None:
+            progress.progress(completed / total if total else 1.0, text=f"Classifying candidates... {completed}/{total}")
+
         with st.spinner("Classifying candidates..."):
             ranked = skip_rank(st.session_state.retrieval_candidates)
             classified = llm_classify(
@@ -268,7 +277,10 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
                 provider=provider_choice,
                 model=model_override or None,
                 max_retries=CONFIG.llm.max_retries,
+                batch_size=10,
+                progress_callback=_update_progress,
             )
+        progress.progress(1.0, text="Classification complete")
         st.session_state.classified = classified
         st.session_state.metrics_result = None
     except Exception as exc:  # noqa: BLE001
@@ -289,7 +301,7 @@ if st.session_state.classified:
         ]
     )
     st.success(f"Classified {len(classified_df)} candidates.")
-    st.dataframe(classified_df, use_container_width=True, hide_index=True)
+    st.dataframe(classified_df, width='stretch', hide_index=True)
 
     review_items = select_uncertain(
         st.session_state.classified,
@@ -338,13 +350,24 @@ if run_metrics:
 
         _, gold_labels = load_aesi_dataset(gt_path)
         classified_dicts = [
-            {"code": c.code, "vocabulary": c.vocabulary, "description": c.description, "label": c.label}
+            {
+                "code": c.code,
+                "vocabulary": c.vocabulary,
+                "description": c.description,
+                "label": c.label,
+                "confidence": c.confidence,
+                "explanation": c.explanation,
+            }
             for c in st.session_state.classified
         ]
         gold_scoped = filter_gold_by_vocabulary(gold_labels, compare_vocabularies)
         predicted_scoped = filter_records_by_vocabulary(classified_dicts, compare_vocabularies)
         st.session_state.metrics_result = evaluate(predicted_scoped, gold_scoped)
         st.session_state.predicted_codelist = to_predicted_codelist(classified_dicts)
+        st.session_state.metrics_gold_scoped = gold_scoped
+        st.session_state.metrics_predicted_scoped = predicted_scoped
+        st.session_state.metrics_classified_dicts = classified_dicts
+        st.session_state.metrics_compare_vocabularies = compare_vocabularies
     except Exception as exc:  # noqa: BLE001
         st.error(f"Evaluation failed: {exc}")
 
@@ -353,12 +376,185 @@ if st.session_state.metrics_result:
     retrieval_metrics = metrics["retrieval"]
     classification_metrics = metrics["classification"]
 
-    m1, m2, m3, m4, m5 = st.columns(5)
-    m1.metric("Sensitivity", f"{retrieval_metrics['sensitivity']:.2f}")
-    m2.metric("Precision", f"{retrieval_metrics['precision']:.2f}")
-    m3.metric("F1", f"{retrieval_metrics['f1']:.2f}")
-    m4.metric("Accuracy", f"{classification_metrics['accuracy']:.2f}")
-    m5.metric("Cohen's kappa", f"{classification_metrics['cohens_kappa']:.2f}")
+    st.subheader("Metrics after initial retrieval")
+    retrieval_summary = pd.DataFrame(
+        [
+            {
+                "Correctly Retrieved (TP)": retrieval_metrics["true_positives"],
+                "Incorrectly Retrieved (FP)": retrieval_metrics["false_positives"],
+                "Missed Retrievals (FN)": retrieval_metrics["false_negatives"],
+            }
+        ]
+    )
+    st.dataframe(retrieval_summary, use_container_width=True, hide_index=True)
+    with st.expander("Correct retrievals"):
+        gold_scoped = st.session_state.get("metrics_gold_scoped")
+        predicted_scoped = st.session_state.get("metrics_predicted_scoped", [])
+        if gold_scoped is not None:
+            predicted_keys = {
+                (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper())
+                for row in predicted_scoped
+            }
+            correct_retrievals = gold_scoped[
+                gold_scoped.apply(
+                    lambda r: (
+                        r["label"] in {"Narrow", "Possible"}
+                        and (str(r["code"]).strip(), str(r["vocabulary"]).strip().upper()) in predicted_keys
+                    ),
+                    axis=1,
+                )
+            ]
+            correct_cols = [col for col in ["vocabulary", "code", "code_name", "label"] if col in correct_retrievals.columns]
+            st.dataframe(
+                correct_retrievals[correct_cols],
+                use_container_width=True,
+                hide_index=True,
+            )
+        else:
+            st.caption("Run metrics to see correct retrievals.")
+
+    with st.expander("Missed retrievals"):
+        gold_scoped = st.session_state.get("metrics_gold_scoped")
+        predicted_scoped = st.session_state.get("metrics_predicted_scoped", [])
+        if gold_scoped is not None:
+            predicted_keys = {
+                (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper())
+                for row in predicted_scoped
+            }
+            missed_retrievals = gold_scoped[
+                gold_scoped.apply(
+                    lambda r: (
+                        r["label"] in {"Narrow", "Possible"}
+                        and (str(r["code"]).strip(), str(r["vocabulary"]).strip().upper()) not in predicted_keys
+                    ),
+                    axis=1,
+                )
+            ]
+            missed_cols = [col for col in ["vocabulary", "code", "code_name", "label"] if col in missed_retrievals.columns]
+            st.dataframe(
+                missed_retrievals[missed_cols],
+                use_container_width=True,
+                hide_index=True,
+            )
+        else:
+            st.caption("Run metrics to see missed retrievals.")
+
+    st.subheader("Metrics after LLM classification")
+    gold_scoped = st.session_state.get("metrics_gold_scoped")
+    classified_dicts = st.session_state.get("metrics_classified_dicts", [])
+    classification_summary = pd.DataFrame(0, index=["Narrow", "Possible", "Exclude"], columns=["Narrow", "Possible", "Exclude"])
+    if gold_scoped is not None:
+        gold_by_key = {
+            (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper()): str(row["label"]).strip().title()
+            for _, row in gold_scoped.iterrows()
+        }
+        for item in classified_dicts:
+            key = (str(item["code"]).strip(), str(item["vocabulary"]).strip().upper())
+            gold_label = gold_by_key.get(key)
+            pred_label = str(item["label"]).strip().title()
+            if gold_label is None:
+                if pred_label in classification_summary.index:
+                    classification_summary.loc[pred_label, "Exclude"] += 1
+                continue
+            if pred_label in classification_summary.index and gold_label in classification_summary.columns:
+                classification_summary.loc[pred_label, gold_label] += 1
+    classification_summary.index.name = "predicted \\ gold"
+    st.dataframe(classification_summary, use_container_width=True, hide_index=False)
+    with st.expander("Correct predictions"):
+        if gold_scoped is not None:
+            gold_by_key = {
+                (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper()): str(row["label"]).strip().title()
+                for _, row in gold_scoped.iterrows()
+            }
+            classified_by_key = {
+                (str(item["code"]).strip(), str(item["vocabulary"]).strip().upper()): item
+                for item in classified_dicts
+            }
+            correct_rows = []
+            for key, item in classified_by_key.items():
+                gold_label = gold_by_key.get(key)
+                pred_label = str(item["label"]).strip().title()
+                if gold_label == pred_label:
+                    correct_rows.append(
+                        {
+                            "vocabulary": item["vocabulary"],
+                            "code": item["code"],
+                            "description": item.get("description", ""),
+                            "predicted": pred_label,
+                            "gold": gold_label,
+                            "confidence": item.get("confidence", ""),
+                            "explanation": item.get("explanation", ""),
+                        }
+                    )
+                elif gold_label is None and pred_label == "Exclude":
+                    correct_rows.append(
+                        {
+                            "vocabulary": item["vocabulary"],
+                            "code": item["code"],
+                            "description": item.get("description", ""),
+                            "predicted": pred_label,
+                            "gold": "Exclude",
+                            "confidence": item.get("confidence", ""),
+                            "explanation": item.get("explanation", ""),
+                        }
+                    )
+            st.markdown("##### Correct predictions")
+            st.dataframe(pd.DataFrame(correct_rows), use_container_width=True, hide_index=True)
+        else:
+            st.caption("Run metrics to see correct predictions.")
+
+    with st.expander("Incorrect predictions"):
+        if gold_scoped is not None:
+            gold_by_key = {
+                (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper()): row["label"]
+                for _, row in gold_scoped.iterrows()
+            }
+            classified_by_key = {
+                (str(item["code"]).strip(), str(item["vocabulary"]).strip().upper()): item
+                for item in classified_dicts
+            }
+            incorrect_rows = []
+            for key, item in classified_by_key.items():
+                gold_label = gold_by_key.get(key)
+                pred_label = str(item["label"]).strip().title()
+                if gold_label is None:
+                    if pred_label != "Exclude":
+                        incorrect_rows.append(
+                        {
+                            "vocabulary": item["vocabulary"],
+                            "code": item["code"],
+                            "description": item.get("description", ""),
+                            "predicted": pred_label,
+                            "gold": "Exclude",
+                            "confidence": item.get("confidence", ""),
+                            "explanation": item.get("explanation", ""),
+                        }
+                    )
+                    continue
+                if gold_label == pred_label:
+                    continue
+                incorrect_rows.append(
+                    {
+                        "vocabulary": item["vocabulary"],
+                        "code": item["code"],
+                        "description": item.get("description", ""),
+                        "predicted": pred_label,
+                        "gold": gold_label,
+                        "confidence": item.get("confidence", ""),
+                        "explanation": item.get("explanation", ""),
+                    }
+                )
+            st.markdown("##### Incorrect predictions")
+            if incorrect_rows:
+                st.dataframe(pd.DataFrame(incorrect_rows), use_container_width=True, hide_index=True)
+            else:
+                st.caption("No incorrect predictions.")
+        else:
+            st.caption("Run metrics to see incorrect predictions.")
 
     with st.expander("Full metrics"):
         st.json(metrics)
+        st.markdown("#### Per-label classification metrics")
+        per_label_df = pd.DataFrame(classification_metrics["per_label"]).T
+        per_label_df.index.name = "label"
+        st.dataframe(per_label_df, use_container_width=True)

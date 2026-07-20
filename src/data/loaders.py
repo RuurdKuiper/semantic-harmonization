@@ -67,6 +67,26 @@ class EventDefinitionForm:
             lines.append(f"Administrative/historical context: {self.administrative_context}")
         return "\n".join(lines)
 
+    def to_lexical_query(self) -> str:
+        """Render the short text used for lexical matching."""
+        return self.preferred_name.strip()
+
+    def to_embedding_query(self) -> str:
+        """Render the EDF subset used for semantic embedding matching."""
+        lines = [f"Preferred name: {self.preferred_name}"]
+        if self.narrow_definition:
+            lines.append(f"Narrow definition: {self.narrow_definition}")
+        if self.synonyms:
+            lines.append(f"Synonyms: {', '.join(self.synonyms)}")
+        if self.narrow_decision_rules:
+            lines.append("Narrow decision rules:")
+            lines += [f"  - {c}" for c in self.narrow_decision_rules]
+        if self.morphology:
+            lines.append(f"Morphology/pathology: {self.morphology}")
+        if self.anatomical_location:
+            lines.append(f"Anatomical location: {self.anatomical_location}")
+        return "\n".join(lines)
+
 
 def load_edf(name: str, edf_dir: str | Path = "data/raw/edf") -> EventDefinitionForm:
     """Load an Event Definition Form by phenotype name from a YAML file."""
@@ -107,7 +127,8 @@ def load_aesi_dataset(csv_path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame]
     tuple[pd.DataFrame, pd.DataFrame]
         ``(codes, gold_labels)`` where ``codes`` has columns
         ``code``, ``description``, ``vocabulary`` and ``gold_labels`` has
-        columns ``code``, ``vocabulary``, ``label`` (Narrow/Possible/Exclude).
+        columns ``code``, ``code_name``, ``vocabulary``, ``label``
+        (Narrow/Possible/Exclude).
     """
     path = Path(csv_path)
     if not path.exists():
@@ -134,7 +155,7 @@ def load_aesi_dataset(csv_path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame]
         .reset_index(drop=True)
     )
     gold_labels = (
-        df[["code", "coding_system", "label"]]
+        df[["code", "code_name", "coding_system", "label"]]
         .rename(columns={"coding_system": "vocabulary"})
         .drop_duplicates(subset=["code", "vocabulary"], keep="first")
         .reset_index(drop=True)

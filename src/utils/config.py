@@ -14,7 +14,14 @@ class PathsConfig:
     processed_dir: str = "data/processed"
     results_dir: str = "data/processed/results"
     aesi_datasets: dict[str, str] = field(default_factory=dict)
-    code_systems: dict[str, str] = field(default_factory=lambda: {"ICD10CM": "data/codes/icd10.xlsx"})
+    code_systems: dict[str, str] = field(
+        default_factory=lambda: {
+            "ICD10CM": "data/codes/ICD10CM@2026-codes.csv",
+            "ICPC": "data/codes/ICPC@1993-codes.csv",
+            "RCD2": "data/codes/RCD2@20200401-codes.csv",
+            "SNOMEDCT_US": "data/codes/SNOMEDCT_US@2025_09_01-codes.csv",
+        }
+    )
 
 
 @dataclass
@@ -23,7 +30,7 @@ class RetrievalConfig:
     embedding_weight: float = 0.5
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = 50
-    vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM"])
+    vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM", "ICPC", "RCD2", "SNOMEDCT_US"])
 
 
 @dataclass
@@ -45,7 +52,7 @@ class UncertaintyConfig:
 @dataclass
 class EvaluationConfig:
     narrow_only_as_positive: bool = True
-    compare_vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM"])
+    compare_vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM", "ICPC", "RCD2", "SNOMEDCT_US"])
 
 
 @dataclass

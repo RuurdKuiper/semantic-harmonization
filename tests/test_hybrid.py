@@ -32,3 +32,23 @@ def test_hybrid_retrieval_weights_affect_ranking(sample_codes):
     )
     assert len(lexical_only) == len(sample_codes)
     assert len(embedding_only) == len(sample_codes)
+
+
+def test_hybrid_retrieval_applies_top_k_per_vocabulary():
+    import pandas as pd
+
+    codes = pd.DataFrame(
+        [
+            {"code": "A1", "description": "alpha heart", "vocabulary": "V1"},
+            {"code": "A2", "description": "alpha lung", "vocabulary": "V1"},
+            {"code": "A3", "description": "alpha kidney", "vocabulary": "V1"},
+            {"code": "B1", "description": "alpha heart", "vocabulary": "V2"},
+            {"code": "B2", "description": "alpha lung", "vocabulary": "V2"},
+            {"code": "B3", "description": "alpha kidney", "vocabulary": "V2"},
+        ]
+    )
+
+    results = hybrid_retrieval("alpha", codes, lexical_weight=1.0, embedding_weight=0.0, top_k=2)
+    assert len(results) == 4
+    assert sorted(c.vocabulary for c in results).count("V1") == 2
+    assert sorted(c.vocabulary for c in results).count("V2") == 2

@@ -106,6 +106,56 @@ class EmbeddingIndex:
         index.save(cache_path)
         return index
 
+    @classmethod
+    def combine(cls, indexes: Sequence["EmbeddingIndex"]) -> "EmbeddingIndex":
+        """Concatenate multiple embedding indexes into a single searchable index."""
+        if not indexes:
+            raise ValueError("At least one embedding index must be provided.")
+
+        model = indexes[0].model
+        descriptions: list[str] = []
+        codes: list[str] = []
+        vocabularies: list[str] = []
+        embeddings: list[np.ndarray] = []
+
+        for index in indexes:
+            descriptions.extend(index.descriptions)
+            codes.extend(index.codes)
+            vocabularies.extend(index.vocabularies)
+            embeddings.append(np.asarray(index.embeddings))
+
+        return cls(
+            model=model,
+            descriptions=descriptions,
+            codes=codes,
+            vocabularies=vocabularies,
+            embeddings=np.vstack(embeddings) if embeddings else np.empty((0, 0)),
+        )
+
+    @classmethod
+    def load_for_vocabularies(
+        cls,
+        codes: pd.DataFrame,
+        vocabularies: Sequence[str],
+        cache_dir: str | Path,
+        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+    ) -> "EmbeddingIndex":
+        """Load per-vocabulary embedding caches and concatenate them.
+
+        Each vocabulary is cached independently as ``embeddings_<vocab>_<model>.npz``.
+        Selected vocabularies are then combined in memory for retrieval.
+        """
+        cache_dir = Path(cache_dir)
+        indexes: list[EmbeddingIndex] = []
+        for vocabulary in vocabularies:
+            vocab_df = codes[codes["vocabulary"].astype(str).str.upper() == vocabulary.upper()].reset_index(drop=True)
+            if vocab_df.empty:
+                continue
+            cache_path = cache_dir / f"embeddings_{vocabulary}_{model_name.replace('/', '_')}.npz"
+            indexes.append(cls.from_cache_or_build(vocab_df, cache_path=cache_path, model_name=model_name))
+
+        return cls.combine(indexes)
+
     def retrieve(
         self,
         query: str,
