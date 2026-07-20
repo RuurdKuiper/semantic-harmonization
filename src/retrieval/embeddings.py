@@ -160,6 +160,30 @@ class EmbeddingIndex:
 
         return cls.combine(indexes)
 
+    def retrieve(
+        self,
+        query: str,
+        top_k: int | None = None,
+    ) -> list[EmbeddingCandidate]:
+        q_emb = self.model.encode(query, show_progress_bar=False, normalize_embeddings=True)
+        scores = self.embeddings @ q_emb  # cosine similarity (both normalised)
+        if top_k is not None and len(scores) > top_k:
+            top_indices = np.argpartition(scores, -top_k)[-top_k:]
+            sorted_local = sorted(top_indices, key=lambda i: -scores[i])[:top_k]
+        else:
+            sorted_local = np.argsort(-scores)
+
+        return [
+            EmbeddingCandidate(
+                rank=r + 1,
+                code=self.codes[idx],
+                description=self.descriptions[idx],
+                vocabulary=self.vocabularies[idx],
+                score=float(round(scores[idx], 6)),
+            )
+            for r, idx in enumerate(sorted_local)
+        ]
+
 
 def _release_asset_url(asset_name: str) -> str | None:
     owner = os.getenv("GITHUB_REPOSITORY_OWNER")
@@ -188,30 +212,6 @@ def _ensure_embedding_asset(cache_path: Path) -> None:
         if cache_path.exists():
             cache_path.unlink(missing_ok=True)
         raise
-
-    def retrieve(
-        self,
-        query: str,
-        top_k: int | None = None,
-    ) -> list[EmbeddingCandidate]:
-        q_emb = self.model.encode(query, show_progress_bar=False, normalize_embeddings=True)
-        scores = self.embeddings @ q_emb  # cosine similarity (both normalised)
-        if top_k is not None and len(scores) > top_k:
-            top_indices = np.argpartition(scores, -top_k)[-top_k:]
-            sorted_local = sorted(top_indices, key=lambda i: -scores[i])[:top_k]
-        else:
-            sorted_local = np.argsort(-scores)
-
-        return [
-            EmbeddingCandidate(
-                rank=r + 1,
-                code=self.codes[idx],
-                description=self.descriptions[idx],
-                vocabulary=self.vocabularies[idx],
-                score=float(round(scores[idx], 6)),
-            )
-            for r, idx in enumerate(sorted_local)
-        ]
 
 
 def retrieve_embeddings(
