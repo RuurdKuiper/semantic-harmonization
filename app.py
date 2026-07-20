@@ -85,7 +85,9 @@ selected_vocabularies: list[str] = []
 
 for col, (vocab, label) in zip(vocab_cols, AVAILABLE_VOCABULARIES.items()):
     with col:
-        if st.checkbox(label, value=True, key=f"vocab_{vocab}"):
+        if vocab == "SNOMEDCT_US":
+            st.checkbox(f"{label} (offline only)", value=False, disabled=True, key=f"vocab_{vocab}")
+        elif st.checkbox(label, value=True, key=f"vocab_{vocab}"):
             selected_vocabularies.append(vocab)
 
 if not selected_vocabularies:
