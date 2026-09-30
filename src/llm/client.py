@@ -1,13 +1,19 @@
-"""Shared LLM client helpers: calling the Anthropic or OpenAI APIs and parsing
-JSON output. Supports using either provider (or auto-selecting based on which
-API key is available) so the pipeline works with either or both configured."""
+"""Shared model clients for generative JSON calls and Jev typed decisions.
+
+Automatic provider selection preserves the original Anthropic-then-OpenAI
+precedence; Google is selected explicitly by experiments that require it.
+"""
 
 from __future__ import annotations
 
 import json
 import os
 import re
+import time
+import uuid
 from typing import Any
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 from src.utils.logging import get_logger
 
@@ -17,6 +23,9 @@ _JSON_BLOCK_RE = re.compile(r"\{.*\}", re.DOTALL)
 
 DEFAULT_ANTHROPIC_MODEL = "claude-haiku-4-8"
 DEFAULT_OPENAI_MODEL = "gpt-5-mini"
+DEFAULT_GOOGLE_MODEL = "gemini-3-flash-preview"
+DEFAULT_JEV_MODEL = "jev-1.13"
+DEFAULT_JEV_API_URL = "https://jev-ai.org/api/v1/systemone/"
 
 _PLACEHOLDER_KEY_VALUES = {"", "your-api-key-here"}
 
@@ -41,23 +50,28 @@ def resolve_provider(provider: str = "auto") -> str:
     Parameters
     ----------
     provider : str
-        One of ``"auto"``, ``"anthropic"``, or ``"openai"``.
+        One of ``"auto"``, ``"anthropic"``, ``"openai"``, ``"google"``, or ``"jev"``.
 
     Returns
     -------
     str
-        ``"anthropic"`` or ``"openai"``.
+        The resolved provider name.
     """
     provider = (provider or "auto").lower()
-    if provider in {"anthropic", "openai"}:
+    if provider in {"anthropic", "openai", "google", "jev"}:
         return provider
     if provider != "auto":
-        raise LLMCallError(f"Unknown LLM provider: {provider!r}. Use 'auto', 'anthropic', or 'openai'.")
+        raise LLMCallError(
+            f"Unknown LLM provider: {provider!r}. "
+            "Use 'auto', 'anthropic', 'openai', 'google', or 'jev'."
+        )
 
     if _has_real_key("ANTHROPIC_API_KEY"):
         return "anthropic"
     if _has_real_key("OPENAI_API_KEY"):
         return "openai"
+    if _has_real_key("JEV_API_KEY"):
+        return "jev"
     raise LLMCallError(
         "No LLM API key found. Set ANTHROPIC_API_KEY and/or OPENAI_API_KEY in your .env file."
     )
@@ -65,7 +79,13 @@ def resolve_provider(provider: str = "auto") -> str:
 
 def default_model_for(provider: str) -> str:
     """Return the default model identifier for the given provider."""
-    return DEFAULT_ANTHROPIC_MODEL if provider == "anthropic" else DEFAULT_OPENAI_MODEL
+    if provider == "anthropic":
+        return DEFAULT_ANTHROPIC_MODEL
+    if provider == "google":
+        return DEFAULT_GOOGLE_MODEL
+    if provider == "jev":
+        return DEFAULT_JEV_MODEL
+    return DEFAULT_OPENAI_MODEL
 
 
 def _get_anthropic_client():
@@ -88,6 +108,16 @@ def _get_openai_client():
     if not api_key:
         raise LLMCallError("OPENAI_API_KEY environment variable is not set.")
     return openai.OpenAI(api_key=api_key)
+
+
+def _get_google_client():
+    """Lazily construct the Google Gen AI client."""
+    from google import genai
+
+    api_key = os.environ.get("GOOGLE_API_KEY") or os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise LLMCallError("GOOGLE_API_KEY or GEMINI_API_KEY environment variable is not set.")
+    return genai.Client(api_key=api_key)
 
 
 def extract_json(text: str) -> dict[str, Any]:
@@ -173,6 +203,88 @@ def _call_openai(
     return content
 
 
+def _call_google(system_prompt: str, user_prompt: str, model: str, max_tokens: int) -> str:
+    from google.genai import types
+
+    client = _get_google_client()
+    response = client.models.generate_content(
+        model=model,
+        contents=user_prompt,
+        config=types.GenerateContentConfig(
+            system_instruction=system_prompt,
+            response_mime_type="application/json",
+            max_output_tokens=max_tokens,
+        ),
+    )
+    text = response.text or ""
+    if not text.strip():
+        raise ValueError(f"Empty response content from Google model '{model}'.")
+    return text
+
+
+def call_jev_decisions(
+    state: str,
+    questions: dict[str, dict[str, Any]],
+    model: str = DEFAULT_JEV_MODEL,
+    max_retries: int = 3,
+) -> dict[str, Any]:
+    """Submit typed questions to Jev and return its structured response.
+
+    Jev is not a generative chat model, so it does not use
+    :func:`call_llm_json`. A request shares one phenotype state across up to 20
+    candidate-classification questions and receives declared labels plus
+    probability distributions.
+    """
+    api_key = os.environ.get("JEV_API_KEY", "").strip()
+    if not api_key:
+        raise LLMCallError("JEV_API_KEY environment variable is not set.")
+    if not questions or len(questions) > 20:
+        raise ValueError("Jev requests must contain between 1 and 20 questions.")
+
+    url = os.environ.get("JEV_API_URL", DEFAULT_JEV_API_URL).strip() or DEFAULT_JEV_API_URL
+    payload = json.dumps(
+        {"model": model, "state": state, "questions": questions},
+        separators=(",", ":"),
+    ).encode("utf-8")
+    idempotency_key = str(uuid.uuid5(uuid.NAMESPACE_URL, payload.decode("utf-8")))
+    retryable_statuses = {429, 502, 503, 504, 529}
+    last_error: Exception | None = None
+
+    for attempt in range(1, max_retries + 1):
+        request = Request(
+            url,
+            data=payload,
+            method="POST",
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Idempotency-Key": idempotency_key,
+            },
+        )
+        try:
+            with urlopen(request, timeout=60) as response:
+                result = json.loads(response.read().decode("utf-8"))
+            if not isinstance(result.get("answers"), dict):
+                raise ValueError("Jev response is missing an 'answers' object.")
+            return result
+        except HTTPError as exc:
+            last_error = exc
+            if exc.code not in retryable_statuses or attempt >= max_retries:
+                break
+            retry_after = exc.headers.get("Retry-After") if exc.headers else None
+            delay = min(float(retry_after), 30.0) if retry_after else min(2 ** (attempt - 1), 8)
+            time.sleep(delay)
+        except (URLError, TimeoutError, ValueError, json.JSONDecodeError) as exc:
+            last_error = exc
+            if attempt < max_retries:
+                time.sleep(min(2 ** (attempt - 1), 8))
+
+    raise LLMCallError(
+        f"Jev decision call failed after {max_retries} attempts: {last_error}"
+    ) from last_error
+
+
 def call_llm_json(
     system_prompt: str,
     user_prompt: str,
@@ -192,7 +304,7 @@ def call_llm_json(
     user_prompt : str
         The task-specific user prompt.
     provider : str
-        ``"auto"``, ``"anthropic"``, or ``"openai"``. ``"auto"`` selects
+        ``"auto"``, ``"anthropic"``, ``"openai"``, or ``"google"``. ``"auto"`` selects
         Anthropic if ``ANTHROPIC_API_KEY`` is set, otherwise OpenAI.
     model : str, optional
         Model identifier. Defaults to a sensible default for the resolved provider.
@@ -213,6 +325,11 @@ def call_llm_json(
         Parsed JSON response body.
     """
     resolved_provider = resolve_provider(provider)
+    if resolved_provider == "jev":
+        raise LLMCallError(
+            "Jev uses typed decisions rather than generative JSON. "
+            "Call call_jev_decisions(), or use llm_classify(provider='jev')."
+        )
     resolved_model = model or default_model_for(resolved_provider)
 
     last_error: Exception | None = None
@@ -220,10 +337,12 @@ def call_llm_json(
         try:
             if resolved_provider == "anthropic":
                 text = _call_anthropic(system_prompt, user_prompt, resolved_model, max_tokens)
-            else:
+            elif resolved_provider == "openai":
                 text = _call_openai(
                     system_prompt, user_prompt, resolved_model, max_tokens, reasoning_effort
                 )
+            else:
+                text = _call_google(system_prompt, user_prompt, resolved_model, max_tokens)
             return extract_json(text)
         except Exception as exc:  # noqa: BLE001 - broad by design, retried below
             last_error = exc

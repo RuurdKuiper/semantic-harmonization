@@ -12,6 +12,8 @@ def test_load_default_config():
     assert config.retrieval.vocabularies == ["ICD10CM", "ICD9CM", "ICPC", "MDR", "RCD2", "SNOMEDCT_US"]
     assert config.llm.provider == "auto"
     assert config.llm.anthropic_model == "claude-opus-4-8"
+    assert config.llm.google_model == "gemini-3-flash-preview"
+    assert config.llm.jev_model == "jev-1.13"
     assert config.uncertainty.confidence_threshold == 0.7
     assert config.llm.use_possible_category is False
     assert config.uncertainty.possible_requires_review is False

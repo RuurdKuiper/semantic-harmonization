@@ -40,7 +40,7 @@ RCD2, and SNOMED CT (US).
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env  # set ANTHROPIC_API_KEY and/or OPENAI_API_KEY
+cp .env.example .env  # set ANTHROPIC_API_KEY, OPENAI_API_KEY, JEV_API_KEY, and/or GOOGLE_API_KEY
 ```
 
 ## Usage

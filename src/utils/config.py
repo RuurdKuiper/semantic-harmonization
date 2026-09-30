@@ -39,9 +39,11 @@ class RetrievalConfig:
 
 @dataclass
 class LLMConfig:
-    provider: str = "auto"  # "auto", "anthropic", or "openai"
+    provider: str = "auto"  # "auto", "anthropic", "openai", "google", or "jev"
     anthropic_model: str = "claude-opus-4-8"
     openai_model: str = "gpt-4o"
+    google_model: str = "gemini-3-flash-preview"
+    jev_model: str = "jev-1.13"
     rank_effort: str = "low"
     classify_effort: str = "low"
     max_retries: int = 3

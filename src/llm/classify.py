@@ -4,9 +4,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from collections.abc import Callable
+import json
 
 from src.data.loaders import EventDefinitionForm
-from src.llm.client import call_llm_json
+from src.llm.client import call_jev_decisions, call_llm_json, resolve_provider
 from src.llm.prompts import build_classify_prompt, classify_system_prompt
 from src.llm.rank import RankedCandidate
 from src.utils.logging import get_logger
@@ -69,6 +70,18 @@ def llm_classify(
     if batch_size < 1:
         raise ValueError("batch_size must be at least 1")
 
+    resolved_provider = resolve_provider(provider)
+    if resolved_provider == "jev":
+        return _jev_classify(
+            candidates,
+            edf,
+            model=model or "jev-1.13",
+            max_retries=max_retries,
+            batch_size=batch_size,
+            progress_callback=progress_callback,
+            use_possible_category=use_possible_category,
+        )
+
     lookup = {(c.code, c.vocabulary): c for c in candidates}
     results: list[ClassifiedCandidate] = []
     seen: set[tuple[str, str]] = set()
@@ -84,7 +97,7 @@ def llm_classify(
         response = call_llm_json(
             system_prompt=classify_system_prompt(use_possible_category),
             user_prompt=prompt,
-            provider=provider,
+            provider=resolved_provider,
             model=model,
             max_retries=max_retries,
         )
@@ -145,4 +158,79 @@ def llm_classify(
         if progress_callback is not None:
             progress_callback(min(start + len(batch), total), total)
 
+    return results
+
+
+def _jev_classify(
+    candidates: list[RankedCandidate],
+    edf: EventDefinitionForm,
+    model: str,
+    max_retries: int,
+    batch_size: int,
+    progress_callback: Callable[[int, int], None] | None,
+    use_possible_category: bool,
+) -> list[ClassifiedCandidate]:
+    """Classify candidates with Jev typed choice questions."""
+    effective_batch_size = min(batch_size, 20)
+    labels = {
+        "Narrow": "The code is sufficiently specific to the phenotype and meets the Narrow criteria.",
+        "Exclude": "The code is irrelevant, insufficiently specific, historical, or explicitly excluded.",
+    }
+    if use_possible_category:
+        labels = {
+            "Narrow": labels["Narrow"],
+            "Possible": "The code is related but not sufficiently specific in every context.",
+            "Exclude": labels["Exclude"],
+        }
+
+    results: list[ClassifiedCandidate] = []
+    total = len(candidates)
+    state = "Phenotype definition:\n" + edf.to_prompt_context(
+        include_possible=use_possible_category
+    )
+    for start in range(0, total, effective_batch_size):
+        batch = candidates[start : start + effective_batch_size]
+        questions = {
+            f"candidate_{offset}": {
+                "type": "choice",
+                "instructions": (
+                    "Classify this clinical terminology candidate for the phenotype: "
+                    f"code={candidate.code}; vocabulary={candidate.vocabulary}; "
+                    f"description={candidate.description}"
+                ),
+                "criteria": labels,
+            }
+            for offset, candidate in enumerate(batch)
+        }
+        response = call_jev_decisions(
+            state=state,
+            questions=questions,
+            model=model,
+            max_retries=max_retries,
+        )
+        answers = response.get("answers", {})
+        for offset, candidate in enumerate(batch):
+            answer = answers.get(f"candidate_{offset}", {})
+            probabilities = answer.get("probabilities", {})
+            fallback_label = "Possible" if use_possible_category else "Exclude"
+            label = answer.get("choice", fallback_label)
+            if label not in labels:
+                label = fallback_label
+            confidence = answer.get("confidence")
+            if confidence is None:
+                confidence = max((float(value) for value in probabilities.values()), default=0.0)
+            results.append(
+                ClassifiedCandidate(
+                    code=candidate.code,
+                    description=candidate.description,
+                    vocabulary=candidate.vocabulary,
+                    label=label,
+                    confidence=float(confidence),
+                    explanation="Jev choice probabilities: " + json.dumps(probabilities, sort_keys=True),
+                    relevance_score=candidate.relevance_score,
+                    retrieval_score=candidate.retrieval_score,
+                )
+            )
+        if progress_callback is not None:
+            progress_callback(min(start + len(batch), total), total)
     return results

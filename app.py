@@ -306,7 +306,11 @@ use_possible_category = st.checkbox(
 
 llm_col1, llm_col2 = st.columns(2)
 with llm_col1:
-    provider_choice = st.selectbox("Provider", options=["auto", "anthropic", "openai"], index=0)
+    provider_choice = st.selectbox(
+        "Provider",
+        options=["auto", "anthropic", "openai", "jev", "google"],
+        index=0,
+    )
 with llm_col2:
     try:
         resolved_provider_preview = resolve_provider(provider_choice)
@@ -340,7 +344,7 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
                 provider=provider_choice,
                 model=model_override or None,
                 max_retries=CONFIG.llm.max_retries,
-                batch_size=10,
+                batch_size=20 if resolved_provider_preview == "jev" else 10,
                 progress_callback=_update_progress,
                 use_possible_category=use_possible_category,
             )

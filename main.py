@@ -137,7 +137,7 @@ def run_pipeline(
     # Resolve which LLM provider/model to use (explicit config, or auto-detect
     # from whichever API key is set in the environment).
     provider = resolve_provider(config.llm.provider)
-    model = config.llm.anthropic_model if provider == "anthropic" else config.llm.openai_model
+    model = getattr(config.llm, f"{provider}_model")
 
     # Step 4: Skip LLM ranking (disabled — see src/llm/rank.py::llm_rank, kept
     # for potential future use but not currently run) and pass retrieval
@@ -154,7 +154,7 @@ def run_pipeline(
         provider=provider,
         model=model,
         max_retries=config.llm.max_retries,
-        batch_size=10,
+        batch_size=20 if provider == "jev" else 10,
         use_possible_category=config.llm.use_possible_category,
         progress_callback=lambda completed, total: report(
             "Step 6/8: LLM classification",
