@@ -1,0 +1,309 @@
+event_definition,coding_system,code,code_name,concept,concept_name,tags,origin,system,event_abbreviation,type
+Myocarditis alone,ICD10CM,J10.82,Influenza due to other identified influenza virus with myocarditis,C2977049,Influenza due to other identified influenza virus with myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I40.0,Infective myocarditis,C0729608,Myocarditis due to infectious agent,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,J09.X9,Influenza due to identified novel influenza A virus with other manifestations,C3161095,Influenza due to identified novel influenza A virus with other manifestations,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I51.4,Chronic (interstitial) myocarditis,C0027059,Myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,B58.81,Toxoplasma myocarditis,C0276804,Toxoplasma myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I41,Myocarditis in diseases classified elsewhere,C0694498,Myocarditis in diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A38.1,Scarlet fever with myocarditis,C2887078,Scarlet fever with myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,B33.22,Viral myocarditis,C0276138,Viral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I01.2,Acute rheumatic myocarditis,C0155557,Acute rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I51,Complications and ill-defined descriptions of heart disease,C0155711,Complications and ill-defined descriptions of heart disease,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I09.2,Chronic rheumatic myopericarditis,C0264756,Chronic rheumatic myopericarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.322,Rheumatoid heart disease with rheumatoid arthritis of left elbow,C2889205,Rheumatoid heart disease with rheumatoid arthritis of left elbow,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.321,Rheumatoid heart disease with rheumatoid arthritis of right elbow,C2889204,Rheumatoid heart disease with rheumatoid arthritis of right elbow,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A39.52,Meningococcal myocarditis,C0152961,Meningococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.329,Rheumatoid heart disease with rheumatoid arthritis of unspecified elbow,C2889206,Rheumatoid heart disease with rheumatoid arthritis of unspecified elbow,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I33.9,Subacute myoendocarditis NOS,C0264873,Subacute myoendocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.312,Rheumatoid heart disease with rheumatoid arthritis of left shoulder,C2889201,Rheumatoid heart disease with rheumatoid arthritis of left shoulder,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.311,Rheumatoid heart disease with rheumatoid arthritis of right shoulder,C2889200,Rheumatoid heart disease with rheumatoid arthritis of right shoulder,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.32,Rheumatoid heart disease with rheumatoid arthritis of elbow,C2889203,Rheumatoid heart disease with rheumatoid arthritis of elbow,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.319,Rheumatoid heart disease with rheumatoid arthritis of unspecified shoulder,C2889202,Rheumatoid heart disease with rheumatoid arthritis of unspecified shoulder,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.331,Rheumatoid heart disease with rheumatoid arthritis of right wrist,C2889209,Rheumatoid heart disease with rheumatoid arthritis of right wrist,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.33,Rheumatoid heart disease with rheumatoid arthritis of wrist,C2889208,Rheumatoid heart disease with rheumatoid arthritis of wrist,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I09,Other rheumatic heart diseases,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A36.81,Diphtheritic cardiomyopathy,C0152952,Diphtheritic myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,B26.82,Mumps myocarditis,C0276320,Mumps myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.361,Rheumatoid heart disease with rheumatoid arthritis of right knee,C2889221,Rheumatoid heart disease with rheumatoid arthritis of right knee,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.36,Rheumatoid heart disease with rheumatoid arthritis of knee,C2889220,Rheumatoid heart disease with rheumatoid arthritis of knee,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.372,Rheumatoid heart disease with rheumatoid arthritis of left ankle and foot,C2889227,Rheumatoid heart disease with rheumatoid arthritis of left ankle and foot,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.371,Rheumatoid heart disease with rheumatoid arthritis of right ankle and foot,C2889226,Rheumatoid heart disease with rheumatoid arthritis of right ankle and foot,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.39,Rheumatoid heart disease with rheumatoid arthritis of multiple sites,C2889229,Rheumatoid heart disease with rheumatoid arthritis of multiple sites,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I40.1,Giant cell myocarditis,C0264856,Giant cell myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.379,Rheumatoid heart disease with rheumatoid arthritis of unspecified ankle and foot,C2889228,Rheumatoid heart disease with rheumatoid arthritis of unspecified ankle and foot,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.369,Rheumatoid heart disease with rheumatoid arthritis of unspecified knee,C2889223,Rheumatoid heart disease with rheumatoid arthritis of unspecified knee,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.362,Rheumatoid heart disease with rheumatoid arthritis of left knee,C2889222,Rheumatoid heart disease with rheumatoid arthritis of left knee,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I24.1,Dressler's syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.37,Rheumatoid heart disease with rheumatoid arthritis of ankle and foot,C2889225,Rheumatoid heart disease with rheumatoid arthritis of ankle and foot,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I40.8,Other acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A18.84,Tuberculosis of heart,C0578806,Tuberculosis of heart,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.332,Rheumatoid heart disease with rheumatoid arthritis of left wrist,C2889210,Rheumatoid heart disease with rheumatoid arthritis of left wrist,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.349,Rheumatoid heart disease with rheumatoid arthritis of unspecified hand,C2889216,Rheumatoid heart disease with rheumatoid arthritis of unspecified hand,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.342,Rheumatoid heart disease with rheumatoid arthritis of left hand,C2889215,Rheumatoid heart disease with rheumatoid arthritis of left hand,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.351,Rheumatoid heart disease with rheumatoid arthritis of right hip,C2889218,Rheumatoid heart disease with rheumatoid arthritis of right hip,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I40,Acute myocarditis,C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I40.9,"Acute myocarditis, unspecified",C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.359,Rheumatoid heart disease with rheumatoid arthritis of unspecified hip,C2889217,Rheumatoid heart disease with rheumatoid arthritis of unspecified hip,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.35,Rheumatoid heart disease with rheumatoid arthritis of hip,C2889217,Rheumatoid heart disease with rheumatoid arthritis of unspecified hip,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.339,Rheumatoid heart disease with rheumatoid arthritis of unspecified wrist,C2889211,Rheumatoid heart disease with rheumatoid arthritis of unspecified wrist,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A01.02,Typhoid fever with heart involvement,C2880088,Typhoid fever with heart involvement,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.341,Rheumatoid heart disease with rheumatoid arthritis of right hand,C2889214,Rheumatoid heart disease with rheumatoid arthritis of right hand,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.34,Rheumatoid heart disease with rheumatoid arthritis of hand,C2889213,Rheumatoid heart disease with rheumatoid arthritis of hand,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I30,acute myopericarditis,C0265132,Acute myopericarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.352,Rheumatoid heart disease with rheumatoid arthritis of left hip,C2889219,Rheumatoid heart disease with rheumatoid arthritis of left hip,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I33,Acute and subacute endocarditis,C0155683,"Acute and subacute endocarditis, unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A54.83,Gonococcal myocarditis,C2893394,Gonococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,B57.0,Acute Chagas' disease with heart involvement,C0349351,Acute Chagas' disease with heart involvement,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,A52.06,Other syphilitic heart involvement,C2893347,Other syphilitic heart involvement,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,D86.85,Sarcoid myocarditis,C0340432,Sarcoid heart muscle disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,J11.82,Influenza due to unidentified influenza virus with myocarditis,C2977061,Influenza due to unidentified influenza virus with myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I42.3,Endomyocardial (eosinophilic) disease,C0264834,Primary eosinophilic endomyocardial restrictive cardiomyopathy,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,B33.24,Viral cardiomyopathy,C0264797,Dilated cardiomyopathy due to viral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.3,Rheumatoid heart disease with rheumatoid arthritis,C0489959,Rheumatoid myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,I09.0,Rheumatic myocarditis,C0489959,Rheumatoid myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,B57.2,Chagas' disease (chronic) with heart involvement,C0494112,Chronic Chagas disease with heart involvement,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.31,Rheumatoid heart disease with rheumatoid arthritis of shoulder,C2889199,Rheumatoid heart disease with rheumatoid arthritis of shoulder,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD10CM,M05.30,Rheumatoid heart disease with rheumatoid arthritis of unspecified site,C2889198,Rheumatoid heart disease with rheumatoid arthritis of unspecified site,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICPC,K70,Infectious dis circ system,C0497241,Infection of circulatory system,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,488.89,Influenza due to identified novel influenza A virus with other manifestations,C3161095,Influenza due to identified novel influenza A virus with other manifestations,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,429.0,"Myocarditis, unspecified",C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,130.3,Myocarditis due to toxoplasmosis,C0276804,Toxoplasma myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,074.23,Coxsackie myocarditis,C0153106,Coxsackie myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,391.2,Acute rheumatic myocarditis,C0155557,Acute rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,429,Ill-defined descriptions and complications of heart disease,C0155711,Complications and ill-defined descriptions of heart disease,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,036.43,Meningococcal myocarditis,C0152961,Meningococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,398,Other rheumatic heart disease,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,398.9,Other and unspecified rheumatic heart diseases,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,398.99,Other rheumatic heart diseases,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,032.82,Diphtheritic myocarditis,C0152952,Diphtheritic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,425.0,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,411.0,Postmyocardial infarction syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.9,Other and unspecified acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.99,Other acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.93,Toxic myocarditis,C0155691,Toxic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.92,Septic myocarditis,C0155690,Septic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.91,Idiopathic myocarditis,C0155689,Isolated (Fiedler's) myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.0,Acute myocarditis in diseases classified elsewhere,C0155687,Acute myocarditis in diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422,Acute myocarditis,C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,422.90,"Acute myocarditis, unspecified",C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,421,Acute and subacute endocarditis,C0155683,"Acute and subacute endocarditis, unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,393,Chronic rheumatic pericarditis,C0155561,Chronic rheumatic pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,398.0,Rheumatic myocarditis,C0489959,Rheumatoid myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,ICD9CM,093.82,Syphilitic myocarditis,C0153165,Syphilitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,22653005,Myocarditis due to infectious agent,C0729608,Myocarditis due to infectious agent,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,870301007,Myocarditis due to childhood type dermatomyositis,C5396716,Myocarditis due to childhood type dermatomyositis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,233885007,Post-infarction pericarditis,C0340455,Post-infarction pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194912009,Post-infarction pericarditis,C0340455,Post-infarction pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,723863003,Myopericarditis,C0854532,Myopericarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,50920009,Myocarditis,C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195119007,Myocarditis NOS,C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,251060004,Myocardial inflammation,C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155380004,Myocarditis NOS,C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,76534005,Myocarditis due to acquired toxoplasmosis,C0276804,Toxoplasma myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,187195003,Toxoplasma myocarditis,C0276804,Toxoplasma myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195570006,[X]Myocarditis in bacterial diseases classified elsewhere,C0348611,Myocarditis in bacterial diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195571005,[X]Myocarditis in viral diseases classified elsewhere,C0348612,Myocarditis in viral diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195572003,[X]Myocarditis in other infectious and parasitic diseases classified elsewhere,C0348613,Myocarditis in other infectious and parasitic diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195573008,[X]Myocarditis in other diseases classified elsewhere,C0348614,Myocarditis in other diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,723865005,Infection causing myoendocarditis,C4510102,Infection causing myoendocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,47292005,Tuberculosis of myocardium,C0275951,Tuberculosis of myocardium,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,387829002,Endomyocardial biopsy,C0189785,Endomyocardial biopsy (procedure),exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,39441009,EMB - Endomyocardial biopsy,C0189785,Endomyocardial biopsy (procedure),exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,40532006,Dilated cardiomyopathy due to protozoan myocarditis,C0264800,Dilated cardiomyopathy due to protozoan myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,2024009,Dilated cardiomyopathy secondary to metazoal myocarditis,C0264801,Dilated cardiomyopathy secondary to metazoal myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,37217002,Coxsackie myocarditis,C0153106,Coxsackie myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,142951000119106,Myocarditis caused by Influenza A virus subtype H1N1,C3661903,Myocarditis caused by Influenza A virus subtype H1N1,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,434911000124100,Myocarditis due to H1N1 Influenza virus,C3661903,Myocarditis caused by Influenza A virus subtype H1N1,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,37925008,Interstitial myocarditis,C0027060,Interstitial myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,89141000,Viral myocarditis,C0276138,Viral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,8916007,Protozoan myocarditis,C0276776,Protozoan myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194709000,Acute rheumatic myocarditis,C0155557,Acute rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155269001,Acute rheumatic myocarditis,C0155557,Acute rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,4536006,Rheumatic degeneration of myocardium,C0155557,Acute rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,756003,Chronic rheumatic myopericarditis,C0264756,Chronic rheumatic myopericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194722008,Chronic rheumatic myopericarditis,C0264756,Chronic rheumatic myopericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,91468009,Meningococcal myocarditis,C0152961,Meningococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194950003,Acute myocarditis - meningococcal,C0152961,Meningococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155292001,Rheumatic myocarditis (& [chronic]),C0264752,Chronic rheumatic myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,266285003,Rheumatic myocarditis,C0264752,Chronic rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,61012002,Chronic rheumatic myocarditis,C0264752,Chronic rheumatic myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,69589006,Subacute myoendocarditis,C0264873,Subacute myoendocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194939001,Subacute myoendocarditis NOS,C0264873,Subacute myoendocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194936008,Acute myoendocarditis NOS,C0264872,Acute myoendocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,30328003,Acute myoendocarditis,C0264872,Acute myoendocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,471841009,Inflammatory cardiomyopathy,C3532222,Inflammatory cardiomyopathy,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,472811009,Cardiovascular abnormality due to infective myocarditis,C3532347,Cardiovascular abnormality due to infective myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,64190005,Rubella myocarditis,C0276309,Rubella myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194754004,Other rheumatic heart disease NOS,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194751007,Other and unspecified rheumatic heart disease,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,451241000124108,Chronic myocarditis,C0865681,Chronic myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,34336004,Aseptic myocarditis of newborn,C0276432,Aseptic myocarditis of newborn,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194943002,Acute aseptic myocarditis of the newborn,C0340405,Acute aseptic myocarditis of the newborn,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,26117009,Diphtheritic myocarditis,C0152952,Diphtheritic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,79096004,Myocarditis caused by physical agent,C0264861,Myocarditis caused by physical agent,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194946005,Acute myocarditis - influenzal,C0340407,Acute myocarditis - influenzal,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194958005,Septic myocarditis - streptococcal,C0340409,Septic myocarditis - streptococcal,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,72527006,Myocarditis caused by drug,C0264860,Myocarditis caused by drug,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194948006,Acute myocarditis - toxoplasmosis,C0553979,Acute myocarditis - toxoplasmosis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,275512002,Myocarditis - virus unidentified,C0553978,Myocarditis - virus unidentified,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194947001,Acute syphilitic myocarditis,C0340413,Acute syphilitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,63462008,Mumps myocarditis,C0276320,Mumps myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,233867000,Q fever myocarditis,C0340414,Q fever myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,233868005,Fungal myocarditis,C0340415,Fungal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,233869002,Parasitic myocarditis,C0340416,Parasitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1208897003,Myocarditis due to idiopathic hypereosinophilic syndrome,C5687386,Myocarditis due to idiopathic hypereosinophilic syndrome,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,55087008,Myocarditis due to chemical agent,C0264859,Myocarditis due to chemical agent,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,88782004,Myocarditis caused by radiation,C0264858,Myocarditis caused by radiation,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194957000,Septic myocarditis - staphylococcal,C0340410,Septic myocarditis - staphylococcal,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,65718001,Adenoviral myocarditis,C0276163,Adenoviral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194956009,Septic myocarditis - pneumococcal,C0340411,Septic myocarditis - pneumococcal,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155351008,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,123264005,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,266301006,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,398716006,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,30293000,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,111507009,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194949003,Acute myocarditis - tuberculous,C0340412,Acute myocarditis - tuberculous,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,55482007,Isolated diffuse granulomatous myocarditis,C0264855,Isolated diffuse granulomatous myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,279001,Senile myocarditis,C0264854,Senile myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,8676001,Myocarditis due to hypersensitivity state,C0264857,Myocarditis due to hypersensitivity state,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195015003,Restrictive cardiomyopathy with endomyocardial fibrosis,C0014183,Restrictive cardiomyopathy with endomyocardial fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,398754006,Restrictive cardiomyopathy with endomyocardial fibrosis,C0014183,Restrictive cardiomyopathy with endomyocardial fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,60812006,Giant cell myocarditis,C0264856,Giant cell myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194954007,Giant cell myocarditis,C0264856,Giant cell myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,18484008,Subacute interstitial myocarditis,C0264851,Subacute interstitial myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,827164008,Delayed postmyocardial infarction pericarditis,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,66189004,Dressler's syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,488007,Fibroid myocarditis,C0264853,Fibroid myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,421929001,Myocarditis with AIDS (acquired immunodeficiency syndrome),C1719813,Myocarditis with AIDS (acquired immunodeficiency syndrome),narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,45093008,Chronic interstitial myocarditis,C0264852,Chronic interstitial myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1089931000119105,Myocarditis due to scarlet fever,C4039176,Myocarditis due to scarlet fever,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,713318009,Myocarditis co-occurrent with human immunodeficiency virus infection,C4076233,Myocarditis co-occurrent with human immunodeficiency virus infection,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195568002,[X]Other acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194960007,Other acute myocarditis NOS,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194952006,Other acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,186370003,Acute myocarditis - meningococcal,C0398355,Acute myocarditis - meningococcal,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,460345001,Myocarditis caused by echovirus,C3531952,Myocarditis caused by echovirus,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,31993003,Toxic myocarditis,C0155691,Toxic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,460338001,Myocarditis caused by Aspergillus,C3531951,Myocarditis caused by Aspergillus,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,64043005,Bacterial myocarditis,C0155690,Septic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194959002,Septic myocarditis NOS,C0155690,Septic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,460329003,Myocarditis caused by Candida,C3531950,Myocarditis caused by Candida,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,460352004,Myocarditis caused by Spirochaetales,C3531953,Myocarditis caused by Spirochaetales,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,302131003,Tuberculosis of heart,C0578806,Tuberculosis of heart,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,427443009,Lymphocytic myocarditis,C1960273,Lymphocytic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,703274008,Heart failure with reduced ejection fraction due to myocarditis,C3839467,Heart failure with reduced ejection fraction due to myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,871640001,Myocarditis due to autoimmune disease,C5397337,Myocarditis due to autoimmune disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1153452008,Dilated cardiomyopathy due to parasitic myocarditis,C5547370,Dilated cardiomyopathy due to parasitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194955008,Idiopathic myocarditis NOS,C0155689,Isolated (Fiedler's) myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,91025000,Idiopathic myocarditis,C0155689,Isolated (Fiedler's) myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,266238009,Isolated (Fiedler's) myocarditis,C0155689,Isolated (Fiedler's) myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194942007,Acute myocarditis associated with another disorder,C0155687,Acute myocarditis in diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194951004,"Acute myocarditis in diseases EC, NOS",C0155687,Acute myocarditis in diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195569005,"[X]Acute myocarditis, unspecified",C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194953001,"Acute myocarditis, unspecified",C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,46701001,Acute myocarditis,C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194961006,Acute myocarditis NOS,C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155336004,Acute myocarditis,C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1163420005,Postmyocardial infarction pericardial effusion,C5567099,Postmyocardial infarction pericardial effusion,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,11176009,Acute myopericarditis,C0265132,Acute myopericarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,276741000,Sepsis-associated myocardial dysfunction,C0349511,Myocardial dysfunction with sepsis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1204460007,Myocardial dysfunction with sepsis,C0349511,Myocardial dysfunction with sepsis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194934006,Acute and subacute endocarditis unspecified,C0155683,"Acute and subacute endocarditis, unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194921005,Acute and subacute endocarditis,C0155683,"Acute and subacute endocarditis, unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155335000,Acute and subacute endocarditis unspecified,C0155683,"Acute and subacute endocarditis, unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194941000,"Acute and subacute endocarditis unspecified, NOS",C0155683,"Acute and subacute endocarditis, unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,155287003,Chronic rheumatic pericarditis,C0155561,Chronic rheumatic pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194719006,Chronic rheumatic pericarditis,C0155561,Chronic rheumatic pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194723003,Chronic rheumatic pericarditis NOS,C0155561,Chronic rheumatic pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,78069008,Chronic rheumatic pericarditis,C0155561,Chronic rheumatic pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,460317007,Myocarditis caused by Rickettsia,C3531948,Myocarditis caused by Rickettsia,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,413933004,Coxsackie myocarditis of newborn,C1531771,Coxsackie myocarditis of newborn,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1052287002,Gonococcal myocarditis,C2893394,Gonococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,186813004,Acute Chagas' disease with heart involvement,C0349351,Acute Chagas' disease with heart involvement,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,74918002,Measles myocarditis,C0276336,Measles myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194945009,Acute myocarditis - diphtheritic,C0579992,Acute myocarditis - diphtheritic,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,871587002,Myocarditis due to Chaga disease,C5397305,Myocarditis due to Chaga disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195135000,Sarcoid myocarditis,C0340432,Sarcoid heart muscle disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195033009,Sarcoid heart muscle disease,C0340432,Sarcoid heart muscle disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,44630002,Dilated cardiomyopathy due to fungal myocarditis,C0264799,Dilated cardiomyopathy due to fungal myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,33258008,Primary eosinophilic endomyocardial restrictive cardiomyopathy,C0264834,Primary eosinophilic endomyocardial restrictive cardiomyopathy,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194944008,Acute myocarditis - coxsackie,C0579991,Acute myocarditis - coxsackie,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,880012008,Myocarditis due to Kawasaki disease,C5437446,Myocarditis due to Kawasaki disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,54830008,Dilated cardiomyopathy due to bacterial myocarditis,C0264798,Dilated cardiomyopathy due to bacterial myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,472707009,Fetal myocarditis,C3532265,Fetal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,30496006,Dilated cardiomyopathy due to viral myocarditis,C0264797,Dilated cardiomyopathy due to viral myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,195136004,Rheumatoid myocarditis,C0489959,Rheumatoid myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,194750008,Rheumatic degeneration of myocardium,C0489959,Rheumatoid myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,439154009,Family history of myocarditis,C2585300,Family history of myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,722890004,Chronic Chagas disease with heart involvement,C0494112,Chronic Chagas disease with heart involvement,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,78046005,Myocarditis caused by influenza virus,C0276350,Myocarditis caused by influenza virus,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,1240531000000103,Myocarditis due to COVID-19,C5397158,Myocarditis due to COVID-19,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,827163002,Early postmyocardial infarction pericarditis,C5231307,Early postmyocardial infarction pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,427372006,Eosinophilic myocarditis,C0151788,Eosinophilic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,681211000119101,History of myocarditis,C4039088,History of myocarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,460620006,Myocarditis caused by Borrelia,C3532017,Myocarditis caused by Borrelia,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,186881007,Syphilitic myocarditis,C0153165,Syphilitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,4082005,Syphilitic myocarditis,C0153165,Syphilitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,10629351000119108,Myocarditis caused by Influenza A virus,C4040593,Myocarditis caused by Influenza A virus,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,8402005,AIDS with acute myocarditis,C0276512,AIDS with acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,9241004,Gonococcal heart disease,C0275666,Gonococcal heart disease,narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,13452004,AIDS with subacute myocarditis,C0276513,Subacute myocarditis with AIDS (acquired immunodeficiency syndrome),narrow,,C,MYOCARD,AESI
+Myocarditis alone,SNOMEDCT_US,421272004,Subacute myocarditis with AIDS (acquired immunodeficiency syndrome),C0276513,Subacute myocarditis with AIDS (acquired immunodeficiency syndrome),narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10052768,Infectious myocarditis,C0729608,Myocarditis due to infectious agent,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10066857,Myocarditis infectious,C0729608,Myocarditis due to infectious agent,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028650,Myopericarditis,C0854532,Myopericarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028613,Myocarditis NOS,C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028606,Myocarditis,C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028619,"Myocarditis, unspecified",C0027059,Myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028609,Myocarditis due to toxoplasmosis,C0276804,Toxoplasma myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028617,Myocarditis toxoplasmal,C0276804,Toxoplasma myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10057909,Biopsy endomyocardial,C0189785,Endomyocardial biopsy (procedure),exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10011258,Coxsackie myocarditis,C0153106,Coxsackie myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028611,Myocarditis interstitial,C0027060,Interstitial myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10087741,Viral perimyocarditis,C0276138,Viral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10047470,Viral myocarditis,C0276138,Viral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028618,Myocarditis viral NOS,C0276138,Viral myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10001058,Acute rheumatic myocarditis,C0155557,Acute rheumatic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10021348,Ill-defined descriptions and complications of heart disease,C0155711,Complications and ill-defined descriptions of heart disease,possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028612,Myocarditis meningococcal,C0152961,Meningococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10027277,Meningococcal myocarditis,C0152961,Meningococcal myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10031622,Other and unspecified rheumatic heart disease,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10039060,"Rheumatic heart disease, other and unspecified",C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10032449,Other rheumatic heart disease,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10031623,Other and unspecified rheumatic heart diseases,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10032450,Other rheumatic heart diseases,C0029730,"Rheumatic heart disease, other and unspecified",possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10087106,Chronic myocarditis,C0865681,Chronic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10013027,Diphtheritic myocarditis,C0152952,Diphtheritic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10014664,Endocardial fibrosis,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10016645,Fibrosis endocardial,C0553980,Endomyocardial Fibrosis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10014800,Endomyocardial fibrosis,C0553980,Endomyocardial Fibrosis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10083635,Giant cell myocarditis,C0264856,Giant cell myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10013637,Dressler's syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10036401,Postmyocardial infarction syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10036233,Post myocardial infarction syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10013638,Dresslers syndrome,C0152107,Postmyocardial infarction syndrome,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10031466,Other acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10031516,Other and unspecified acute myocarditis,C0155692,Other acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10044235,Toxic myocarditis,C0155691,Toxic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10040068,Septic myocarditis,C0155690,Septic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028615,Myocarditis septic,C0155690,Septic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10021234,Idiopathic myocarditis,C0155689,Isolated (Fiedler's) myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10000933,Acute myocarditis in diseases classified elsewhere,C0155687,Acute myocarditis in diseases classified elsewhere,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10000934,"Acute myocarditis, unspecified",C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10000932,Acute myocarditis,C0155686,Acute myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10000666,Acute and subacute endocarditis,C0155683,"Acute and subacute endocarditis, unspecified",exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10009128,Chronic rheumatic pericarditis,C0155561,Chronic rheumatic pericarditis,exclude,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10065218,Myocarditis bacterial,C1384588,Bacterial myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10014953,Eosinophilic endomyocardial disease,C0264834,Primary eosinophilic endomyocardial restrictive cardiomyopathy,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10068767,Viral cardiomyopathy,C0264797,Dilated cardiomyopathy due to viral myocarditis,possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028614,Myocarditis rheumatic,C0489959,Rheumatoid myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10039066,Rheumatic myocarditis,C0489959,Rheumatoid myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10001715,Allergic myocarditis,C0151788,Eosinophilic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028610,Myocarditis eosinophilic,C0151788,Eosinophilic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10014961,Eosinophilic myocarditis,C0151788,Eosinophilic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028607,Myocarditis allergic,C0151788,Eosinophilic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10042917,Syphilitic myocarditis,C0153165,Syphilitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10028616,Myocarditis syphilitic,C0153165,Syphilitic myocarditis,narrow,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10078670,Gonococcal heart disease,C0275666,Gonococcal heart disease,possible,,C,MYOCARD,AESI
+Myocarditis alone,MDR,10019274,Heart disease gonococcal NOS,C0275666,Gonococcal heart disease,possible,,C,MYOCARD,AESI

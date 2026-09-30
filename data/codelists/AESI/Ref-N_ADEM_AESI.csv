@@ -1,0 +1,840 @@
+event_definition,coding_system,code,code_name,concept,concept_name,tags,origin,system,event_abbreviation,type
+Encephalomyelitis acute disseminated,ICD10CM,B06.01,Rubella encephalitis,C0276307,Meningoencephalitis caused by Rubella virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A85.0,Enteroviral encephalomyelitis,C0276429,Enteroviral encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A39.81,Meningococcal encephalitis,C0152957,Meningococcal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A81.2,Progressive multifocal leukoencephalopathy,C0023524,"Leukoencephalopathy, Progressive Multifocal",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.9,"Demyelinating disease of central nervous system, unspecified",C0011302,Demyelinating disease of central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A86,Unspecified viral encephalitis,C2900458,Encephalomyelitis viral,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G36,Other acute disseminated demyelination,C0494468,Other acute disseminated demyelination,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.5,Concentric sclerosis [Balo] of central nervous system,C2875073,Concentric sclerosis [Balo] of central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.4,Subacute necrotizing myelitis of central nervous system,C2875072,Subacute necrotizing myelitis of central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.1,Central demyelination of corpus callosum,C0238265,Marchiafava-Bignami Disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.0,Schilder's disease,C2875070,Diffuse sclerosis of central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G36.9,"Acute disseminated demyelination, unspecified",C0477368,"Acute disseminated demyelination, unspecified",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G36.8,Other specified acute disseminated demyelination,C0477367,Other specified acute disseminated demyelination,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.1,Tropical spastic paraplegia,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.3,Acute transverse myelitis NOS,C0494470,Acute transverse myelitis in demyelinating disease of central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.00,"Acute disseminated encephalitis and encephalomyelitis, unspecified",C2875015,"Acute disseminated encephalitis and encephalomyelitis, unspecified",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.0,Acute disseminated encephalitis and encephalomyelitis (ADEM),C2875014,Acute disseminated encephalitis and encephalomyelitis (ADEM),narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.02,"Encephalitis, post immunization",C0729577,Post-immunization encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A83.4,Australian encephalitis,C0153066,Murray valley encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.91,"Myelitis, unspecified",C2875026,"Myelitis, unspecified",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.90,"Encephalitis and encephalomyelitis, unspecified",C2875025,"Encephalitis and encephalomyelitis, unspecified",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.81,Other encephalitis and encephalomyelitis,C2875022,Other encephalitis and encephalomyelitis,narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.89,Other myelitis,C2875023,Other myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B26.2,Mumps encephalitis,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G96.9,"Disorder of central nervous system, unspecified",C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.82,Acute flaccid myelitis,C4290000,acute flaccid myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G93.9,"Disorder of brain, unspecified",C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A92.31,West Nile virus infection with encephalitis,C0751583,"Encephalitis, West Nile Fever",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A83.3,St Louis encephalitis,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A85.8,Encephalitis lethargica,C0014040,Encephalitis Lethargica,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.9,"Encephalitis, myelitis and encephalomyelitis, unspecified",C0014058,"Encephalitis, myelitis and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04,"Encephalitis, myelitis and encephalomyelitis",C0014058,"Encephalitis, myelitis and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A83.0,Japanese encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A84.1,Central European tick-borne encephalitis,C0014054,"Encephalitis, Central European",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A83.5,California encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B58.2,Toxoplasma meningoencephalitis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B05.0,Postmeasles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A52.19,Syphilitic parkinsonism,C0153169,Syphilitic parkinsonism,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G93.40,"Encephalopathy, unspecified",C0085584,Encephalopathies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.39,Other acute necrotizing hemorrhagic encephalopathy,C3263961,Other acute necrotizing hemorrhagic encephalopathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.32,Postimmunization acute necrotizing hemorrhagic encephalopathy,C3263960,Postimmunization acute necrotizing hemorrhagic encephalopathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G35,Multiple sclerosis,C0270784,Multiple sclerosis of the brainstem,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,I67.3,Binswanger's disease,C0270786,Binswanger Disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A52.14,Late syphilitic encephalitis,C0338425,Late syphilitic encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.2,Central pontine myelinolysis,C0206083,"Myelinolysis, Central Pontine",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.31,Postinfectious acute necrotizing hemorrhagic encephalopathy,C3263959,Postinfectious acute necrotizing hemorrhagic encephalopathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.30,"Acute necrotizing hemorrhagic encephalopathy, unspecified",C3263958,"Acute necrotizing hemorrhagic encephalopathy, unspecified",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.01,Postinfectious acute disseminated encephalitis and encephalomyelitis (postinfectious ADEM),C3263956,Postinfectious acute disseminated encephalitis and encephalomyelitis (postinfectious ADEM),narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.3,Acute necrotizing hemorrhagic encephalopathy,C1719359,Acute necrotizing hemorrhagic encephalopathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B02.0,Zoster encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G13.1,Paraneoplastic limbic encephalopathy,C0338430,Limbic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A17.82,Tuberculous meningoencephalitis,C0275908,Tuberculous meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37,Other demyelinating diseases of central nervous system,C0154692,Other central nervous system demyelinating diseases,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G93.31,Postviral fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,R53.82,"Chronic fatigue, unspecified",C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G93.32,Myalgic encephalomyelitis/chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A87.2,Lymphocytic choriomeningitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G36.0,Neuromyelitis optica [Devic],C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G36.1,Acute and subacute hemorrhagic leukoencephalitis [Hurst],C0349367,Acute and subacute hemorrhagic leukencephalitis [Hurst],possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A81.1,Subacute sclerosing panencephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G92.8,Toxic encephalitis,C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A89,Unspecified viral infection of central nervous system,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A84.0,Far Eastern tick-borne encephalitis [Russian spring-summer encephalitis],C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.89,Other specified demyelinating diseases of central nervous system,C0393663,Other specified demyelinating diseases of the central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G37.8,Oth demyelinating diseases of central nervous system,C0393663,Other specified demyelinating diseases of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.8,"Other encephalitis, myelitis and encephalomyelitis",C0477339,"Other encephalitis, myelitis and encephalomyelitis",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B25.8,Cytomegaloviral encephalitis,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B50.0,Cerebral malaria NOS,C0348986,Plasmodium falciparum malaria with cerebral complications,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A85.1,Adenoviral encephalitis,C0276157,Adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,A69.22,Meningoencephalitis,C0025309,Meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B10.01,Human herpesvirus 6 encephalitis,C1955629,Human Herpesvirus 6 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,G04.2,"Bacterial meningoencephalitis and meningomyelitis, not elsewhere classified",C0869049,"Bacterial meningoencephalitis and meningomyelitis, not elsewhere classified in ICD10CM",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,B00.4,Herpesviral encephalitis,C0276226,Herpes encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD10CM,H47.51,Disorders of visual pathways in (due to) inflam disorders,C0338520,Inflammatory disorder of optic tract,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,036.1,Meningococcal encephalitis,C0152957,Meningococcal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,046.3,Progressive multifocal leukoencephalopathy,C0023524,"Leukoencephalopathy, Progressive Multifocal",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,054.3,Herpetic meningoencephalitis,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.9,"Demyelinating disease of central nervous system, unspecified",C0011302,Demyelinating disease of central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.61,Infectious acute disseminated encephalomyelitis (ADEM),C1719722,Infectious acute disseminated encephalomyelitis (ADEM),narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,062.4,Australian encephalitis,C0153066,Murray valley encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.1,Schilder's disease,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,072.2,Mumps encephalitis,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,348.9,Unspecified condition of brain,C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.63,Postinfectious myelitis,C0751343,"Myelitis, Postinfectious",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,066.41,West Nile Fever with encephalitis,C0751583,"Encephalitis, West Nile Fever",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,062.3,St. Louis encephalitis,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323,"Encephalitis, myelitis, and encephalomyelitis",C0014058,"Encephalitis, myelitis and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,062.0,Japanese encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,063.2,Central european encephalitis,C0014054,"Encephalitis, Central European",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,062.5,California virus encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,130.0,Meningoencephalitis due to toxoplasmosis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,055.0,Postmeasles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,094.82,Syphilitic parkinsonism,C0153169,Syphilitic parkinsonism,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,094.81,Syphilitic encephalitis,C0153168,Syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.72,Toxic myelitis,C2316057,Inflammation of spinal cord caused by toxin,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,348.30,"Encephalopathy, unspecified",C0085584,Encephalopathies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,348.3,"Encephalopathy, not elsewhere classified",C0085584,Encephalopathies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.5,"Encephalitis, myelitis, and encephalomyelitis following immunization procedures",C1719358,"Encephalitis, myelitis, and encephalomyelitis following immunization procedures",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.51,Encephalitis and encephalomyelitis following immunization procedures,C1719353,Encephalitis and encephalomyelitis following immunization procedures,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,052.0,Postvaricella encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,090.41,Congenital syphilitic encephalitis,C0153133,Congenital syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.71,Toxic encephalitis and encephalomyelitis,C1719362,Toxic encephalitis and encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.6,"Postinfectious encephalitis, myelitis, and encephalomyelitis",C1719361,"Postinfectious encephalitis, myelitis, and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.62,Other postinfectious encephalitis and encephalomyelitis,C1719360,Other postinfectious encephalitis and encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.2,"Encephalitis, myelitis, and encephalomyelitis in protozoal diseases classified elsewhere",C1719349,"Encephalitis, myelitis, and encephalomyelitis in protozoal diseases classified elsewhere",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.1,"Encephalitis, myelitis, and encephalomyelitis in rickettsial diseases classified elsewhere",C1719348,"Encephalitis, myelitis, and encephalomyelitis in rickettsial diseases classified elsewhere",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.02,Myelitis in viral diseases classified elsewhere,C1719347,Myelitis in viral diseases classified elsewhere,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.01,Encephalitis and encephalomyelitis in viral diseases classified elsewhere,C1719346,Encephalitis and encephalomyelitis in viral diseases classified elsewhere,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341,Other demyelinating diseases of central nervous system,C0154692,Other central nervous system demyelinating diseases,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.8,Other demyelinating diseases of central nervous system,C0154692,Other central nervous system demyelinating diseases,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.4,"Other encephalitis, myelitis, and encephalomyelitis due to other infections classified elsewhere",C1719352,"Other encephalitis, myelitis, and encephalomyelitis due to other infections classified elsewhere",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.42,Other myelitis due to other infections classified elsewhere,C1719351,Other myelitis due to other infections classified elsewhere,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.41,Other encephalitis and encephalomyelitis due to other infections classified elsewhere,C1719350,Other encephalitis and encephalomyelitis due to other infections classified elsewhere,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,780.71,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.2,Acute (transverse) myelitis,C0270627,"Myelitis, Acute Transverse",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.20,Acute (transverse) myelitis NOS,C0270627,"Myelitis, Acute Transverse",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.22,Idiopathic transverse myelitis,C1719404,Idiopathic transverse myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.21,Acute (transverse) myelitis in conditions classified elsewhere,C1719403,Acute (transverse) myelitis in conditions classified elsewhere,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,341.0,Neuromyelitis optica,C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,046.2,Subacute sclerosing panencephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,063.0,Russian spring-summer [taiga] encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,340,Multiple sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.0,"Encephalitis, myelitis, and encephalomyelitis in viral diseases classified elsewhere",C0477341,"Encephalitis, myelitis and encephalomyelitis in viral diseases classified elsewhere",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.9,"Unspecified causes of encephalitis, myelitis, and encephalomyelitis",C1719369,"Unspecified causes of encephalitis, myelitis, and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.8,"Other causes of encephalitis, myelitis, and encephalomyelitis",C1719368,"Other causes of encephalitis, myelitis, and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.82,Other causes of myelitis,C1719367,Other causes of myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.81,Other causes of encephalitis and encephalomyelitis,C1719365,Other causes of encephalitis and encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.7,"Toxic encephalitis, myelitis, and encephalomyelitis",C1719364,"Toxic encephalitis, myelitis, and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,323.52,Myelitis following immunization procedures,C1997588,Post-immunization myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,058.21,Human herpesvirus 6 encephalitis,C1955629,Human Herpesvirus 6 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICD9CM,056.01,Encephalomyelitis due to rubella,C0033359,Rubella encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163096003,Filovirus encephalitis,C5566917,Filovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721788005,Encephalitis caused by Rubulavirus,C4303117,Encephalitis caused by Rubulavirus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721791005,Encephalitis caused by Nipah virus,C4303115,Nipah Virus Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721790006,Encephalitis caused by Hendra virus,C4303116,Encephalitis caused by Hendra virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230564004,Chronic inflammatory demyelinating polyradiculoneuropathy with central nervous system demyelination,C0393820,Chronic inflammatory demyelinating polyradiculoneuropathy with central nervous system demyelination,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,733193001,Dementia with progressive multifocal leukoencephalopathy,C4518184,Dementia with progressive multifocal leukoencephalopathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,240393003,Listeria cerebritis,C0343442,Listeria Cerebritis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163099005,Epstein-Barr virus encephalitis,C5539656,Epstein-Barr virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163061003,Human T-lymphotropic virus type 1 encephalitis,C5566807,Human T-lymphotropic virus type 1 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163064006,Encephalitis caused by Hantaan virus,C5566808,Encephalitis caused by Hantaan virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,24630008,Listeria meningoencephalitis,C0275683,"Meningoencephalitis, Listeria",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,424911007,Paraneoplastic encephalitis,C1828448,Paraneoplastic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724542001,Encephalitis caused by Venezuelan equine encephalomyelitis virus,C4510694,Encephalitis caused by Venezuelan equine encephalomyelitis virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163068009,Encephalitis caused by Vesiculovirus,C5566809,Encephalitis caused by Vesiculovirus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163057009,Lassa virus encephalitis,C5566803,Lassa virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163058004,Lymphocytic choriomeningitis virus encephalitis,C5566804,Lymphocytic choriomeningitis virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163106008,Arenavirus encephalitis,C5566925,Arenavirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163059007,Junin virus encephalitis,C5566805,Junin virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163103000,Australian bat lyssavirus encephalitis,C5566926,Australian bat lyssavirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163060002,Encephalitis caused by Lagos bat virus,C5566806,Encephalitis caused by Lagos bat virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163102005,Bunyaviridae encephalitis,C5566927,Bunyaviridae encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163055001,Machupo virus encephalitis,C5566801,Machupo virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163056000,Mokola virus encephalitis,C5566802,Mokola virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,415347009,Rio Bravo viral encephalitis,C1532784,Rio Bravo viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724783000,Demyelination of central nervous system due to Behcet disease,C4510698,Demyelination of central nervous system due to Behcet disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,766246000,Marburg acute multiple sclerosis,C4707723,Marburg acute multiple sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163104006,BK polyomavirus encephalitis,C5566818,BK polyomavirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163105007,Alfuy virus encephalitis,C5566819,Alfuy virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163101003,Dengue virus encephalitis,C5566817,Dengue virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,312215006,Infective encephalitis,C0596773,Infectious Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,10082001,Rubella encephalomyelitis,C1305924,Progressive rubella panencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,398329009,Human immunodeficiency virus encephalitis,C0276548,HIV encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,31363004,AIDS with encephalitis,C0276548,HIV encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,398173000,AIDS with encephalitis,C0276548,HIV encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,13225007,Meningoencephalitis caused by Rubella virus,C0276307,Meningoencephalitis caused by Rubella virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,70576008,Enteroviral encephalomyelitis,C0276429,Enteroviral encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,313113003,AIDS with subacute adenoviral encephalitis,C0276544,Subacute adenoviral encephalitis with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,11837006,AIDS with subacute adenoviral encephalitis,C0276544,Subacute adenoviral encephalitis with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,421415007,Subacute adenoviral encephalitis with AIDS (acquired immunodeficiency syndrome),C0276544,Subacute adenoviral encephalitis with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186364009,Meningococcal encephalitis,C0152957,Meningococcal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,18071005,Meningococcal encephalitis,C0152957,Meningococcal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,22255007,Progressive multifocal leukoencephalopathy,C0023524,"Leukoencephalopathy, Progressive Multifocal",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163100002,Coxsackie virus encephalitis,C5566942,Coxsackie virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163097007,Flavivirus encephalitis,C5566943,Flavivirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,9678009,Meningoencephalitis caused by human herpes simplex virus,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186541008,Herpetic meningoencephalitis,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,79450003,Herpetic meningoencephalitis,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163098002,Echovirus encephalitis,C5566944,Echovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,32693004,Demyelination,C0011304,Demyelination,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,40099009,Mumps meningoencephalitis,C0276316,Mumps meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,6118003,Demyelinating disease of central nervous system,C0011302,Demyelinating disease of central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194485009,[X]Demyelinating diseases of the central nervous system,C0011302,Demyelinating disease of central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,418455000,Encephalitis caused by protozoa,C1636781,Encephalitis due to protozoa,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,182961000119101,Acute disseminated encephalomyelitis following infectious disease,C2215113,Acute disseminated encephalomyelitis following infectious disease,narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,703621006,Multifocal clinically isolated syndrome,C3839217,Multifocal clinically isolated syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,771271000,Steroid-responsive encephalopathy associated with autoimmune thyroiditis,C0393639,Hashimoto's encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1177043007,Schistosoma encephalomyelitis,C5567815,Schistosoma encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1177045000,Stratford virus encephalitis,C5567816,Stratford virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,427796004,Encephalitis caused by human herpes simplex virus,C1998385,Encephalitis caused by human herpes simplex virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,763793004,Limbic encephalitis with contactin-associated protein-like 2 antibodies,C4706582,Limbic encephalitis with contactin-associated protein-like 2 antibodies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,75143000,Toxic encephalitis caused by thallium,C0393634,Toxic encephalitis caused by thallium,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1177042002,Toscana virus encephalitis,C5567814,Toscana virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,763794005,Limbic encephalitis with leucine-rich glioma-inactivated 1 antibodies,C4706583,Limbic encephalitis with leucine-rich glioma-inactivated 1 antibodies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163141007,Cerebellar granuloma,C5566842,Cerebellar granuloma,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,443153007,Toxic encephalomyelitis,C2216339,Toxic encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,406573001,Primary encephalitis,C1320182,Primary encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,725413002,Febrile infection related epilepsy syndrome,C4049262,Febrile infection related epilepsy syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724780002,Demyelination of central nervous system co-occurrent and due to neurosarcoidosis,C4511867,Demyelination of central nervous system co-occurrent and due to neurosarcoidosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,46531005,AIDS with encephalomyelitis,C1720079,Encephalomyelitis with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,422089004,Encephalomyelitis with AIDS (acquired immunodeficiency syndrome),C1720079,Encephalomyelitis with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724782005,Demyelination of central nervous system co-occurrent and due to Sjogren disease,C4511865,Demyelination of central nervous system co-occurrent and due to Sjogren disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724784006,Demyelination of central nervous system co-occurrent and due to mitochondrial disease,C4511864,Demyelination of central nervous system co-occurrent and due to mitochondrial disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,716684004,Limbic encephalitis with N-methyl-D-aspartate receptor antibodies,C5700343,Limbic encephalitis with N-methyl-D-aspartate receptor antibodies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,95644001,Systemic lupus erythematosus encephalitis,C0393968,Systemic lupus erythematosus encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163076006,Morbillivirus encephalitis,C5566977,Morbillivirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163078007,Orthopoxvirus encephalitis,C5566978,Orthopoxvirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,712986001,Encephalitis caused by tick-borne encephalitis virus,C4076533,Encephalitis caused by tick-borne encephalitis virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,386766007,Marchiafava-Bignami disease,C0238265,Marchiafava-Bignami Disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192936007,Central demyelination of corpus callosum,C0238265,Marchiafava-Bignami Disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,10513009,Central demyelination of corpus callosum,C0238265,Marchiafava-Bignami Disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,23488005,AIDS with progressive multifocal leucoencephalopathy,C0276507,Progressive multifocal leukoencephalopathy with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,420554003,Progressive multifocal leukoencephalopathy with AIDS (acquired immunodeficiency syndrome),C0276507,Progressive multifocal leukoencephalopathy with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194488006,"[X]Acute disseminated demyelination, unspecified",C0477368,"Acute disseminated demyelination, unspecified",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192934005,"[X]Acute disseminated demyelination, unspecified",C0477368,"Acute disseminated demyelination, unspecified",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,71460009,Trypanosomiasis with encephalitis,C0276868,Trypanosomiasis with encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721766005,Encephalitis caused by Alphavirus,C4303133,Encephalitis caused by Alphavirus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194486005,[X]Other specified acute disseminated demyelination,C0477367,Other specified acute disseminated demyelination,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192929006,Exacerbation of multiple sclerosis,C0581392,Exacerbation of multiple sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,714279000,Human T-cell lymphotropic virus 1-associated myelopathy,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,45129002,HAM - HTLV 1-associated myelopathy,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192733005,Tropical spastic paraplegia,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163074009,Paramyxoviridae encephalitis,C5566988,Paramyxoviridae encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163072008,Parechovirus encephalitis,C5566989,Parechovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1089821000119104,Meningoencephalitis due to Chagas disease,C4039008,Meningoencephalitis due to Chagas disease,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721776008,Encephalitis caused by Polyoma virus,C4303124,Encephalitis caused by Polyoma virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724781003,Demyelination of central nervous system co-occurrent and due to systemic lupus erythematosus,C4511844,Demyelination of central nervous system co-occurrent and due to systemic lupus erythematosus,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,302811004,Progressive congenital rubella encephalomyelitis,C0554630,Progressive congenital rubella encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,111936002,Cerebral sarcoidosis,C0398676,Cerebral sarcoidosis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,783158009,Infundibulo neurohypophysitis,C5190834,Infundibulo neurohypophysitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,91483004,Tuberculous encephalitis,C0275953,Tuberculous encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186221004,Tuberculous encephalitis,C0275953,Tuberculous encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,428635007,Primary viral encephalitis,C1997809,Primary viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230144003,Chronic echovirus meningoencephalitis,C0338389,Chronic echovirus meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192704009,Post-immunization encephalitis,C0729577,Post-immunization encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192726005,Post-immunisation encephalitis NOS,C0729577,Post-immunization encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154988009,Post-immunisation encephalitis,C0729577,Post-immunization encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,237705001,Hypophysitis,C0342409,Hypophysitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,438511000,Benign multiple sclerosis,C2585570,Benign multiple sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,418480000,Eosinophilic meningoencephalitis,C1626406,Eosinophilic meningoencephalitis caused by Angiostrongylus cantonensis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192642009,Inflammatory diseases of the central nervous system,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192778008,Inflammatory diseases of central nervous system NOS,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154992002,Inflammatory diseases of central nervous system NOS,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,39367000,Inflammatory disease of the central nervous system,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194444004,[X]Inflammatory diseases of the central nervous system,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154982005,Inflammatory diseases of the central nervous system,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,66454007,Murray Valley encephalitis,C0153066,Murray valley encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,762352004,Demyelination due to systemic vasculitis,C4546140,Demyelination due to systemic vasculitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,237708004,Granulomatous giant-cell hypophysitis,C0342412,Granulomatous giant-cell hypophysitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,237707009,Lymphocytic hypophysitis of pregnancy,C0342411,Lymphocytic hypophysitis of pregnancy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192932009,Balo concentric sclerosis,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267702006,CNS disorders NOS,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,44875002,Balo's concentric sclerosis,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,49692006,Schilder's disease,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155059003,CNS disorders NOS,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,31646008,Mumps encephalitis,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186646007,Mumps encephalitis,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,52281009,Meningoencephalitis caused by Naegleria,C0276824,Meningoencephalitis caused by Naegleria,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,237706000,Autoimmune hypophysitis,C0342410,Autoimmune Hypophysitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860805006,Encephalomyelitis caused by Neisseria meningitidis,C5397117,Encephalomyelitis caused by Neisseria meningitidis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192641002,Disease of the central nervous system,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267700003,Central nervous system (CNS) disorders NOS,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,275539005,CNS disorder,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267679005,CNS diseases,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194566008,"[X]Disorder of central nervous system, unspecified",C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155049004,CNS disorders NOS,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,138748005,CNS disorder,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,23853001,Disorder of the central nervous system,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,193076009,"[X]Disorder of central nervous system, unspecified",C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154981003,CNS diseases,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267144009,CNS disorder,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,897031002,Acute flaccid myelitis,C4290000,acute flaccid myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,193059005,Brain conditions NOS,C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,81308009,Disorder of brain,C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860842004,Encephalomyelitis caused by Coxiella burnetii,C5397116,Encephalomyelitis caused by Coxiella burnetii,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,733028000,"Multiple sclerosis, ichthyosis, factor VIII deficiency syndrome",C4518551,"Multiple sclerosis, ichthyosis, factor VIII deficiency syndrome",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,31367003,Postvaccinal encephalomyelitis,C0751101,Post-Vaccinal Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,392662004,West Nile encephalitis,C0751583,"Encephalitis, West Nile Fever",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230199007,Post-infectious encephalomyelitis,C0751100,Postinfectious Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,10429004,Saint Louis encephalitis,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,417192005,St. Louis encephalitis virus infection,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,417607009,Neuroinvasive St. Louis encephalitis virus infection,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,783243008,Adenohypophysitis,C5190880,Adenohypophysitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,72986009,Acute hemorrhagic leukoencephalitis,C0014077,"Leukoencephalitis, Acute Hemorrhagic",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,27040004,Experimental allergic encephalomyelitis,C0014072,Experimental Autoimmune Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192735003,Encephalomyelitis NOS,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154991009,Encephalitis/myelitis NOS,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267684004,Encephalitis/myelitis NOS,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,62950007,Encephalomyelitis,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192736002,Encephalitis NOS,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267682000,Encephalitis,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,286936006,Encephalitis/myelitis NOS,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192682002,"Encephalitis, myelitis and encephalomyelitis",C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230196000,Encephalomyelitis NOS,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,50776006,Allergic encephalomyelitis,C5574734,"Encephalomyelitis, Allergic",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,840440006,Encephalitis caused by Leptospira,C5395392,Encephalitis caused by Leptospira,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,773275000,Post-transplant acute limbic encephalitis,C4750744,Acute limbic encephalitis following transplant,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192686004,Polioencephalitis,C0751445,"Encephalitis, Polio",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,61701006,Lymphocytic hypopituitarism,C0271560,Lymphocytic hypopituitarism,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,404235004,Jamestown Canyon virus encephalitis,C1321408,Jamestown Canyon Virus Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,713543002,Demyelinating disease of central nervous system co-occurrent with human immunodeficiency virus infection,C4075966,Demyelinating disease of central nervous system co-occurrent with human immunodeficiency virus infection,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,128211000119102,Meningoencephalitis due to free-living ameba,C4039992,Meningoencephalitis due to free-living ameba,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,20411005,Encephalitis lethargica,C0014040,Encephalitis Lethargica,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186499007,Encephalitis lethargica,C0014040,Encephalitis Lethargica,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186500003,Encephalitis lethargica,C0014040,Encephalitis Lethargica,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,840498003,Encephalitis caused by human immunodeficiency virus type 1,C5397541,Encephalitis caused by human immunodeficiency virus type 1,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721820007,Encephalitis caused by Schistosoma mansoni,C4303094,Encephalitis caused by Schistosoma mansoni,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721819001,Encephalitis caused by Schistosoma haematobium,C4303095,Encephalitis caused by Schistosoma haematobium,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721821006,Encephalitis caused by Schistosoma japonicum,C4303093,Encephalitis caused by Schistosoma japonicum,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721823009,Encephalitis caused by Echinococcus granulosus,C4303091,Encephalitis caused by Echinococcus granulosus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721815007,Encephalitis caused by Trypanosoma brucei,C4303099,Encephalitis caused by Trypanosoma brucei,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721818009,Encephalitis caused by Schistosoma,C4303096,Encephalitis caused by Schistosoma,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267576008,"Encephalitis, myelitis and encephalomyelitis",C0014058,"Encephalitis, myelitis and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,52947006,Japanese encephalitis virus disease,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154345006,Japanese encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,266194002,Japanese encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,83942000,Acute disseminated encephalomyelitis,C0014059,"Encephalomyelitis, Acute Disseminated",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1144966008,Herpes simplex type 1 encephalitis,C2030863,Herpes simplex type 1 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,16901001,Encephalitis caused by European subtype of tick-borne encephalitis virus,C0014054,"Encephalitis, Central European",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,838315004,Encephalomyelitis caused by Burkholderia,C5395258,Encephalomyelitis caused by Burkholderia,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,266103004,California viral encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186588007,California viral encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,418531007,California serogroup virus neuroinvasive disease,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,416442006,California encephalitis virus infection,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,69627004,California encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,417075004,California encephalitis virus infection neuroinvasive disease,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,68197003,Arbovirus encephalitis,C0014055,Arbovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186498004,Epidemic encephalitis,C0014055,Arbovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,285756005,"Arthropod-borne viral encephalitis, vector unknown",C0014055,Arbovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192687008,Arbovirus encephalitis,C0014055,Arbovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,187193005,Toxoplasma encephalitis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,17949000,Meningoencephalitis due to acquired toxoplasmosis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192701001,Toxoplasma encephalitis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186557008,Post-measles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,111872008,Post measles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230178009,Post-measles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154339003,Post-measles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,38523005,Syphilitic parkinsonism,C0153169,Syphilitic parkinsonism,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,26135000,Syphilitic encephalitis,C0153168,Syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192699001,Encephalitis due to congenital syphilis,C0153168,Syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192700000,Encephalitis due to syphilis unspecified,C0153168,Syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1144968009,Herpes simplex type 2 encephalitis,C2030864,Herpes simplex type 2 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,773688007,Chronic lymphocytic inflammation with pontine perivascular enhancement responsive to steroids,C3854437,Chronic lymphocytic inflammation with pontine perivascular enhancement responsive to steroids,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,431520004,Inflammation of spinal cord caused by toxin,C2316057,Inflammation of spinal cord caused by toxin,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721825002,Encephalitis caused by Taenia solium,C4303089,Encephalitis caused by Taenia solium,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,427086003,Bickerstaff's brainstem encephalitis,C1960543,Bickerstaff's brainstem encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721826001,Encephalitis caused by Coenurus cerebralis,C4303088,Encephalitis caused by Coenurus cerebralis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230170002,Kumlinge virus encephalitis,C0338411,Kumlinge virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,193051008,Unspecified encephalopathy,C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155053002,Unspecified encephalopathy,C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,76011009,"Encephalopathy, NOS",C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230174006,Rhabdovirus encephalitis,C0338415,Rhabdovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,735558001,Parasitic infection causing granuloma of cerebrum,C4543829,Parasitic infection causing granuloma of cerebrum,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230175007,Infectious mononucleosis encephalitis,C0338416,Infectious mononucleosis encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,309806000,Encephalitis caused by influenza-virus identified,C0587278,Encephalitis due to influenza-virus identified,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192693000,Encephalitis due to influenza-virus identified,C0587278,Encephalitis due to influenza-virus identified,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230177004,Herpes simiae encephalitis,C0338419,Herpes simiae encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,111897007,Acute necrotizing encephalitis,C0338418,"Encephalitis, Acute Necrotizing",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192926004,Multiple sclerosis of the brainstem,C0270784,Multiple sclerosis of the brainstem,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,18353007,Brain stem multiple sclerosis,C0270784,Multiple sclerosis of the brainstem,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,90099008,Subcortical leukoencephalopathy,C0270786,Binswanger Disease,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,390000004,Binswanger's disease,C0270786,Binswanger Disease,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267578009,Encephalitis NOS,C0014038,Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,45170000,Encephalitis,C0014038,Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230181004,Bacterial encephalitis,C0338424,Bacterial encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230185008,Amebic encephalitis,C0338426,Amebic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230182006,Late syphilitic encephalitis,C0338425,Late syphilitic encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230187000,Granulomatous amebic encephalitis,C0338428,Granulomatous amebic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230186009,Primary amebic encephalitis,C0338427,Primary amebic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860822008,Encephalitis caused by Nocardia,C5396200,Encephalitis caused by Nocardia,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,6807001,Central pontine myelinolysis,C0206083,"Myelinolysis, Central Pontine",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163552008,Koutango virus encephalitis,C5567218,Koutango virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230179001,Chronic viral encephalitis,C0338420,Chronic viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192691003,Encephalitis due to influenza,C0587260,Encephalitis caused by Influenza virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,309789002,Encephalitis caused by Influenza virus,C0587260,Encephalitis caused by Influenza virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721249007,Infection causing encephalomyelitis,C0856705,Infectious Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,840496004,Encephalitis caused by Borrelia,C5395446,Encephalitis caused by Borrelia,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230161000,Acute viral encephalitis,C0546994,Acute viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186497009,Acute viral encephalitis,C0546994,Acute viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194070006,Inflammatory disorder of visual cortex,C0155319,Inflammatory disorder of visual cortex,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230191005,Rasmussen syndrome,C0393484,Rasmussen Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192728006,Rasmussen syndrome,C0393484,Rasmussen Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,84669009,Encephalitis following chickenpox,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192692005,Herpes zoster encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230176008,Herpes zoster encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186509002,Postvaricella encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186521003,Herpes zoster encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192732000,Varicella transverse myelitis,C0338431,Varicella transverse myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230198004,Varicella transverse myelitis,C0338431,Varicella transverse myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230192003,Limbic encephalitis,C0338430,Limbic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,445014002,Paraneoplastic limbic encephalitis,C0338430,Limbic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,783016009,Panhypophysitis,C5190786,Panhypophysitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192724008,Post mixed vaccination encephalitis,C0393480,Post mixed vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230189002,Focal encephalitis,C0393482,Focal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230190006,Brainstem encephalitis,C0393483,Brainstem encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,70884002,Allergic encephalitis,C0521657,Allergic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,32735002,Congenital syphilitic encephalitis,C0153133,Congenital syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,773395008,Limbic encephalitis with dipeptidyl-peptidase 6 antibodies,C4750833,Limbic encephalitis with dipeptidyl-peptidase 6 antibodies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,87129002,AIDS with CNS demyelinating disease,C1720104,Central nervous system demyelinating disease with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,420718004,Central nervous system demyelinating disease with AIDS (acquired immunodeficiency syndrome),C1720104,Central nervous system demyelinating disease with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,840442003,Encephalitis caused by human immunodeficiency virus type 2,C5395332,Encephalitis caused by human immunodeficiency virus type 2,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186503001,Viral encephalitis NOS,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,266190006,Encephalitis - viral,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,187400005,[X]Unspecified viral encephalitis,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192694006,Encephalitis in viral disease NOS,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,34476008,Viral encephalitis,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154321007,Encephalitis - viral,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1179388006,Usutu virus encephalitis,C5568209,Usutu virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1169361002,Limbic encephalitis with neurexin-3 antibodies,C5567235,Limbic encephalitis with neurexin-3 antibodies,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230210001,Brainstem pyogenic abscess,C0393497,Brainstem pyogenic abscess,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163546007,Mycobacterial encephalomyelitis,C5567231,Mycobacterial encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,31112008,Tuberculous meningoencephalitis,C0275908,Tuberculous meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192931002,Other central nervous system demyelinating diseases,C0154692,Other central nervous system demyelinating diseases,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,445359003,Bacterial meningoencephalitis,C0920250,Bacterial meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163549000,Trypanosoma cruzi encephalitis,C5567230,Trypanosoma cruzi encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,267683005,Myalgic encephalitis,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154989001,Myalgic encephalitis,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,193054000,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,271798008,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,51771007,Postviral fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,52702003,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,247372003,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155062000,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,111851005,Subacute adenoviral encephalitis,C0276161,Subacute adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,55623006,Toxic encephalopathy caused by mercury,C0751855,Mercury Encephalopathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,47000000,Acute transverse myelitis,C0270627,"Myelitis, Acute Transverse",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1089811000119106,Meningoencephalitis caused by Acanthamoeba,C3509215,Meningoencephalitis caused by Acanthamoeba,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,276817007,Lymphocytic meningoencephalitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,276064006,Lymphocytic meningitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186495001,Armstrong's disease,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,38666007,Lymphocytic choriomeningitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,398136003,Meningitis caused by lymphocytic choriomeningitis virus,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192668002,Lymphocytic choriomeningitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,721781004,Infection caused by Lymphocytic choriomeningitis virus,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,397961002,Encephalomyelitis caused by lymphocytic choriomeningitis virus,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,79897009,Cerebellar abscess,C0270628,Cerebellar pyogenic abscess,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192740006,Cerebellar intracranial abscess,C0270628,Cerebellar pyogenic abscess,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,303061003,Cerebellar pyogenic abscess,C0270628,Cerebellar pyogenic abscess,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1186728004,Pediatric multiple sclerosis,C5568571,Pediatric multiple sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,425756000,Idiopathic transverse myelitis,C1719404,Idiopathic transverse myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,426373005,Relapsing remitting multiple sclerosis,C0751967,"Multiple Sclerosis, Relapsing-Remitting",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,425500002,Secondary progressive multiple sclerosis,C0751965,"Multiple Sclerosis, Secondary Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,6955002,Negishi encephalitis,C0276294,Negishi encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186595003,Negishi virus encephalitis,C0276294,Negishi encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186589004,Ilheus virus encephalitis,C0276295,Ilheus virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,71105005,Ilheus virus encephalitis,C0276295,Ilheus virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,428700003,Primary progressive multiple sclerosis,C0751964,"Multiple Sclerosis, Primary Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,439567002,Malignant multiple sclerosis,C2586221,Malignant multiple sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1082451000119102,Encephalitis caused by Actinomyces,C3839903,Encephalitis caused by Actinomyces,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163073003,Respiratory syncytial virus encephalitis,C5567257,Respiratory syncytial virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,58766009,Granulomatous meningoencephalomyelitis,C0270633,Granulomatous meningoencephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,308634000,Demyelination of spinal cord,C0586256,Demyelination of spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,95649006,Demyelinating disease of the spinal cord,C0586256,Demyelination of spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155057001,Spinal demyelination,C0586256,Demyelination of spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724565006,White matter disorder due to nutritional deficiency,C4517955,White matter disorder due to nutritional deficiency,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,735421004,Leukoencephalopathy with brain stem and spinal cord involvement and high lactate syndrome,C1970180,Leukoencephalopathy with Brainstem and Spinal Cord Involvement and Lactate Elevation,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,703537008,Leukoencephalopathy with brainstem and spinal cord involvement and lactate elevation,C1970180,Leukoencephalopathy with Brainstem and Spinal Cord Involvement and Lactate Elevation,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724991000,Epilepsy co-occurrent and due to demyelinating disorder,C4511050,Epilepsy co-occurrent and due to demyelinating disorder,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,428175000,Primary amebic encephalitis caused by Naegleria fowleri,C1997622,Primary amebic encephalitis caused by Naegleria fowleri,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,51399001,Toxic encephalopathy caused by lead,C0338472,Toxic encephalopathy caused by lead,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163548008,Encephalitis caused by Vilyuisk human encephalitis virus,C5567148,Encephalitis caused by Vilyuisk human encephalitis virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,55489003,Eosinophilic meningoencephalitis,C0221397,Eosinophilic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,16092000,Cord multiple sclerosis,C0338475,Multiple sclerosis of the spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192927008,Multiple sclerosis of the spinal cord,C0338475,Multiple sclerosis of the spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163550000,Kyasanur Forest disease virus encephalitis,C5567149,Kyasanur Forest disease virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,25044007,Neuromyelitis optica,C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163533002,Kokobera virus encephalitis,C5567143,Kokobera virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192933004,Acute and subacute haemorrhagic leucoencephalitis [Hurst],C0349367,Acute and subacute hemorrhagic leukencephalitis [Hurst],possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163541002,Meningoencephalitis caused by Lymphocytic choriomeningitis virus,C5567146,Meningoencephalitis caused by Lymphocytic choriomeningitis virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192937003,Subacute necrotising myelitis,C0472347,Subacute Necrotizing Myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230379007,Subacute necrotizing myelitis,C0472347,Subacute Necrotizing Myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,16415361000119105,Radiologically isolated syndrome,C4324721,Radiologically isolated syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192685000,Subacute sclerosing panencephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186484007,Subacute sclerosing panencephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,416154000,Measles inclusion body encephalitis,C0038522,Subacute Sclerosing Panencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,84196008,Dawson's inclusion body encephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,359686005,Van Bogaert's sclerosing leukoencephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,28394000,"Toxic encephalitis, NOS",C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192731007,Toxic encephalitis NOS,C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,154990005,Toxic encephalitis,C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192730008,Toxic encephalitis,C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,187388000,[X]Viral infections of the central nervous system,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,302810003,Viral infection of central nervous system,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,187405000,[X]Unspecified viral infection of the central nervous system,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,128118007,Central nervous system viral infection,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163553003,Kunjin virus encephalitis,C5567150,Kunjin virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,414093008,Encephalitis due to tick-borne encephalitis virus,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,283866008,East Russian spring-summer encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,359682007,Far Eastern tick-borne encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,17648006,Far Eastern tick-borne encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186591007,Encephalitis caused by Far Eastern tick-borne encephalitis virus,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,359678005,Forest-spring encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230372003,Acute relapsing multiple sclerosis,C0393664,"Multiple Sclerosis, Acute Relapsing",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230373008,Chronic progressive multiple sclerosis,C0393665,"Multiple Sclerosis, Chronic Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,816984002,Progressive multiple sclerosis,C0393665,"Multiple Sclerosis, Chronic Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,724778008,Progressive relapsing multiple sclerosis,C0393666,"Multiple Sclerosis, Progressive Relapsing",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230374002,Multiple sclerosis (MS) remitting progressive,C0393666,"Multiple Sclerosis, Progressive Relapsing",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230377009,Extrapontine myelinolysis,C0393667,Extrapontine Myelinolysis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163063000,Human herpesvirus 8 encephalitis,C5566995,Human herpesvirus 8 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,24700007,Multiple sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192930001,Multiple sclerosis NOS,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155023009,Multiple sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192928003,Generalised multiple sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194487001,[X]Other specified demyelinating diseases of the central nervous system,C0393663,Other specified demyelinating diseases of the central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192935006,Other specified central nervous system demyelinating disease,C0393663,Other specified demyelinating diseases of the central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192939000,Other specified central nervous system demyelination NOS,C0393663,Other specified demyelinating diseases of the central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163062005,Human T-lymphotropic virus type 2 encephalitis,C5566996,Human T-lymphotropic virus type 2 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163070000,Retroviridae encephalitis,C5566991,Retroviridae encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163071001,Rift Valley virus encephalitis,C5566992,Rift Valley virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,29197009,Meningoencephalomyelitis,C0025310,Meningoencephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230208003,Cerebral pyogenic abscess,C0750961,"Brain Abscess, Pyogenic",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194453006,"[X]Encephalitis, myelitis and encephalomyelitis in viral diseases classified elsewhere",C0477341,"Encephalitis, myelitis and encephalomyelitis in viral diseases classified elsewhere",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194451008,"[X]Other encephalitis, myelitis and encephalomyelitis",C0477339,"Other encephalitis, myelitis and encephalomyelitis",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,419868009,Encephalitis caused by rickettsia,C1628970,Encephalitis caused by rickettsia,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,76474001,Herpetic acute necrotizing encephalitis,C0001338,Herpetic Acute Necrotizing Encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,95643007,Autoimmune encephalitis,C5671289,Autoimmune Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,763310000,Acute necrotizing encephalopathy of childhood,C4706387,Acute necrotizing encephalopathy of childhood,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192690002,Cytomegaloviral encephalitis,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,83159006,Cytomegalovirus encephalitis,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192689006,Rubella encephalitis,C0238099,Rubella encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186791009,Plasmodium falciparum malaria with cerebral complications,C0348986,Plasmodium falciparum malaria with cerebral complications,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,420244003,Encephalitis with AIDS (acquired immunodeficiency syndrome),C1720396,Encephalitis with AIDS (acquired immunodeficiency syndrome),exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,407472000,Nairoviral encephalitis,C1319957,Nairoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,415525005,Encephalitis caused by Siberian tick-borne encephalitis virus,C1532265,Encephalitis caused by Siberian tick-borne encephalitis virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,409556004,Q fever encephalitis,C1443895,Q fever encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,424761009,Paraneoplastic encephalomyelitis,C0751912,Paraneoplastic Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,703622004,Monofocal clinically isolated syndrome,C3838942,Monofocal clinically isolated syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,765751002,Autoimmune encephalopathy with parasomnia and obstructive sleep apnea,C4707562,Autoimmune encephalopathy with parasomnia and obstructive sleep apnea,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,713260006,Subacute adenoviral encephalitis co-occurrent with human immunodeficiency virus infection,C4076293,Subacute adenoviral encephalitis co-occurrent with human immunodeficiency virus infection,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,56529007,Adenoviral encephalitis,C0276157,Adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186501004,Adenoviral encephalitis,C0276157,Adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,417872000,Neuroinvasive Cache Valley encephalitis virus infection,C1627781,Neuroinvasive Cache Valley encephalitis virus infection,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1177071001,Puumala virus encephalitis,C5567877,Puumala virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,7125002,Meningoencephalitis,C0025309,Meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,22811006,Leukoencephalopathy,C0270612,Leukoencephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,16058431000119104,White matter disease,C0270612,Leukoencephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,40230002,Encephalitis caused by Langat virus,C0023001,Encephalitis caused by Langat virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,35640008,Acute adenoviral encephalitis,C0276158,Acute adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,82547005,Acute adenoviral meningoencephalitis,C0276159,Acute adenoviral meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192710009,Post tetanus vaccination encephalitis,C0393466,Post tetanus vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192711008,Post diphtheria vaccination encephalitis,C0393467,Post diphtheria vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192712001,Post pertussis vaccination encephalitis,C0393468,Post pertussis vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,764998005,Non-herpetic acute limbic encephalitis,C4707262,Non-herpetic acute limbic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192713006,Post smallpox vaccination encephalitis,C0393469,Post smallpox vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192706006,Post typhoid vaccination encephalitis,C0393462,Post typhoid vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1186834004,Immunoglobulin G4 related hypophysitis,C5568611,Immunoglobulin G4 related hypophysitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192707002,Post paratyphoid vaccination encephalitis,C0393463,Post paratyphoid vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1084741000119103,Meningoencephalitis due to Blastomyces dermatitidis,C3838765,Meningoencephalitis due to Blastomyces dermatitidis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192708007,Post cholera vaccination encephalitis,C0393464,Post cholera vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,713487008,Progressive multifocal leukoencephalopathy co-occurrent with human immunodeficiency virus infection,C4076113,Progressive multifocal leukoencephalopathy co-occurrent with human immunodeficiency virus infection,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192709004,Post plague vaccination encephalitis,C0393465,Post plague vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163065007,Human betaherpesvirus 7 encephalitis,C5567403,Human betaherpesvirus 7 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230188005,Post-influenza encephalitis,C0393460,Post-influenza encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192705005,Post BCG vaccination encephalitis,C0393461,Post BCG vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860866005,Encephalitis caused by Trypanosoma brucei rhodesiense,C5395937,Encephalitis caused by Trypanosoma brucei rhodesiense,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860868006,Encephalitis caused by Me Tri virus,C5395939,Encephalitis caused by Me Tri virus,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192721000,Post influenza vaccination encephalitis,C0393477,Post influenza vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192722007,Post hepatitis A vaccination encephalitis,C0393478,Post hepatitis A vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192723002,Post hepatitis B vaccination encephalitis,C0393479,Post hepatitis B vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1179508005,Osmotic demyelination syndrome,C2721559,Osmotic demyelination syndrome,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,41370002,Myelitis,C0026975,Myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192717007,Post measles vaccination encephalitis,C0393473,Post measles vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1177044001,Sin Nombre virus encephalitis,C5567895,Sin Nombre virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,16631009,Transverse myelopathy syndrome,C0026976,"Myelitis, Transverse",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192718002,Post polio vaccination encephalitis,C0393474,Post polio vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192719005,Post mumps vaccination encephalitis,C0393475,Post mumps vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192720004,Post rubella vaccination encephalitis,C0393476,Post rubella vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192714000,Post rabies vaccination encephalitis,C0393470,Post rabies vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192715004,Post typhus vaccination encephalitis,C0393471,Post typhus vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192716003,Post yellow fever vaccination encephalitis,C0393472,Post yellow fever vaccination encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860841006,Encephalomyelitis caused by bacterium,C5395922,Encephalomyelitis caused by bacterium,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194060009,Inflammatory disorder of optic chiasm,C0338516,Inflammatory disorder of optic chiasm,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,764993001,Mycoplasma pneumoniae encephalitis,C4707240,Mycoplasma pneumoniae encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,429436007,Post-immunization myelitis,C1997588,Post-immunization myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192938008,Balo concentric sclerosis,C0004712,Balo's Concentric Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230380005,Balo concentric sclerosis,C0004712,Balo's Concentric Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,445967004,Clinically isolated syndrome,C2921627,Clinically isolated syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,441512004,Encephalitis caused by human herpesvirus 6 infection,C1955629,Human Herpesvirus 6 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,266100001,Herpes simplex encephalitis,C0276226,Herpes encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,428638009,Encephalitis caused by Herpesvirus,C0276226,Herpes encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192688003,Herpes simplex encephalitis,C0276226,Herpes encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,195928007,Influenza with encephalopathy,C0276348,Influenza with encephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,155561002,Influenza with encephalopathy,C0276348,Influenza with encephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,74644004,Influenza with encephalopathy,C0276348,Influenza with encephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,194065004,Inflammatory disorder of optic tract,C0338520,Inflammatory disorder of optic tract,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186492003,Enteroviral encephalitis,C0338401,Enteroviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230162007,Enteroviral encephalitis,C0338401,Enteroviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860865009,Encephalitis caused by Trypanosoma brucei gambiense,C5395936,Encephalitis caused by Trypanosoma brucei gambiense,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230166005,Rocio virus encephalitis,C0338404,Rocio virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230522004,Inflammatory disorder of optic radiation,C0338525,Inflammatory disorder of optic radiation,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192729003,Post-infectious encephalitis NOS,C0393459,Post-infectious encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,192727001,Post-infectious encephalitis,C0393459,Post-infectious encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860851007,Granuloma of cerebral hemispheric lobe,C5395930,Granuloma of cerebral hemispheric lobe,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,860852000,Granuloma of brainstem,C5395931,Granuloma of brainstem,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,788915008,Henipavirus encephalitis,C5230213,Henipavirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1163551001,Louping ill virus encephalitis,C5567316,Louping ill virus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230183001,Fungal encephalitis,C0393456,Fungal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,53622003,Cerebral malaria,C0024534,"Malaria, Cerebral",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186799006,Malarial encephalitis,C0024534,"Malaria, Cerebral",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,1186907003,Xanthomatous hypophysitis,C5568640,Xanthomatous hypophysitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,230168006,Tensaw encephalitis,C0338408,Tensaw encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,15316002,Simian B encephalomyelitis,C0276235,Simian B encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,128191000,Encephalomyelitis due to rubella,C0033359,Rubella encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,SNOMEDCT_US,186569000,Rubella encephalomyelitis,C0033359,Rubella encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10077384,Chronic inflammatory demyelinating polyneuropathy,C0393819,"Polyradiculoneuropathy, Chronic Inflammatory Demyelinating",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10057645,Chronic inflammatory demyelinating polyradiculoneuropathy,C0393819,"Polyradiculoneuropathy, Chronic Inflammatory Demyelinating",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10072650,CIDP,C0393819,"Polyradiculoneuropathy, Chronic Inflammatory Demyelinating",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027988,"Mosquito-borne viral encephalitis, unspecified",C0751098,Mosquito-borne viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027987,Mosquito-borne viral encephalitis,C0751098,Mosquito-borne viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10087910,AIDP,C4551910,Acute Inflammatory Demyelinating Polyneuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10067898,Acute inflammatory demyelinating polyradiculoneuropathy,C4551910,Acute Inflammatory Demyelinating Polyneuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10067604,Acute inflammatory demyelinating polyradiculopathy,C4551910,Acute Inflammatory Demyelinating Polyneuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027272,Meningococcal encephalitis,C0152957,Meningococcal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014597,Encephalitis meningococcal,C0152957,Meningococcal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036807,Progressive multifocal leukoencephalopathy,C0023524,"Leukoencephalopathy, Progressive Multifocal",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036806,Progressive multifocal leucoencephalopathy,C0023524,"Leukoencephalopathy, Progressive Multifocal",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10019999,Herpetic meningoencephalitis,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10074247,Herpes simplex meningoencephalitis,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027285,Meningoencephalitis herpetic,C0019385,Herpetic meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10012306,Demyelination NOS,C0011304,Demyelination,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10012305,Demyelination,C0011304,Demyelination,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10053423,Myelinolysis,C0011304,Demyelination,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10012301,"Demyelinating disease of central nervous system, unspecified",C0011302,Demyelinating disease of central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10061118,Encephalitis protozoal,C1636781,Encephalitis due to protozoa,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014605,Encephalitis protozoal NOS,C1636781,Encephalitis due to protozoa,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10069432,Hashimoto's encephalopathy,C0393639,Hashimoto's encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10086128,Encephalomyelitis viral,C2900458,Encephalomyelitis viral,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10076948,"Acute encephalitis with refractory, repetitive partial seizures",C4049262,Febrile infection related epilepsy syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10079438,Febrile infection-related epilepsy syndrome,C4049262,Febrile infection related epilepsy syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10076332,Cerebral lupus,C0393968,Systemic lupus erythematosus encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10026828,Marchiafava-Bignami disease,C0238265,Marchiafava-Bignami Disease,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10070425,Multiple sclerosis exacerbation,C0581392,Exacerbation of multiple sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10044696,Tropical spastic paresis,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10020456,Human T-cell leukaemia virus type I myelopathy,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10019104,HAM,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10060479,Human T-cell leukemia virus type I myelopathy,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10067606,Tropical spastic paraparesis,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10020427,HTLV-I-associated myelopathy,C0030481,Tropical Spastic Paraparesis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10044221,Toxic encephalopathy,C0149504,"Encephalopathy, Toxic",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10044227,Toxic induced encephalopathy,C0149504,"Encephalopathy, Toxic",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014638,Encephalopathy toxic,C0149504,"Encephalopathy, Toxic",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10008131,Cerebral sarcoidosis,C0398676,Cerebral sarcoidosis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014602,Encephalitis post immunisation,C0729577,Post-immunization encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10054373,Encephalitis post immunization,C0729577,Post-immunization encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10062767,Hypophysitis,C0342409,Hypophysitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10051288,Central nervous system inflammation,C0178264,Inflammatory disease of the central nervous system,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10003804,Australian encephalitis,C0153066,Murray valley encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10053981,Murray Valley encephalitis,C0153066,Murray valley encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014583,Encephalitis australia,C0153066,Murray valley encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10047885,WEE infection,C0153064,"Encephalomyelitis, Western Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10047916,Western equine encephalitis virus infection,C0153064,"Encephalomyelitis, Western Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10047915,Western equine encephalitis,C0153064,"Encephalomyelitis, Western Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014614,Encephalitis western equine,C0153064,"Encephalomyelitis, Western Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014274,EEE infection,C0153065,"Encephalomyelitis, Eastern Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014587,Encephalitis eastern equine,C0153065,"Encephalomyelitis, Eastern Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014060,Eastern equine encephalitis,C0153065,"Encephalomyelitis, Eastern Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014061,Eastern equine encephalitis virus infection,C0153065,"Encephalomyelitis, Eastern Equine",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10039595,Schilder's disease,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10049020,Encephalitis periaxialis diffusa,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10062949,Poliodystrophia cerebri,C0007795,Diffuse Cerebral Sclerosis of Schilder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028258,Mumps encephalitis,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028269,Mumps virus encephalitis,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014598,Encephalitis mumps,C0153093,Mumps encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10075692,Autoimmune hypophysitis,C0342410,Autoimmune Hypophysitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10009712,Central nervous system disorder (NOS),C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10013202,Disorder central nervous system,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10029204,"Nervous system disorder, central",C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007944,Central nervous system disorder NOS,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007943,Central nervous system disorder,C0007682,CNS disorder,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10082097,Acute flaccid myelitis,C4290000,acute flaccid myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10006120,Brain disorder NOS,C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10045690,Unspecified condition of brain,C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10006119,Brain disorder (NOS),C0006111,Brain Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014588,Encephalitis following immunization procedures,C0751101,Post-Vaccinal Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10056198,Encephalitis following immunisation procedures,C0751101,Post-Vaccinal Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10043847,Tick-borne viral encephalitis,C0014061,Tick-Borne Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10043848,"Tick-borne viral encephalitis, unspecified",C0014061,Tick-Borne Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10041896,St. Louis encephalitis,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10041898,St. Louis encephalitis virus infection,C0014060,"Encephalitis, St. Louis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10023498,Kuru agent infection,C0022802,Kuru,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10023497,Kuru,C0022802,Kuru,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10058994,Acute haemorrhagic leukoencephalitis,C0014077,"Leukoencephalitis, Acute Hemorrhagic",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10058993,Acute hemorrhagic leukoencephalitis,C0014077,"Leukoencephalitis, Acute Hemorrhagic",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014619,Encephalomyelitis,C0014070,Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10069544,Japanese encephalitis immunization,C1282361,Administration of Japanese encephalitis vaccine,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10069535,Japanese encephalitis immunisation,C1282361,Administration of Japanese encephalitis vaccine,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036011,Polioencephalitis,C0751445,"Encephalitis, Polio",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10063685,Lymphocytic hypophysitis,C0271560,Lymphocytic hypopituitarism,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10052369,Encephalitis lethargica,C0014040,Encephalitis Lethargica,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014615,"Encephalitis, myelitis, and encephalomyelitis",C0014058,"Encephalitis, myelitis and encephalomyelitis",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10023119,Japanese B encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10023123,Japanese encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014596,Encephalitis Japanese B,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10023120,Japanese B viral encephalitis,C0014057,Japanese Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10000709,Acute disseminated encephalomyelitis,C0014059,"Encephalomyelitis, Acute Disseminated",narrow,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007931,Central European encephalitis,C0014054,"Encephalitis, Central European",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007033,California virus encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014584,Encephalitis california,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007032,California encephalitis,C0014053,"Encephalitis, California",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10003410,Arthropod-borne viral encephalitis,C0014055,Arbovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10057854,Cerebral toxoplasmosis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10044270,Toxoplasma gondii encephalitis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014610,Encephalitis toxoplasmal,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10044271,Toxoplasmal encephalitis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027284,Meningoencephalitis due to toxoplasmosis,C0085315,"Toxoplasmosis, Cerebral",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10057301,Post measles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014604,Encephalitis post measles,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036395,Postmeasles encephalitis,C0153048,Post measles encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10042919,Syphilitic parkinsonism,C0153169,Syphilitic parkinsonism,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10042904,Syphilitic encephalitis,C0153168,Syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10075198,CLIPPERS syndrome,C3854437,Chronic lymphocytic inflammation with pontine perivascular enhancement responsive to steroids,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10075197,Chronic lymphocytic inflammation with pontine perivascular enhancement responsive to steroids,C3854437,Chronic lymphocytic inflammation with pontine perivascular enhancement responsive to steroids,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10077247,Bickerstaff's brainstem encephalitis,C1960543,Bickerstaff's brainstem encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10076985,Bickerstaff's encephalitis,C1960543,Bickerstaff's brainstem encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10084544,White matter demyelination,C5400330,White matter demyelination,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014641,"Encephalopathy, unspecified",C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014623,Encephalopathies,C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014625,Encephalopathy,C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014636,Encephalopathy NOS,C0085584,Encephalopathies,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10058321,Binswanger's disease,C0270786,Binswanger Disease,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10081441,Subcortical arteriosclerotic encephalopathy,C0270786,Binswanger Disease,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036254,Post encephalitic syndrome,C0338664,Post-encephalitic syndrome,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014581,Encephalitis,C0014038,Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10076379,Brain inflammation,C0014038,Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014601,Encephalitis NOS,C0014038,Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10065185,Encephalitis bacterial,C0338424,Bacterial encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007968,Central pontine myelinolysis,C0206083,"Myelinolysis, Central Pontine",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007969,Central pontine myelolysis,C0206083,"Myelinolysis, Central Pontine",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014621,Encephalomyelitis infection,C0856705,Infectious Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10071141,Rasmussen encephalitis,C0393484,Rasmussen Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10071145,Rasmussen syndrome,C0393484,Rasmussen Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036438,Postvaricella encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10086746,Varicella encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10074255,Varicella zoster encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014603,Encephalitis post varicella,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10057243,Post varicella encephalitis,C0153017,Varicella Zoster Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10078012,Limbic encephalitis,C0338430,Limbic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10078013,Paraneoplastic limbic encephalitis,C0338430,Limbic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10048997,Encephalitis brain stem,C0393483,Brainstem encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10056387,Encephalitis allergic,C0521657,Allergic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014627,Encephalopathy allergic,C0521657,Allergic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10010643,Congenital syphilitic encephalitis,C0153133,Congenital syphilitic encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10047439,Viral encephalitis,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014612,Encephalitis viral,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014613,Encephalitis viral NOS,C0243010,Viral Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10031890,Other demyelinating diseases of central nervous system,C0154692,Other central nervous system demyelinating diseases,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10051256,Meningoencephalitis bacterial,C0920250,Bacterial meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10008874,Chronic fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10026978,ME,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036323,Post-viral fatigue syndrome NOS,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028414,Myalgic encephalomyelitis,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036322,Post-viral fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10039246,Royal Free disease,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10057244,Post viral fatigue syndrome,C0015674,Chronic Fatigue Syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10041047,Slow virus infection,C0276161,Subacute adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10042296,Subacute myeloopticoneuropathy,C0221059,Subacute myelo-optic neuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10041225,SMON,C0221059,Subacute myelo-optic neuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10058009,Subacute myelo-opticoneuropathy,C0221059,Subacute myelo-optic neuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10024887,Louping ill,C0024025,Louping Ill,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027219,Meningitis due to lymphocytic choriomeningitis virus,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10008761,Choriomeningitis lymphocytic,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10024047,LCM virus infection,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10070611,Lymphocytic meningitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10025266,Lymphocytic choriomeningitis,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10025267,Lymphocytic choriomeningitis virus infection,C0024266,Lymphocytic Choriomeningitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10088927,Cerebellar abscess,C0270628,Cerebellar pyogenic abscess,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10063399,Relapsing-remitting multiple sclerosis,C0751967,"Multiple Sclerosis, Relapsing-Remitting",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10063400,Secondary progressive multiple sclerosis,C0751965,"Multiple Sclerosis, Secondary Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10063401,Primary progressive multiple sclerosis,C0751964,"Multiple Sclerosis, Primary Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10045057,Tuberculous encephalitis or myelitis,C0152696,"Tuberculous encephalitis or myelitis, unspecified",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10045063,"Tuberculous encephalitis or myelitis, unspecified examination",C0152696,"Tuberculous encephalitis or myelitis, unspecified",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10010981,Cord demyelinating disorder,C0586256,Demyelination of spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10010982,Cord demyelinating disorder NOS,C0586256,Demyelination of spinal cord,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10024002,Late effects of viral encephalitis,C0153337,Late effects of viral encephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10029322,Neuromyelitis optica,C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10052887,Neuro-optic myelitis,C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10012574,Devic's disease,C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10077875,Neuromyelitis optica spectrum disorder,C0027873,Neuromyelitis Optica,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10086136,Subacute necrotising myelitis,C0472347,Subacute Necrotizing Myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10086135,Subacute necrotizing myelitis,C0472347,Subacute Necrotizing Myelitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10079292,Radiologically isolated syndrome,C4324721,Radiologically isolated syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10042297,Subacute sclerosing panencephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10080799,Van Bogaert encephalitis,C0038522,Subacute Sclerosing Panencephalitis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10077096,Tick-borne encephalitis immunization,C0588217,Administration of tick-borne encephalitis vaccine,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10077094,Tick-borne encephalitis immunisation,C0588217,Administration of tick-borne encephalitis vaccine,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014607,Encephalitis toxic,C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10044220,Toxic encephalitis,C0154659,Toxic Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10007964,Central nervous system viral infection NOS,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10061037,Central nervous system viral infection,C0348165,Central Nervous System Viral Diseases,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10032822,Other specified mosquito-borne viral encephalitis,C0348168,Other mosquito-borne viral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10056421,Taiga encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10056378,Russian spring-summer encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10039339,Russian spring-summer (taiga) encephalitis,C0015632,"Encephalitis, Far Eastern Russian",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10053395,Progressive multiple sclerosis,C0393665,"Multiple Sclerosis, Chronic Progressive",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10067063,Progressive relapsing multiple sclerosis,C0393666,"Multiple Sclerosis, Progressive Relapsing",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10074871,Extrapontine myelinolysis,C0393667,Extrapontine Myelinolysis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028245,Multiple sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10039720,Sclerosis multiple,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10013451,Disseminated sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028053,MS,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10032609,Other specified demyelinating diseases of central nervous system,C0393663,Other specified demyelinating diseases of the central nervous system,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10075691,Autoimmune encephalopathy,C5671289,Autoimmune Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014582,Encephalitis allergic (autoimmune),C5671289,Autoimmune Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10072378,Encephalitis autoimmune,C5671289,Autoimmune Encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014585,Encephalitis CMV,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014586,Encephalitis cytomegalovirus,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10011829,Cytomegalovirus encephalitis,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10011826,Cytomegaloviral encephalitis,C0238097,Cytomegalovirus encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10069587,Paraneoplastic encephalomyelitis,C0751912,Paraneoplastic Encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10080441,Adenoviral encephalitis,C0276157,Adenoviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10027282,Meningoencephalitis,C0025309,Meningoencephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10024382,Leukoencephalopathy,C0270612,Leukoencephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10056389,Brain damage,C0270611,Brain Injuries,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10067967,Brain injury,C0270611,Brain Injuries,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10049561,Cerebral damage,C0270611,Brain Injuries,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10069350,Osmotic demyelination syndrome,C2721559,Osmotic demyelination syndrome,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028524,Myelitis,C0026975,Myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028526,Myelitis NOS,C0026975,Myelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10028527,Myelitis transverse,C0026976,"Myelitis, Transverse",exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10086129,Encephalomyelitis bacterial,C5395922,Encephalomyelitis caused by bacterium,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10010252,Concentric sclerosis,C0004712,Balo's Concentric Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10067607,Balo's concentric sclerosis,C0004712,Balo's Concentric Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10083971,Balo disease,C0004712,Balo's Concentric Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10071068,Clinically isolated syndrome,C2921627,Clinically isolated syndrome,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10061811,Demyelinating polyneuropathy,C0270922,Peripheral demyelinating neuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10012304,Demyelinating polyneuropathy NOS,C0270922,Peripheral demyelinating neuropathy,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10081897,Human herpesvirus 6 encephalitis,C1955629,Human Herpesvirus 6 encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014590,Encephalitis herpes,C0276226,Herpes encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10019953,Herpes simplex encephalitis,C0276226,Herpes encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10058104,Influenza encephalopathy,C0276348,Influenza with encephalopathy,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10063946,Encephalitis enteroviral,C0338401,Enteroviral encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10057235,Post infectious encephalitis,C0393459,Post-infectious encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10036381,Postinfectious encephalitis,C0393459,Post-infectious encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10065170,Encephalitis fungal,C0393456,Fungal encephalitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10063094,Cerebral malaria,C0024534,"Malaria, Cerebral",possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014620,Encephalomyelitis due to rubella,C0033359,Rubella encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,MDR,10014622,Encephalomyelitis rubella,C0033359,Rubella encephalomyelitis,possible,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICPC,N86,Multiple sclerosis,C0026769,Multiple Sclerosis,exclude,,N,ADEM,AESI
+Encephalomyelitis acute disseminated,ICPC,N71.03,Encephalitis,C0000000,Unassociated custom codes,possible,,N,ADEM,AESI

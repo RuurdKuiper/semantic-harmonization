@@ -1,117 +1,38 @@
 # Semantic Harmonization Pipeline
 
-An AI-assisted pipeline for phenotype codelist generation and reduce the time needed
-for expert code review.
+An AI-assisted pipeline for finding clinical terminology codes that match a
+medical condition and reducing the amount of expert code review required.
 
 ## Pipeline
 
-The EDF (Event Definition Form) (in .yaml format, currenlty manually extracted 
-from the phenotype's `.docx` description) is the input for this system.
-The system's job is to search the **full** clinical coding systems (currently
-only ICD-10-CM; SNOMED CT (US), MedDRas and others still need to be implemented) 
-for codes matching that EDF. The AESI `.csv` files are used as the expert
-generated ground truth used only to score the pipeline's output.
+An Event Definition Form (EDF) is the semantic input. Original EDF documents
+are retained as DOCX, while reviewed YAML representations are used at runtime.
+AESI codelist CSVs are expert-generated ground truth used only for evaluation.
 
-Each run (`main.py`) executes the following steps in order for a single
-phenotype:
+For a single phenotype, `main.py`:
 
-1. **Load the EDF** (`src/data/loaders.py::load_edf`) — reads the structured
-   Event Definition Form YAML for the phenotype (`data/raw/edf/<phenotype>.yaml`):
-   clinical definition, inclusion/exclusion criteria, narrow/exclude decision
-   rules, synonyms, etc. This is rendered into a single text block
-   (`EventDefinitionForm.to_prompt_context()`) that is reused as both the
-   retrieval query and the LLM context in later steps.
+1. Loads `data/edfs/yamls/<phenotype>.yaml`, including its definition,
+   inclusion/exclusion criteria, decision rules, synonyms, anchor codes,
+   ambiguities, and references.
+2. Loads the selected complete terminology sources from `data/codes/csv/`.
+   Parsed corpora are cached in `data/codes/parquet/`; a cache is rebuilt when
+   its source CSV is newer.
+3. Runs BM25 plus sentence-embedding retrieval. Vector indexes are cached per
+   vocabulary in `data/codes/embeddings/` and validated against the current
+   corpus before reuse.
+4. Passes retrieved candidates directly to LLM classification. LLM re-ranking
+   is implemented but currently disabled.
+5. Classifies each candidate as `Narrow` or `Exclude`. The `Possible` category
+   is optional via `llm.use_possible_category` and is off by default.
+6. Adds a `manual_review` flag and reason to low-confidence results. Review
+   annotation never removes, relabels, or otherwise changes a result.
+7. Evaluates the output against the phenotype's registered AESI codelist,
+   restricted to selected vocabularies and gold codes actually present in the
+   loaded terminology versions. The metrics report how many unavailable gold
+   rows were excluded. Predictions and metrics are written to `results/`.
 
-   > **Note on the raw `.docx` source files:** the EDF YAMLs were authored by
-   > hand from the original `.docx` phenotype descriptions in
-   > `data/raw/<Phenotype>/*.docx`. There is no code that parses `.docx` at
-   > runtime — this needs to be done manually when adding a new phenotype.
-   > We will let an LLM do this in future versions.
-
-2. **Load the full reference code system(s)** (`src/data/code_systems.py::load_code_system_corpus`) —
-   loads the full code list for each vocabulary in `retrieval.vocabularies`
-   (e.g. all ~74k ICD-10-CM codes from `data/codes/icd10.xlsx`). Each vocabulary
-   is parsed once and cached to `data/processed/codes_<VOCAB>.parquet`; subsequent
-   runs read the cache instead of re-parsing the source file. The corpus is then
-   normalized by `src/data/preprocessing.py::preprocess_corpus` (code standardization,
-   deduplication, text normalization).
-
-4. **Hybrid retrieval** (`src/retrieval/hybrid.py::hybrid_retrieval`) —
-   ranks every code in the full corpus against the EDF text using a weighted
-   combination of BM25 lexical matching (`src/retrieval/lexical.py`) and
-   sentence-embedding cosine similarity (`src/retrieval/embeddings.py`),
-   returning the top `retrieval.top_k` candidates (default 50). The embedding
-   index itself is cached per vocabulary set + model to
-   `data/processed/embeddings_<VOCAB>_<model>.npz`, so a large corpus is only
-   ever embedded once, not on every run (`EmbeddingIndex.from_cache_or_build`).
-
-   If you want to ship those precomputed embeddings with a deployment, use:
-
-   ```bash
-   python scripts/package_embeddings.py
-   gh release upload v1.0.0 dist/release-assets/*
-   ```
-
-   The packaging script copies the four vocabulary-specific `.npz` files from
-   `data/processed/` into `dist/release-assets/` and writes an
-   `embeddings-manifest.json` with file sizes. The Streamlit app can then
-   download missing assets from a GitHub Release instead of rebuilding them.
-
-   When embeddings change, update them like this:
-
-   1. Regenerate the affected `.npz` file(s) in `data/processed/`.
-   2. Run `python scripts/package_embeddings.py` again.
-   3. Create a new GitHub release tag, or reuse the same tag if you are
-      intentionally replacing an unreleased draft release.
-   4. Upload the staged assets with `gh release upload <tag> dist/release-assets/*`.
-   5. Update `GITHUB_RELEASE_TAG` in the Streamlit deployment to that release.
-
-   When adding a new vocabulary:
-
-   1. Add the vocabulary loader and source file in `src/data/code_systems.py`
-      and place the new `.npz` in `data/processed/` using the same naming
-      pattern: `embeddings_<VOCAB>_<model>.npz`.
-   2. Add the new vocabulary to the release packaging script if you want it
-      included in the packaged asset set.
-   3. Re-run `python scripts/package_embeddings.py`.
-   4. Create a new release and upload the refreshed asset bundle.
-   5. Update the Streamlit app config if the new vocabulary should be selected
-      by default.
-
-5. **LLM ranking** (`src/llm/rank.py::llm_rank`) — sends the EDF context and
-   the retrieved candidates to the configured LLM, which re-orders them by
-   clinical relevance (`relevance_score`). Any candidate the LLM omits from
-   its response is appended at the end so nothing is silently dropped.
-
-6. **LLM classification** (`src/llm/classify.py::llm_classify`) — sends the
-   ranked candidates back to the LLM, which assigns each one a label
-   (`Narrow`/`Possible`/`Exclude`), a confidence score, and a short
-   explanation, using the same EDF context for grounding.
-
-7. **Uncertainty selection** (`src/uncertainty/selection.py::select_uncertain`) —
-   flags candidates for human review when their confidence is below
-   `uncertainty.confidence_threshold` and/or they were classified as
-   `Possible` (configurable via `uncertainty.possible_requires_review`).
-
-8. **Evaluation** (`src/evaluation/metrics.py`) — the classified candidates are
-   rendered into the ground-truth CSV schema via `to_predicted_codelist()`
-   (`coding_system`, `code`, `code_name`, `concept`, `concept_name`, `tags`).
-   If there is a ground-truth AESI export for the phenotype
-   (`paths.aesi_datasets`), the predicted codelist is compared against it
-   (both filtered to `evaluation.compare_vocabularies`, currently `[ICD10CM]`
-   since that's the only full reference list loaded), computing retrieval
-   sensitivity/precision/F1 ('Narrow codes' as positives) and classification
-   accuracy/Cohen's kappa.
-
-The LLM calls in steps 4–5 go through `src/llm/client.py`, which resolves
-whether to use Anthropic or OpenAI (`resolve_provider()`, based on
-`llm.provider` in config or auto-detection from whichever `*_API_KEY` is set
-in `.env`) before dispatching the request.
-
-> **Note:** step 4 (LLM ranking) is currently **disabled** — candidates go
-> straight from retrieval to classification via `src/llm/rank.py::skip_rank`.
-> The `llm_rank` function is still implemented and tested, just not called by
-> `main.py` or `app.py`, so it can be re-enabled later without rewriting it.
+Available full code systems are ICD-10-CM, ICD-9-CM, ICPC, MedDRA (`MDR`),
+RCD2, and SNOMED CT (US).
 
 ## Setup
 
@@ -119,68 +40,113 @@ in `.env`) before dispatching the request.
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env  # then set ANTHROPIC_API_KEY and/or OPENAI_API_KEY
+cp .env.example .env  # set ANTHROPIC_API_KEY and/or OPENAI_API_KEY
 ```
 
 ## Usage
 
-### Command line
+Run one sample:
 
 ```bash
 python main.py --phenotype myocarditis --config configs/default.yaml
 ```
 
-Each run writes two files to `--output-dir` (defaults to `paths.results_dir`,
-i.e. `data/processed/results/`):
+This writes:
 
-- `<phenotype>_predicted.csv` — the predicted codelist, in the same schema as
-  the ground-truth AESI export (`coding_system`, `code`, `code_name`,
-  `concept`, `concept_name`, `tags`).
-- `<phenotype>_metrics.json` — review items, review rate, and evaluation
-  metrics (also printed to stdout).
+- `results/<phenotype>_predicted.csv` — AESI-compatible fields plus confidence,
+  explanation, `manual_review`, and `review_reason`.
+- `results/<phenotype>_metrics.json` — review summary and evaluation metrics.
 
-### Web UI
+Run the Streamlit app:
 
 ```bash
 streamlit run app.py
 ```
 
-A single-page Streamlit UI mirrors the same pipeline stages interactively:
-coding-system selection, EDF input (paste, upload, or load a bundled
-example), hybrid retrieval with a live results table, LLM classification
-(provider/model picker), and a final block to upload a ground-truth AESI CSV
-and view the computed metrics.
+The app supports every configured code system and bundled EDF. It writes the
+same outputs to `results/` and provides download buttons for the classified CSV
+and metrics JSON.
 
-Note: the first run for a given vocabulary will be slow (~30s for the full
-ICD-10-CM list) while it builds and caches the embedding index; subsequent
-runs reuse that cache and are fast.
+### Run all samples and compare settings
 
-## Data
+Run every registered EDF/AESI pair with the default settings:
 
-- `data/raw/edf/*.yaml` — structured phenotype definitions (EDFs), hand-authored
-  from the source `.docx` files described in step 1 above. This is the actual
-  input to the system.
-- `data/codes/*.csv` — the full reference code lists, registered in
-  `configs/default.yaml` under `paths.code_systems`. These are the retrieval
-  universes for step 2/3 (see `src/data/code_systems.py`). Their processed
-  forms and embeddings are cached under `data/processed/` (gitignored,
-  regenerated automatically).
-- `data/raw/<Phenotype>/*_AESI_*.csv` — expert-review exports used as **ground
-  truth for evaluation only** (not for retrieval), registered per phenotype in
-  `configs/default.yaml` under `paths.aesi_datasets`.
-- `data/raw/codes/codes.csv` / `data/gold/<phenotype>_gold.csv` — legacy
-  standalone corpus/gold format, still supported by `src/data/loaders.py` but
-  no longer used by `main.py`.
+```bash
+python scripts/run_all_samples.py
+```
 
-Real curated data is provided for `myocarditis`, `erythema_multiforme`, and
-`guillain_barre`. Add a new phenotype by creating an EDF YAML and registering
-its ground-truth AESI CSV in `configs/default.yaml`. Adding a new vocabulary
-(e.g. SNOMED CT (US), MedDRA) requires adding a loader to
-`src/data/code_systems.py::CODE_SYSTEM_LOADERS` and a source file.
+Run a retrieval-settings grid:
+
+```bash
+python scripts/run_all_samples.py --top-k 5 10 25 --lexical-weight 0.25 0.5 0.75
+```
+
+The embedding weight is set to `1 - lexical weight`. Add `--possible` to test
+three-label classification. Outputs are grouped beneath
+`results/experiments/<run-id>/`; `summary.csv` and `summary.json` compare all
+phenotype/setting combinations. By default, each phenotype is run only against
+vocabularies present in its AESI ground truth; use `--all-vocabularies` to
+override this. The command prints each pipeline stage and live progress bars
+for embedding-index preparation and LLM classification.
+
+Useful options:
+
+```bash
+python scripts/run_all_samples.py --phenotypes myocarditis kidney_disease
+python scripts/run_all_samples.py --run-id baseline --top-k 10 25
+```
+
+Generate a publication-style Markdown report from an experiment:
+
+```bash
+python scripts/summarize_experiment.py results/experiments/top-k-50
+```
+
+This writes `experiment_report.md` beside the experiment summary. It includes
+an abstract, settings-level averages, pooled Narrow TP/TN/FP/FN and derived
+metrics, and a complete per-phenotype results table. Use `--output <path>` to
+choose another destination.
+
+## Data layout
+
+```text
+data/
+├── codes/
+│   ├── csv/          # source terminology exports
+│   ├── parquet/      # regenerated normalized caches
+│   └── embeddings/   # regenerated vector indexes
+├── edfs/
+│   ├── docx/         # original Event Definition Forms
+│   └── yamls/        # structured runtime EDFs
+└── codelists/
+    └── AESI/         # expert reference codelists
+results/              # predictions, metrics, and experiment summaries
+```
+
+Eight samples are registered: ADEM, AMI, eczema vaccinatum, erythema
+multiforme, Guillain-Barré syndrome, kidney disease, myocarditis, and type 1
+diabetes.
+
+To add a phenotype, place its reviewed YAML in `data/edfs/yamls/`, retain the
+source document in `data/edfs/docx/`, place its reference export in
+`data/codelists/AESI/`, and register the AESI path in `configs/default.yaml`.
+
+## Embedding release assets
+
+To stage all configured precomputed embedding files for a GitHub Release:
+
+```bash
+python scripts/package_embeddings.py
+gh release upload <tag> dist/release-assets/*
+```
+
+The app can download missing assets when `GITHUB_REPOSITORY_OWNER`,
+`GITHUB_REPOSITORY_NAME`, and `GITHUB_RELEASE_TAG` are set. Otherwise it builds
+missing indexes locally.
 
 ## Testing
 
 ```bash
-pytest                      # full suite
-pytest -m "not embeddings"  # skip tests that download a sentence-transformers model
+pytest
+pytest -m "not embeddings"
 ```

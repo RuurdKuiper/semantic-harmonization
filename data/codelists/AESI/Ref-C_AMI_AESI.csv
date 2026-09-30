@@ -1,0 +1,371 @@
+event_definition,coding_system,code,code_name,concept,concept_name,tags,origin,system,event_abbreviation,type
+Acute myocardial Infarction,ICD10CM,I25.5,Ischemic cardiomyopathy,C0349782,Ischemic cardiomyopathy,possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.02,ST elevation (STEMI) myocardial infarction involving left anterior descending coronary artery,C2882093,ST elevation (STEMI) myocardial infarction involving left anterior descending coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.0,ST elevation (STEMI) myocardial infarction of anterior wall,C2882090,ST elevation (STEMI) myocardial infarction of anterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.01,ST elevation (STEMI) myocardial infarction involving left main coronary artery,C2882091,ST elevation (STEMI) myocardial infarction involving left main coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.09,ST elevation (STEMI) myocardial infarction involving other coronary artery of anterior wall,C2882098,ST elevation (STEMI) myocardial infarction involving other coronary artery of anterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.1,ST elevation (STEMI) myocardial infarction of inferior wall,C2882099,ST elevation (STEMI) myocardial infarction of inferior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.3,ST elevation (STEMI) myocardial infarction of unspecified site,C0348591,Acute transmural myocardial infarction of unspecified site,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I22,Subsequent ST elevation (STEMI) and non-ST elevation (NSTEMI) myocardial infarction,C0348593,Subsequent myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.4,Non-ST elevation (NSTEMI) myocardial infarction,C4509200,Type 1 non-ST elevation myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.5,Rupture of papillary muscle as current complication following acute myocardial infarction,C3665604,Rupture of papillary muscle as current complication following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I22.8,Subsequent ST elevation (STEMI) myocardial infarction of other sites,C2882152,Subsequent ST elevation (STEMI) myocardial infarction of other sites,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I22.9,Subsequent ST elevation (STEMI) myocardial infarction of unspecified site,C2882155,Subsequent ST elevation (STEMI) myocardial infarction of unspecified site,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I24.1,Dressler's syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.19,ST elevation (STEMI) myocardial infarction involving other coronary artery of inferior wall,C0494578,Acute transmural myocardial infarction of inferior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21,coronary (artery) rupture,C0264688,Coronary artery rupture,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I22.1,Subsequent ST elevation (STEMI) myocardial infarction of inferior wall,C3839202,Subsequent ST segment elevation myocardial infarction of inferior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.9,"Acute myocardial infarction, unspecified",C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.2,ST elevation (STEMI) myocardial infarction of other sites,C4509198,Type 1 ST elevation myocardial infarction of other sites,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.29,ST elevation (STEMI) myocardial infarction involving other sites,C2882118,ST elevation (STEMI) myocardial infarction involving other sites,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.2,Ventricular septal defect as current complication following acute myocardial infarction,C0340331,Post-infarction ventricular septal defect,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.11,ST elevation (STEMI) myocardial infarction involving right coronary artery,C2882101,ST elevation (STEMI) myocardial infarction involving right coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.21,ST elevation (STEMI) myocardial infarction involving left circumflex coronary artery,C2882108,ST elevation (STEMI) myocardial infarction involving left circumflex coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.0,Hemopericardium as current complication following acute myocardial infarction,C0348865,Hemopericardium due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.1,Atrial septal defect as current complication following acute myocardial infarction,C0348866,Atrial septal defect due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.3,Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction,C0348867,Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I21.A1,Myocardial infarction type 2,C4521180,Myocardial infarction due to demand ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I22.0,Subsequent ST elevation (STEMI) myocardial infarction of anterior wall,C2882131,Subsequent ST segment elevation myocardial infarction of anterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.6,"Thrombosis of atrium, auricular appendage, and ventricle as current complications following acute myocardial infarction",C0348876,"Thrombosis of atrium, auricular appendage, and ventricle due to and following acute myocardial infarction",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD10CM,I23.4,Rupture of chordae tendineae as current complication following acute myocardial infarction,C0349074,Rupture of chordae tendinae due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.7,"Acute myocardial infarction, subendocardial infarction",C0155655,"Acute myocardial infarction, subendocardial infarction",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.62,"True posterior wall infarction, subsequent episode of care",C0155654,"True posterior wall infarction, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.61,"True posterior wall infarction, initial episode of care",C0155653,"True posterior wall infarction, initial episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.8,"Acute myocardial infarction, of other specified sites",C0155659,"Acute myocardial infarction, of other specified sites",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.72,"Subendocardial infarction, subsequent episode of care",C0155658,"Subendocardial infarction, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.71,"Subendocardial infarction, initial episode of care",C0155657,"Acute myocardial infarction, subendocardial infarction, initial episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.60,"True posterior wall infarction, episode of care unspecified",C0155652,"True posterior wall infarction, episode of care unspecified",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.52,"Acute myocardial infarction of other lateral wall, subsequent episode of care",C0155650,"Acute myocardial infarction, of other lateral wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.41,"Acute myocardial infarction of other inferior wall, initial episode of care",C0155645,"Acute myocardial infarction, of other inferior wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.40,"Acute myocardial infarction of other inferior wall, episode of care unspecified",C0155644,"Acute myocardial infarction, of other inferior wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.4,"Acute myocardial infarction, of other inferior wall",C0155643,"Acute myocardial infarction, of other inferior wall",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.32,"Acute myocardial infarction of inferoposterior wall, subsequent episode of care",C0155642,"Acute myocardial infarction of inferoposterior wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.51,"Acute myocardial infarction of other lateral wall, initial episode of care",C0155649,"Acute myocardial infarction, of other lateral wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.50,"Acute myocardial infarction of other lateral wall, episode of care unspecified",C0155648,"Acute myocardial infarction, of other lateral wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.5,"Acute myocardial infarction, of other lateral wall",C0155647,"Acute myocardial infarction, of other lateral wall",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.42,"Acute myocardial infarction of other inferior wall, subsequent episode of care",C0155646,"Acute myocardial infarction, of other inferior wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.31,"Acute myocardial infarction of inferoposterior wall, initial episode of care",C0155641,"Acute myocardial infarction, of inferoposterior wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.30,"Acute myocardial infarction of inferoposterior wall, episode of care unspecified",C0155640,"Acute myocardial infarction of inferoposterior wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.92,"Acute myocardial infarction of unspecified site, subsequent episode of care",C0155665,"Acute myocardial infarction, unspecified site, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.91,"Acute myocardial infarction of unspecified site, initial episode of care",C0155664,"Acute myocardial infarction, unspecified site, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.82,"Acute myocardial infarction of other specified sites, subsequent episode of care",C0155662,"Acute myocardial infarction of other specified sites, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.81,"Acute myocardial infarction of other specified sites, initial episode of care",C0155661,"Acute myocardial infarction, of other specified sites, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.80,"Acute myocardial infarction of other specified sites, episode of care unspecified",C0155660,"Acute myocardial infarction of other specified sites, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,411.0,Postmyocardial infarction syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.3,"Acute myocardial infarction, of inferoposterior wall",C0340304,Acute myocardial infarction of inferoposterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.2,"Acute myocardial infarction, of inferolateral wall",C0340308,Acute myocardial infarction of inferolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.12,"Acute myocardial infarction of other anterior wall, subsequent episode of care",C0155634,"Acute myocardial infarction, of other anterior wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.11,"Acute myocardial infarction of other anterior wall, initial episode of care",C0155633,"Acute myocardial infarction, of other anterior wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.10,"Acute myocardial infarction of other anterior wall, episode of care unspecified",C0155632,"Acute myocardial infarction of other anterior wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.1,"Acute myocardial infarction, of other anterior wall",C0155631,"Acute myocardial infarction, of other anterior wall",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.22,"Acute myocardial infarction of inferolateral wall, subsequent episode of care",C0155638,"Acute myocardial infarction, of inferolateral wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.21,"Acute myocardial infarction of inferolateral wall, initial episode of care",C0155637,"Acute myocardial infarction, of inferolateral wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.20,"Acute myocardial infarction of inferolateral wall, episode of care unspecified",C0155636,"Acute myocardial infarction, of inferolateral wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.02,"Acute myocardial infarction of anterolateral wall, subsequent episode of care",C0155630,"Acute myocardial infarction, of anterolateral wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.70,"Subendocardial infarction, episode of care unspecified",C0494580,Acute subendocardial myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.01,"Acute myocardial infarction of anterolateral wall, initial episode of care",C0155629,"Acute myocardial infarction, of anterolateral wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.00,"Acute myocardial infarction of anterolateral wall, episode of care unspecified",C0155628,"Acute myocardial infarction, of anterolateral wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.0,"Acute myocardial infarction, of anterolateral wall",C0155627,Acute myocardial infarction of anterolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410,Acute myocardial infarction,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.90,"Acute myocardial infarction of unspecified site, episode of care unspecified",C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.9,"Acute myocardial infarction, unspecified site",C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,429.6,Rupture of papillary muscle,C0155713,Rupture of papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,429.5,Rupture of chordae tendineae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,ICD9CM,410.6,"Acute myocardial infarction, true posterior wall infarction",C0264706,True posterior myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,428752002,Recent myocardial infarction,C1998297,Recent myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,15713121000119105,Acute ST segment elevation myocardial infarction due to right coronary artery occlusion,C4040918,Acute ST segment elevation myocardial infarction due to right coronary artery occlusion,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,428196007,Mixed myocardial ischemia and infarction,C1997401,Mixed myocardial ischemia and infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,473376007,Rupture of right atrioventricular (not morphologically tricuspid) valve leaflet,C3532842,Rupture of right atrioventricular (not morphologically tricuspid) valve leaflet,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,473375006,Rupture of tricuspid valve leaflet,C3532841,Rupture of tricuspid valve leaflet,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,3098007,Rupture of interventricular septum,C0242875,Ventricular Septal Rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,308065005,H/O: Myocardial infarction in last year,C0585891,H/O: Myocardial infarction in last year,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,161516005,H/O: Myocardial infarction in last year,C0585891,H/O: Myocardial infarction in last year,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,138785002,H/O: Myocardial infarction in last year,C0585891,H/O: Myocardial infarction in last year,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,473379000,Rupture of left atrioventricular (not morphologically mitral) valve leaflet,C3532845,Rupture of left atrioventricular (not morphologically mitral) valve leaflet,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,79009004,Acute myocardial infarction of septum,C0340297,Acute myocardial infarction of septum,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194849004,Generalized ischemic myocardial dysfunction,C0349782,Ischemic cardiomyopathy,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,371068009,Myocardial infarction with complication,C1299620,Myocardial infarction with complication,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,868225002,Acute ST segment elevation myocardial infarction due to occlusion of posterior descending branch of right coronary artery,C5396563,Acute ST segment elevation myocardial infarction due to occlusion of posterior descending branch of right coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,735566005,Rupture of coronary artery co-occurrent and due to aneurysm of coronary artery,C4543835,Rupture of coronary artery co-occurrent and due to aneurysm of coronary artery,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,15712881000119105,Acute ST segment elevation myocardial infarction of anterolateral wall,C4038851,Acute ST segment elevation myocardial infarction of anterolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,285981000119103,Acute ST segment elevation myocardial infarction involving left anterior descending coronary artery,C3531778,Acute ST segment elevation myocardial infarction involving left anterior descending coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,836295007,Acute myocardial infarction of inferolateral wall with posterior extension,C5394904,Acute myocardial infarction of inferolateral wall with posterior extension,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,195545006,[X]Acute transmural myocardial infarction of unspecified site,C0348591,Acute transmural myocardial infarction of unspecified site,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194807009,[X]Acute transmural myocardial infarction of unspecified site,C0348591,Acute transmural myocardial infarction of unspecified site,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,195546007,[X]Subsequent myocardial infarction of other sites,C0348592,Subsequent myocardial infarction of other sites,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194859003,Subsequent myocardial infarction of other sites,C0348592,Subsequent myocardial infarction of other sites,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,195547003,[X]Subsequent myocardial infarction of unspecified site,C0348593,Subsequent myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194856005,Subsequent myocardial infarction,C0348593,Subsequent myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194860008,[X]Subsequent myocardial infarction of unspecified site,C0348593,Subsequent myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,15960981000119105,Mural thrombus of left ventricle following acute myocardial infarction,C4303688,Mural thrombus of left ventricle following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,840609007,Acute ST segment elevation myocardial infarction due to occlusion of anterior descending branch of left coronary artery,C5395459,Acute ST segment elevation myocardial infarction due to occlusion of anterior descending branch of left coronary artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,2610009,Ischaemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,414795007,Myocardial ischemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,414545008,Ischemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,155322009,Ischaemic heart disease NOS,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194878003,Ischaemic heart disease NOS,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,195540001,Ischaemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,32598000,Acute coronary insufficiency,C0151744,Myocardial Ischemia,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194795001,IHD - Ischaemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,271430002,Ischaemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,155303000,Ischaemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233822007,Myocardial ischaemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,41702007,Cardiac ischaemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194867006,Rupture of papillary muscle as current complication following acute myocardial infarction,C3665604,Rupture of papillary muscle as current complication following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,297197008,Ruptured tricuspid chordae,C0574047,Ruptured tricuspid chordae,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,373145006,Double vessel coronary artery disease,C0581375,Double coronary vessel disease,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194843003,Double coronary vessel disease,C0581375,Double coronary vessel disease,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,42531007,Microinfarct of heart,C0264696,Microinfarct of heart,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194824003,Microinfarction of heart,C0264696,Microinfarct of heart,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,827164008,Delayed postmyocardial infarction pericarditis,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,66189004,Dressler's syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,62695002,Acute anteroseptal myocardial infarction,C0264699,Acute anteroseptal myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194798004,Acute anteroapical infarction,C0264698,Acute anteroapical myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,52035003,Acute anteroapical myocardial infarction,C0264698,Acute anteroapical myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194823009,Acute coronary insufficiency,C0264693,Acute coronary insufficiency,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,413444003,Acute coronary insufficiency,C0264693,Acute coronary insufficiency,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,46109009,Subendocardial ischemia,C0264695,Subendocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,373144005,Single vessel coronary artery disease,C0581374,Single coronary vessel disease,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194842008,Single coronary vessel disease,C0581374,Single coronary vessel disease,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,148623002,Examination for suspected cardiovascular disease,C0420138,Examination for suspected cardiovascular disease,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,171405001,Examination for suspected cardiovascular disease,C0420138,Examination for suspected cardiovascular disease,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,76593002,Acute myocardial infarction of inferoposterior wall,C0340304,Acute myocardial infarction of inferoposterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142027006,ECG: old myocardial infarction,C4048179,EKG: old myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164867002,EKG: old myocardial infarction,C4048179,EKG: old myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703212004,Acute myocardial infarction during procedure,C3839342,Acute myocardial infarction during procedure,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,65547006,Acute myocardial infarction of inferolateral wall,C0340308,Acute myocardial infarction of inferolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,879955009,Myocardial infarction with non-obstructive coronary artery,C5437413,MINOCA,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,28931004,Coronary artery rupture,C0264688,Coronary artery rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,846683001,Acute ST segment elevation myocardial infarction due to occlusion of intermediate artery,C5395649,Acute ST segment elevation myocardial infarction due to occlusion of intermediate artery,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,58612006,Acute myocardial infarction of lateral wall,C0340311,Acute myocardial infarction of lateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233838001,Acute posterior myocardial infarction,C0340318,Acute posterior myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,10273003,Acute infarction of papillary muscle,C0264674,Acute infarction of papillary muscle,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,155319007,Acute Q wave myocardial infarction,C0582803,Acute Q wave myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194805001,Acute Q wave myocardial infarction,C0582803,Acute Q wave myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,304914007,Acute Q wave myocardial infarction,C0582803,Acute Q wave myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,314207007,Non-Q wave myocardial infarction,C0542269,Non-Q wave myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,250984000,Torn aortic cusp,C0428797,Torn aortic cusp,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703209002,Subsequent ST segment elevation myocardial infarction of inferior wall,C3839202,Subsequent ST segment elevation myocardial infarction of inferior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233843008,Silent myocardial infarction,C0340324,Silent myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194796000,Cardiac rupture after acute myocardial infarction,C0340324,Silent myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,387785661000119105,History of myocardial infarction due to atherothrombotic coronary artery disease,C5438408,History of myocardial infarction due to atherothrombotic coronary artery disease,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,70211005,Acute myocardial infarction of anterolateral wall,C0155627,Acute myocardial infarction of anterolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,370477004,Atrial rupture,C0877045,Atrial rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,155304006,Acute myocardial infarction,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,57054005,Acute myocardial infarction,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194811003,Acute myocardial infarction NOS,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,266288001,Acute myocardial infarction,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,401314000,Acute non-ST segment elevation myocardial infarction,C1276061,Acute non-ST segment elevation myocardial infarction (disorder),narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,29889000,Rupture of heart,C0018813,Myocardial rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233847009,Cardiac rupture due to and following acute myocardial infarction,C0340332,Cardiac rupture due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,155321002,Acute non-Q wave infarction,C0585017,Acute non-Q wave infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194803008,Acute non-Q wave infarction,C0585017,Acute non-Q wave infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,307140009,Acute non-Q wave infarction,C0585017,Acute non-Q wave infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,22298006,Myocardial infarction,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,66514008,Heart attack,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233824008,Myocardial infarction,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233846000,Post-infarction ventricular septal defect,C0340331,Post-infarction ventricular septal defect,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194864004,Post-infarction ventricular septal defect,C0340331,Post-infarction ventricular septal defect,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,398274000,Coronary artery thrombosis,C0010072,Coronary Thrombosis,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,1142308000,Mitral valve regurgitation due to acute myocardial infarction,C3838851,Mitral valve regurgitation due to acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703326006,Mitral regurgitation due to acute myocardial infarction,C3838851,Mitral valve regurgitation due to acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,394710008,First myocardial infarction,C1273976,First myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,393588004,First myocardial infarction,C1273976,First myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,401303003,Acute ST segment elevation myocardial infarction,C1303258,Acute ST segment elevation myocardial infarction (disorder),narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194857001,Subsequent myocardial infarction of anterior wall,C0348862,Subsequent myocardial infarction of anterior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194858006,Subsequent myocardial infarction of inferior wall,C0348863,Subsequent myocardial infarction of inferior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194862000,Hemopericardium due to and following acute myocardial infarction,C0348865,Hemopericardium due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194863005,Atrial septal defect due to and following acute myocardial infarction,C0348866,Atrial septal defect due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194865003,Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction,C0348867,Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,266250003,Mitral papillary muscle rupture,C0238414,Mitral papillary muscle rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,16837681000119104,Myocardial infarction due to demand ischemia,C4521180,Myocardial infarction due to demand ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,195134001,Rupture of papillary muscle,C0155713,Rupture of papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,5919001,Rupture of papillary muscle,C0155713,Rupture of papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703210007,Subsequent ST segment elevation myocardial infarction of anterior wall,C2882131,Subsequent ST segment elevation myocardial infarction of anterior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,195133007,Rupture of chordae tendinae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,155384008,Rupture of chordae tendinae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,274098004,Rupture of chordae tendineae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,18443005,Rupture of chordae tendinae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194868001,"Thrombosis of atrium, auricular appendage, and ventricle due to and following acute myocardial infarction",C0348876,"Thrombosis of atrium, auricular appendage, and ventricle due to and following acute myocardial infarction",narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703360004,Subsequent non-ST segment elevation myocardial infarction,C3840108,Subsequent non-ST segment elevation myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457622003,Rupture of tricuspid valve papillary muscle,C3531814,Rupture of tricuspid valve papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,270906004,Mitral chordae rupture,C0340366,Mitral chordae rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233860003,Post-infarction mitral papillary muscle rupture,C0340368,Post-infarction mitral papillary muscle rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,393587009,Acute coronary syndrome,C0948089,Acute Coronary Syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,394659003,Acute coronary syndrome,C0948089,Acute Coronary Syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,91335003,Mural thrombus of heart,C1260883,Mural thrombus of heart,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,12238111000119106,Acute ST segment elevation myocardial infarction of inferolateral wall,C4706737,Acute ST segment elevation myocardial infarction of inferolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,12238151000119107,Acute ST segment elevation myocardial infarction of inferoposterior wall,C4706736,Acute ST segment elevation myocardial infarction of inferoposterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,30277009,Rupture of ventricle due to acute myocardial infarction,C0520544,Rupture of ventricle due to acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457722005,Rupture of truncal valve cusp,C3531832,Rupture of truncal valve cusp,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457752002,Rupture of right atrioventricular (not morphologically tricuspid) valve papillary muscle,C3531838,Rupture of right atrioventricular (not morphologically tricuspid) valve papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457747007,Rupture of right atrioventricular (not morphologically tricuspid) valve chordae tendinae,C3531837,Rupture of right atrioventricular (not morphologically tricuspid) valve chordae tendinae,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194728007,Torn mitral leaflet,C0428812,Torn mitral leaflet,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,251003004,Torn mitral leaflet,C0428812,Torn mitral leaflet,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,15712921000119103,Acute ST segment elevation myocardial infarction of lateral wall,C4040040,Acute ST segment elevation myocardial infarction of lateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,399211009,History of myocardial infarction,C1275835,History of myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,836293000,Acute myocardial infarction of right ventricle,C2063300,Acute myocardial infarction of right ventricle,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,16528621000119102,Rupture of interventricular septum following acute myocardial infarction,C5548103,Rupture of interventricular septum following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703164000,Acute anterior ST segment elevation myocardial infarction,C3839746,Acute anterior ST segment elevation myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457662004,Rupture of pulmonary valve cusp,C3531820,Rupture of pulmonary valve cusp,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,311796008,Postoperative subendocardial myocardial infarction,C0589367,Postoperative subendocardial myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194875000,Postoperative subendocardial myocardial infarction,C0589367,Postoperative subendocardial myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,311793000,Postoperative transmural myocardial infarction of inferior wall,C0589364,Postoperative transmural myocardial infarction of inferior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194872002,Postoperative transmural myocardial infarction of inferior wall,C0589364,Postoperative transmural myocardial infarction of inferior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,129574000,Postoperative myocardial infarction,C0589368,Postoperative myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194876004,"Postoperative myocardial infarction, unspecified",C0589368,Postoperative myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,311790002,Postoperative myocardial infarction,C0589368,Postoperative myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,311797004,"Postoperative myocardial infarction, unspecified",C0589368,Postoperative myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194870005,Postoperative myocardial infarction,C0589368,Postoperative myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194866002,Rupture of chordae tendinae due to and following acute myocardial infarction,C0349074,Rupture of chordae tendinae due to and following acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,311792005,Postoperative transmural myocardial infarction of anterior wall,C0589363,Postoperative transmural myocardial infarction of anterior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194871009,Postoperative transmural myocardial infarction of anterior wall,C0589363,Postoperative transmural myocardial infarction of anterior wall,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164871004,Lateral infarction on electrocardiogram,C0232325,Lateral infarction on electrocardiogram,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,87064008,Lateral infarction by EKG,C0232325,Lateral infarction on electrocardiogram,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142031000,ECG: lateral infarction,C0232325,Lateral infarction on electrocardiogram,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,54329005,Acute myocardial infarction of anterior wall,C2349195,Acute Anterior Wall Myocardial Infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,703213009,Acute ST segment elevation myocardial infarction of inferior wall,C3839711,Acute ST segment elevation myocardial infarction of inferior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,70422006,Acute subendocardial infarction,C0264710,Acute subendocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164866006,ECG: no myocardial infarction,C0428950,ECG: no myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142026002,ECG: no myocardial infarction,C0428950,ECG: no myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142025003,ECG: myocardial infarction,C0428953,Electrocardiogram: myocardial infarction (finding),possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164865005,EKG: myocardial infarction,C0428953,Electrocardiogram: myocardial infarction (finding),possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164872006,ECG: myocardial infarct NOS,C0428953,Electrocardiogram: myocardial infarction (finding),possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142032007,ECG: myocardial infarct NOS,C0428953,Electrocardiogram: myocardial infarction (finding),possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,65181009,EKG findings of infarction,C0428953,Electrocardiogram: myocardial infarction (finding),possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,52295007,Subendocardial infarction by EKG,C0428955,EKG: subendocardial infarct,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164870003,EKG: subendocardial infarct,C0428955,EKG: subendocardial infarct,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142030004,ECG: subendocardial infarct,C0428955,EKG: subendocardial infarct,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142029009,ECG:posterior/inferior infarct,C0428956,EKG:posterior/inferior infarct,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164869004,EKG:posterior/inferior infarct,C0428956,EKG:posterior/inferior infarct,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,182761001,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,C1279187,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,315287002,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,C1279187,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,164868007,Anteroseptal infarction on electrocardiogram,C0232320,Anteroseptal infarction on electrocardiogram,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,142028001,ECG: anteroseptal infarction,C0232320,Anteroseptal infarction on electrocardiogram,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,22111008,Anteroseptal infarction by EKG,C0232320,Anteroseptal infarction on electrocardiogram,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,15713041000119103,Acute ST segment elevation myocardial infarction of posterior wall,C4041281,Acute ST segment elevation myocardial infarction of posterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,72977004,Acute myocardial infarction of atrium,C0264708,Acute myocardial infarction of atrium,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194809007,Acute myocardial infarction of atrium,C0264708,Acute myocardial infarction of atrium,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,371817007,Acute ventricular septal rupture,C1299445,Acute ventricular septal rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,15990001,Acute myocardial infarction of posterolateral wall,C0264705,Acute myocardial infarction of posterolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,412771006,acute myocardial infarction of posterolateral wall (disorder),C0264705,Acute myocardial infarction of posterolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,34644005,True posterior wall infarction,C0264706,True posterior myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194802003,True posterior myocardial infarction,C0264706,True posterior myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,73795002,Acute myocardial infarction of inferior wall,C0264700,Acute Inferior Myocardial Infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,59063002,Acute myocardial infarction of apical-lateral wall,C0264702,Acute myocardial infarction of apical-lateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,840309000,Acute ST segment elevation myocardial infarction due to proximal left anterior descending coronary artery occlusion,C5395250,Acute ST segment elevation myocardial infarction due to proximal left anterior descending coronary artery occlusion,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,840312002,Acute ST segment elevation myocardial infarction due to mid left anterior descending coronary artery occlusion,C5395251,Acute ST segment elevation myocardial infarction due to mid left anterior descending coronary artery occlusion,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,840316004,Acute ST segment elevation myocardial infarction due to distal left anterior descending coronary artery occlusion,C5395253,Acute ST segment elevation myocardial infarction due to distal left anterior descending coronary artery occlusion,narrow,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,285721000119104,History of acute ST segment elevation myocardial infarction,C4274366,History of acute ST segment elevation myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457782008,Rupture of left atrioventricular (not morphologically mitral) valve papillary muscle,C3531844,Rupture of left atrioventricular (not morphologically mitral) valve papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,457777001,Rupture of left atrioventricular (not morphologically mitral) valve chordae tendinae,C3531843,Rupture of left atrioventricular (not morphologically mitral) valve chordae tendinae,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,373146007,Triple vessel coronary artery disease,C0340285,Triple vessel disease of the heart,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,233817007,Triple vessel disease of the heart,C0340285,Triple vessel disease of the heart,possible,,C,AMI,AESI
+Acute myocardial Infarction,SNOMEDCT_US,194841001,Triple vessel disease of the heart,C0340285,Triple vessel disease of the heart,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000920,"Acute myocardial infarction, subendocardial infarction",C0155655,"Acute myocardial infarction, subendocardial infarction",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000927,"Acute myocardial infarction, true posterior wall infarction, subsequent episode of care",C0155654,"True posterior wall infarction, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000926,"Acute myocardial infarction, true posterior wall infarction, initial episode of care",C0155653,"True posterior wall infarction, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000916,"Acute myocardial infarction, of other specified sites",C0155659,"Acute myocardial infarction, of other specified sites",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000923,"Acute myocardial infarction, subendocardial infarction, subsequent episode of care",C0155658,"Subendocardial infarction, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000922,"Acute myocardial infarction, subendocardial infarction, initial episode of care",C0155657,"Acute myocardial infarction, subendocardial infarction, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10022626,Interventricular septum rupture,C0242875,Ventricular Septal Rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10022625,Interventricular septal rupture,C0242875,Ventricular Septal Rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000925,"Acute myocardial infarction, true posterior wall infarction, episode of care unspecified",C0155652,"True posterior wall infarction, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000915,"Acute myocardial infarction, of other lateral wall, subsequent episode of care",C0155650,"Acute myocardial infarction, of other lateral wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10048858,Ischaemic cardiomyopathy,C0349782,Ischemic cardiomyopathy,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10055217,Ischemic cardiomyopathy,C0349782,Ischemic cardiomyopathy,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066619,Acute heart ischemia,C0746731,Acute myocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066765,Acute heart ischaemia,C0746731,Acute myocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066643,Acute myocardial ischaemia,C0746731,Acute myocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066642,Acute myocardial ischemia,C0746731,Acute myocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000910,"Acute myocardial infarction, of other inferior wall, initial episode of care",C0155645,"Acute myocardial infarction, of other inferior wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000909,"Acute myocardial infarction, of other inferior wall, episode of care unspecified",C0155644,"Acute myocardial infarction, of other inferior wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000908,"Acute myocardial infarction, of other inferior wall",C0155643,"Acute myocardial infarction, of other inferior wall",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000903,"Acute myocardial infarction, of inferoposterior wall, subsequent episode of care",C0155642,"Acute myocardial infarction of inferoposterior wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000914,"Acute myocardial infarction, of other lateral wall, initial episode of care",C0155649,"Acute myocardial infarction, of other lateral wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000913,"Acute myocardial infarction, of other lateral wall, episode of care unspecified",C0155648,"Acute myocardial infarction, of other lateral wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000912,"Acute myocardial infarction, of other lateral wall",C0155647,"Acute myocardial infarction, of other lateral wall",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000911,"Acute myocardial infarction, of other inferior wall, subsequent episode of care",C0155646,"Acute myocardial infarction, of other inferior wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000902,"Acute myocardial infarction, of inferoposterior wall, initial episode of care",C0155641,"Acute myocardial infarction, of inferoposterior wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000901,"Acute myocardial infarction, of inferoposterior wall, episode of care unspecified",C0155640,"Acute myocardial infarction of inferoposterior wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000931,"Acute myocardial infarction, unspecified site, subsequent episode of care",C0155665,"Acute myocardial infarction, unspecified site, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000930,"Acute myocardial infarction, unspecified site, initial episode of care",C0155664,"Acute myocardial infarction, unspecified site, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10021279,IHD,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10007584,Cardiac ischaemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10055224,Cardiac ischemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10055752,Ischaemia myocardial,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10023024,Ischaemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028600,Myocardial ischaemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028601,Myocardial ischemia,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10055218,Ischemic heart disease,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10023033,Ischemia myocardial,C0151744,Myocardial Ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028598,Myocardial infarction old,C0155668,Old myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028599,Myocardial infarction old healed,C0155668,Old myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10030272,Old myocardial infarction,C0155668,Old myocardial infarction,exclude,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000919,"Acute myocardial infarction, of other specified sites, subsequent episode of care",C0155662,"Acute myocardial infarction of other specified sites, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000918,"Acute myocardial infarction, of other specified sites, initial episode of care",C0155661,"Acute myocardial infarction, of other specified sites, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000917,"Acute myocardial infarction, of other specified sites, episode of care unspecified",C0155660,"Acute myocardial infarction of other specified sites, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10030000,Occlusion coronary,C0151814,Coronary Occlusion,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10030001,Occlusion coronary artery,C0151814,Coronary Occlusion,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10011103,Coronary occlusion,C0151814,Coronary Occlusion,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10011086,Coronary artery occlusion,C0151814,Coronary Occlusion,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10013637,Dressler's syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10036401,Postmyocardial infarction syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10036233,Post myocardial infarction syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10013638,Dresslers syndrome,C0152107,Postmyocardial infarction syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066546,Acute antero septal myocardial infarction,C0264699,Acute anteroseptal myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10058153,Subendocardial ischemia,C0264695,Subendocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10058145,Subendocardial ischaemia,C0264695,Subendocardial ischemia,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10090073,Mural thrombus,C0333205,Mural thrombus,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000900,"Acute myocardial infarction, of inferoposterior wall",C0340304,Acute myocardial infarction of inferoposterior wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000896,"Acute myocardial infarction, of inferolateral wall",C0340308,Acute myocardial infarction of inferolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10081360,Myocardial infarction with nonobstructive coronary arteries,C5437413,MINOCA,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000907,"Acute myocardial infarction, of other anterior wall, subsequent episode of care",C0155634,"Acute myocardial infarction, of other anterior wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000906,"Acute myocardial infarction, of other anterior wall, initial episode of care",C0155633,"Acute myocardial infarction, of other anterior wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000905,"Acute myocardial infarction, of other anterior wall, episode of care unspecified",C0155632,"Acute myocardial infarction of other anterior wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000904,"Acute myocardial infarction, of other anterior wall",C0155631,"Acute myocardial infarction, of other anterior wall",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000899,"Acute myocardial infarction, of inferolateral wall, subsequent episode of care",C0155638,"Acute myocardial infarction, of inferolateral wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000898,"Acute myocardial infarction, of inferolateral wall, initial episode of care",C0155637,"Acute myocardial infarction, of inferolateral wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000897,"Acute myocardial infarction, of inferolateral wall, episode of care unspecified",C0155636,"Acute myocardial infarction, of inferolateral wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000895,"Acute myocardial infarction, of anterolateral wall, subsequent episode of care",C0155630,"Acute myocardial infarction, of anterolateral wall, subsequent episode of care",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000921,"Acute myocardial infarction, subendocardial infarction, episode of care unspecified",C0494580,Acute subendocardial myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10091859,Aborted myocardial infarction,C0340325,Coronary thrombosis not resulting in myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000894,"Acute myocardial infarction, of anterolateral wall, initial episode of care",C0155629,"Acute myocardial infarction, of anterolateral wall, initial episode of care",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000893,"Acute myocardial infarction, of anterolateral wall, episode of care unspecified",C0155628,"Acute myocardial infarction, of anterolateral wall, episode of care unspecified",narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10049768,Silent myocardial infarction,C0340324,Silent myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000892,"Acute myocardial infarction, of anterolateral wall",C0155627,Acute myocardial infarction of anterolateral wall,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10048761,Atrial rupture,C0877045,Atrial rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10088087,Widowmaker heart attack,C0155626,Acute myocardial infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028597,Myocardial infarction acute,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000928,"Acute myocardial infarction, unspecified site",C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000891,Acute myocardial infarction,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000929,"Acute myocardial infarction, unspecified site, episode of care unspecified",C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028605,Myocardial rupture (post infarct),C0018814,"Heart Rupture, Post-Infarction",possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10007603,Cardiac rupture,C0018813,Myocardial rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028604,Myocardial rupture,C0018813,Myocardial rupture,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10067273,Acute transmural myocardial infarction,C1868996,Acute transmural myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10081560,Left anterior descending coronary artery occlusion,C4728047,Occlusion of anterior descending branch of left coronary artery,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10087618,Right ventricular infarction,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028595,Myocardial infarct,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10028596,Myocardial infarction,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10027524,MI,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10003724,Attack heart (NOS),C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10003723,Attack coronary,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10019250,Heart attack,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10021758,Infarct myocardial,C0027051,Myocardial Infarction,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10011091,Coronary artery thrombosis,C0010072,Coronary Thrombosis,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10043622,Thrombosis coronary,C0010072,Coronary Thrombosis,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10087858,Occlusive coronary artery thrombus,C0010072,Coronary Thrombosis,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10011108,Coronary thrombosis,C0010072,Coronary Thrombosis,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066645,Acute myocardial reinfarction,C1735640,Acute myocardial reinfarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10033698,Papillary muscle rupture,C0155713,Rupture of papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10039309,Rupture of papillary muscle,C0155713,Rupture of papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10039333,Ruptured papillary muscle,C0155713,Rupture of papillary muscle,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10008745,Chordae tendinae rupture,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10039304,Rupture of chordae tendineae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10039303,Rupture of chordae tendinae,C0155712,Rupture of chordae tendineae,exclude,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10051592,Acute coronary syndrome,C0948089,Acute Coronary Syndrome,possible,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10066641,"Acute myocardial infarction, of anterior wall",C2349195,Acute Anterior Wall Myocardial Infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10079262,Acute myocardial infarction type 1,C4324552,Acute myocardial infarction type 1,narrow,,C,AMI,AESI
+Acute myocardial Infarction,MDR,10000924,"Acute myocardial infarction, true posterior wall infarction",C0264706,True posterior myocardial infarction,narrow,,C,AMI,AESI
+Acute myocardial Infarction,ICPC,K75,Acute myocardial infarction,C0155626,Acute myocardial infarction,narrow,,C,AMI,AESI

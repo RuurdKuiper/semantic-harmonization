@@ -1,0 +1,778 @@
+code,term
+1,
+2,
+3,
+-30,Medical examination/health evaluation/complete
+-31,Medical examination/health evaluation/partial
+-32,Sensitivity test
+-33,Microbiological/other immunological test
+-34,Other blood test
+-35,Other urine test
+-36,Other feces test
+-37,Histology/cytology
+-38,Other laboratory test NOS
+-39,Physical function test
+4,
+-40,Diagnostic endoscopy
+-41,Diagnostic radiology/imaging
+-42,Electrical tracings
+-43,Other diagnostic procedures
+-44,Immunization/preventive medication
+-45,Advice/health education
+-46,Consult between primary care providers
+-47,Consult provider with specialist
+-49,Other preventive procedures
+5,
+-50,Medication/prescription/injection
+-51,Incision/drainage/aspiration
+-52,Excision/biopsy/removal/cautery
+-53,Catheterization/intubation/dilation/instrumentation
+-54,Repair/suture/cast/prosthetic device
+-55,Local injection/infiltration
+-56,Dressing/compression/packing
+-57,Physical medicine/manipulation
+-58,Therapeutic counselling/listening
+-59,Other therapeutic procedure
+6,
+-60,Results test/procedures
+-61,Results examination/procedure other provider
+-62,Administrative procedure
+-64,Provider initiated episode new/ongoing
+-65,Other initiated episode new/ongoing
+-66,Referral primary care provider (excluding -67)
+-66,Referral primary care provider
+-67,Referral to m.d.
+-68,Other referrals NOS
+-69,Other reasons for encounter NOS
+7,
+A,GENERAL AND UNSPECIFIED
+A01,Pain generalized
+A02,Chills
+A03,Fever
+A04,General weakness/tiredness
+A05,General deterioration
+A06,Fainting/syncope
+A07,Coma
+A08,Swelling
+A08,Swelling (excluding K07)
+A09,Sweating problems
+A10,Bleeding site unspecified
+A12,Allergy/allergic reaction NOS
+A13,Concern about drug reaction
+A14,Infantile colic
+A15,Excessive crying infant
+A16,Irritable infant
+A17,Other general symptom infants
+A20,Euthanasia request/discussion
+A25,Fear of death
+A26,General and unspecified fear of cancer NOS
+A27,Fear of other disease NOS
+A28,General and unspecified limited function/disability NOS
+A29,Other general symptom/complaint
+A70,Tuberculosis generalized (excluding R70)
+A70,Tuberculosis generalized
+A71,Measles
+A72,Chickenpox
+A73,Malaria
+A74,Rubella
+A75,Infectious mononucleosis
+A76,Other viral disease with exanthems
+A77,Other viral diseases NOS
+A78,Other infectious diseases NOS
+A79,Carcinomatosis (unknown primary site)
+A80,Accident/injury NOS
+A81,Multiple trauma/internal injury
+A82,Late effect of trauma
+A84,Poisoning by medical agent
+A85,Adverse effect medical agent proper dose
+A86,Toxic effect other substances
+A87,Complication surgery/medical treatment
+A88,Adverse effects physical factors (excluding H85)
+A88,Adverse effects physical factors
+A89,Effect prosthetic device
+A90,Multiple congenital anomalies
+A91,Abnormal results investigation NOS
+A92,Toxoplasmosis
+A93,Premature/immature newborn
+A94,All other perinatal morbidity
+A95,Perinatal mortality
+A96,Death (excluding perinatal)
+A96,Death
+A97,No disease
+A99,Other general/unspecified diseases
+B,"BLOOD, BLOOD FORMING ORGANS, LYMPHATICS, SPLEEN"
+B02,Enlarged lymph gland(s)
+B03,Other symptom lymph gland(s)
+B04,Symptom blood/lymph organs
+B25,Fear of AIDS
+B26,Fear cancer of blood/lymph organs
+B27,Fear other blood/lymph disease
+B28,Limited hematologic function/disability
+B29,Other symptom blood/spleen NOS
+B70,Acute lymphadenitis
+B71,Chronic/non specific lymphadenitis
+B72,Hodgkins disease
+B73,Leukemia
+B74,Other hematologic malignant neoplasms
+B75,Benign/unspecified neoplasms
+B76,Ruptured spleen
+B77,Other hematologic injuries
+B78,Hereditary hemolytic anemias
+B79,Other hematologic congenital anomalies
+B80,Iron deficiency anemia
+B81,Pernicious/folate deficiency anemias
+B82,Anemia other/unspecified
+B83,Purpura/coagulation defects/abnormal platelets
+B84,Abnormal white cells
+B85,Unexplained abnormal blood test
+B86,Other hematological abnormality
+B87,Splenomegaly
+B90,HIV-infection (AIDS/ARC)
+B99,Other disease blood/lymph/spleen
+D,DIGESTIVE
+D01,Generalized abdominal pain/cramps
+D02,Stomach pain/ache
+D03,Heartburn
+D04,Rectal/anal pain
+D05,Perianal itching
+D06,Other localized abdominal pain
+D08,Flatulence/gas pain/belching
+D09,Nausea
+D10,Vomiting
+D11,Diarrhea
+D12,Constipation
+D13,Jaundice
+D14,Hematemesis/vomiting blood
+D15,Melena/black tarry stools
+D16,Rectal bleeding
+D17,Incontinence of bowel
+D18,Change in feces/bowel movements
+D19,Symptom/complaint teeth/gums
+D20,Symptom/complaint mouth/tongue/lip
+D21,Swallowing problems
+D22,Worms/pinworms/other parasites
+D24,Abdominal mass NOS
+D25,Change in abdominal size/distension
+D26,Fear of cancer of digestive system
+D27,Fear of other digestive disease
+D28,Limited digestive system function/disability
+D29,Other symptom/complaint digestive
+D70,Infectious diarrhea/dysentery
+D71,Mumps
+D72,Viral hepatitis
+D73,Presumed gastrointestinal infection
+D74,Malignant neoplasm stomach
+D75,Malignant neoplasm colon/rectum
+D76,Malignant neoplasm pancreas
+D77,Malignant neoplasm other/unspecified
+D78,Benign digestive system neoplasms
+D79,Foreign body through orifice
+D80,Other digestive system injuries
+D81,Congenital digestive system anomalies
+D82,Disease of teeth/gums
+D83,Disease of mouth/tongue/lips
+D84,Disease of esophagus
+D85,Duodenal ulcer
+D86,Other peptic ulcers
+D87,Disorder stomach function
+D88,Appendicitis
+D89,Inguinal hernia
+D90,Diaphragmatic/hiatus hernia
+D91,Other abdominal hernias
+D92,Diverticular disease
+D93,Irritable bowel syndrome
+D94,Chronic enteritis/ulcerative colitis
+D95,Anal fissure/perianal abscess
+D96,Hepatomegaly
+D97,Cirrhosis/other liver disease
+D98,Cholecystitis/cholelithiasis
+D99,Other diseases digestive system
+F,EYE
+F01,Eye pain
+F02,Red eye
+F03,Discharge from eye
+F04,Visual floaters/spots
+F05,Other visual symptom/complaint (excluding F94)
+F05,Other visual symptom/complaint
+F13,Abnormal sensations in eye
+F14,Abnormal eye movements
+F15,Abnormal appearance of eyes
+F16,Symptoms/complaints of eyelids
+F17,Symptoms/complaints glasses
+F18,Symptom/complaint contact lens
+F27,Fear of eye disease
+F28,Limited ocular function/disability
+F29,Other symptom/complaint of eye
+F70,Infectious conjunctivitis
+F71,Allergic conjunctivitis
+F72,Blepharitis/stye/chalazion
+F73,Other infection/inflammation of eye
+F73,Other infection/inflammation of eye (excluding Herpes)
+F74,Neoplasms of eye/adnexa
+F75,Contusion/hemorrhage eye
+F76,Foreign body in eye
+F79,Other ocular injuries
+F80,Blocked lacrimal duct of infant
+F81,Other congenital anomaly eye
+F82,Detached retina
+F83,Retinopathy
+F84,Macular degeneration
+F85,Corneal ulcer
+F85,Corneal ulcer (including herpetic)
+F86,Trachoma
+F91,Refractive errors
+F92,Cataract
+F93,Glaucoma
+F94,Blindness all degrees/types
+F95,Strabismus
+F99,Other disease of eye
+H,EAR
+H01,Ear pain/earache
+H02,Hearing complaints (excluding H84-86)
+H02,Hearing complaints
+H03,Ringing/buzzing/tinnitus
+H04,Discharge from ear
+H05,Blood in/from ear
+H13,Plugged feeling
+H15,Concern with appearance of ears
+H27,Fear of ear disease
+H28,Limited auditory function/disability
+H29,Other symptom/complaint of ear
+H70,Otitis external
+H71,Acute otitis media/myringitis
+H72,Serous otitis media/glue ear
+H73,Eustachian salpingitis
+H74,Chronic otitis other infection ear
+H75,Neoplasm of ear
+H76,Foreign body in ear
+H77,Perforation tympanic membrane
+H78,Superficial injury of ear
+H79,Other auditory injuries
+H80,Congenital anomalies of ear
+H81,Excessive ear wax
+H82,Vertiginous syndromes
+H83,Otosclerosis
+H84,Presbyacusis
+H85,Acoustic trauma
+H86,Deafness all degrees NOS
+H99,Other diseases of ear/mastoid
+K,CIRCULATORY
+K01,Pain attributed to heart
+K02,Pressure/tightness attributed to heart
+K03,Other pain attributed to circulation
+K04,Palpitations/aware of heartbeat
+K05,Other abnormal/irregular heartbeat/pulse
+K06,Prominent veins
+K07,Swollen ankles/edema
+K24,Fear of heart attack
+K25,Fear of hypertension
+K27,Fear other disease circulatory system
+K28,Limited circulatory function/disability
+K29,Other symptom heart/circulatory system
+K70,Infectious disease circulatory system
+K71,Rheumatic fever/heart disease
+K72,Neoplasm circulatory system
+K73,Congenital anomalies heart/circulatory system
+K74,Angina pectoris
+K75,Acute myocardial infarction
+K76,Other/chronic ischemic heart disease
+K77,Heart failure
+K78,Atrial fibrillation/flutter
+K79,Paroxysmal tachycardia
+K80,Ectopic beats all types
+K81,Heart murmur NOS
+K82,Pulmonary heart disease
+K83,Heart valve disease non-rheum NOS
+K84,Other disease of heart
+K85,Elevated BP
+K85,Elevated BP (excluding K86 K87)
+K86,Uncomplicated hypertension
+K87,Hypertension with involvement target organs
+K88,Postural hypotension
+K89,Transient cerebral ischemia
+K90,Stroke/cerebrovascular accident
+K91,Atherosclerosis excluding heart/brain
+K92,Other arterial obstructive/peripheral vascular disease
+K93,Pulmonary embolism
+K94,Phlebitis/thrombophlebitis
+K95,Varicose veins of legs
+K95,Varicose veins of legs (excluding S97)
+K96,Hemorrhoids
+K99,Other disease circulatory system
+L,MUSCULOSKELETAL
+L01,Neck symptom/complaint excluding headache
+L02,Back symptoms/complaints
+L03,Low back complaint excluding radiation
+L04,Chest symptoms/complaints
+L05,Flank symptoms/complaints
+L06,Axilla symptoms/complaints
+L07,Jaw symptoms/complaints
+L08,Shoulder symptoms/complaints
+L09,Arm symptoms/complaints
+L10,Elbow symptoms/complaints
+L11,Wrist symptoms/complaints
+L12,Hand & finger symptoms/complaint
+L13,Hip symptoms/complaints
+L14,Leg/thigh symptoms/complaints
+L15,Knee symptoms/complaints
+L16,Ankle symptoms/complaints
+L17,Foot & toe symptoms/complaints
+L18,Muscle pain/fibrositis
+L19,Other symptoms/complaints multiple/unspecified muscles
+L20,Symptom multiple/unspecified joints
+L26,Fear of musculoskeletal cancer
+L27,Fear of other musculoskeletal disease
+L28,Limited musculoskeletal function/disability
+L29,Other symptoms/complaints multiple/unspecified musculoskeletal
+L70,Infections
+L71,Neoplasms
+L72,Fracture radius/ulna
+L73,Fracture tibia/fibula
+L74,Fracture hand/foot bones
+L75,Fracture femur
+L76,Fracture other
+L77,Sprains & strains of ankle
+L78,Sprains & strains of knee
+L79,Sprains & strains of other joint
+L80,Dislocations
+L81,Other musculoskeletal injury
+L82,Congenital musculoskeletal anomalies
+L83,Syndromes of cervical spine
+L84,Osteoarthritis of spine
+L85,Acquired deformities of spine
+L86,Lumbar disc lesion/radiation
+L87,Ganglion joint/tendon
+L88,Rheumatoid arthritis/allied condition
+L89,Osteoarthritis of hip
+L90,Osteoarthritis of knee
+L91,Other osteoarthritis
+L92,Shoulder syndrome
+L93,Tennis elbow
+L94,Osgood-Schlatter/osteochondroses
+L95,Osteoporosis
+L96,Acute damage meniscus knee
+L97,Chronic internal knee derangement
+L98,Acquired deformities of limbs
+L99,Other disease musculoskeletal system
+N,NEUROLOGICAL
+N01,Headache
+N01,Headache (excluding N02 N89 R09)
+N02,Tension headache
+N03,Pain face
+N04,Restless leg syndrome
+N05,Tingling fingers/feet/toes
+N06,Other sensation disturbance/abnormal involuntary movement
+N07,Convulsions/seizures
+N16,Disturbance of smell/taste
+N17,Vertigo/dizziness
+N17,Vertigo/dizziness (excluding H82)
+N18,Paralysis/weakness
+N18,Paralysis/weakness (excluding A04)
+N19,Disorder speech
+N26,Fear of cancer neurological system
+N27,Fear of other neurological disease
+N28,Limited neurologic function/disability
+N29,Other symptom/complaint neurological system
+N70,Poliomyelitis/other enterovirus
+N71,Meningitis/encephalitis
+N72,Tetanus
+N73,Other infection neurological system
+N74,Malignant neurologic neoplasms
+N75,Benign neurologic neoplasms
+N76,Unspecified neoplasms
+N79,Concussion
+N80,Other head injury without skull fracture
+N81,Other neurologic injuries
+N85,Congenital neurologic anomalies
+N86,Multiple sclerosis
+N87,Parkinsonism
+N88,Epilepsy all types
+N89,Migraine
+N90,Cluster headache
+N91,Facial paralysis/Bells palsy
+N92,Trigeminus neuralgia
+N93,Carpal tunnel syndrome
+N94,Other peripheral neuritis
+N99,Other disease of neurological system
+P,PSYCHOLOGICAL
+P01,Feeling anxious/nervous/tense
+P02,Acute stress/transient/situational disturbance
+P03,Feeling depressed
+P04,Feeling/behaving irritable
+P05,Feeling/behaving old/senile
+P06,Disturbances of sleep/insomnia
+P07,Inhibition/loss sexual desire
+P08,Inhibition/loss sexual fulfillment
+P09,Concern sexual preference
+P10,Stammering/stuttering/tics
+P11,Eating problems in children
+P12,Bedwetting/enuresis
+P12,Bedwetting/enuresis (excluding U04)
+P13,Encopresis
+P15,Chronic alcohol abuse
+P16,Acute alcohol abuse
+P17,Tobacco abuse
+P18,Medication abuse
+P19,Drug abuse
+P20,Disturbance memory/concentration
+P21,Overactive child/hyperkinetic
+P22,Other concern behavior childhood
+P23,Other concern behavior adolescence
+P24,Specific learning problems
+P25,Phase of life problem adult
+P27,Fear of mental disorder
+P28,Limited psychological function/disability
+P29,Other psychological symptom/complaint
+P70,Dementia senile/Alzheimer
+P71,Other organic psychosis
+P72,Schizophrenia all types
+P73,Affective psychosis
+P74,Anxiety disorder/anxiety state
+P75,Hysterical/hypochondriacal disease
+P76,Depressive disorder
+P77,Suicide attempt
+P78,Neurasthenia/surmenage
+P79,Other neurotic disorder
+P80,Personality disorder
+P85,Mental retardation
+P98,Other/unspecified psychosis
+P99,Other mental/psychological disorders
+R,RESPIRATORY
+R01,Pain attributed to respiratory system
+R02,Shortness of breath dyspnea
+R03,Wheezing
+R04,Other breathing problems
+R05,Cough
+R06,Nose bleed/epistaxis
+R07,Sneezing/nasal congestion
+R08,Other symptom/complaint of nose
+R09,Symptom/complaint sinus (including pain)
+R09,Symptom/complaint sinus
+R21,Symptom/complaint throat
+R22,Symptom/complaint tonsils
+R23,Voice symptom/complaint
+R24,Hemoptysis
+R25,Abnormal sputum/phlegm
+R26,Fear of cancer of respiratory system
+R27,Fear of other respiratory disease
+R28,Limited respiratory function/disability
+R29,Other symptom/complaint respiratory system
+R70,Tuberculosis respiratory (excluding A70)
+R70,Tuberculosis respiratory
+R71,Whooping cough
+R72,Strep throat/scarlet fever
+R73,Boil/abscess nose
+R74,URI (head cold)
+R75,Sinusitis acute/chronic
+R76,Tonsillitis acute
+R77,Acute laryngitis/tracheitis
+R78,Acute bronchitis/bronchiolitis
+R80,Influenza (proven) without pneumonia
+R81,Pneumonia
+R82,Pleurisy all
+R82,Pleurisy all (excluding R70)
+R83,Other infections of respiratory system
+R84,Malignant neoplasm bronchus/lung
+R85,Other malignant respiratory neoplasm
+R86,Benign respiratory neoplasm
+R87,Foreign body nose/larynx/bronchus
+R88,Other respiratory injuries
+R89,Congenital anomal respiratory system
+R90,Hypertrophy/chronic infection tonsils and adenoid
+R91,Chronic bronchitis/bronchiectasis
+R93,Pleural effusion NOS
+R95,Emphysema/COPD
+R96,Asthma
+R97,Hayfever/allergic rhinitis
+R98,Hyperventilation
+R99,Other disease respiratory system
+S,SKIN
+S01,Pain/tenderness of skin
+S02,Pruritis
+S02,Pruritis (excluding D05 X16)
+S03,Warts
+S04,Local swelling/papules/lump/mass
+S05,Generalized swelling/papules/lumps/masses
+S06,Local redness/erythema/rash
+S07,Generalized redness/erythema/rash
+S08,Other changes in skin color
+S09,Infected finger/toe/paronychia
+S10,Boil/carbuncle/cellulitis local
+S11,Other localized skin infection
+S12,Insect bite
+S13,Animal/human bite
+S14,Burns/scalds
+S15,Foreign body in skin
+S16,Bruise/contusion intact skin
+S17,Abrasion/scratch/blister
+S18,Laceration/cut
+S19,Other injury to skin
+S20,Corns/callosities
+S21,Symptom/complaint of skin texture
+S22,Symptom/complaint nails
+S23,Baldness/losing hair
+S24,Other symptom/complaint hair & scalp
+S26,Fear of cancer of skin
+S27,Fear of having other skin disease
+S28,Limited dermatologic function/disability
+S29,Other symptom/complaint skin
+S70,Herpes zoster
+S71,Herpes simplex
+S71,Herpes simplex (excluding F85 X90 Y72)
+S72,Scabies and other acariases
+S73,Pediculosis/other skin infestation
+S74,Dermatophytosis
+S75,Moniliasis/candida (excluding X72 Y75)
+S75,Moniliasis/candida
+S76,Other infectious skin disease
+S77,Malignant neoplasms of skin
+S78,Lipoma
+S79,Other benign neoplasm of skin
+S80,Other/unspecified neoplasm skin
+S81,Hemangioma/lymphangioma
+S82,Nevus/mole
+S83,Other dermatologic congenital anomalies
+S84,Impetigo
+S85,Pilonidal cyst/fistula
+S86,Seborrheic dermatitis
+S87,Atopic dermatitis/eczema
+S88,Contact dermatitis/other eczema
+S89,Diaper rash
+S90,Pityriasis rosea
+S91,Psoriasis
+S92,Pompholyx/disease sweat glands
+S93,Sebaceous cyst
+S94,Ingrown toenail/other disease of nail
+S95,Mollusca contagiosa
+S96,Acne
+S97,Chronic ulcer skin (including varicose)
+S97,Chronic ulcer skin
+S98,Urticaria
+S99,Other disease skin/subcutaneous tissue
+T,"ENDOCRINE, METABOLIC AND NUTRITIONAL"
+T01,Excessive thirst
+T02,Excessive appetite
+T03,Loss of appetite
+T04,Feeding problem infant (excluding P11)
+T04,Feeding problem infant
+T05,Feeding problem adult
+T05,Feeding problem adult (excluding T06)
+T06,Anorexia nervosa/bulimia
+T07,Weight gain
+T08,Weight loss
+T10,Failure to thrive
+T11,Dehydration
+T15,Thyroid lump
+T26,Fear of cancer of endocrine system
+T27,Fear of other endo nutritional disease
+T28,Limited endocrine or metabolic function/disability
+T29,Other symptom/complaint endo nutritional
+T70,Infection disease endo metabolism nutritional
+T71,Malignant neoplasm thyroid
+T72,Benign neoplasm thyroid
+T73,Other/unspecified neoplasms
+T78,Thyroglossal duct/cyst/
+T80,Other endocrine or metabolic congenital anomalies
+T81,Goiter (excluding T85 T86)
+T81,Goiter
+T82,Obesity (BMI >=30)
+T83,Overweight (BMI <30)
+T85,Hyperthyroidism/thyrotoxicosis
+T86,Hypothyroidism/myxedema
+T87,Hypoglycemia
+T88,Renal glucosuria
+T90,Diabetes mellitus
+T91,Vitamin deficiency/other nutritional/disease
+T92,Gout
+T93,Lipid metabolism disorder
+T99,Other endocrine/metabolic nutritional disease
+U,UROLOGY
+U01,Painful urination
+U02,Frequent/urgent urination
+U04,Incontinence
+U04,Incontinence (excluding P12)
+U05,Other urination problems
+U06,Blood in urine
+U07,Other complaints of urine
+U13,Other symptom/complaint bladder
+U14,Symptom/complaint kidney
+U26,Fear of cancer of urinary system
+U27,Fear of other urinary disease
+U28,Limited urologic function/disability
+U29,Other symptom urinary system
+U70,Pyelonephritis/pyelitis acute
+U71,Cystitis/other urinary infection NOS
+U72,Urethritis non specific
+U75,Malignant neoplasm of kidney
+U76,Malignant neoplasm of bladder
+U77,Other malignant neoplasm urinary tract
+U78,Benign neoplasm urinary tract
+U79,Other unspecified neoplasm urinary tract
+U80,Urologic injuries
+U85,Congenital anomalies urinary tract
+U88,Glomerulonephritis/nephrosis
+U90,Orthostatic albuminuria
+U95,Urinary calculus all types/sites
+U98,Abnormal urine test finding NOS
+U99,Other disease urinary system
+W,"PREGNANCY, CHILDBEARING, FAMILY PLANNING"
+W01,Question of pregnancy
+W01,Question of pregnancy (excluding W02)
+W02,Fear of being pregnant
+W03,Antepartum bleeding
+W05,Vomiting/nausea of pregnancy
+W10,Morning after pill
+W11,Family planning/oral contraceptive
+W12,Family planning/IUD
+W13,Family planning for women/sterilization
+W14,Family planning for women/other
+W15,Complaints of infertility
+W17,Heavy post-partum bleeding
+W18,Other complaint post-partum period
+W19,Symptom/complaint lactation
+W20,Other symptoms/complaints breast in pregnancy
+W27,Fear of complications of pregnancy
+W28,Limited obstetric function/disability
+W29,Other symptom pregnancy/family planning
+W70,Puerperal infection/sepsis
+W71,Other infectious conditions
+W72,Malignant obstetric neoplasm
+W73,Benign obstetric neoplasm
+W75,Injuries complicating pregnancy
+W76,Congenital anomalies of mother
+W77,Other non-obstetrical conditions
+W78,Pregnancy confirmed
+W79,Unwanted pregnancy confirmed
+W80,Ectopic pregnancy
+W81,Toxemia (pre)eclampsia
+W82,Abortion spontaneous
+W83,Abortion induced
+W84,Pregancy high risk
+W90,Normal delivery liveborn
+W91,Normal delivery deadborn
+W92,Complicated delivery liveborn
+W93,Complicated delivery deadborn
+W94,Mastitis puerperalis
+W95,Other disorders of breast
+W96,Other complication of puerperium
+W99,Other disease of pregnancy/delivery/puerperium
+X,FEMALE GENITAL SYSTEM (INCLUDING BREAST)
+X01,Genital pain
+X02,Menstrual pain
+X03,Intermenstrual pain
+X04,Painful intercourse
+X05,Menstruation absent/scanty
+X06,Menstruation excessive
+X07,Menstruation irregular/frequent
+X08,Intermenstrual bleeding
+X09,Premenstrual symptoms
+X10,Postponement of menstruation
+X11,Menopausal symptom/complaint
+X12,Postmenopausal bleeding
+X13,Postcoital bleeding
+X14,Vaginal discharge
+X15,Other symptom/complaint vagina
+X16,Symptom/complaint vulva
+X17,Symptom/complaint pelvis
+X18,Breast pain
+X19,Lump/mass breast
+X20,Symptom/complaint nipple
+X21,Other symptom/complaint breast
+X23,Fear of venereal disease in women
+X24,Fear of sexual dysfunction in women
+X25,Fear of genital cancer
+X26,Fear of breast cancer
+X27,Fear other genital/breast disease
+X28,Limited female genital function/disability
+X29,Other symptom/genital system
+X70,Syphilis female
+X71,Gonorrhea female
+X72,Urogenital candidiasis proven
+X73,Urogenital trichomoniasis proven
+X74,Pelvic inflammatory disease
+X75,Malignant neoplasm cervix
+X76,Malignant neoplasm breast
+X77,Other female genital malignant neoplasms
+X78,Fibroid/myoma (uterus/cervix)
+X79,Benign neoplasm breast
+X79,Benign neoplasm breast (excluding X88)
+X80,Other benign neoplasm female genital
+X81,Other/unspecified neoplasm female genital
+X82,Female genital injuries
+X83,Congenital anomalies female genital
+X84,Vaginitis/vulvitis NOS
+X85,Cervicitis/other cervical disease
+X86,Abnormal pap smear
+X87,Uterovaginal prolapse
+X88,Chronic cystic disease breast
+X89,Premenstrual tension syndrome
+X90,Herpes genitalis in women
+X91,Condylomata acuminata in women
+X99,Other diseases female genital system
+Y,MALE GENITAL SYSTEM
+Y01,Pain in penis
+Y02,Pain in testis/scrotum
+Y03,Discharge from penis/urethra
+Y04,Other symptom/complaint of penis
+Y05,Symptom/complaint scrotum and testes
+Y06,Symptom/complaint prostate
+Y07,Symptom/complaint potency (excluding P07 P08)
+Y07,Symptom/complaint potency
+Y08,Other symptoms/complaints sexual dysfunction
+Y08,Other symptoms/complaints sexual dysfunction (excluding P07 P08)
+Y10,Infertility/subfertility
+Y13,Family planning for men/sterilization
+Y14,Family planning for men/other
+Y16,Symptom/complaint male breast
+Y24,Fear of sexual dysfunction in men
+Y25,Fear of venereal disease in men
+Y26,Fear of cancer male genital
+Y27,Fear of other genital disease
+Y28,Limited male genital function/disability
+Y29,Other symptom male reproductive system
+Y70,Syphilis male
+Y71,Gonorrhea male
+Y72,Herpes genitalis in men
+Y73,Prostatitis/seminal vesiculitis
+Y74,Orchitis/epididymitis
+Y75,Balanitis
+Y76,Condylomata acuminata in men
+Y77,Malignant neoplasm prostate
+Y78,Other male genital malignant neoplasm
+Y79,Benign neoplasm male genital
+Y80,Male genital injuries
+Y81,Phimosis/redundant prepuce
+Y82,Hypospadia
+Y83,Undescended testicle/cryptorchism
+Y84,Other congenital anomalies male genital
+Y85,Benign prostatic hypertrophy
+Y86,Hydrocele
+Y99,Other disease male genital including breast
+Z,SOCIAL PROBLEMS
+Z01,Poverty/financial problem
+Z02,Problem food and water
+Z03,Problem housing/neighborhood
+Z04,Problem social/cultural system
+Z05,Problem working conditions
+Z06,Problem with being unemployed
+Z07,Problem with education
+Z08,Problem social insurance/welfare
+Z09,Problem legal/police
+Z10,Problem health care system/access
+Z11,Problem with being ill
+Z12,Relation problem partners
+Z13,Problem with behavior partner
+Z14,Problem with partner being ill
+Z15,Loss/death of partner
+Z16,Relation problem with child
+Z18,Problem with child being ill
+Z19,Loss/death of child
+Z20,Relationships problem parent/other family
+Z21,Problem behavior parent/other family
+Z22,Problem with parent/family being ill
+Z23,Loss/death parent/family
+Z24,Problems in relationships with friends
+Z25,Problem assaults/harmful events
+Z27,Fear of having a social problem
+Z28,Limited social function/disability
+Z29,Other social problem NOS

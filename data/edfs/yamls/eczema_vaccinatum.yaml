@@ -1,0 +1,49 @@
+preferred_name: Eczema Vaccinatum (EV)
+definition: >
+  Eczema vaccinatum is a vaccinia-virus infection of the skin after exposure
+  through vaccination or contact with a recently vaccinated person. It
+  typically occurs in people with disrupted skin from current or previous
+  eczema/atopic dermatitis, Darier disease, or another skin-barrier disorder,
+  and presents with papules, vesicles, or pustules that may become generalized.
+  Laboratory confirmation may use vaccinia-specific PCR or viral culture, but
+  is generally unavailable in structured diagnosis-code data.
+narrow_definition: >
+  Diagnosis codes explicitly representing eczema vaccinatum or an equivalent
+  vaccinia-associated eczematous eruption. Separate codes for eczema, vaccinia
+  exposure, lesion morphology, or laboratory confirmation are not required
+  when EV itself is explicitly coded.
+exclusion_criteria:
+  - Generalized vaccinia, progressive vaccinia, other vaccinia complications, mpox, cowpox, or variola/smallpox without EV
+  - Herpes simplex, varicella/chickenpox, rickettsialpox, scabies, or other infectious papulovesicular eruptions without EV
+  - Eczema/atopic dermatitis, Darier disease, allergic/contact dermatitis, drug eruption, or other skin-barrier disorders without EV
+  - Vaccinia vaccination, contact, or exposure without EV
+  - History/resolved EV or suspected, possible, rule-out, or evaluation for EV without confirmed diagnosis
+  - Predisposing skin conditions without an explicit EV diagnosis
+narrow_decision_rules:
+  - Include explicit eczema vaccinatum or vaccinial eczema concepts, including localized or generalized/severe EV
+  - Include EV whether exposure was through direct vaccination or contact with a vaccinee
+  - Do not require separately coded eczema, vaccinia exposure, lesion morphology, or laboratory confirmation when EV is explicit
+exclude_decision_rules:
+  - Exclude alternative infectious and non-infectious skin conditions without EV
+  - Exclude eczema, Darier disease, vaccinia vaccination, or vaccinia exposure alone because these represent predisposition or exposure
+  - Exclude history/resolved EV and suspected/rule-out EV without confirmed diagnosis
+synonyms:
+  - Eczema vaccinatum
+  - Vaccinial eczema
+  - Vaccinia-associated eczema
+  - Vaccinia infection in eczema
+  - Vaccinial infection of eczematous skin
+anatomical_location: Skin and integumentary system; localized or generalized, often involving current or previous dermatitis
+temporal_characteristics: Acute/current event following vaccinia exposure; exclude explicit history or resolved EV for incident identification
+etiology: Infectious; caused by vaccinia virus (Orthopoxvirus) after vaccination or direct/indirect exposure to a recently vaccinated person
+morphology: Papules, vesicles, pustules, and crusted or coalescent/confluent vaccinial skin lesions
+candidate_anchor_codes:
+  - No ICD-10-CM or SNOMED CT anchor code was specified in the source EDF
+ambiguities:
+  - Generalized or progressive vaccinia may overlap clinically with EV but is not narrow EV on its own
+  - EV can result from inadvertent vaccinia inoculation in a person with eczema
+  - Generalized distribution or disseminated vaccinia does not exclude EV when the diagnosis explicitly represents eczema vaccinatum
+references:
+  - "Nell P, Kohl KS, Graham PL, et al. Eczema vaccinatum as an adverse event following exposure to vaccinia virus. Vaccine. 2007;25:5725-5734. doi:10.1016/j.vaccine.2007.02.085."
+  - "Wenger P, Oleske JM, Kohl KS, et al. Inadvertent inoculation as an adverse event following exposure to vaccinia virus. Vaccine. 2007;25(31):5754-5762. doi:10.1016/j.vaccine.2007.02.087."
+

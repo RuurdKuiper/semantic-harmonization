@@ -2,7 +2,7 @@
 """Package precomputed embedding assets for GitHub Release uploads.
 
 This script copies the four vocabulary-specific embedding indexes from
-``data/processed`` into a release staging directory and writes a JSON manifest
+``data/codes/embeddings`` into a release staging directory and writes a JSON manifest
 with file metadata. The resulting directory is ready to upload with
 ``gh release upload``.
 """
@@ -17,7 +17,9 @@ from pathlib import Path
 
 EMBEDDING_FILES = [
     "embeddings_ICD10CM_sentence-transformers_all-MiniLM-L6-v2.npz",
+    "embeddings_ICD9CM_sentence-transformers_all-MiniLM-L6-v2.npz",
     "embeddings_ICPC_sentence-transformers_all-MiniLM-L6-v2.npz",
+    "embeddings_MDR_sentence-transformers_all-MiniLM-L6-v2.npz",
     "embeddings_RCD2_sentence-transformers_all-MiniLM-L6-v2.npz",
     "embeddings_SNOMEDCT_US_sentence-transformers_all-MiniLM-L6-v2.npz",
 ]
@@ -27,7 +29,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Package embedding assets for a GitHub release.")
     parser.add_argument(
         "--source-dir",
-        default="data/processed",
+        default="data/codes/embeddings",
         help="Directory containing the precomputed embedding .npz files.",
     )
     parser.add_argument(

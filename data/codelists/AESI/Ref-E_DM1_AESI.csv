@@ -1,0 +1,554 @@
+event_definition,coding_system,code,code_name,concept,concept_name,tags,origin,system,event_abbreviation,type
+Diabetes type 1,ICD10CM,E10.8,Type 1 diabetes mellitus with unspecified complications,C1299613,Insulin-dependent diabetes mellitus with unspecified complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3393,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, bilateral",C4268025,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3399,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, unspecified eye",C4268026,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.0,"Pre-existing type 1 diabetes mellitus, in pregnancy, childbirth and the puerperium",C2903658,"Pre-existing type 1 diabetes mellitus, in pregnancy, childbirth and the puerperium",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3411,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, right eye",C4268027,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.011,"Pre-existing type 1 diabetes mellitus, in pregnancy, first trimester",C2903659,"Pre-existing type 1 diabetes mellitus, in pregnancy, first trimester",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3412,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, left eye",C4268028,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3413,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, bilateral",C4268029,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E14.9,Unspecified diabetes mellitus without complications,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3312,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, left eye",C4268020,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3313,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, bilateral",C4268021,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3319,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, unspecified eye",C4268022,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3391,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, right eye",C4268023,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3392,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, left eye",C4268024,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3512,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, left eye",C4268036,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3513,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, bilateral",C4268037,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3519,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, unspecified eye",C4268038,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.352,Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula,C4268039,Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3419,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, unspecified eye",C4268030,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3491,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, right eye",C4268031,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3492,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, left eye",C4268032,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3493,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, bilateral",C4268033,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3499,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, unspecified eye",C4268034,"Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3511,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, right eye",C4268035,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E14.8,Unspecified diabetes mellitus with unspecified complications,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3533,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, bilateral",C4268047,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3539,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, unspecified eye",C4268048,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3,Type 1 diabetes mellitus with ophthalmic complications,C0348914,Insulin-dependent diabetes mellitus with ophthalmic complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.354,Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment,C4268049,Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.4,Type 1 diabetes mellitus with neurological complications,C0348915,Insulin-dependent diabetes mellitus with neurological complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3521,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, right eye",C4268040,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3522,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, left eye",C4268041,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3523,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, bilateral",C4268042,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3529,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, unspecified eye",C4268043,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment involving the macula, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.353,Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula,C4268044,Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3531,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, right eye",C4268045,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3532,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, left eye",C4268046,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with traction retinal detachment not involving the macula, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3559,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, unspecified eye",C4268058,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3591,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, right eye",C4268059,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E09,Drug or chemical induced diabetes mellitus,C2873948,Drug or chemical induced diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3541,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, right eye",C4268050,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3542,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, left eye",C4268051,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3543,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, bilateral",C4268052,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3549,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, unspecified eye",C4268053,"Type 1 diabetes mellitus with proliferative diabetic retinopathy with combined traction retinal detachment and rhegmatogenous retinal detachment, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.355,Type 1 diabetes mellitus with stable proliferative diabetic retinopathy,C4268054,Type 1 diabetes mellitus with stable proliferative diabetic retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3551,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, right eye",C4268055,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3552,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, left eye",C4268056,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3553,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, bilateral",C4268057,"Type 1 diabetes mellitus with stable proliferative diabetic retinopathy, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.69,Type 1 diabetes mellitus with other specified complication,C0342261,Insulin-dependent diabetes mellitus with other specified complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.6,Type 1 diabetes mellitus with other specified complications,C0342261,Insulin-dependent diabetes mellitus with other specified complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E11.69,Type 2 diabetes mellitus with other specified complication,C0342262,Non-insulin-dependent diabetes mellitus with other specified complications,exclude,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E11.6,Type 2 diabetes mellitus with other specified complications,C0342262,Non-insulin-dependent diabetes mellitus with other specified complications,exclude,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E14.5,Unspecified diabetes mellitus with peripheral circulatory complications,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3593,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, bilateral",C4268061,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3599,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, unspecified eye",C4268062,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.37,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment",C4268063,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.37X1,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, right eye",C4268064,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.37X2,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, left eye",C4268065,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E13.69,Other specified diabetes mellitus with other specified complication,C0348931,Other specified diabetes mellitus with other specified complications,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E13.6,Oth diabetes mellitus with other specified complications,C0348931,Other specified diabetes mellitus with other specified complications,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.37X3,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, bilateral",C4268066,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.37X9,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, unspecified eye",C4268067,"Type 1 diabetes mellitus with diabetic macular edema, resolved following treatment, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.11,Type 1 diabetes mellitus with ketoacidosis with coma,C0836988,"Type 1 diabetes mellitus with ketoacidosis, with coma",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.10,Type 1 diabetes mellitus with ketoacidosis without coma,C0836987,"Type 1 diabetes mellitus with ketoacidosis, without coma",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3592,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, left eye",C4268060,"Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.21,Type 1 diabetes mellitus with diabetic nephropathy,C0836995,Type 1 diabetes mellitus with established diabetic nephropathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10,brittle diabetes (mellitus),C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.1,Type 1 diabetes mellitus with ketoacidosis,C0342294,Ketoacidosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E11,Type 2 diabetes mellitus,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,ICD10CM,R73.9,"Hyperglycemia, unspecified",C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24,"Diabetes in pregnancy, childbirth, and the puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.9,"Unsp diabetes in pregnancy, childbirth and the puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.A,Early-stage type 1 diabetes mellitus,C5880074,Presymptomatic type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.35,Type 1 diabetes mellitus with proliferative diabetic retinopathy,C2874041,Type 1 diabetes mellitus with proliferative diabetic retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.349,Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema,C2874040,Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy without macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.43,Type 1 diabetes mellitus with diabetic autonomic (poly)neuropathy,C2874047,Type 1 diabetes mellitus with diabetic gastroparesis,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.42,Type 1 diabetes mellitus with diabetic polyneuropathy,C2874046,Type 1 diabetes mellitus with diabetic neuralgia,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.44,Type 1 diabetes mellitus with diabetic amyotrophy,C2874049,Type 1 diabetes mellitus with diabetic amyotrophy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.359,Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema,C2874043,Type 1 diabetes mellitus with proliferative diabetic retinopathy without macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.351,Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema,C2874042,Type 1 diabetes mellitus with proliferative diabetic retinopathy with macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.40,"Type 1 diabetes mellitus with diabetic neuropathy, unspecified",C2874045,"Type 1 diabetes mellitus with diabetic neuropathy, unspecified",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.39,Type 1 diabetes mellitus with other diabetic ophthalmic complication,C2874044,Type 1 diabetes mellitus with other diabetic ophthalmic complication,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.A2,"Type 1 diabetes mellitus, presymptomatic, Stage 2",C5926639,"Type 1 diabetes mellitus, presymptomatic, Stage 2",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.A1,"Type 1 diabetes mellitus, presymptomatic, Stage 1",C5926638,"Type 1 diabetes mellitus, presymptomatic, Stage 1",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.49,Type 1 diabetes mellitus with other diabetic neurological complication,C2874050,Type 1 diabetes mellitus with other diabetic neurological complication,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.52,Type 1 diabetes mellitus with diabetic peripheral angiopathy with gangrene,C2874052,Type 1 diabetes mellitus with diabetic gangrene,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.51,Type 1 diabetes mellitus with diabetic peripheral angiopathy without gangrene,C2874051,Type 1 diabetes mellitus with diabetic peripheral angiopathy without gangrene,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.36,Type 1 diabetes mellitus with diabetic cataract,C0837004,Type 1 diabetes mellitus with diabetic cataract,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E14,Unspecified diabetes mellitus,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.618,Type 1 diabetes mellitus with other diabetic arthropathy,C2874058,Type 1 diabetes mellitus with other diabetic arthropathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.A0,"Type 1 diabetes mellitus, presymptomatic, unspecified",C5926637,"Type 1 diabetes mellitus, presymptomatic, unspecified",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.41,Type 1 diabetes mellitus with diabetic mononeuropathy,C0837007,Type 1 diabetes mellitus with diabetic mononeuropathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.610,Type 1 diabetes mellitus with diabetic neuropathic arthropathy,C2874057,Type 1 diabetes mellitus with diabetic neuropathic arthropathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.62,Type 1 diabetes mellitus with skin complications,C2874059,Type 1 diabetes mellitus with skin complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.59,Type 1 diabetes mellitus with other circulatory complications,C2874054,Type 1 diabetes mellitus with other circulatory complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E08,Diabetes mellitus due to underlying condition,C2873880,Diabetes mellitus due to underlying condition,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.61,Type 1 diabetes mellitus with diabetic arthropathy,C2874055,Type 1 diabetes mellitus with diabetic arthropathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.5,Type 1 diabetes mellitus with circulatory complications,C0837011,"Type 1 diabetes mellitus with circulatory complication, unspecified",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.620,Type 1 diabetes mellitus with diabetic dermatitis,C2874061,Type 1 diabetes mellitus with diabetic dermatitis,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.622,Type 1 diabetes mellitus with other skin ulcer,C2874063,Type 1 diabetes mellitus with other skin ulcer,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.621,Type 1 diabetes mellitus with foot ulcer,C2874062,Type 1 diabetes mellitus with foot ulcer,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.649,Type 1 diabetes mellitus with hypoglycemia without coma,C2874069,Type 1 diabetes mellitus with hypoglycemia without coma,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.64,Type 1 diabetes mellitus with hypoglycemia,C0837018,Type 1 diabetes mellitus with hypoglycaemia,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.01,"Pre-existing type 1 diabetes mellitus, in pregnancy",C0851207,"Pre-existing diabetes mellitus, Type 1, in pregnancy",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.019,"Pre-existing type 1 diabetes mellitus, in pregnancy, unspecified trimester",C0851207,"Pre-existing diabetes mellitus, Type 1, in pregnancy",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.641,Type 1 diabetes mellitus with hypoglycemia with coma,C2874068,Type 1 diabetes mellitus with hypoglycemia with coma,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.63,Type 1 diabetes mellitus with oral complications,C2874065,Type 1 diabetes mellitus with oral complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.628,Type 1 diabetes mellitus with other skin complications,C2874064,Type 1 diabetes mellitus with other skin complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.638,Type 1 diabetes mellitus with other oral complications,C2874067,Type 1 diabetes mellitus with other oral complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.630,Type 1 diabetes mellitus with periodontal disease,C2874066,Type 1 diabetes mellitus with periodontal disease,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.65,Type 1 diabetes mellitus with hyperglycemia,C2874070,Type 1 diabetes mellitus with hyperglycemia,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.9,Type 1 diabetes mellitus without complications,C0494284,Insulin-dependent diabetes mellitus without complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.311,Type 1 diabetes mellitus with unspecified diabetic retinopathy with macular edema,C2874029,Type 1 diabetes mellitus with unspecified diabetic retinopathy with macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.31,Type 1 diabetes mellitus with unsp diabetic retinopathy,C2874028,Type 1 diabetes mellitus with unspecified diabetic retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,P70.2,Neonatal diabetes mellitus,C0158981,Neonatal diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.22,Type 1 diabetes mellitus with diabetic chronic kidney disease,C2874025,Type 1 diabetes mellitus with diabetic chronic kidney disease,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.29,Type 1 diabetes mellitus with other diabetic kidney complication,C2874027,Type 1 diabetes mellitus with other diabetic kidney complication,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.2,Type 1 diabetes mellitus with kidney complications,C2874020,Type 1 diabetes mellitus with kidney complications,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.03,"Pre-existing type 1 diabetes mellitus, in the puerperium",C2903663,"Pre-existing type 1 diabetes mellitus, in the puerperium",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.013,"Pre-existing type 1 diabetes mellitus, in pregnancy, third trimester",C2903661,"Pre-existing type 1 diabetes mellitus, in pregnancy, third trimester",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.02,"Pre-existing type 1 diabetes mellitus, in childbirth",C2903662,"Pre-existing type 1 diabetes mellitus, in childbirth",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.341,Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema,C2874039,Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy with macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,O24.012,"Pre-existing type 1 diabetes mellitus, in pregnancy, second trimester",C2903660,"Pre-existing type 1 diabetes mellitus, in pregnancy, second trimester",possible,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3219,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, unspecified eye",C4268014,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3291,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, right eye",C4268015,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3292,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, left eye",C4268016,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3293,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, bilateral",C4268017,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3299,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, unspecified eye",C4268018,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema, unspecified eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3311,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, right eye",C4268019,"Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.319,Type 1 diabetes mellitus with unspecified diabetic retinopathy without macular edema,C2874030,Type 1 diabetes mellitus with unspecified diabetic retinopathy without macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3211,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, right eye",C4268011,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, right eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3212,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, left eye",C4268012,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, left eye",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.3213,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, bilateral",C4268013,"Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema, bilateral",narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.331,Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema,C2874036,Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy with macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.33,Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy,C2874035,Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.34,Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy,C2874038,Type 1 diabetes mellitus with severe nonproliferative diabetic retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.339,Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema,C2874037,Type 1 diabetes mellitus with moderate nonproliferative diabetic retinopathy without macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.32,Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy,C2874032,Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.329,Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema,C2874034,Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy without macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD10CM,E10.321,Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema,C2874033,Type 1 diabetes mellitus with mild nonproliferative diabetic retinopathy with macular edema,narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.0,Diabetes mellitus without mention of complication,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.5,Diabetes with ophthalmic manifestations,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.9,Diabetes with unspecified complication,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.63,"Diabetes with neurological manifestations, type I [juvenile type], uncontrolled",C0375140,"Diabetes with neurological manifestations, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.71,"Diabetes with peripheral circulatory disorders, type I [juvenile type], not stated as uncontrolled",C0375142,"Diabetes with peripheral circulatory disorders, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.73,"Diabetes with peripheral circulatory disorders, type I [juvenile type], uncontrolled",C0375144,"Diabetes with peripheral circulatory disorders, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.81,"Diabetes with other specified manifestations, type I [juvenile type], not stated as uncontrolled",C0375146,"Diabetes with other specified manifestations, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.83,"Diabetes with other specified manifestations, type I [juvenile type], uncontrolled",C0375148,"Diabetes with other specified manifestations, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.91,"Diabetes with unspecified complication, type I [juvenile type], not stated as uncontrolled",C0375150,"Diabetes with unspecified complication, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.93,"Diabetes with unspecified complication, type I [juvenile type], uncontrolled",C0375152,"Diabetes with unspecified complication, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.3,Diabetes with other coma,C0011870,Diabetes with other coma,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.7,Diabetes with peripheral circulatory disorders,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,366.41,Diabetic cataract,C0011876,Cataract due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.1,Diabetes with ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.4,Diabetes with renal manifestations,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.6,Diabetes with neurological manifestations,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,362.0,Diabetic retinopathy,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,648.00,"Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as to episode of care or not applicable",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,648.0,"Diabetes mellitus complicating pregnancy, childbirth, or the puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,362.02,Proliferative diabetic retinopathy,C0154830,Proliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,362.03,Nonproliferative diabetic retinopathy NOS,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,362.01,Background diabetic retinopathy,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,260.61,Diabetes type 1,C0000000,Unassociated custom codes,narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250,Diabetes mellitus,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.13,"Diabetes with ketoacidosis, type I [juvenile type], uncontrolled",C0375120,"Diabetes with ketoacidosis, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.21,"Diabetes with hyperosmolarity, type I [juvenile type], not stated as uncontrolled",C0375123,"Diabetes with hyperosmolarity, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.23,"Diabetes with hyperosmolarity, type I [juvenile type], uncontrolled",C0375125,"Diabetes with hyperosmolarity, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.31,"Diabetes with other coma, type I [juvenile type], not stated as uncontrolled",C0375127,"Diabetes with other coma, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.33,"Diabetes with other coma, type I [juvenile type], uncontrolled",C0375129,"Diabetes with other coma, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,357.2,Polyneuropathy in diabetes,C0271680,Diabetic Polyneuropathies,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.41,"Diabetes with renal manifestations, type I [juvenile type], not stated as uncontrolled",C0375131,"Diabetes with renal manifestations, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.43,"Diabetes with renal manifestations, type I [juvenile type], uncontrolled",C0375133,"Diabetes with renal manifestations, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.51,"Diabetes with ophthalmic manifestations, type I [juvenile type], not stated as uncontrolled",C0375135,"Diabetes with ophthalmic manifestations, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.53,"Diabetes with ophthalmic manifestations, type I [juvenile type], uncontrolled",C0375136,"Diabetes with ophthalmic manifestations, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,775.1,Neonatal diabetes mellitus,C0158981,Neonatal diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.01,"Diabetes mellitus without mention of complication, type I [juvenile type], not stated as uncontrolled",C0375114,"Diabetes mellitus without mention of complication, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.03,"Diabetes mellitus without mention of complication, type I [juvenile type], uncontrolled",C0375116,"Diabetes mellitus without mention of complication, type I [juvenile type], uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,ICD9CM,250.11,"Diabetes with ketoacidosis, type I [juvenile type], not stated as uncontrolled",C0375118,"Diabetes with ketoacidosis, type I [juvenile type], not stated as uncontrolled",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190423009,"Diabetes mellitus, juvenile type, with unspecified complication",C1299613,Insulin-dependent diabetes mellitus with unspecified complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,371054002,Type 1 diabetes mellitus with complication,C1299613,Insulin-dependent diabetes mellitus with unspecified complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,444073006,Uncontrolled type 1 diabetes mellitus,C2732402,Uncontrolled type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190371008,Insulin-dependent diabetes mellitus - poor control,C2732402,Uncontrolled type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,71701000119105,Hypertension in chronic kidney disease due to type 1 diabetes mellitus,C3874779,Hypertension in chronic kidney disease due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,28032008,Insulin dependent diabetes mellitus type 1B,C0271637,Insulin dependent diabetes mellitus type 1B,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,111552007,Diabetes mellitus without complication,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190324002,Diabetes mellitus NOS with no mention of complication,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154674007,Diabetes mellitus with no mention of complication,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190321005,Diabetes mellitus with no mention of complication,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,60991000119100,Blindness due to type 1 diabetes mellitus,C3875181,Blindness due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,368581000119106,Neuropathy due to type 2 diabetes mellitus,C4076547,Neuropathy due to type 2 diabetes mellitus,exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,268519009,Diabetic - poor control,C0421258,Diabetic - poor control,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,170768007,Diabetic - poor control NOS,C0421258,Diabetic - poor control,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,268599005,Diabetic - poor control,C0421258,Diabetic - poor control,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,147994002,Diabetic - poor control,C0421258,Diabetic - poor control,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,170764009,Diabetic - poor control,C0421258,Diabetic - poor control,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332442005,Hypertension in chronic kidney disease stage 3 due to type 1 diabetes mellitus,C5923889,Hypertension in chronic kidney disease stage 3 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332441003,Hypertension in chronic kidney disease stage 3A due to type 1 diabetes mellitus,C5923888,Hypertension in chronic kidney disease stage 3A due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16745891000119105,Mild nonproliferative retinopathy of left eye due to diabetes mellitus type 1,C5437610,Mild nonproliferative retinopathy of left eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,72041000119103,Osteomyelitis due to type 1 diabetes mellitus,C3874882,Osteomyelitis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,110141000119100,Ulcer of lower limb due to type 1 diabetes mellitus,C3875057,Ulcer of lower limb due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190348006,Diabetes mellitus NOS with ophthalmic manifestation,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,25093002,Disorder of eye due to diabetes mellitus,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190343002,Diabetes mellitus with ophthalmic manifestation,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267471001,Diabetes + eye manifestation,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154678005,Diabetes + eye manifestation,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,609579009,"Diabetes mellitus, transient neonatal 1",C1832386,"Diabetes Mellitus, Transient Neonatal, 1",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190404002,Malnutrition-related diabetes mellitus,C0271641,Malnutrition related diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,75524006,Malnutrition related diabetes mellitus,C0271641,Malnutrition related diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,90741000119107,Chronic kidney disease stage 3 due to type 1 diabetes mellitus,C3875050,Chronic kidney disease stage 3 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332436006,Hypertension in chronic kidney disease stage 3B due to type 1 diabetes mellitus,C5923883,Hypertension in chronic kidney disease stage 3B due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,71771000119100,Neuropathic arthropathy due to type 1 diabetes mellitus,C1279307,Neuropathic arthropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190381007,Type I diabetes mellitus with neuropathic arthropathy,C1279307,Neuropathic arthropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,314894004,Insulin dependent diabetes mellitus with neuropathic arthropathy,C1279307,Neuropathic arthropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,422183001,Skin ulcer due to diabetes mellitus,C1299632,Skin ulcer due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,371086007,Diabetes mellitus with skin ulcer,C1299632,Skin ulcer due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,427571000,Lumbosacral radiculoplexus neuropathy due to type 1 diabetes mellitus,C1960216,Lumbosacral radiculoplexus neuropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,74627003,Complication due to diabetes mellitus,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190422004,Diabetes mellitus with unspecified complication,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,372069003,Diabetes mellitus with complication,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190426001,Diabetes mellitus NOS with unspecified complication,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190377007,Type I diabetes mellitus with hypoglycaemic coma,C1279304,Hypoglycemic coma due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,314771006,Insulin dependent diabetes mellitus with hypoglycaemic coma,C1279304,Hypoglycemic coma due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421437000,Hypoglycemic coma due to type 1 diabetes mellitus,C1279304,Hypoglycemic coma due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,39710007,Arthropathy associated with an endocrine AND/OR metabolic disorder,C0700520,Arthropathy associated with an endocrine AND/OR metabolic disorder,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,314893005,Type 1 diabetes mellitus with arthropathy,C1279306,Type 1 diabetes mellitus with arthropathy,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190380008,Type 1 diabetes mellitus with arthropathy,C1279306,Type 1 diabetes mellitus with arthropathy,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190363009,Insulin-dependent diabetes mellitus with renal complications,C0348913,Insulin-dependent diabetes mellitus with renal complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190364003,Insulin-dependent diabetes mellitus with ophthalmic complications,C0348914,Insulin-dependent diabetes mellitus with ophthalmic complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190365002,Insulin-dependent diabetes mellitus with neurological complications,C0348915,Insulin-dependent diabetes mellitus with neurological complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,422228004,Multiple complications due to type 1 diabetes mellitus,C0348916,Insulin-dependent diabetes mellitus with multiple complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190366001,Insulin-dependent diabetes mellitus with multiple complications,C0348916,Insulin-dependent diabetes mellitus with multiple complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16746941000119104,Severe nonproliferative retinopathy of left eye due to diabetes mellitus type 1,C5437403,Severe nonproliferative retinopathy of left eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,199229001,Pre-existing type 1 diabetes mellitus,C0348917,"Pre-existing diabetes mellitus, insulin-dependent",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16747341000119101,Severe nonproliferative retinopathy of right eye due to diabetes mellitus type 1,C5437402,Severe nonproliferative retinopathy of right eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,10656231000119100,Skin ulcer of toe due to diabetes mellitus type 1,C4040935,Skin ulcer of toe due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,180178009,Continuous subcutaneous infusion of insulin,C0393124,Continuous subcutaneous infusion of insulin,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16747101000119101,Bilateral severe nonproliferative retinopathy of eyes due to diabetes mellitus type 1,C5437404,Bilateral severe nonproliferative retinopathy of eyes due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,311782002,Advanced retinal disease due to diabetes mellitus,C0589354,Advanced retinal disease due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,193352007,Advanced diabetic retinal disease,C0589354,Advanced retinal disease due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,155114008,Advanced diabetic retinal disease,C0589354,Advanced retinal disease due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,609580007,"Diabetes mellitus, transient neonatal 2",C1835887,"Diabetes Mellitus, Transient Neonatal, 2",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420789003,Retinopathy due to type 1 diabetes mellitus,C1720223,Retinopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,71721000119101,Nephrotic syndrome due to type 1 diabetes mellitus,C3874981,Nephrotic syndrome due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190418009,"Diabetes mellitus, juvenile type, with other specified manifestation",C0342261,Insulin-dependent diabetes mellitus with other specified complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190419001,"Diabetes mellitus, adult onset, with other specified manifestation",C0342262,Non-insulin-dependent diabetes mellitus with other specified complications,exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,33248009,Diabetes with non-ketotic non-hyperosmolar coma,C0011870,Diabetes with other coma,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,127014009,Peripheral angiopathy due to diabetes mellitus,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267473003,Gangrene - diabetic,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190354007,Diabetes mellitus with gangrene,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267383000,Diabetes mellitus with peripheral circulatory disorder,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190361006,Diabetes mellitus NOS with peripheral circulatory disorder,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,982001,Diabetes with peripheral circulatory disorders,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,237608006,"Lipodystrophy, partial, with Rieger anomaly, short stature, and insulinopenic diabetes mellitus",C0342279,"Lipodystrophy, partial, with Rieger anomaly, short stature, and insulinopenic diabetes mellitus",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420918009,Mononeuropathy due to type 1 diabetes mellitus,C1720409,Mononeuropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,691000119103,Erectile dysfunction due to type 1 diabetes mellitus,C3494566,Erectile dysfunction due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190420007,Other specified diabetes mellitus with other specified complications,C0348931,Other specified diabetes mellitus with other specified complications,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,155129005,Diabetic cataract,C0011876,Cataract due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267722005,Diabetic cataract,C0011876,Cataract due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,43959009,Cataract due to diabetes mellitus,C0011876,Cataract due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,751000119104,Chronic kidney disease stage 1 due to type 2 diabetes mellitus,C3661934,Chronic kidney disease stage 1 due to type 2 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,275522008,Diabetes mellitus with gangrene,C0554436,Gangrene due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,422275004,Gangrene due to diabetes mellitus,C0554436,Gangrene due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,25907005,Diabetic gangrene,C0554436,Gangrene due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,237603002,Transient neonatal diabetes mellitus,C0342273,Transitory neonatal diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267467004,Diabetes mellitus (& [ketoacidosis]),C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420422005,Diabetic ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,24927004,Diabetes mellitus with ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190328004,Diabetes mellitus NOS with ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154671004,Diabetes mellitus (& [ketoacidosis]),C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,21858001,Diabetes with renal manifestations,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154677000,Diabetes + nephropathy (& [Kimmelstiel-Wilson syndrome]),C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,60009009,Diabetic nephropathy,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,127013003,Disorder of kidney due to diabetes mellitus,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267470000,Diabetes + nephropathy,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190342007,Diabetes mellitis with nephropathy NOS,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267381003,Diabetes mellitus with renal manifestation,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190338009,Diabetes mellitus with renal manifestation,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,770766000,Proliferative retinopathy of left eye due to diabetes mellitus,C2114782,Proliferative retinopathy of left eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,193182005,Diabetic polyneuropathy,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267472008,Diabetes + neuropathy,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,230572002,Neuropathy due to diabetes mellitus,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190349003,Diabetes mellitus with polyneuropathy,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190353001,Diabetes mellitus NOS with neurological manifestation,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,866003,Diabetic neuropathy,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154683002,Diabetes + neuropathy,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,770765001,Proliferative retinopathy of right eye with diabetes mellitus,C2114783,Proliferative retinopathy of right eye with diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421895002,Peripheral vascular disorder due to diabetes mellitus,C1719760,Peripheral vascular disorder due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420486006,Exudative maculopathy due to type 1 diabetes mellitus,C1719769,Exudative maculopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,408287009,Type 1 diabetes mellitus with exudative maculopathy,C1719769,Exudative maculopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,367211000119103,Inflammatory dermatosis due to type 1 diabetes mellitus,C5437658,Inflammatory dermatosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,609562003,"Maturity onset diabetes of the young, type 1",C1852093,"Maturity-Onset Diabetes of the Young, Type 1",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421468001,Disorder of nervous system due to type 1 diabetes mellitus,C1720194,Disorder of nervous system due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,739681000,Disorder of eye due to type 1 diabetes mellitus,C4545499,Disorder of eye due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,237618001,Congenital insulin-dependent diabetes mellitus with fatal secretory diarrhea,C0342288,Insulin-dependent diabetes mellitus secretory diarrhea syndrome,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,724276006,"X-linked immune dysregulation, polyendocrinopathy, enteropathy syndrome",C0342288,Insulin-dependent diabetes mellitus secretory diarrhea syndrome,exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,422088007,Disorder of nervous system due to diabetes mellitus,C1720078,Disorder of nervous system due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,426907004,Small vessel disease due to type 1 diabetes mellitus,C1960041,Small vessel disease due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,155107006,Diabetic retinopathy,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,309595004,Retinal abnormality - diabetes-related,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,141196007,Retinal abnormality - diabetes-related,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,4855003,Retinopathy due to diabetes mellitus,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,163997001,Retinal abnormality - diabetes-related,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,193353002,Diabetic retinopathy NOS,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,170746002,Diabetic on oral treatment,C0421247,Diabetic on oral treatment,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,147979001,Diabetic on oral treatment,C0421247,Diabetic on oral treatment,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190367005,Unstable type I diabetes mellitus,C0567407,Brittle type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,290002008,Brittle type 1 diabetes mellitus,C0567407,Brittle type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,90771000119100,End stage renal disease on dialysis due to type 1 diabetes mellitus,C3874791,End stage renal disease on dialysis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16749781000119101,Bilateral proliferative retinopathy of eyes due to diabetes mellitus type 1,C5437440,Bilateral proliferative retinopathy of eyes due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190362004,Type I diabetes mellitus,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,46635009,Type 1 diabetes mellitus,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190322003,Insulin dependent diabetes mellitus,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267469001,Diabetes mellitus - juvenile,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154673001,Diabetes mellitus: [juvenile] or [insulin dependent],C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190325001,"Diabetes mellitus, juvenile type, with ketoacidosis",C0342294,Ketoacidosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420270002,Ketoacidosis due to type 1 diabetes mellitus,C0342294,Ketoacidosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,371055001,Type I diabetes mellitus with ketoacidosis,C0342294,Ketoacidosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190330002,Hyperosmolar coma due to type 1 diabetes mellitus,C0342296,Hyperosmolar coma due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,201252003,Mixed diabetic ulcer - foot,C0406527,Mixed diabetic ulcer - foot,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,96441000119101,Chronic kidney disease due to type 1 diabetes mellitus,C3875082,Chronic kidney disease due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190384004,Type II diabetes mellitus,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,267468009,Diabetes mellitus -adult onset,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154672006,Diabetes mellitus: [adult onset] or [noninsulin dependent],C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190323008,Maturity onset diabetes,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,44054006,Type 2 diabetes mellitus,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420514000,Persistent proteinuria due to type 1 diabetes mellitus,C1719783,Persistent proteinuria due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190368000,Type 1 diabetes mellitus with ulcer,C0579065,Type 1 diabetes mellitus with ulcer,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16748741000119101,Proliferative retinopathy of right eye due to diabetes mellitus type 1,C5437439,Proliferative retinopathy of right eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,443694000,Uncontrolled type 2 diabetes mellitus,C2733146,Uncontrolled type 2 diabetes mellitus,exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,90721000119101,Chronic kidney disease stage 1 due to type 1 diabetes mellitus,C3875519,Chronic kidney disease stage 1 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,144187006,Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,207289007,[D]Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,270004003,Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154719004,Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,390730002,[D]Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,315299009,[D]Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,237598005,Hyperglycemic disorder,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,207643008,"[X]Hyperglycaemia, unspecified",C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,80394007,Hyperglycemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16747741000119100,Proliferative retinopathy of left eye due to diabetes mellitus type 1,C5437438,Proliferative retinopathy of left eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,609566000,Pregnancy and type 1 diabetes mellitus,C3662019,Pregnancy and type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,716020005,Diabetic embryopathy,C3830518,Diabetic embryopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,76751001,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,156138000,"Diabetes mellitus during pregnancy, childbirth and the puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,199223000,"Diabetes mellitus during pregnancy, childbirth and the puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,199234002,"Diabetes mellitus during pregnancy, childbirth or the puerperium NOS",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190372001,Type 1 diabetes mellitus maturity onset,C0581383,Type 1 diabetes mellitus maturity onset,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1290118005,Presymptomatic type 1 diabetes mellitus,C5880074,Presymptomatic type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,721111000124107,Diabetes mellitus type 1 stage 1,C5847614,Diabetes mellitus type 1 stage 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,104941000119109,Ischemia of retina due to type 1 diabetes mellitus,C3874812,Ischemia of retina due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,721121000124104,Diabetes mellitus type 1 stage 2,C5847615,Diabetes mellitus type 1 stage 2,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,371087003,Diabetic foot ulcer,C1456868,Diabetic foot ulcer,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,405096004,Diabetes self-management behavior,C1319140,Diabetes self-management behavior,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,789542009,Neuropathy due to type 1 diabetes mellitus,C5223858,Disorder of nerve due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,368521000119107,Disorder of nerve due to type 1 diabetes mellitus,C5223858,Disorder of nerve due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,31211000119101,Peripheral angiopathy due to type 1 diabetes mellitus,C4304957,Peripheral angiopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,59276001,Proliferative retinopathy due to diabetes mellitus,C0154830,Proliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154679002,Proliferative diabetic retinopathy,C0154830,Proliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,390718008,Non proliferative diabetic retinopathy,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,390834004,Nonproliferative retinopathy due to diabetes mellitus,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,154680004,Background diabetic retinopathy,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,31411005,Background diabetic retinopathy,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,109171000119104,Retinal edema due to type 1 diabetes mellitus,C3875216,Retinal edema due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,368551000119104,Dyslipidemia due to type 1 diabetes mellitus,C4076027,Dyslipidemia due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,253864004,"Familial hypoplastic, glomerulocystic kidney",C0431693,Renal cysts and diabetes syndrome,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,609572000,"Maturity-onset diabetes of the young, type 5",C0431693,Renal cysts and diabetes syndrome,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,446641003,Renal cysts and diabetes syndrome,C0431693,Renal cysts and diabetes syndrome,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16697521000119104,Bilateral moderate nonproliferative retinopathy due to diabetes mellitus type 1,C5437575,Bilateral moderate nonproliferative retinopathy due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,72031000119107,Severe malnutrition due to type 1 diabetes mellitus,C3875450,Severe malnutrition due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1255271005,"Type 1 diabetes mellitus, central and peripheral neurodegeneration syndrome",C4015436,"Type 1 diabetes mellitus, central and peripheral neurodegeneration syndrome",narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,721201000124104,Diabetes mellitus type 1 stage 3,C5847622,Diabetes mellitus type 1 stage 3,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190378002,Type I diabetes mellitus with diabetic cataract,C0837004,Type 1 diabetes mellitus with diabetic cataract,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,314887002,Insulin dependent diabetes mellitus with diabetic cataract,C0837004,Type 1 diabetes mellitus with diabetic cataract,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,90731000119103,Chronic kidney disease stage 2 due to type 1 diabetes mellitus,C3875335,Chronic kidney disease stage 2 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,191044006,Diabetes mellitus,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,73211009,Diabetes mellitus,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16697471000119102,Moderate nonproliferative retinopathy of right eye due to diabetes mellitus type 1,C5437573,Moderate nonproliferative retinopathy of right eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16697421000119103,Moderate nonproliferative retinopathy of left eye due to diabetes mellitus type 1,C5437572,Moderate nonproliferative retinopathy of left eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,201724008,Neuropathic arthropathy due to diabetes mellitus,C0343178,Neuropathic arthropathy due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421893009,Renal disorder due to type 1 diabetes mellitus,C1719759,Renal disorder due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,368561000119102,Hyperosmolarity due to type 1 diabetes mellitus,C4544538,Hyperosmolarity due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16746741000119102,Nonproliferative retinopathy of right eye due to diabetes mellitus type 1,C5437487,Nonproliferative retinopathy of right eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16746661000119106,Bilateral nonproliferative retinopathy of eyes due to diabetes mellitus type 1,C5437486,Bilateral nonproliferative retinopathy of eyes due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16891191000119108,Coronary artery disease due to type 1 diabetes mellitus,C5438212,Coronary artery disease due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190358005,IDDM with peripheral circulatory disorder,C0154182,Type I diabetes mellitus with peripheral circulatory disorders,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190355008,"Diabetes mellitus, juvenile type, with peripheral circulatory disorder",C0154182,Type I diabetes mellitus with peripheral circulatory disorders,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,138881000119106,Mild nonproliferative retinopathy due to type 1 diabetes mellitus,C4076052,Mild nonproliferative retinopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,84371000119108,Hypoglycemia due to type 1 diabetes mellitus,C3875322,Hypoglycemia due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16745211000119100,Nonproliferative retinopathy of left eye due to diabetes mellitus type 1,C5437485,Nonproliferative retinopathy of left eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,609564002,Pre-existing type 1 diabetes mellitus in pregnancy,C0851207,"Pre-existing diabetes mellitus, Type 1, in pregnancy",possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,11530004,Brittle diabetes mellitus,C0342302,Brittle diabetes,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,275918005,Unstable diabetes,C0342302,Brittle diabetes,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,426705001,Diabetes mellitus associated with cystic fibrosis,C1960626,Diabetes mellitus associated with cystic fibrosis,exclude,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,401110002,Type 1 diabetes mellitus with persistent microalbuminuria,C1303112,Type 1 diabetes mellitus with persistent microalbuminuria,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,138891000119109,Moderate nonproliferative retinopathy due to type 1 diabetes mellitus,C4076044,Moderate nonproliferative retinopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,368541000119101,Cheiroarthropathy due to diabetes mellitus type 1,C5438325,Cheiroarthropathy due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,713704004,Gastroparesis due to diabetes mellitus,C0267176,Gastroparesis due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,34140002,Diabetic gastroparesis,C0267176,Gastroparesis due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420868002,Disorder due to type 1 diabetes mellitus,C1720297,Disorder due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421365002,Peripheral circulatory disorder due to type 1 diabetes mellitus,C1720056,Peripheral circulatory disorder due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1196923000,Neovascular glaucoma due to diabetes mellitus type 1,C5686054,Neovascular glaucoma due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,425442003,Diabetic autonomic neuropathy associated with type 1 diabetes mellitus,C1960678,Autonomic neuropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,712882000,Autonomic neuropathy due to type 1 diabetes mellitus,C1960678,Autonomic neuropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,713705003,Polyneuropathy due to type 1 diabetes mellitus,C4075820,Polyneuropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,237633009,Hypoglycemia due to diabetes mellitus,C0342313,Hypoglycemia due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,237632004,Hypoglycemic event due to diabetes,C0342312,Hypoglycemic event due to diabetes,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,789571005,Ulcer of heel due to type 1 diabetes mellitus,C5230585,Ulcer of heel due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,721283000,Acidosis due to type 1 diabetes mellitus,C4303434,Acidosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,789572003,Ulcer of midfoot due to type 1 diabetes mellitus,C5230586,Ulcer of midfoot due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,713702000,Gastroparesis due to type 1 diabetes mellitus,C4075823,Gastroparesis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,280137006,Diabetic foot,C0206172,Diabetic Foot,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,128001000119105,Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus,C3874859,Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,90751000119109,Chronic kidney disease stage 4 due to type 1 diabetes mellitus,C3874978,Chronic kidney disease stage 4 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,425159004,Diabetes type 1 with gastroparesis,C1827566,Diabetic gastroparesis associated with type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,164881000119109,Ulcer of foot due to type 1 diabetes mellitus,C3874977,Ulcer of foot due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,81830002,Mononeuropathy simplex due to diabetes mellitus,C0271678,Diabetic Mononeuropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,230577008,Diabetic mononeuropathy,C0271678,Diabetic Mononeuropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,193263008,Diabetic mononeuropathy,C0271678,Diabetic Mononeuropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,472970003,History of diabetes mellitus type 1,C3532489,History of diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,435011000124100,Ankle ulcer associated with type 1 diabetes mellitus,C3661892,Ankle ulcer due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,87471000119106,Ankle ulcer due to type 1 diabetes mellitus,C3661892,Ankle ulcer due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,120711000119108,Hypoglycemic unawareness due to type 1 diabetes mellitus,C3875263,Hypoglycemic unawareness due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,90761000119106,Chronic kidney disease stage 5 due to type 1 diabetes mellitus,C3874971,Chronic kidney disease stage 5 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,424736006,Diabetic peripheral neuropathy,C0740447,Diabetic peripheral neuropathy,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190373006,Type I diabetes mellitus without complication,C0494284,Insulin-dependent diabetes mellitus without complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,313435000,Insulin-dependent diabetes without complication,C0494284,Insulin-dependent diabetes mellitus without complications,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1217068008,Fulminant type 1 diabetes mellitus,C3495814,Fulminant type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,49455004,Polyneuropathy due to diabetes mellitus,C0271680,Diabetic Polyneuropathies,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421305000,Persistent microalbuminuria due to type 1 diabetes mellitus,C1719929,Persistent microalbuminuria due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421920002,Cataract due to diabetes mellitus type 1,C1719807,Cataract due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,31321000119102,Diabetes mellitus type 1 without retinopathy,C3874843,Diabetes mellitus type 1 without retinopathy,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,102781000119107,Sensory neuropathy due to type 1 diabetes mellitus,C3874964,Sensory neuropathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,706894000,Retinopathy due to unstable diabetes mellitus type 1,C3873632,Retinopathy due to unstable diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,419100001,Infection of foot due to diabetes mellitus,C1642836,Infection of foot due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,82571000119107,Traction detachment of retina due to type 1 diabetes mellitus,C3875010,Traction detachment of retina due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,72141000119104,Chronic ulcer of skin due to type 1 diabetes mellitus,C3874960,Chronic ulcer of skin due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,104951000119106,Vitreous hemorrhage due to type 1 diabetes mellitus,C3875136,Vitreous hemorrhage due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,421075007,Ketoacidotic coma due to type 1 diabetes mellitus,C1720598,Ketoacidotic coma due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332471006,Chronic kidney disease stage 3B due to type 1 diabetes mellitus,C5923915,Chronic kidney disease stage 3B due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,408539000,Insulin autoimmune syndrome,C0854359,Insulin autoimmune syndrome,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,190369008,Insulin-dependent diabetes mellitus with gangrene,C0579119,Gangrene due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,420825003,Gangrene due to type 1 diabetes mellitus,C0579119,Gangrene due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,706891008,Neuropathy due to unstable diabetes mellitus type 1,C3873629,Neuropathy due to unstable diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332472004,Chronic kidney disease stage 3A due to type 1 diabetes mellitus,C5923916,Chronic kidney disease stage 3A due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16745611000119102,Mild nonproliferative retinopathy of right eye due to diabetes mellitus type 1,C5437609,Mild nonproliferative retinopathy of right eye due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332467008,Hypertension in chronic kidney disease stage 5 due to type 1 diabetes mellitus,C5923911,Hypertension in chronic kidney disease stage 5 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,16745411000119104,Bilateral mild nonproliferative retinopathy due to diabetes mellitus type 1,C5437608,Bilateral mild nonproliferative retinopathy due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332468003,Hypertension in chronic kidney disease stage 4 due to type 1 diabetes mellitus,C5923912,Hypertension in chronic kidney disease stage 4 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,87491000119107,Ulcer of forefoot due to type 1 diabetes mellitus,C3874951,Ulcer of forefoot due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,444094009,History of diabetes mellitus in child of subject,C2732342,History of diabetes mellitus in child of subject,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,49817004,Neonatal diabetes mellitus,C0158981,Neonatal diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,60981000119103,Glaucoma due to diabetes mellitus type 1,C4081815,Glaucoma due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,1332464001,Hypertension in chronic kidney disease stage 2 due to type 1 diabetes mellitus,C5923905,Hypertension in chronic kidney disease stage 2 due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,82561000119101,Cranial nerve palsy due to diabetes mellitus type 1,C4081814,Cranial nerve palsy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,770098001,Cranial nerve palsy due to type 1 diabetes mellitus,C4081814,Cranial nerve palsy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,138901000119108,Severe nonproliferative retinopathy due to diabetes mellitus type 1,C4081812,Severe nonproliferative retinopathy due to diabetes mellitus type 1,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,703137001,Type I diabetes mellitus in remission,C3839722,Type I diabetes mellitus in remission,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,428896009,Hyperosmolality due to uncontrolled type 1 diabetes mellitus,C1997115,Hyperosmolality due to uncontrolled type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,735537007,Hyperosmolar hyperglycemic coma due to diabetes mellitus without ketoacidosis,C4543812,Hyperosmolar hyperglycemic coma due to diabetes mellitus without ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,SNOMEDCT_US,72021000119109,Dermopathy due to type 1 diabetes mellitus,C3875354,Dermopathy due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10045237,Type I diabetes mellitus with unspecified complication,C1299613,Insulin-dependent diabetes mellitus with unspecified complications,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10063623,Type I diabetes mellitus inadequate control,C2732402,Uncontrolled type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012623,Diabetes mellitus without mention of complication,C0271635,Diabetes mellitus without mention of complication,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012634,Diabetes with ophthalmic manifestations,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012662,Diabetic eye disease NOS,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012661,Diabetic eye disease,C0342245,Disorder of eye due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10050197,Diabetes mellitus malnutrition-related,C0271641,Malnutrition related diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10049648,Diabetic ulcer NOS,C1299632,Skin ulcer due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10056340,Diabetic ulcer,C1299632,Skin ulcer due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10061104,Diabetic complication,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012653,Diabetic complications,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012652,Diabetic complication NOS,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012640,Diabetes with unspecified complications,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012639,Diabetes with unspecified complication,C0342257,Complications of Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10045234,Type I diabetes mellitus with other specified manifestations,C0342261,Insulin-dependent diabetes mellitus with other specified complications,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10045248,Type II diabetes mellitus with other specified manifestations,C0342262,Non-insulin-dependent diabetes mellitus with other specified complications,exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10012635,Diabetes with other coma,C0011870,Diabetes with other coma,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012684,Diabetic peripheral vascular disease,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012681,Diabetic peripheral angiopathy,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012637,Diabetes with peripheral circulatory disorders,C0011871,Diabetic peripheral angiopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10007749,Cataract diabetic,C0011876,Cataract due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012648,Diabetic cataract,C0011876,Cataract due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10026948,Maturity-onset diabetes of the young,C0342276,Maturity onset diabetes mellitus in young,exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10012665,Diabetic gangrene,C0554436,Gangrene due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012622,Diabetes mellitus with ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012632,Diabetes with ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012642,Diabetic acidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012673,Diabetic ketosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012671,Diabetic ketoacidosis,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10000488,Acidosis diabetic,C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10023380,Ketoacidosis (diabetic),C0011880,Diabetic Ketoacidosis,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012678,Diabetic nephropathy NOS,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10061835,Diabetic nephropathy,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012687,Diabetic renal disease,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10084917,Diabetic kidney disease,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012638,Diabetes with renal manifestations,C0011881,Diabetic Nephropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012680,Diabetic neuropathy,C0011882,Diabetic Neuropathies,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10080631,IPEX syndrome,C0342288,Insulin-dependent diabetes mellitus secretory diarrhea syndrome,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10080636,Immunodysregulation polyendocrinopathy enteropathy X-linked syndrome,C0342288,Insulin-dependent diabetes mellitus secretory diarrhea syndrome,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10038925,Retinopathy diabetic,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012689,Diabetic retinopathy,C0011884,Diabetic Retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10022497,Insulin-dependent diabetes mellitus,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10045228,Type I diabetes mellitus,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10021211,IDDM,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10022482,Insulin dependent diabetic,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012609,Diabetes mellitus juvenile onset,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012608,Diabetes mellitus insulin-dependent,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10023253,Juvenile diabetes,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10085412,Immune-mediated diabetes,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10067584,Type 1 diabetes mellitus,C0011854,"Diabetes Mellitus, Insulin-Dependent",narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10045230,Type I diabetes mellitus with ketoacidosis,C0342294,Ketoacidosis due to type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10026947,Maturity onset diabetes,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10067585,Type 2 diabetes mellitus,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10012613,Diabetes mellitus non-insulin-dependent,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10012612,Diabetes mellitus non insulin-dep,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10012611,Diabetes mellitus maturity onset,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10029402,NIDDM,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10029505,Non-insulin-dependent diabetes mellitus,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10045242,Type II diabetes mellitus,C0011860,"Diabetes Mellitus, Non-Insulin-Dependent",exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10020639,Hyperglycemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10020635,Hyperglycaemia,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10020637,Hyperglycaemia NOS,C0020456,Hyperglycemia,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012616,"Diabetes mellitus of mother, complicating pregnancy, childbirth, or the puerperium, unspecified as t",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012604,"Diabetes mellitus complicating pregnancy, childbirth, or the puerperium",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012615,"Diabetes mellitus of mother, comp pregnancy,childbirth, or the puerp, unspec as to eoc",C0341893,"Diabetes mellitus in mother complicating pregnancy, childbirth AND/OR puerperium",possible,,E,DM1,AESI
+Diabetes type 1,MDR,10091984,Presymptomatic type 1 diabetes mellitus,C5880074,Presymptomatic type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10091459,Type 1 diabetes mellitus stage 1,C5847614,Diabetes mellitus type 1 stage 1,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10091458,Type 1 diabetes mellitus stage 2,C5847615,Diabetes mellitus type 1 stage 2,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012664,Diabetic foot ulcer,C1456868,Diabetic foot ulcer,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10036857,Proliferative diabetic retinopathy,C0154830,Proliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10003995,Background diabetic retinopathy,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10054109,Non-proliferative diabetic retinopathy,C0004606,Nonproliferative diabetic retinopathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10091460,Type 1 diabetes mellitus stage 3,C5847622,Diabetes mellitus type 1 stage 3,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012614,Diabetes mellitus NOS,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012601,Diabetes mellitus,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012594,Diabetes,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10045235,Type I diabetes mellitus with peripheral circulatory disorders,C0154182,Type I diabetes mellitus with peripheral circulatory disorders,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012595,Diabetes brittle,C0342302,Brittle diabetes,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10006372,Brittle diabetes,C0342302,Brittle diabetes,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10051153,Diabetic gastroparesis,C0267176,Gastroparesis due to diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10045232,Type I diabetes mellitus with ophthalmic manifestations,C0154178,Type I diabetes mellitus with ophthalmic manifestations,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10060734,Diabetic foot,C0206172,Diabetic Foot,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012676,Diabetic mononeuropathy,C0271678,Diabetic Mononeuropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10012683,Diabetic peripheral neuropathy,C0740447,Diabetic peripheral neuropathy,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10072628,Fulminant type 1 diabetes mellitus,C3495814,Fulminant type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10072583,Fulminant type I diabetes mellitus,C3495814,Fulminant type 1 diabetes mellitus,narrow,,E,DM1,AESI
+Diabetes type 1,MDR,10012685,Diabetic polyneuropathy,C0271680,Diabetic Polyneuropathies,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10036113,Polyneuropathy in diabetes,C0271680,Diabetic Polyneuropathies,possible,,E,DM1,AESI
+Diabetes type 1,MDR,10022472,Insulin autoimmune syndrome,C0854359,Insulin autoimmune syndrome,exclude,,E,DM1,AESI
+Diabetes type 1,MDR,10028933,Neonatal diabetes mellitus,C0158981,Neonatal diabetes mellitus,possible,,E,DM1,AESI
+Diabetes type 1,ICPC,T89,Diabetes insulin dependent,C0000000,Unassociated custom codes,narrow,,E,DM1,AESI
+Diabetes type 1,ICPC,T90.01,Diabetes mellitus type 1,C0000000,Unassociated custom codes,narrow,,E,DM1,AESI
+Diabetes type 1,ICPC,T90,Diabetes mellitus,C0011849,Diabetes Mellitus,possible,,E,DM1,AESI

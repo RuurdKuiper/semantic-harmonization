@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from collections.abc import Callable
 import os
 from pathlib import Path
 from typing import Sequence
@@ -43,16 +44,22 @@ class EmbeddingIndex:
         cls,
         codes: pd.DataFrame,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model: SentenceTransformer | None = None,
+        show_progress_bar: bool = False,
     ) -> "EmbeddingIndex":
         df = codes.copy()
         for col in ("code", "vocabulary"):
             if col not in df.columns:
                 df[col] = ""
-        model = SentenceTransformer(model_name)
+        embedding_model = model or SentenceTransformer(model_name)
         descs = df["description"].fillna("").astype(str).tolist()
-        embs = model.encode(descs, show_progress_bar=False, normalize_embeddings=True)
+        embs = embedding_model.encode(
+            descs,
+            show_progress_bar=show_progress_bar,
+            normalize_embeddings=True,
+        )
         return cls(
-            model=model,
+            model=embedding_model,
             descriptions=descs,
             codes=df["code"].astype(str).tolist(),
             vocabularies=df["vocabulary"].astype(str).tolist(),
@@ -78,11 +85,12 @@ class EmbeddingIndex:
         path: str | Path,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
         model: SentenceTransformer | None = None,
+        load_model: bool = True,
     ) -> "EmbeddingIndex":
         """Load a previously-saved embedding index from disk."""
         data = np.load(path, allow_pickle=True)
         return cls(
-            model=model,
+            model=model or (SentenceTransformer(model_name) if load_model else None),
             descriptions=list(data["descriptions"]),
             codes=list(data["codes"]),
             vocabularies=list(data["vocabularies"]),
@@ -96,6 +104,8 @@ class EmbeddingIndex:
         cache_path: str | Path,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
         model: SentenceTransformer | None = None,
+        load_model: bool = True,
+        show_progress_bar: bool = False,
     ) -> "EmbeddingIndex":
         """Load a cached embedding index if present, otherwise build it from
         *codes* and cache the result for subsequent runs.
@@ -105,8 +115,22 @@ class EmbeddingIndex:
         """
         cache_path = Path(cache_path)
         if cache_path.exists():
-            return cls.load(cache_path, model_name=model_name, model=model)
-        index = cls.from_codes(codes, model_name=model_name)
+            cached = cls.load(
+                cache_path,
+                model_name=model_name,
+                model=model,
+                load_model=load_model,
+            )
+            expected_codes = codes.get("code", pd.Series(dtype=str)).astype(str).tolist()
+            expected_vocabularies = codes.get("vocabulary", pd.Series(dtype=str)).astype(str).tolist()
+            if cached.codes == expected_codes and cached.vocabularies == expected_vocabularies:
+                return cached
+        index = cls.from_codes(
+            codes,
+            model_name=model_name,
+            model=model,
+            show_progress_bar=show_progress_bar,
+        )
         index.save(cache_path)
         return index
 
@@ -142,6 +166,8 @@ class EmbeddingIndex:
         vocabularies: Sequence[str],
         cache_dir: str | Path,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model: SentenceTransformer | None = None,
+        progress_callback: Callable[[int, int], None] | None = None,
     ) -> "EmbeddingIndex":
         """Load per-vocabulary embedding caches and concatenate them.
 
@@ -150,7 +176,10 @@ class EmbeddingIndex:
         """
         cache_dir = Path(cache_dir)
         indexes: list[EmbeddingIndex] = []
-        for vocabulary in vocabularies:
+        total = len(vocabularies)
+        if progress_callback is not None:
+            progress_callback(0, total)
+        for position, vocabulary in enumerate(vocabularies, start=1):
             vocab_df = codes[codes["vocabulary"].astype(str).str.upper() == vocabulary.upper()].reset_index(drop=True)
             if vocab_df.empty:
                 continue
@@ -161,8 +190,13 @@ class EmbeddingIndex:
                     vocab_df,
                     cache_path=cache_path,
                     model_name=model_name,
+                    model=model,
+                    load_model=False,
+                    show_progress_bar=progress_callback is not None,
                 )
             )
+            if progress_callback is not None:
+                progress_callback(position, total)
         return cls(
             model=None,
             descriptions=[d for index in indexes for d in index.descriptions],

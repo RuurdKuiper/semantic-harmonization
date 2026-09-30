@@ -8,18 +8,19 @@ import yaml
 
 @dataclass
 class PathsConfig:
-    edf_dir: str = "data/raw/edf"
-    codes_path: str = "data/raw/codes/codes.csv"
-    gold_dir: str = "data/gold"
-    processed_dir: str = "data/processed"
-    results_dir: str = "data/processed/results"
+    edf_dir: str = "data/edfs/yamls"
+    codes_parquet_dir: str = "data/codes/parquet"
+    embeddings_dir: str = "data/codes/embeddings"
+    results_dir: str = "results"
     aesi_datasets: dict[str, str] = field(default_factory=dict)
     code_systems: dict[str, str] = field(
         default_factory=lambda: {
-            "ICD10CM": "data/codes/ICD10CM@2026-codes.csv",
-            "ICPC": "data/codes/ICPC@1993-codes.csv",
-            "RCD2": "data/codes/RCD2@20200401-codes.csv",
-            "SNOMEDCT_US": "data/codes/SNOMEDCT_US@2025_09_01-codes.csv",
+            "ICD10CM": "data/codes/csv/ICD10CM@2026-codes.csv",
+            "ICD9CM": "data/codes/csv/ICD9CM@2014-codes.csv",
+            "ICPC": "data/codes/csv/ICPC@1993-codes.csv",
+            "MDR": "data/codes/csv/MDR@28.0-codes.csv",
+            "RCD2": "data/codes/csv/RCD2@20200401-codes.csv",
+            "SNOMEDCT_US": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv",
         }
     )
 
@@ -31,7 +32,9 @@ class RetrievalConfig:
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = 50
     per_vocabulary_top_k: bool = True
-    vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM", "ICPC", "RCD2", "SNOMEDCT_US"])
+    vocabularies: list[str] = field(
+        default_factory=lambda: ["ICD10CM", "ICD9CM", "ICPC", "MDR", "RCD2", "SNOMEDCT_US"]
+    )
 
 
 @dataclass
@@ -42,18 +45,21 @@ class LLMConfig:
     rank_effort: str = "low"
     classify_effort: str = "low"
     max_retries: int = 3
+    use_possible_category: bool = False
 
 
 @dataclass
 class UncertaintyConfig:
     confidence_threshold: float = 0.7
-    possible_requires_review: bool = True
+    possible_requires_review: bool = False
 
 
 @dataclass
 class EvaluationConfig:
     narrow_only_as_positive: bool = True
-    compare_vocabularies: list[str] = field(default_factory=lambda: ["ICD10CM", "ICPC", "RCD2", "SNOMEDCT_US"])
+    compare_vocabularies: list[str] = field(
+        default_factory=lambda: ["ICD10CM", "ICD9CM", "ICPC", "MDR", "RCD2", "SNOMEDCT_US"]
+    )
 
 
 @dataclass

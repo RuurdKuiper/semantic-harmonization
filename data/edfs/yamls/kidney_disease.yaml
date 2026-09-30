@@ -1,0 +1,85 @@
+preferred_name: Kidney disease
+definition: >
+  Kidney disease comprises functional and/or structural abnormalities of the
+  kidneys with implications for health. KDIGO classifies it by cause, severity,
+  and duration. Acute kidney disease and disorders (AKD) last no more than three
+  months. Acute kidney injury (AKI) is a subset defined by serum-creatinine or
+  urine-output criteria over hours to days. Chronic kidney disease (CKD)
+  requires kidney structure or function abnormalities for more than three
+  months and is classified by cause, GFR, and albuminuria. The supplied
+  Sentinel phenotype is narrower, emphasizing acute and chronic kidney failure,
+  unspecified kidney failure, and dialysis dependence; those codes are anchors
+  rather than the complete KDIGO scope.
+narrow_definition: >
+  Include concepts explicitly denoting a disease, syndrome, or clinically
+  meaningful structural or functional kidney abnormality. This includes AKI,
+  acute kidney failure, AKD, CKD, kidney failure, and explicit glomerular,
+  tubular, interstitial, renal vascular, or other kidney diseases with health
+  implications. Explicit disease concepts do not require reconstructing KDIGO
+  laboratory, imaging, pathology, or duration criteria from structured data.
+exclusion_criteria:
+  - Transient or nonspecific findings that do not establish a structural or functional kidney abnormality with health implications
+  - Risk factors and etiologic conditions without explicit kidney involvement
+  - Lower urinary tract disorders without renal involvement
+  - Procedures or treatments alone that do not establish renal disease
+  - Renal calculus without explicit deterioration of renal function
+narrow_decision_rules:
+  - Include explicit acute kidney injury, acute kidney failure, or acute kidney disease
+  - Include explicit chronic kidney disease or kidney/renal failure
+  - Include explicit glomerular kidney diseases, including glomerulonephritis and nephrotic or nephritic syndromes
+  - Include explicit tubular and tubulointerstitial kidney diseases
+  - Include renal vascular disease when the kidney disorder itself is represented
+  - Include clinically meaningful cystic, hereditary, obstructive, or structural kidney disorders when explicitly represented as kidney disease
+  - Include specific pathological renal entities such as acute tubular necrosis, renal cortical necrosis, and renal medullary or papillary necrosis
+  - Include kidney malignancy when it causes renal function impairment
+exclude_decision_rules:
+  - Exclude risk factors and etiologic conditions without explicit kidney involvement
+  - Exclude lower urinary tract disorders without renal involvement
+  - Exclude procedure-only or treatment-only concepts that do not establish renal disease
+  - Exclude renal calculus without explicit deterioration of renal function
+possible_decision_rules:
+  - Isolated elevated serum creatinine or reduced eGFR without a qualifying diagnosis
+  - Symptoms such as flank pain, edema, oliguria, or anuria without an explicit kidney disorder
+  - Diabetes, hypertension, sepsis, nephrotoxic exposure, or autoimmune disease without explicit renal involvement
+  - Lower urinary tract disease without kidney involvement
+  - Procedures or treatments alone that do not establish kidney disease
+  - History-of-disease concepts when identifying current disease
+  - Simple renal cysts or benign neoplasms without demonstrated health implications
+synonyms:
+  - Acute kidney failure
+  - Acute renal failure
+  - Acute kidney disease
+  - Acute tubular necrosis
+  - Chronic kidney disease
+  - CKD
+  - Renal failure
+  - Kidney failure
+  - Nephropathy
+  - Nephritic syndrome
+  - Nephrotic syndrome
+  - Pyelonephritis
+  - Renal dialysis
+  - Hydronephrosis
+  - Kidney transplant
+anatomical_location: Kidneys, including glomeruli, renal tubules, interstitium, renal cortex, renal medulla, renal papillae, and intrarenal vasculature
+temporal_characteristics: >
+  Kidney disease may be acute, subacute, or chronic. AKD lasts no more than
+  three months; AKI is identified by acute creatinine and/or urine-output
+  changes; CKD persists for more than three months.
+etiology: >
+  Ischemic, toxic, inflammatory, immune-mediated, infectious, metabolic,
+  genetic, vascular, obstructive, neoplastic, infiltrative, or other causes.
+  An underlying cause alone is not kidney disease unless renal involvement is
+  explicit.
+morphology: >
+  Patterns include acute tubular injury or necrosis, cortical or papillary
+  necrosis, glomerular inflammation or proliferation, glomerulosclerosis,
+  crescent formation, interstitial inflammation, interstitial fibrosis and
+  tubular atrophy, vascular injury or sclerosis, cystic abnormalities,
+  deposition disorders, and other structural renal lesions. Nonspecific
+  microscopic or imaging findings are insufficient unless clinically meaningful.
+references:
+  - "KDIGO Acute Kidney Injury Work Group. KDIGO Clinical Practice Guideline for Acute Kidney Injury. Kidney Int Suppl. 2012;2(1):1-138."
+  - "KDIGO CKD Work Group. KDIGO 2012 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney Int Suppl. 2013;3(1):1-150."
+  - "U.S. FDA Sentinel System. Kidney Disease Trend Analysis Report, CIDA Tool version 3.3.6, April 19, 2017."
+

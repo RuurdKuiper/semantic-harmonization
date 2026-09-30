@@ -37,8 +37,7 @@ dist/
 # Logs
 *.log
 
-# Pipeline caches/outputs (regenerated from data/raw and data/codes)
-data/processed/*.parquet
-data/processed/*.npz
-data/processed/results/
-
+# Pipeline caches/outputs (regenerated from source CSVs and EDF YAMLs)
+data/codes/parquet/*.parquet
+data/codes/embeddings/*.npz
+results/

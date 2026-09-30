@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.data.loaders import load_aesi_dataset, load_code_corpus, load_edf, load_gold_labels
+from src.data.loaders import load_aesi_dataset, load_edf
 
 
 def test_load_edf_myocarditis():
@@ -41,24 +41,34 @@ def test_edf_to_prompt_context_contains_key_sections():
     assert "Criteria for Narrow classification:" in context
 
 
-def test_load_code_corpus():
-    codes = load_code_corpus()
-    assert {"code", "description", "vocabulary"}.issubset(codes.columns)
-    assert len(codes) > 0
-
-
-def test_load_gold_labels_myocarditis():
-    gold = load_gold_labels("myocarditis")
-    assert set(gold["label"]).issubset({"Narrow", "Possible", "Exclude"})
-    assert len(gold) > 0
+@pytest.mark.parametrize(
+    "name",
+    [
+        "acute_disseminated_encephalomyelitis",
+        "acute_myocardial_infarction",
+        "eczema_vaccinatum",
+        "kidney_disease",
+        "type_1_diabetes",
+    ],
+)
+def test_new_edfs_preserve_extended_source_sections(name):
+    edf = load_edf(name)
+    assert edf.narrow_definition
+    assert edf.exclude_decision_rules
+    assert edf.references
 
 
 @pytest.mark.parametrize(
     "csv_path",
     [
-        "data/raw/Acute Myocarditis/C_MYOCARD_AESI_filtered.csv",
-        "data/raw/Erythema Multiforme/Sk_ERYTHMULTI_AESI.csv",
-        "data/raw/Guillain barre syndrome (GBS)/N_GBS_AESI_filtered.csv",
+        "data/codelists/AESI/C_MYOCARD_AESI_filtered.csv",
+        "data/codelists/AESI/Sk_ERYTHMULTI_AESI.csv",
+        "data/codelists/AESI/N_GBS_AESI_filtered.csv",
+        "data/codelists/AESI/Ref-N_ADEM_AESI.csv",
+        "data/codelists/AESI/Ref-C_AMI_AESI.csv",
+        "data/codelists/AESI/Ref-Sk_ECZEMAVACCINATUM_AESI.csv",
+        "data/codelists/AESI/Ref-G_KIDNEYDISEASE_COV.csv",
+        "data/codelists/AESI/Ref-E_DM1_AESI.csv",
     ],
 )
 def test_load_aesi_dataset_returns_codes_and_gold(csv_path):
@@ -74,16 +84,11 @@ def test_load_aesi_dataset_returns_codes_and_gold(csv_path):
 
 
 def test_load_aesi_dataset_drops_rows_with_missing_tags():
-    codes, gold = load_aesi_dataset("data/raw/Erythema Multiforme/Sk_ERYTHMULTI_AESI.csv")
+    codes, gold = load_aesi_dataset("data/codelists/AESI/Sk_ERYTHMULTI_AESI.csv")
     # The raw file has one row with a missing tag; it must not appear in gold labels.
     assert len(gold) <= len(codes)
 
 
 def test_load_aesi_dataset_missing_file_raises():
     with pytest.raises(FileNotFoundError):
-        load_aesi_dataset("data/raw/does-not-exist.csv")
-
-
-def test_load_gold_labels_missing_raises():
-    with pytest.raises(FileNotFoundError):
-        load_gold_labels("nonexistent_phenotype")
+        load_aesi_dataset("data/codelists/AESI/does-not-exist.csv")

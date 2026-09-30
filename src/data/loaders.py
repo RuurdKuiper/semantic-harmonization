@@ -19,6 +19,7 @@ class EventDefinitionForm:
     narrow_definition: str = ""
     exclusion_criteria: list[str] = field(default_factory=list)
     narrow_decision_rules: list[str] = field(default_factory=list)
+    possible_decision_rules: list[str] = field(default_factory=list)
     exclude_decision_rules: list[str] = field(default_factory=list)
     synonyms: list[str] = field(default_factory=list)
     anatomical_location: str = ""
@@ -28,9 +29,12 @@ class EventDefinitionForm:
     morphology: str = ""
     diagnostic_certainty: str = ""
     administrative_context: str = ""
+    candidate_anchor_codes: list[str] = field(default_factory=list)
+    ambiguities: list[str] = field(default_factory=list)
+    references: list[str] = field(default_factory=list)
 
-    def to_prompt_context(self) -> str:
-        """Render the EDF as structured text suitable for inclusion in an LLM prompt."""
+    def to_prompt_context(self, include_possible: bool = True) -> str:
+        """Render the EDF as structured text suitable for retrieval or an LLM prompt."""
         lines = [
             f"Preferred name: {self.preferred_name}",
             f"Definition: {self.definition}",
@@ -46,6 +50,9 @@ class EventDefinitionForm:
         if self.narrow_decision_rules:
             lines.append("Criteria for Narrow classification:")
             lines += [f"  - {c}" for c in self.narrow_decision_rules]
+        if include_possible and self.possible_decision_rules:
+            lines.append("Criteria for Possible classification (when enabled):")
+            lines += [f"  - {c}" for c in self.possible_decision_rules]
         if self.exclude_decision_rules:
             lines.append("Criteria for Exclude classification:")
             lines += [f"  - {c}" for c in self.exclude_decision_rules]
@@ -65,6 +72,15 @@ class EventDefinitionForm:
             lines.append(f"Diagnostic certainty: {self.diagnostic_certainty}")
         if self.administrative_context:
             lines.append(f"Administrative/historical context: {self.administrative_context}")
+        if self.candidate_anchor_codes:
+            lines.append("Candidate anchor codes:")
+            lines += [f"  - {c}" for c in self.candidate_anchor_codes]
+        if self.ambiguities:
+            lines.append("Ambiguities:")
+            lines += [f"  - {c}" for c in self.ambiguities]
+        if self.references:
+            lines.append("References:")
+            lines += [f"  - {c}" for c in self.references]
         return "\n".join(lines)
 
     def to_lexical_query(self) -> str:
@@ -81,6 +97,9 @@ class EventDefinitionForm:
         if self.narrow_decision_rules:
             lines.append("Narrow decision rules:")
             lines += [f"  - {c}" for c in self.narrow_decision_rules]
+        if self.candidate_anchor_codes:
+            lines.append("Candidate anchor codes:")
+            lines += [f"  - {c}" for c in self.candidate_anchor_codes]
         if self.morphology:
             lines.append(f"Morphology/pathology: {self.morphology}")
         if self.anatomical_location:
@@ -88,24 +107,13 @@ class EventDefinitionForm:
         return "\n".join(lines)
 
 
-def load_edf(name: str, edf_dir: str | Path = "data/raw/edf") -> EventDefinitionForm:
+def load_edf(name: str, edf_dir: str | Path = "data/edfs/yamls") -> EventDefinitionForm:
     """Load an Event Definition Form by phenotype name from a YAML file."""
     path = Path(edf_dir) / f"{name}.yaml"
     if not path.exists():
         raise FileNotFoundError(f"EDF not found for phenotype '{name}': {path}")
     raw = yaml.safe_load(path.read_text()) or {}
     return EventDefinitionForm(name=name, **raw)
-
-
-def load_code_corpus(codes_path: str | Path = "data/raw/codes/codes.csv") -> pd.DataFrame:
-    """Load the full candidate code corpus (multi-vocabulary) as a DataFrame with
-    columns: code, description, vocabulary."""
-    df = pd.read_csv(codes_path, dtype=str).fillna("")
-    required = {"code", "description", "vocabulary"}
-    missing = required - set(df.columns)
-    if missing:
-        raise ValueError(f"Code corpus missing required columns: {missing}")
-    return df
 
 
 def load_aesi_dataset(csv_path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -161,21 +169,3 @@ def load_aesi_dataset(csv_path: str | Path) -> tuple[pd.DataFrame, pd.DataFrame]
         .reset_index(drop=True)
     )
     return codes, gold_labels
-
-
-def load_gold_labels(name: str, gold_dir: str | Path = "data/gold") -> pd.DataFrame:
-    """Load expert-curated reference labels for a phenotype as a DataFrame with
-    columns: code, vocabulary, label (Narrow/Possible/Exclude)."""
-    path = Path(gold_dir) / f"{name}_gold.csv"
-    if not path.exists():
-        raise FileNotFoundError(f"Gold labels not found for phenotype '{name}': {path}")
-    df = pd.read_csv(path, dtype=str).fillna("")
-    required = {"code", "vocabulary", "label"}
-    missing = required - set(df.columns)
-    if missing:
-        raise ValueError(f"Gold label file missing required columns: {missing}")
-    valid_labels = {"Narrow", "Possible", "Exclude"}
-    invalid = set(df["label"]) - valid_labels
-    if invalid:
-        raise ValueError(f"Gold label file contains invalid labels: {invalid}")
-    return df

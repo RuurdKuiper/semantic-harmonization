@@ -79,7 +79,7 @@ def test_llm_classify_assigns_labels():
     assert labels["I30.9"] == "Exclude"
 
 
-def test_llm_classify_invalid_label_defaults_to_possible():
+def test_llm_classify_invalid_label_defaults_to_exclude_when_possible_disabled():
     edf = load_edf("myocarditis")
     candidates = _candidates()
     with patch("src.llm.rank.call_llm_json", return_value={"ranked_codes": []}):
@@ -94,10 +94,10 @@ def test_llm_classify_invalid_label_defaults_to_possible():
         classified = llm_classify(ranked, edf, model="test-model")
 
     result = next(c for c in classified if c.code == "I40.0")
-    assert result.label == "Possible"
+    assert result.label == "Exclude"
 
 
-def test_llm_classify_missing_classification_defaults_to_possible_low_confidence():
+def test_llm_classify_missing_classification_defaults_to_exclude_low_confidence():
     edf = load_edf("myocarditis")
     candidates = _candidates()
     with patch("src.llm.rank.call_llm_json", return_value={"ranked_codes": []}):
@@ -107,7 +107,21 @@ def test_llm_classify_missing_classification_defaults_to_possible_low_confidence
         classified = llm_classify(ranked, edf, model="test-model")
 
     assert len(classified) == 2
-    assert all(c.label == "Possible" and c.confidence == 0.0 for c in classified)
+    assert all(c.label == "Exclude" and c.confidence == 0.0 for c in classified)
+
+
+def test_llm_classify_possible_can_be_enabled():
+    edf = load_edf("myocarditis")
+    with patch("src.llm.rank.call_llm_json", return_value={"ranked_codes": []}):
+        ranked = llm_rank(_candidates(), edf, model="test-model")
+    response = {
+        "classifications": [
+            {"code": "I40.0", "vocabulary": "ICD10", "label": "Possible", "confidence": 0.8, "explanation": "x"},
+        ]
+    }
+    with patch("src.llm.classify.call_llm_json", return_value=response):
+        classified = llm_classify(ranked, edf, model="test-model", use_possible_category=True)
+    assert next(c for c in classified if c.code == "I40.0").label == "Possible"
 
 
 def test_llm_classify_empty_candidates_returns_empty():

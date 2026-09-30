@@ -1,4 +1,4 @@
-"""LLM-based classification of candidate codes into Narrow/Possible/Exclude."""
+"""LLM classification into Narrow/Exclude with an optional Possible category."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from collections.abc import Callable
 
 from src.data.loaders import EventDefinitionForm
 from src.llm.client import call_llm_json
-from src.llm.prompts import CLASSIFY_SYSTEM_PROMPT, build_classify_prompt
+from src.llm.prompts import build_classify_prompt, classify_system_prompt
 from src.llm.rank import RankedCandidate
 from src.utils.logging import get_logger
 
@@ -36,8 +36,9 @@ def llm_classify(
     max_retries: int = 3,
     batch_size: int = 10,
     progress_callback: Callable[[int, int], None] | None = None,
+    use_possible_category: bool = False,
 ) -> list[ClassifiedCandidate]:
-    """Classify ranked candidate codes as Narrow/Possible/Exclude using an LLM.
+    """Classify candidates as Narrow/Exclude, optionally allowing Possible.
 
     Parameters
     ----------
@@ -55,6 +56,8 @@ def llm_classify(
         Maximum number of candidates to include in a single LLM request.
     progress_callback : callable, optional
         Callback invoked after each completed batch as ``callback(completed, total)``.
+    use_possible_category : bool
+        Enable three-way Narrow/Possible/Exclude labeling. Defaults to False.
 
     Returns
     -------
@@ -77,9 +80,9 @@ def llm_classify(
             {"code": c.code, "vocabulary": c.vocabulary, "description": c.description}
             for c in batch
         ]
-        prompt = build_classify_prompt(edf, payload)
+        prompt = build_classify_prompt(edf, payload, use_possible_category=use_possible_category)
         response = call_llm_json(
-            system_prompt=CLASSIFY_SYSTEM_PROMPT,
+            system_prompt=classify_system_prompt(use_possible_category),
             user_prompt=prompt,
             provider=provider,
             model=model,
@@ -93,10 +96,17 @@ def llm_classify(
             source = lookup.get(key)
             if source is None:
                 continue
-            label = item.get("label", "Possible")
-            if label not in VALID_LABELS:
-                logger.warning("LLM returned invalid label %r for code %s; defaulting to 'Possible'", label, key)
-                label = "Possible"
+            fallback_label = "Possible" if use_possible_category else "Exclude"
+            valid_labels = VALID_LABELS if use_possible_category else {"Narrow", "Exclude"}
+            label = item.get("label", fallback_label)
+            if label not in valid_labels:
+                logger.warning(
+                    "LLM returned invalid label %r for code %s; defaulting to %r",
+                    label,
+                    key,
+                    fallback_label,
+                )
+                label = fallback_label
             batch_seen.add(key)
             seen.add(key)
             results.append(
@@ -112,8 +122,9 @@ def llm_classify(
                 )
             )
 
-        # Any candidate the LLM failed to classify is conservatively marked
-        # 'Possible' with zero confidence, ensuring it is routed to human review.
+        # Keep every candidate in the result. A missing response receives the
+        # least-committal enabled label and zero confidence so review selection
+        # can annotate it without filtering or altering any other result.
         for c in batch:
             key = (c.code, c.vocabulary)
             if key not in batch_seen:
@@ -123,7 +134,7 @@ def llm_classify(
                         code=c.code,
                         description=c.description,
                         vocabulary=c.vocabulary,
-                        label="Possible",
+                        label="Possible" if use_possible_category else "Exclude",
                         confidence=0.0,
                         explanation="No classification returned by LLM; routed for manual review.",
                         relevance_score=c.relevance_score,

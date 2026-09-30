@@ -15,6 +15,16 @@ from pathlib import Path
 import pandas as pd
 
 
+DEFAULT_CODE_SYSTEM_PATHS = {
+    "ICD10CM": "data/codes/csv/ICD10CM@2026-codes.csv",
+    "ICD9CM": "data/codes/csv/ICD9CM@2014-codes.csv",
+    "ICPC": "data/codes/csv/ICPC@1993-codes.csv",
+    "MDR": "data/codes/csv/MDR@28.0-codes.csv",
+    "RCD2": "data/codes/csv/RCD2@20200401-codes.csv",
+    "SNOMEDCT_US": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv",
+}
+
+
 def _load_codelist_csv(
     path: str | Path,
     *,
@@ -102,25 +112,35 @@ def _load_two_column_text(
     return df
 
 
-def load_icd10cm_full(csv_path: str | Path = "data/codes/ICD10CM@2026-codes.csv") -> pd.DataFrame:
+def load_icd10cm_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["ICD10CM"]) -> pd.DataFrame:
     return _load_codelist_csv(csv_path, vocabulary="ICD10CM", delimiter=",")
 
 
-def load_icpc_full(csv_path: str | Path = "data/codes/ICPC@1993-codes.csv") -> pd.DataFrame:
+def load_icd9cm_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["ICD9CM"]) -> pd.DataFrame:
+    return _load_codelist_csv(csv_path, vocabulary="ICD9CM", delimiter=",")
+
+
+def load_icpc_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["ICPC"]) -> pd.DataFrame:
     return _load_codelist_csv(csv_path, vocabulary="ICPC", delimiter=",")
 
 
-def load_rcd2_full(csv_path: str | Path = "data/codes/RCD2@20200401-codes.csv") -> pd.DataFrame:
+def load_mdr_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["MDR"]) -> pd.DataFrame:
+    return _load_codelist_csv(csv_path, vocabulary="MDR", delimiter=",")
+
+
+def load_rcd2_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["RCD2"]) -> pd.DataFrame:
     return _load_two_column_text(csv_path, vocabulary="RCD2", delimiter=",")
 
 
-def load_snomedct_full(csv_path: str | Path = "data/codes/SNOMEDCT_US@2025_09_01-codes.csv") -> pd.DataFrame:
+def load_snomedct_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["SNOMEDCT_US"]) -> pd.DataFrame:
     return _load_two_column_text(csv_path, vocabulary="SNOMEDCT_US", delimiter=",")
 
 
 CODE_SYSTEM_LOADERS = {
     "ICD10CM": load_icd10cm_full,
+    "ICD9CM": load_icd9cm_full,
     "ICPC": load_icpc_full,
+    "MDR": load_mdr_full,
     "RCD2": load_rcd2_full,
     "SNOMEDCT_US": load_snomedct_full,
 }
@@ -129,7 +149,7 @@ CODE_SYSTEM_LOADERS = {
 def load_code_system_corpus(
     vocabularies: list[str],
     source_paths: dict[str, str] | None = None,
-    cache_dir: str | Path = "data/processed",
+    cache_dir: str | Path = "data/codes/parquet",
 ) -> pd.DataFrame:
     """Load (and cache) the full reference code corpus for the given vocabularies.
 
@@ -170,12 +190,18 @@ def load_code_system_corpus(
             )
 
         cache_path = cache_dir / f"codes_{vocab}.parquet"
-        if cache_path.exists():
+        source_path = Path(source_paths.get(vocab, DEFAULT_CODE_SYSTEM_PATHS[vocab]))
+        cache_is_fresh = (
+            cache_path.exists()
+            and source_path.exists()
+            and cache_path.stat().st_mtime_ns >= source_path.stat().st_mtime_ns
+        )
+        if cache_is_fresh:
             frames.append(pd.read_parquet(cache_path))
             continue
 
         loader = CODE_SYSTEM_LOADERS[vocab]
-        df = loader(source_paths[vocab]) if vocab in source_paths else loader()
+        df = loader(source_path)
         df.to_parquet(cache_path, index=False)
         frames.append(df)
 

@@ -10,7 +10,12 @@ pytestmark = pytest.mark.embeddings
 
 
 def test_hybrid_retrieval_returns_ranked_results(sample_codes):
-    results = hybrid_retrieval("myocarditis heart inflammation", sample_codes, top_k=3)
+    results = hybrid_retrieval(
+        "myocarditis heart inflammation",
+        sample_codes,
+        top_k=3,
+        per_vocabulary_top_k=False,
+    )
     assert len(results) == 3
     assert results[0].rank == 1
     assert all(results[i].score >= results[i + 1].score for i in range(len(results) - 1))

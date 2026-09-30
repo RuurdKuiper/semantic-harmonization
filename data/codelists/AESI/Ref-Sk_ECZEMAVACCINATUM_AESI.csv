@@ -1,0 +1,37 @@
+event_definition,coding_system,code,code_name,concept,concept_name,tags,origin,system,event_abbreviation,type
+Eczema vaccinatum,ICD10CM,T88.1,Generalized vaccinia,C0042217,Generalized vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,ICD10CM,B08.011,Vaccinia not from vaccine,C2911581,Vaccinia not from vaccine,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,ICD9CM,051.02,Vaccinia not from vaccination,C0864706,Vaccinia not from vaccination,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,ICD9CM,999.0,"Generalized vaccinia as a complication of medical care, not elsewhere classified",C0302424,"Generalized vaccinia as a complication of medical care, NEC in ICD9CM",possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,157795001,Generalised vaccinia,C0042217,Generalized vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,56978007,Generalized vaccinia,C0042217,Generalized vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,111852003,Vaccinia,C0042214,Vaccinia,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,56140006,Progressive vaccina,C0042215,Progressive vaccina,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,200892002,Generalized skin eruption caused by drug and medicament,C0451939,Generalized skin eruption caused by drug and medicament,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,402748000,Pseudolymphomatous eruption caused by drug,C1274195,Pseudolymphomatous eruption caused by drug,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,238994000,Drug-induced pseudolymphomatous eruption,C1274195,Pseudolymphomatous eruption caused by drug,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,1177184008,Transmission of Vaccinia virus from another person due to contact with smallpox vaccination site,C5567914,Transmission of Vaccinia virus from another person due to contact with smallpox vaccination site,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,200893007,Localized skin eruption caused by drug and medicament,C0451940,Localized skin eruption caused by drug and medicament,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,409636005,Complication of smallpox vaccination,C1443957,Complication of smallpox vaccination,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,409637001,Inadvertent autoinoculation with Vaccinia virus following contact with smallpox vaccination site,C1443958,Inadvertent autoinoculation with Vaccinia virus following contact with smallpox vaccination site,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,293120003,Adverse reaction to smallpox vaccine,C0413551,Adverse reaction to smallpox vaccine,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,219092002,Adverse reaction to smallpox vaccine,C0413551,Adverse reaction to smallpox vaccine,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,279496009,Kaposi's varicelliform eruption caused by herpes simplex virus,C1527354,Kaposi's varicelliform eruption caused by herpes simplex virus,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,52464003,Kaposi's varicelliform eruption due to herpes simplex virus,C1527354,Kaposi's varicelliform eruption caused by herpes simplex virus,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,29821004,Eczema vaccinatum,C0936249,Eczema Vaccinatum,narrow,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,238368001,Eczema vaccinatum,C0936249,Eczema Vaccinatum,narrow,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,124945003,Vaccinia immunization reaction,C1268805,Vaccinia immunization reaction,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,397552005,Vaccinia keratitis,C1301518,Vaccinia keratitis,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,SNOMEDCT_US,262781009,Kaposi's varicelliform eruption caused by Vaccinia virus,C1280639,Kaposi's varicelliform eruption caused by Vaccinia virus,narrow,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10069540,Generalised vaccinia,C0042217,Generalized vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10069541,Generalized vaccinia,C0042217,Generalized vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10066048,Vaccinia,C0042214,Vaccinia,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10069626,Vaccinia gangrenosum,C0042215,Progressive vaccina,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10046865,Vaccinia virus infection,C0857841,Vaccinia virus infection,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10018126,"Generalized vaccinia as a complication of medical care, not elsewhere classified",C0877763,"Generalized vaccinia as a complication of medical care, NEC in MedDRA",possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10069582,Progressive vaccinia,C2721678,Progressive vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10088113,Ocular vaccinia virus infection,C5780142,Ocular vaccinia virus infection,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10066042,Eczema vaccinatum,C0936249,Eczema Vaccinatum,narrow,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10063980,Inadvertent exposure to vaccine,C1536102,Inadvertent exposure to vaccine,exclude,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10069609,Disseminated vaccinia,C2721694,Disseminated vaccinia,possible,,Sk,ECZEMAVACCINATUM,AESI
+Eczema vaccinatum,MDR,10069627,Vaccinia necrosum,C2721710,Vaccinia necrosum,possible,,Sk,ECZEMAVACCINATUM,AESI

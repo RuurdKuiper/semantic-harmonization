@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+import pandas as pd
+import pytest
+
 from src.evaluation.metrics import (
     evaluate,
     evaluate_classification,
     evaluate_retrieval,
+    filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
     to_predicted_codelist,
@@ -52,6 +56,11 @@ def test_evaluate_classification_perfect_agreement(sample_gold):
     metrics = evaluate_classification(classified, sample_gold)
     assert metrics.accuracy == 1.0
     assert metrics.cohens_kappa == 1.0
+    assert metrics.true_negatives == 1
+    assert metrics.sensitivity == 1.0
+    assert metrics.precision == 1.0
+    assert metrics.f1 == 1.0
+    assert metrics.macro_f1 == 1.0
 
 
 def test_evaluate_classification_partial_disagreement(sample_gold):
@@ -75,6 +84,7 @@ def test_evaluate_combines_both(sample_gold):
     assert "retrieval" in result
     assert "classification" in result
     assert result["retrieval"]["true_positives"] == 2
+    assert {"sensitivity", "precision", "f1", "macro_f1"}.issubset(result["classification"])
 
 
 def test_filter_records_by_vocabulary():
@@ -90,6 +100,25 @@ def test_filter_gold_by_vocabulary(sample_gold):
     filtered = filter_gold_by_vocabulary(sample_gold, ["ICD10"])
     assert set(filtered["vocabulary"]) == {"ICD10"}
     assert len(filtered) == 3
+
+
+def test_filter_gold_by_available_codes_standardizes_keys(sample_gold):
+    available = pd.DataFrame(
+        [
+            {"code": "I400", "vocabulary": "ICD10"},
+            {"code": "50920009", "vocabulary": "SNOMED"},
+        ]
+    )
+    filtered = filter_gold_by_available_codes(sample_gold, available)
+    assert set(zip(filtered["code"], filtered["vocabulary"])) == {
+        ("I40.0", "ICD10"),
+        ("50920009", "SNOMED"),
+    }
+
+
+def test_filter_gold_by_available_codes_rejects_invalid_corpus(sample_gold):
+    with pytest.raises(ValueError):
+        filter_gold_by_available_codes(sample_gold, pd.DataFrame({"code": ["I40.0"]}))
 
 
 def test_to_predicted_codelist_schema_and_values():
@@ -116,3 +145,65 @@ def test_to_predicted_codelist_empty():
     df = to_predicted_codelist([])
     assert list(df.columns) == ["coding_system", "code", "code_name", "concept", "concept_name", "tags"]
     assert len(df) == 0
+
+
+def test_to_predicted_codelist_includes_review_annotations_without_filtering():
+    classified = [
+        {
+            "code": "I40.0",
+            "vocabulary": "ICD10CM",
+            "description": "Infective myocarditis",
+            "label": "Narrow",
+            "confidence": 0.5,
+            "explanation": "specific",
+            "manual_review": True,
+            "review_reason": "low confidence",
+        }
+    ]
+    df = to_predicted_codelist(classified)
+    assert len(df) == 1
+    assert bool(df.iloc[0]["manual_review"]) is True
+    assert df.iloc[0]["tags"] == "narrow"
+
+
+def test_binary_evaluation_collapses_possible_gold_to_exclude():
+    gold = pd.DataFrame(
+        [{"code": "X", "vocabulary": "TEST", "label": "Possible"}]
+    )
+    metrics = evaluate_classification(
+        [{"code": "X", "vocabulary": "TEST", "label": "Exclude"}],
+        gold,
+        include_possible=False,
+    )
+    assert metrics.accuracy == 1.0
+    assert metrics.true_negatives == 1
+    assert "Possible" not in metrics.per_label
+
+
+def test_multiclass_narrow_true_negative_is_one_vs_rest():
+    gold = pd.DataFrame(
+        [
+            {"code": "N", "vocabulary": "TEST", "label": "Narrow"},
+            {"code": "P", "vocabulary": "TEST", "label": "Possible"},
+            {"code": "E", "vocabulary": "TEST", "label": "Exclude"},
+        ]
+    )
+    classified = [
+        {"code": "N", "vocabulary": "TEST", "label": "Narrow"},
+        {"code": "P", "vocabulary": "TEST", "label": "Exclude"},
+        {"code": "E", "vocabulary": "TEST", "label": "Possible"},
+    ]
+    metrics = evaluate_classification(classified, gold, include_possible=True)
+    assert metrics.true_negatives == 2
+    assert metrics.per_label["Narrow"]["tn"] == 2
+
+
+def test_code_absent_from_gold_is_implicit_exclude():
+    gold = pd.DataFrame(columns=["code", "vocabulary", "label"])
+    metrics = evaluate_classification(
+        [{"code": "X", "vocabulary": "TEST", "label": "Narrow"}],
+        gold,
+        include_possible=False,
+    )
+    assert metrics.accuracy == 0.0
+    assert metrics.per_label["Narrow"]["fp"] == 1

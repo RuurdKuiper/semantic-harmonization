@@ -7,12 +7,14 @@ The page walks through the pipeline step by step:
 1. Select which clinical coding system(s) to retrieve from.
 2. Provide the phenotype's Event Definition Form (EDF).
 3. Run hybrid (lexical + embedding) retrieval over the full code system(s).
-4. Run LLM classification (Narrow/Possible/Exclude) on the retrieved candidates.
+4. Run LLM classification (Narrow/Exclude, optionally Possible) on candidates.
 5. Optionally score the result against a ground-truth AESI codelist.
 """
 
 from __future__ import annotations
 
+import json
+import re
 import tempfile
 from pathlib import Path
 
@@ -26,6 +28,7 @@ from src.data.loaders import EventDefinitionForm, load_aesi_dataset
 from src.data.preprocessing import preprocess_corpus
 from src.evaluation.metrics import (
     evaluate,
+    filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
     to_predicted_codelist,
@@ -48,7 +51,9 @@ EDF_DIR = Path(CONFIG.paths.edf_dir)
 # Coding systems currently available in the local corpus.
 AVAILABLE_VOCABULARIES = {
     "ICD10CM": "ICD-10-CM",
+    "ICD9CM": "ICD-9-CM",
     "ICPC": "ICPC",
+    "MDR": "MedDRA",
     "RCD2": "RCD2",
     "SNOMEDCT_US": "SNOMED CT (US)",
 }
@@ -61,6 +66,9 @@ def _init_state() -> None:
         "retrieval_candidates": None,
         "classified": None,
         "metrics_result": None,
+        "predicted_codelist": None,
+        "classification_use_possible": CONFIG.llm.use_possible_category,
+        "retrieval_vocabularies": None,
     }
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
@@ -85,9 +93,7 @@ selected_vocabularies: list[str] = []
 
 for col, (vocab, label) in zip(vocab_cols, AVAILABLE_VOCABULARIES.items()):
     with col:
-        if vocab == "SNOMEDCT_US":
-            st.checkbox(f"{label} (offline only)", value=False, disabled=True, key=f"vocab_{vocab}")
-        elif st.checkbox(label, value=True, key=f"vocab_{vocab}"):
+        if st.checkbox(label, value=vocab in CONFIG.retrieval.vocabularies, key=f"vocab_{vocab}"):
             selected_vocabularies.append(vocab)
 
 if not selected_vocabularies:
@@ -178,7 +184,7 @@ def _load_corpus(vocabularies: tuple[str, ...]) -> pd.DataFrame:
     raw_codes = load_code_system_corpus(
         list(vocabularies),
         source_paths=CONFIG.paths.code_systems,
-        cache_dir=CONFIG.paths.processed_dir,
+        cache_dir=CONFIG.paths.codes_parquet_dir,
     )
     return preprocess_corpus(raw_codes)
 
@@ -189,7 +195,7 @@ def _load_embedding_index(vocabularies: tuple[str, ...]) -> EmbeddingIndex:
     return EmbeddingIndex.load_for_vocabularies(
         codes,
         vocabularies=vocabularies,
-        cache_dir=CONFIG.paths.processed_dir,
+        cache_dir=CONFIG.paths.embeddings_dir,
         model_name=CONFIG.retrieval.embedding_model,
     )
 
@@ -223,6 +229,7 @@ if run_retrieval and edf is not None and selected_vocabularies:
             embedding_query=edf.to_embedding_query(),
         )
     st.session_state.retrieval_candidates = candidates
+    st.session_state.retrieval_vocabularies = vocab_tuple
     st.session_state.classified = None
     st.session_state.metrics_result = None
 
@@ -256,6 +263,12 @@ st.header("4. Classify candidates with an LLM")
 st.caption(
     "Note: the LLM re-ranking step is intentionally skipped here \u2014 candidates go "
     "directly from retrieval to classification."
+)
+
+use_possible_category = st.checkbox(
+    "Enable the 'Possible' category",
+    value=CONFIG.llm.use_possible_category,
+    help="Off by default. When disabled, the model classifies codes as Narrow or Exclude.",
 )
 
 llm_col1, llm_col2 = st.columns(2)
@@ -296,14 +309,23 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
                 max_retries=CONFIG.llm.max_retries,
                 batch_size=10,
                 progress_callback=_update_progress,
+                use_possible_category=use_possible_category,
             )
         progress.progress(1.0, text="Classification complete")
         st.session_state.classified = classified
+        st.session_state.classification_use_possible = use_possible_category
         st.session_state.metrics_result = None
     except Exception as exc:  # noqa: BLE001
         st.error(f"LLM classification failed: {exc}")
 
 if st.session_state.classified:
+    classification_use_possible = st.session_state.classification_use_possible
+    review_items = select_uncertain(
+        st.session_state.classified,
+        confidence_threshold=CONFIG.uncertainty.confidence_threshold,
+        possible_requires_review=classification_use_possible and CONFIG.uncertainty.possible_requires_review,
+    )
+    review_by_key = {(r.code, r.vocabulary): r.reason for r in review_items}
     classified_df = pd.DataFrame(
         [
             {
@@ -313,6 +335,8 @@ if st.session_state.classified:
                 "label": c.label,
                 "confidence": c.confidence,
                 "explanation": c.explanation,
+                "manual_review": (c.code, c.vocabulary) in review_by_key,
+                "review_reason": review_by_key.get((c.code, c.vocabulary), ""),
             }
             for c in st.session_state.classified
         ]
@@ -320,14 +344,23 @@ if st.session_state.classified:
     st.success(f"Classified {len(classified_df)} candidates.")
     st.dataframe(classified_df, width='stretch', hide_index=True)
 
-    review_items = select_uncertain(
-        st.session_state.classified,
-        confidence_threshold=CONFIG.uncertainty.confidence_threshold,
-        possible_requires_review=CONFIG.uncertainty.possible_requires_review,
-    )
     st.info(
         f"{len(review_items)}/{len(st.session_state.classified)} candidates flagged for human review "
         f"({100 * review_rate(st.session_state.classified, review_items):.1f}%)."
+    )
+    st.caption("Manual-review flags are annotations only; no rows or classifications are changed.")
+
+    predicted_codelist = to_predicted_codelist(classified_df.to_dict("records"))
+    st.session_state.predicted_codelist = predicted_codelist
+    safe_name = re.sub(r"[^a-zA-Z0-9_-]+", "_", st.session_state.phenotype_name.strip()) or "phenotype"
+    results_dir = Path(CONFIG.paths.results_dir)
+    results_dir.mkdir(parents=True, exist_ok=True)
+    predicted_codelist.to_csv(results_dir / f"{safe_name}_predicted.csv", index=False)
+    st.download_button(
+        "Export predicted codelist CSV",
+        data=predicted_codelist.to_csv(index=False).encode("utf-8"),
+        file_name=f"{safe_name}_predicted.csv",
+        mime="text/csv",
     )
 
 st.divider()
@@ -366,6 +399,10 @@ if run_metrics:
             gt_path = registered_aesi_path
 
         _, gold_labels = load_aesi_dataset(gt_path)
+        retrieval_vocabularies = st.session_state.retrieval_vocabularies or tuple(compare_vocabularies)
+        effective_compare_vocabularies = [
+            vocabulary for vocabulary in compare_vocabularies if vocabulary in retrieval_vocabularies
+        ]
         classified_dicts = [
             {
                 "code": c.code,
@@ -377,10 +414,22 @@ if run_metrics:
             }
             for c in st.session_state.classified
         ]
-        gold_scoped = filter_gold_by_vocabulary(gold_labels, compare_vocabularies)
-        predicted_scoped = filter_records_by_vocabulary(classified_dicts, compare_vocabularies)
-        st.session_state.metrics_result = evaluate(predicted_scoped, gold_scoped)
-        st.session_state.predicted_codelist = to_predicted_codelist(classified_dicts)
+        gold_vocabulary_scoped = filter_gold_by_vocabulary(gold_labels, effective_compare_vocabularies)
+        available_codes = _load_corpus(tuple(retrieval_vocabularies))
+        gold_scoped = filter_gold_by_available_codes(gold_vocabulary_scoped, available_codes)
+        predicted_scoped = filter_records_by_vocabulary(classified_dicts, effective_compare_vocabularies)
+        st.session_state.metrics_result = evaluate(
+            predicted_scoped,
+            gold_scoped,
+            narrow_only_as_positive=CONFIG.evaluation.narrow_only_as_positive,
+            include_possible=st.session_state.classification_use_possible,
+        )
+        st.session_state.metrics_result["evaluation_scope"] = {
+            "selected_vocabularies": effective_compare_vocabularies,
+            "gold_rows_in_selected_vocabularies": len(gold_vocabulary_scoped),
+            "gold_rows_available_in_loaded_sources": len(gold_scoped),
+            "gold_rows_excluded_as_unavailable": len(gold_vocabulary_scoped) - len(gold_scoped),
+        }
         st.session_state.metrics_gold_scoped = gold_scoped
         st.session_state.metrics_predicted_scoped = predicted_scoped
         st.session_state.metrics_classified_dicts = classified_dicts
@@ -390,8 +439,26 @@ if run_metrics:
 
 if st.session_state.metrics_result:
     metrics = st.session_state.metrics_result
+    safe_name = re.sub(r"[^a-zA-Z0-9_-]+", "_", st.session_state.phenotype_name.strip()) or "phenotype"
+    results_dir = Path(CONFIG.paths.results_dir)
+    results_dir.mkdir(parents=True, exist_ok=True)
+    (results_dir / f"{safe_name}_metrics.json").write_text(json.dumps(metrics, indent=2))
+    st.download_button(
+        "Export metrics JSON",
+        data=json.dumps(metrics, indent=2).encode("utf-8"),
+        file_name=f"{safe_name}_metrics.json",
+        mime="application/json",
+    )
     retrieval_metrics = metrics["retrieval"]
     classification_metrics = metrics["classification"]
+
+    scope = metrics.get("evaluation_scope", {})
+    if scope:
+        st.caption(
+            f"Evaluation uses {scope['gold_rows_available_in_loaded_sources']} available gold rows; "
+            f"{scope['gold_rows_excluded_as_unavailable']} rows absent from the loaded terminology "
+            "versions were excluded."
+        )
 
     st.subheader("Metrics after initial retrieval")
     retrieval_summary = pd.DataFrame(
@@ -412,10 +479,11 @@ if st.session_state.metrics_result:
                 (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper())
                 for row in predicted_scoped
             }
+            positive_labels = {"Narrow", "Possible"} if st.session_state.classification_use_possible else {"Narrow"}
             correct_retrievals = gold_scoped[
                 gold_scoped.apply(
                     lambda r: (
-                        r["label"] in {"Narrow", "Possible"}
+                        r["label"] in positive_labels
                         and (str(r["code"]).strip(), str(r["vocabulary"]).strip().upper()) in predicted_keys
                     ),
                     axis=1,
@@ -438,10 +506,11 @@ if st.session_state.metrics_result:
                 (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper())
                 for row in predicted_scoped
             }
+            positive_labels = {"Narrow", "Possible"} if st.session_state.classification_use_possible else {"Narrow"}
             missed_retrievals = gold_scoped[
                 gold_scoped.apply(
                     lambda r: (
-                        r["label"] in {"Narrow", "Possible"}
+                        r["label"] in positive_labels
                         and (str(r["code"]).strip(), str(r["vocabulary"]).strip().upper()) not in predicted_keys
                     ),
                     axis=1,
@@ -457,9 +526,21 @@ if st.session_state.metrics_result:
             st.caption("Run metrics to see missed retrievals.")
 
     st.subheader("Metrics after LLM classification")
+    metric_columns = st.columns(6)
+    metric_columns[0].metric("Accuracy", f"{classification_metrics['accuracy']:.1%}")
+    metric_columns[1].metric("Narrow TN", classification_metrics["true_negatives"])
+    metric_columns[2].metric("Narrow sensitivity", f"{classification_metrics['sensitivity']:.1%}")
+    metric_columns[3].metric("Narrow precision", f"{classification_metrics['precision']:.1%}")
+    metric_columns[4].metric("Narrow F1", f"{classification_metrics['f1']:.1%}")
+    metric_columns[5].metric("Cohen's kappa", f"{classification_metrics['cohens_kappa']:.3f}")
+    st.caption(
+        "Sensitivity, precision, and F1 treat Narrow as the positive class. "
+        "Macro averages for all enabled labels are available in Full metrics."
+    )
     gold_scoped = st.session_state.get("metrics_gold_scoped")
     classified_dicts = st.session_state.get("metrics_classified_dicts", [])
-    classification_summary = pd.DataFrame(0, index=["Narrow", "Possible", "Exclude"], columns=["Narrow", "Possible", "Exclude"])
+    display_labels = ["Narrow", "Possible", "Exclude"] if st.session_state.classification_use_possible else ["Narrow", "Exclude"]
+    classification_summary = pd.DataFrame(0, index=display_labels, columns=display_labels)
     if gold_scoped is not None:
         gold_by_key = {
             (str(row["code"]).strip(), str(row["vocabulary"]).strip().upper()): str(row["label"]).strip().title()
@@ -468,6 +549,8 @@ if st.session_state.metrics_result:
         for item in classified_dicts:
             key = (str(item["code"]).strip(), str(item["vocabulary"]).strip().upper())
             gold_label = gold_by_key.get(key)
+            if not st.session_state.classification_use_possible and gold_label == "Possible":
+                gold_label = "Exclude"
             pred_label = str(item["label"]).strip().title()
             if gold_label is None:
                 if pred_label in classification_summary.index:
@@ -490,6 +573,8 @@ if st.session_state.metrics_result:
             correct_rows = []
             for key, item in classified_by_key.items():
                 gold_label = gold_by_key.get(key)
+                if not st.session_state.classification_use_possible and gold_label == "Possible":
+                    gold_label = "Exclude"
                 pred_label = str(item["label"]).strip().title()
                 if gold_label == pred_label:
                     correct_rows.append(
@@ -533,6 +618,8 @@ if st.session_state.metrics_result:
             incorrect_rows = []
             for key, item in classified_by_key.items():
                 gold_label = gold_by_key.get(key)
+                if not st.session_state.classification_use_possible and str(gold_label).strip().title() == "Possible":
+                    gold_label = "Exclude"
                 pred_label = str(item["label"]).strip().title()
                 if gold_label is None:
                     if pred_label != "Exclude":

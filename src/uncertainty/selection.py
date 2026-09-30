@@ -21,7 +21,7 @@ class ReviewItem:
 def select_uncertain(
     classified: list[ClassifiedCandidate],
     confidence_threshold: float = 0.7,
-    possible_requires_review: bool = True,
+    possible_requires_review: bool = False,
 ) -> list[ReviewItem]:
     """Select classified candidates that require human validation.
 

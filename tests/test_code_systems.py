@@ -8,7 +8,9 @@ import pytest
 from src.data.code_systems import (
     load_code_system_corpus,
     load_icd10cm_full,
+    load_icd9cm_full,
     load_icpc_full,
+    load_mdr_full,
     load_rcd2_full,
     load_snomedct_full,
 )
@@ -18,7 +20,9 @@ from src.data.code_systems import (
     "loader,vocabulary",
     [
         (load_icd10cm_full, "ICD10CM"),
+        (load_icd9cm_full, "ICD9CM"),
         (load_icpc_full, "ICPC"),
+        (load_mdr_full, "MDR"),
         (load_rcd2_full, "RCD2"),
         (load_snomedct_full, "SNOMEDCT_US"),
     ],

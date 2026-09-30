@@ -25,6 +25,20 @@ CLASSIFY_SYSTEM_PROMPT = (
 )
 
 
+def classify_system_prompt(use_possible_category: bool = False) -> str:
+    """Return classification instructions for binary or three-way labeling."""
+    if use_possible_category:
+        return CLASSIFY_SYSTEM_PROMPT
+    return (
+        "You are a clinical terminology expert supporting semantic harmonization "
+        "for real-world evidence studies. Classify every candidate as 'Narrow' "
+        "when it is sufficiently specific to the phenotype, or 'Exclude' otherwise. "
+        "Do not return a 'Possible' label. Base decisions on the supplied Event "
+        "Definition Form. For every code, provide a confidence score from 0 to 1 "
+        "and a brief explanation. Respond only with valid JSON."
+    )
+
+
 def build_rank_prompt(edf: EventDefinitionForm, candidates: list[dict]) -> str:
     """Build the user prompt for LLM-based re-ranking of candidate codes."""
     candidate_lines = "\n".join(
@@ -41,17 +55,22 @@ def build_rank_prompt(edf: EventDefinitionForm, candidates: list[dict]) -> str:
     )
 
 
-def build_classify_prompt(edf: EventDefinitionForm, candidates: list[dict]) -> str:
+def build_classify_prompt(
+    edf: EventDefinitionForm,
+    candidates: list[dict],
+    use_possible_category: bool = False,
+) -> str:
     """Build the user prompt for LLM-based classification of candidate codes."""
     candidate_lines = "\n".join(
         f"- code: {c['code']} | vocabulary: {c['vocabulary']} | description: {c['description']}"
         for c in candidates
     )
+    labels = "'Narrow', 'Possible', or 'Exclude'" if use_possible_category else "'Narrow' or 'Exclude'"
     return (
-        f"Phenotype definition:\n{edf.to_prompt_context()}\n\n"
+        f"Phenotype definition:\n{edf.to_prompt_context(include_possible=use_possible_category)}\n\n"
         f"Classify each of the following candidate codes:\n{candidate_lines}\n\n"
         "Return a JSON object with a single key 'classifications', containing a "
         "list of objects with keys 'code', 'vocabulary', 'label' "
-        "(one of 'Narrow', 'Possible', 'Exclude'), 'confidence' (float 0-1), and "
+        f"(one of {labels}), 'confidence' (float 0-1), and "
         "'explanation' (brief string)."
     )
