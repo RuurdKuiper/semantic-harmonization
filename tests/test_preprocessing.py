@@ -6,6 +6,8 @@ import pandas as pd
 
 from src.data.preprocessing import (
     deduplicate_codes,
+    filter_code_ranges,
+    is_code_range,
     normalize_text,
     preprocess_corpus,
     standardize_code,
@@ -38,6 +40,30 @@ def test_standardize_code_snomed_unchanged_format():
 
 def test_standardize_code_uppercases_and_strips_whitespace():
     assert standardize_code(" i40.9 ", "icd10") == "I40.9"
+
+
+def test_is_code_range_recognizes_dictionary_ranges_only():
+    assert is_code_range("N17-N19")
+    assert is_code_range("N17–N19")
+    assert is_code_range("001 - 009.99")
+    assert not is_code_range("-30")
+    assert not is_code_range("N17.9")
+    assert not is_code_range("COVID-19")
+
+
+def test_filter_code_ranges_removes_ranges_before_standardization():
+    df = pd.DataFrame(
+        [
+            {"code": "N17-N19", "description": "Renal failure range", "vocabulary": "ICD10CM"},
+            {"code": "N17–N19", "description": "Renal failure range", "vocabulary": "ICD10CM"},
+            {"code": "N17.9", "description": "Acute kidney failure", "vocabulary": "ICD10CM"},
+            {"code": "-30", "description": "ICPC process code", "vocabulary": "ICPC"},
+        ]
+    )
+
+    result = filter_code_ranges(df)
+
+    assert result["code"].tolist() == ["N17.9", "-30"]
 
 
 def test_deduplicate_codes_removes_duplicates():

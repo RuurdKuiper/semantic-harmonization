@@ -53,6 +53,14 @@ def build_lexical_index(codes: pd.DataFrame) -> BM25Okapi:
     return BM25Okapi(doc_tokens)
 
 
+def score_lexical(query: str, index: BM25Okapi, corpus_size: int) -> list[float]:
+    """Return corpus-order BM25 scores without allocating result objects."""
+    query_tokens = _tokenize(query)
+    if not query_tokens:
+        return [0.0] * corpus_size
+    return [round(float(score), 6) for score in index.get_scores(query_tokens)]
+
+
 def retrieve_lexical(
     query: str,
     codes: pd.DataFrame | list[dict],

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from collections.abc import Callable
+from dataclasses import asdict
 import json
 from pathlib import Path
 
@@ -23,9 +24,12 @@ from src.evaluation.metrics import (
     filter_records_by_vocabulary,
     to_predicted_codelist,
 )
-from src.llm.classify import llm_classify
+from src.llm.classify import (
+    AdaptiveStoppingConfig,
+    ClassificationRunInfo,
+    llm_classify,
+)
 from src.llm.client import resolve_provider
-from src.llm.rank import skip_rank
 from src.retrieval.embeddings import EmbeddingIndex
 from src.retrieval.hybrid import hybrid_retrieval
 from src.uncertainty.selection import review_rate, select_uncertain
@@ -97,7 +101,8 @@ def run_pipeline(
 
     # Step 3: Hybrid retrieval — rank every code in the full corpus against
     # the EDF text using a weighted combination of BM25 lexical matching and
-    # sentence-embedding semantic similarity, keeping the top-k candidates.
+    # sentence-embedding semantic similarity. By default all candidates are
+    # ranked; top-k remains available as an optional hard compatibility cap.
     # The embedding index is cached to disk (per vocabulary set + model) so
     # the (potentially large) corpus is only embedded once, not every run.
     report("Step 4/8: Loading or building embedding indexes", 0, len(config.retrieval.vocabularies))
@@ -119,49 +124,81 @@ def run_pipeline(
 
     report("Step 5/8: Running hybrid retrieval")
     logger.info("Running hybrid retrieval over %d candidate codes", len(codes))
+    retrieval_limit = config.retrieval.top_k if config.retrieval.use_top_k_limit else None
     candidates = hybrid_retrieval(
         query,
         codes,
         lexical_weight=config.retrieval.lexical_weight,
         embedding_weight=config.retrieval.embedding_weight,
         embedding_model=config.retrieval.embedding_model,
-        top_k=config.retrieval.top_k,
+        top_k=retrieval_limit,
         per_vocabulary_top_k=config.retrieval.per_vocabulary_top_k,
         embedding_index=embedding_index,
         query_model=query_model,
         lexical_query=edf.to_lexical_query(),
         embedding_query=edf.to_embedding_query(),
     )
-    logger.info("Retrieved %d candidates", len(candidates))
+    logger.info(
+        "Scored and ranked %d candidates%s",
+        len(candidates),
+        f" (top-k cap: {retrieval_limit})" if retrieval_limit is not None else "",
+    )
 
     # Resolve which LLM provider/model to use (explicit config, or auto-detect
     # from whichever API key is set in the environment).
     provider = resolve_provider(config.llm.provider)
     model = getattr(config.llm, f"{provider}_model")
 
-    # Step 4: Skip LLM ranking (disabled — see src/llm/rank.py::llm_rank, kept
-    # for potential future use but not currently run) and pass retrieval
-    # candidates straight through to classification.
-    ranked = skip_rank(candidates)
-
+    # Step 4: LLM ranking is disabled; preserve the hybrid retrieval order and
+    # pass candidates directly to classification.
     # Step 5: LLM classification — assign each candidate a Narrow/Exclude
     # label (optionally Possible), confidence score, and short explanation.
-    report("Step 6/8: LLM classification", 0, len(ranked))
+    # Adaptive stopping ends the scan once Narrow results stay sparse.
+    report("Step 6/8: LLM classification", 0, len(candidates))
     logger.info("Classifying candidates with LLM (provider=%s, model=%s)", provider, model)
+    stopping_config = None
+    if config.llm.adaptive_stopping_enabled:
+        stopping_config = AdaptiveStoppingConfig(
+            sparse_narrow_threshold=config.llm.sparse_narrow_threshold,
+            consecutive_sparse_batches=config.llm.consecutive_sparse_batches,
+            minimum_batches=config.llm.minimum_batches,
+        )
+    classification_run_info: ClassificationRunInfo | None = None
+
+    def capture_run_info(info: ClassificationRunInfo) -> None:
+        nonlocal classification_run_info
+        classification_run_info = info
+
     classified = llm_classify(
-        ranked,
+        candidates,
         edf,
         provider=provider,
         model=model,
         max_retries=config.llm.max_retries,
         batch_size=20 if provider == "jev" else 10,
         use_possible_category=config.llm.use_possible_category,
+        adaptive_stopping=stopping_config,
+        run_info_callback=capture_run_info,
         progress_callback=lambda completed, total: report(
             "Step 6/8: LLM classification",
             completed,
             total,
         ),
     )
+    if classification_run_info is not None:
+        logger.info(
+            "Classification processed %d/%d candidates in %d batches. %s",
+            classification_run_info.candidates_classified,
+            classification_run_info.candidates_available,
+            classification_run_info.batches_completed,
+            classification_run_info.stop_reason,
+        )
+        if classification_run_info.stopped_early:
+            report(
+                "Step 6/8: Adaptive classification complete",
+                classification_run_info.candidates_classified,
+                classification_run_info.candidates_classified,
+            )
 
     # Step 6: Add review annotations without filtering or relabeling results.
     report("Step 7/8: Adding manual-review flags")
@@ -246,6 +283,9 @@ def run_pipeline(
             for r in review_items
         ],
         "review_rate": round(review_rate(classified, review_items), 4),
+        "classification_run": (
+            asdict(classification_run_info) if classification_run_info is not None else None
+        ),
         "metrics": metrics,
     }
 
@@ -281,6 +321,7 @@ def main() -> None:
         "phenotype": results["phenotype"],
         "review_items": results["review_items"],
         "review_rate": results["review_rate"],
+        "classification_run": results["classification_run"],
         "metrics": results["metrics"],
     }
     metrics_path.write_text(json.dumps(metrics_payload, indent=2))

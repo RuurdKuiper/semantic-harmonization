@@ -28,7 +28,9 @@ retrieval:
   lexical_weight: 0.5
   embedding_weight: 0.5
   embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  # Used for the on-screen preview and, when enabled, as a hard candidate cap.
   top_k: 5
+  use_top_k_limit: false
   vocabularies:
     - ICD10CM
     - ICD9CM
@@ -42,11 +44,15 @@ llm:
   anthropic_model: claude-opus-4-8
   openai_model: gpt-5-mini
   google_model: gemini-3-flash-preview
-  jev_model: jev-1.13
+  jev_model: jev-latest
   rank_effort: low
   classify_effort: low
   max_retries: 3
   use_possible_category: false
+  adaptive_stopping_enabled: true
+  sparse_narrow_threshold: 1
+  consecutive_sparse_batches: 3
+  minimum_batches: 3
 
 uncertainty:
   confidence_threshold: 0.7

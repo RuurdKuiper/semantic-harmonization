@@ -16,6 +16,7 @@ from __future__ import annotations
 import json
 import re
 import tempfile
+from dataclasses import asdict
 from pathlib import Path
 
 import pandas as pd
@@ -33,9 +34,12 @@ from src.evaluation.metrics import (
     filter_records_by_vocabulary,
     to_predicted_codelist,
 )
-from src.llm.classify import llm_classify
+from src.llm.classify import (
+    AdaptiveStoppingConfig,
+    ClassificationRunInfo,
+    llm_classify,
+)
 from src.llm.client import default_model_for, resolve_provider
-from src.llm.rank import skip_rank
 from src.retrieval.embeddings import EmbeddingIndex
 from src.retrieval.hybrid import hybrid_retrieval
 from src.uncertainty.selection import review_rate, select_uncertain
@@ -98,6 +102,7 @@ def _init_state() -> None:
         "phenotype_name": "",
         "retrieval_candidates": None,
         "classified": None,
+        "classification_run": None,
         "metrics_result": None,
         "predicted_codelist": None,
         "classification_use_possible": CONFIG.llm.use_possible_category,
@@ -204,10 +209,22 @@ st.divider()
 # ---------------------------------------------------------------------------
 st.header("3. Run hybrid retrieval")
 
-top_k = st.number_input("Top-K candidates to retrieve", min_value=1, max_value=500, value=CONFIG.retrieval.top_k)
+top_k = st.number_input(
+    "Candidates to preview (top-k)",
+    min_value=1,
+    max_value=500,
+    value=CONFIG.retrieval.top_k,
+    help="Only this many similarity-ranked candidates are shown on screen. Adaptive classification can still process candidates beyond this preview.",
+)
+use_top_k_limit = st.checkbox(
+    "Use top-k as a hard classification limit",
+    value=CONFIG.retrieval.use_top_k_limit,
+    help="Optional compatibility mode. When disabled, every code receives a similarity score and adaptive classification decides when to stop.",
+)
 per_vocabulary_top_k = st.checkbox(
     "Retrieve top-K per code list",
     value=getattr(CONFIG.retrieval, "per_vocabulary_top_k", True),
+    disabled=not use_top_k_limit,
     help="If enabled, retrieves the top-K candidates within each selected vocabulary. If disabled, retrieves the top-K overall after combining vocabularies.",
 )
 
@@ -247,14 +264,20 @@ if run_retrieval and edf is not None and selected_vocabularies:
     codes = _load_corpus(vocab_tuple)
     embedding_index = _load_embedding_index(vocab_tuple)
     query_model = _load_query_model()
-    with st.spinner(f"Retrieving top {top_k} candidates from {len(codes)} codes..."):
+    retrieval_limit = int(top_k) if use_top_k_limit else None
+    spinner_text = (
+        f"Retrieving top {top_k} candidates from {len(codes)} codes..."
+        if retrieval_limit is not None
+        else f"Scoring and ranking all {len(codes)} codes..."
+    )
+    with st.spinner(spinner_text):
         candidates = hybrid_retrieval(
             edf.to_prompt_context(),
             codes,
             lexical_weight=CONFIG.retrieval.lexical_weight,
             embedding_weight=CONFIG.retrieval.embedding_weight,
             embedding_model=CONFIG.retrieval.embedding_model,
-            top_k=int(top_k),
+            top_k=retrieval_limit,
             per_vocabulary_top_k=bool(per_vocabulary_top_k),
             embedding_index=embedding_index,
             query_model=query_model,
@@ -264,10 +287,16 @@ if run_retrieval and edf is not None and selected_vocabularies:
     st.session_state.retrieval_candidates = candidates
     st.session_state.retrieval_vocabularies = vocab_tuple
     st.session_state.classified = None
+    st.session_state.classification_run = None
     st.session_state.metrics_result = None
 
 if st.session_state.retrieval_candidates:
-    st.success(f"Retrieved {len(st.session_state.retrieval_candidates)} candidates.")
+    preview_candidates = st.session_state.retrieval_candidates[: int(top_k)]
+    st.success(f"Scored and ranked {len(st.session_state.retrieval_candidates)} candidates.")
+    st.caption(
+        f"Showing only the top {len(preview_candidates)} similarity-ranked candidates. "
+        "Similarity is not a final Narrow/Exclude decision."
+    )
     st.dataframe(
         pd.DataFrame(
             [
@@ -280,7 +309,7 @@ if st.session_state.retrieval_candidates:
                     "normalized_embedding_score": c.embedding_score,
                     "score": c.score,
                 }
-                for c in st.session_state.retrieval_candidates
+                for c in preview_candidates
             ]
         ),
         width='stretch',
@@ -303,6 +332,34 @@ use_possible_category = st.checkbox(
     value=CONFIG.llm.use_possible_category,
     help="Off by default. When disabled, the model classifies codes as Narrow or Exclude.",
 )
+
+adaptive_stopping_enabled = st.checkbox(
+    "Stop when Narrow results become sparse",
+    value=CONFIG.llm.adaptive_stopping_enabled,
+    help="Candidates are classified in similarity order. Classification stops after the configured sparse-batch streak.",
+)
+sparsity_col1, sparsity_col2, sparsity_col3 = st.columns(3)
+with sparsity_col1:
+    sparse_narrow_threshold = st.number_input(
+        "Maximum Narrow results in a sparse batch",
+        min_value=0,
+        value=CONFIG.llm.sparse_narrow_threshold,
+        disabled=not adaptive_stopping_enabled,
+    )
+with sparsity_col2:
+    consecutive_sparse_batches = st.number_input(
+        "Consecutive sparse batches",
+        min_value=1,
+        value=CONFIG.llm.consecutive_sparse_batches,
+        disabled=not adaptive_stopping_enabled,
+    )
+with sparsity_col3:
+    minimum_batches = st.number_input(
+        "Minimum batches before stopping",
+        min_value=1,
+        value=CONFIG.llm.minimum_batches,
+        disabled=not adaptive_stopping_enabled,
+    )
 
 llm_col1, llm_col2 = st.columns(2)
 with llm_col1:
@@ -336,10 +393,22 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
         def _update_progress(completed: int, total: int) -> None:
             progress.progress(completed / total if total else 1.0, text=f"Classifying candidates... {completed}/{total}")
 
+        classification_run_holder: list[ClassificationRunInfo] = []
+
+        def _capture_run_info(info: ClassificationRunInfo) -> None:
+            classification_run_holder.append(info)
+
+        stopping_config = None
+        if adaptive_stopping_enabled:
+            stopping_config = AdaptiveStoppingConfig(
+                sparse_narrow_threshold=int(sparse_narrow_threshold),
+                consecutive_sparse_batches=int(consecutive_sparse_batches),
+                minimum_batches=int(minimum_batches),
+            )
+
         with st.spinner("Classifying candidates..."):
-            ranked = skip_rank(st.session_state.retrieval_candidates)
             classified = llm_classify(
-                ranked,
+                st.session_state.retrieval_candidates,
                 edf,
                 provider=provider_choice,
                 model=model_override or None,
@@ -347,9 +416,14 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
                 batch_size=20 if resolved_provider_preview == "jev" else 10,
                 progress_callback=_update_progress,
                 use_possible_category=use_possible_category,
+                adaptive_stopping=stopping_config,
+                run_info_callback=_capture_run_info,
             )
         progress.progress(1.0, text="Classification complete")
         st.session_state.classified = classified
+        st.session_state.classification_run = (
+            classification_run_holder[0] if classification_run_holder else None
+        )
         st.session_state.classification_use_possible = use_possible_category
         st.session_state.metrics_result = None
     except Exception as exc:  # noqa: BLE001
@@ -379,6 +453,16 @@ if st.session_state.classified:
         ]
     )
     st.success(f"Classified {len(classified_df)} candidates.")
+    if st.session_state.classification_run is not None:
+        run_info = st.session_state.classification_run
+        if run_info.stopped_early:
+            st.info(
+                f"Adaptive stopping classified {run_info.candidates_classified:,} of "
+                f"{run_info.candidates_available:,} ranked candidates in "
+                f"{run_info.batches_completed} batches. {run_info.stop_reason}"
+            )
+        else:
+            st.caption(run_info.stop_reason)
     st.dataframe(classified_df, width='stretch', hide_index=True)
 
     st.info(
@@ -467,6 +551,10 @@ if run_metrics:
             "gold_rows_available_in_loaded_sources": len(gold_scoped),
             "gold_rows_excluded_as_unavailable": len(gold_vocabulary_scoped) - len(gold_scoped),
         }
+        if st.session_state.classification_run is not None:
+            st.session_state.metrics_result["classification_run"] = asdict(
+                st.session_state.classification_run
+            )
         st.session_state.metrics_gold_scoped = gold_scoped
         st.session_state.metrics_predicted_scoped = predicted_scoped
         st.session_state.metrics_classified_dicts = classified_dicts

@@ -94,7 +94,7 @@ python experiments/matthewman_2026/run.py \
 
 API keys are read from `.env`. The full design requires `OPENAI_API_KEY`,
 `ANTHROPIC_API_KEY`, and either `GOOGLE_API_KEY` or `GEMINI_API_KEY`.
-Jev can be added as an extra treatment with `--models jev:jev-1.13`; it is not
+Jev can be added as an extra treatment with `--models jev:jev-1.13.0`; it is not
 part of the paper's original four-model design.
 
 Outputs are written beneath `outputs/<run-id>/`:

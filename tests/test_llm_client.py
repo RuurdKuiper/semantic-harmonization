@@ -72,7 +72,7 @@ def test_default_model_for():
     assert default_model_for("anthropic") == "claude-haiku-4-8"
     assert default_model_for("openai") == "gpt-5-mini"
     assert default_model_for("google") == "gemini-3-flash-preview"
-    assert default_model_for("jev") == "jev-1.13"
+    assert default_model_for("jev") == "jev-latest"
 
 
 def test_resolve_provider_auto_falls_back_to_jev(monkeypatch):
@@ -172,7 +172,7 @@ def test_call_jev_decisions(monkeypatch):
 
     assert result["answers"]["candidate_0"]["choice"] == "Narrow"
     request = mocked_urlopen.call_args.args[0]
-    assert request.full_url.endswith("/api/v1/systemone/")
+    assert request.full_url == "https://api.typesafe.ai/v1/systemone"
     assert request.get_header("Authorization") == "Bearer fake-key"
 
 

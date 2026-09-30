@@ -5,7 +5,7 @@ from __future__ import annotations
 from unittest.mock import patch
 
 from src.data.loaders import load_edf
-from src.llm.classify import llm_classify
+from src.llm.classify import AdaptiveStoppingConfig, llm_classify
 from src.llm.rank import llm_rank
 from src.retrieval.hybrid import HybridCandidate
 
@@ -162,3 +162,95 @@ def test_llm_classify_with_jev_typed_choices():
     assert classified[0].confidence == 0.94
     assert "0.97" in classified[0].explanation
     assert len(call.call_args.kwargs["questions"]) == 2
+
+
+def _adaptive_candidates(count: int = 8):
+    return [
+        HybridCandidate(
+            rank=index + 1,
+            code=f"C{index}",
+            description=f"Candidate {index}",
+            vocabulary="TEST",
+            lexical_score=1.0 - index / count,
+            embedding_score=1.0 - index / count,
+            score=1.0 - index / count,
+        )
+        for index in range(count)
+    ]
+
+
+def test_llm_classify_stops_after_consecutive_sparse_batches():
+    edf = load_edf("myocarditis")
+    candidates = _adaptive_candidates()
+    responses = [
+        {
+            "classifications": [
+                {"code": "C0", "vocabulary": "TEST", "label": "Narrow"},
+                {"code": "C1", "vocabulary": "TEST", "label": "Narrow"},
+            ]
+        },
+        {
+            "classifications": [
+                {"code": "C2", "vocabulary": "TEST", "label": "Narrow"},
+                {"code": "C3", "vocabulary": "TEST", "label": "Exclude"},
+            ]
+        },
+        {
+            "classifications": [
+                {"code": "C4", "vocabulary": "TEST", "label": "Exclude"},
+                {"code": "C5", "vocabulary": "TEST", "label": "Exclude"},
+            ]
+        },
+    ]
+    run_info = []
+    with patch("src.llm.classify.call_llm_json", side_effect=responses) as call:
+        classified = llm_classify(
+            candidates,
+            edf,
+            provider="openai",
+            model="test-model",
+            batch_size=2,
+            adaptive_stopping=AdaptiveStoppingConfig(
+                sparse_narrow_threshold=1,
+                consecutive_sparse_batches=2,
+                minimum_batches=3,
+            ),
+            run_info_callback=run_info.append,
+        )
+
+    assert len(classified) == 6
+    assert call.call_count == 3
+    assert run_info[0].stopped_early is True
+    assert run_info[0].narrow_counts_by_batch == (2, 1, 0)
+    assert run_info[0].candidates_classified == 6
+
+
+def test_jev_classification_uses_adaptive_stopping():
+    edf = load_edf("myocarditis")
+    candidates = _adaptive_candidates(6)
+    response = {
+        "answers": {
+            "candidate_0": {"choice": "Exclude", "probabilities": {"Narrow": 0.1, "Exclude": 0.9}},
+            "candidate_1": {"choice": "Exclude", "probabilities": {"Narrow": 0.1, "Exclude": 0.9}},
+        }
+    }
+    run_info = []
+    with patch("src.llm.classify.call_jev_decisions", return_value=response) as call:
+        classified = llm_classify(
+            candidates,
+            edf,
+            provider="jev",
+            model="jev-test",
+            batch_size=2,
+            adaptive_stopping=AdaptiveStoppingConfig(
+                sparse_narrow_threshold=0,
+                consecutive_sparse_batches=2,
+                minimum_batches=2,
+            ),
+            run_info_callback=run_info.append,
+        )
+
+    assert len(classified) == 4
+    assert call.call_count == 2
+    assert run_info[0].narrow_counts_by_batch == (0, 0)
+    assert run_info[0].stopped_early is True

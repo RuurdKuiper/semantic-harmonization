@@ -31,6 +31,7 @@ class RetrievalConfig:
     embedding_weight: float = 0.5
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = 50
+    use_top_k_limit: bool = False
     per_vocabulary_top_k: bool = True
     vocabularies: list[str] = field(
         default_factory=lambda: ["ICD10CM", "ICD9CM", "ICPC", "MDR", "RCD2", "SNOMEDCT_US"]
@@ -43,11 +44,15 @@ class LLMConfig:
     anthropic_model: str = "claude-opus-4-8"
     openai_model: str = "gpt-4o"
     google_model: str = "gemini-3-flash-preview"
-    jev_model: str = "jev-1.13"
+    jev_model: str = "jev-latest"
     rank_effort: str = "low"
     classify_effort: str = "low"
     max_retries: int = 3
     use_possible_category: bool = False
+    adaptive_stopping_enabled: bool = True
+    sparse_narrow_threshold: int = 1
+    consecutive_sparse_batches: int = 3
+    minimum_batches: int = 3
 
 
 @dataclass

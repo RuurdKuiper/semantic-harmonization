@@ -3,7 +3,9 @@ model; network access to download the model is required the first time."""
 
 from __future__ import annotations
 
+import numpy as np
 import pytest
+from unittest.mock import patch
 
 from src.retrieval.embeddings import EmbeddingIndex, retrieve_embeddings
 
@@ -60,3 +62,50 @@ def test_embedding_index_from_cache_or_build_builds_then_reuses(sample_codes, tm
     reloaded = EmbeddingIndex.from_cache_or_build(sample_codes, cache_path=cache_path)
     assert reloaded.codes == built.codes
 
+
+def test_score_all_matches_retrieve_scores_without_sorting(sample_codes):
+    class QueryModel:
+        def encode(self, text, **kwargs):
+            return np.array([0.8, 0.6], dtype=np.float32)
+
+    embeddings = np.array(
+        [[1.0, 0.0], [0.8, 0.6], [0.0, 1.0], [-1.0, 0.0], [0.6, 0.8]],
+        dtype=np.float32,
+    )
+    index = EmbeddingIndex(
+        model=None,
+        descriptions=sample_codes["description"].tolist(),
+        codes=sample_codes["code"].tolist(),
+        vocabularies=sample_codes["vocabulary"].tolist(),
+        embeddings=embeddings,
+    )
+
+    scores = index.score_all("query", model=QueryModel())
+    retrieved = index.retrieve("query", model=QueryModel())
+    retrieved_by_code = {item.code: item.score for item in retrieved}
+
+    assert scores == [retrieved_by_code[code] for code in index.codes]
+
+
+def test_embedding_cache_reuses_vectors_when_preprocessing_removes_rows(sample_codes, tmp_path):
+    cache_path = tmp_path / "index.npz"
+    embeddings = np.arange(len(sample_codes) * 2, dtype=np.float32).reshape(-1, 2)
+    cached = EmbeddingIndex(
+        model=None,
+        descriptions=sample_codes["description"].tolist(),
+        codes=sample_codes["code"].tolist(),
+        vocabularies=sample_codes["vocabulary"].tolist(),
+        embeddings=embeddings,
+    )
+    cached.save(cache_path)
+    filtered = sample_codes.iloc[[0, 2, 4]].reset_index(drop=True)
+
+    with patch.object(EmbeddingIndex, "from_codes", side_effect=AssertionError("must not rebuild")):
+        reused = EmbeddingIndex.from_cache_or_build(
+            filtered,
+            cache_path=cache_path,
+            load_model=False,
+        )
+
+    assert reused.codes == filtered["code"].tolist()
+    assert np.array_equal(reused.embeddings, embeddings[[0, 2, 4]])

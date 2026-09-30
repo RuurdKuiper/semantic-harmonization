@@ -24,8 +24,8 @@ _JSON_BLOCK_RE = re.compile(r"\{.*\}", re.DOTALL)
 DEFAULT_ANTHROPIC_MODEL = "claude-haiku-4-8"
 DEFAULT_OPENAI_MODEL = "gpt-5-mini"
 DEFAULT_GOOGLE_MODEL = "gemini-3-flash-preview"
-DEFAULT_JEV_MODEL = "jev-1.13"
-DEFAULT_JEV_API_URL = "https://jev-ai.org/api/v1/systemone/"
+DEFAULT_JEV_MODEL = "jev-latest"
+DEFAULT_JEV_API_URL = "https://api.typesafe.ai/v1/systemone"
 
 _PLACEHOLDER_KEY_VALUES = {"", "your-api-key-here"}
 
@@ -235,9 +235,14 @@ def call_jev_decisions(
     candidate-classification questions and receives declared labels plus
     probability distributions.
     """
-    api_key = os.environ.get("JEV_API_KEY", "").strip()
+    api_key = (
+        os.environ.get("TYPESAFE_API_KEY", "").strip()
+        or os.environ.get("JEV_API_KEY", "").strip()
+    )
     if not api_key:
-        raise LLMCallError("JEV_API_KEY environment variable is not set.")
+        raise LLMCallError(
+            "TYPESAFE_API_KEY or JEV_API_KEY environment variable is not set."
+        )
     if not questions or len(questions) > 20:
         raise ValueError("Jev requests must contain between 1 and 20 questions.")
 
@@ -269,7 +274,14 @@ def call_jev_decisions(
                 raise ValueError("Jev response is missing an 'answers' object.")
             return result
         except HTTPError as exc:
-            last_error = exc
+            try:
+                error_body = exc.read().decode("utf-8", errors="replace")[:500]
+            except Exception:  # noqa: BLE001 - preserve the original HTTP status
+                error_body = ""
+            last_error = RuntimeError(
+                f"Jev HTTP {exc.code} from {url}"
+                + (f": {error_body}" if error_body else "")
+            )
             if exc.code not in retryable_statuses or attempt >= max_retries:
                 break
             retry_after = exc.headers.get("Retry-After") if exc.headers else None

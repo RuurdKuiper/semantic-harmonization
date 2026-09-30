@@ -29,6 +29,7 @@ def _write_run(results: dict, output_dir: Path) -> dict:
         "phenotype": phenotype,
         "review_items": results["review_items"],
         "review_rate": results["review_rate"],
+        "classification_run": results.get("classification_run"),
         "metrics": results["metrics"],
     }
     (output_dir / f"{phenotype}_metrics.json").write_text(json.dumps(payload, indent=2))
@@ -74,6 +75,17 @@ def main() -> None:
     )
     parser.add_argument("--top-k", nargs="+", type=int, default=None)
     parser.add_argument(
+        "--provider",
+        choices=("auto", "anthropic", "openai", "google", "jev"),
+        default=None,
+        help="Override the configured classification provider.",
+    )
+    parser.add_argument(
+        "--model",
+        default=None,
+        help="Override the classification model for the selected provider.",
+    )
+    parser.add_argument(
         "--lexical-weight",
         nargs="+",
         type=float,
@@ -98,6 +110,12 @@ def main() -> None:
     args = parser.parse_args()
 
     base_config = load_config(args.config)
+    if args.provider is not None:
+        base_config.llm.provider = args.provider
+    if args.model is not None:
+        if base_config.llm.provider == "auto":
+            parser.error("--model requires an explicit --provider")
+        setattr(base_config.llm, f"{base_config.llm.provider}_model", args.model)
     phenotypes = args.phenotypes or sorted(base_config.paths.aesi_datasets)
     top_k_values = args.top_k or [base_config.retrieval.top_k]
     lexical_weights = args.lexical_weight or [base_config.retrieval.lexical_weight]
@@ -124,6 +142,11 @@ def main() -> None:
                 config = copy.deepcopy(base_config)
                 config.phenotype = phenotype
                 config.retrieval.top_k = top_k
+                # This script compares explicit top-k settings. Keep those
+                # experiments fixed-size even though the interactive/default
+                # pipeline now uses adaptive stopping over the full ranking.
+                config.retrieval.use_top_k_limit = True
+                config.llm.adaptive_stopping_enabled = False
                 config.retrieval.lexical_weight = lexical_weight
                 config.retrieval.embedding_weight = embedding_weight
                 config.llm.use_possible_category = args.possible
@@ -144,6 +167,12 @@ def main() -> None:
                 print(f"{prefix} Finished; outputs written to {batch_dir / setting}", flush=True)
                 row = {
                     "phenotype": phenotype,
+                    "provider": config.llm.provider,
+                    "model": (
+                        getattr(config.llm, f"{config.llm.provider}_model")
+                        if config.llm.provider != "auto"
+                        else "auto"
+                    ),
                     "top_k": top_k,
                     "lexical_weight": lexical_weight,
                     "embedding_weight": embedding_weight,

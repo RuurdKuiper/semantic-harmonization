@@ -125,6 +125,27 @@ class EmbeddingIndex:
             expected_vocabularies = codes.get("vocabulary", pd.Series(dtype=str)).astype(str).tolist()
             if cached.codes == expected_codes and cached.vocabularies == expected_vocabularies:
                 return cached
+            subset_positions = _ordered_subset_positions(
+                cached.codes,
+                cached.vocabularies,
+                expected_codes,
+                expected_vocabularies,
+            )
+            if subset_positions is not None:
+                # Corpus preprocessing can intentionally remove non-codable
+                # dictionary rows (for example ICD range headers). Reuse the
+                # matching cached vectors instead of re-embedding every code.
+                subset = cls(
+                    model=cached.model,
+                    descriptions=codes.get("description", pd.Series(dtype=str))
+                    .astype(str)
+                    .tolist(),
+                    codes=expected_codes,
+                    vocabularies=expected_vocabularies,
+                    embeddings=np.asarray(cached.embeddings[subset_positions], dtype=np.float32),
+                )
+                subset.save(cache_path)
+                return subset
         index = cls.from_codes(
             codes,
             model_name=model_name,
@@ -207,7 +228,6 @@ class EmbeddingIndex:
             if indexes
             else np.empty((0, 0), dtype=np.float32),
         )
-
     def retrieve(
         self,
         query: str,
@@ -235,6 +255,54 @@ class EmbeddingIndex:
             )
             for r, idx in enumerate(sorted_local)
         ]
+
+    def score_all(
+        self,
+        query: str,
+        model: SentenceTransformer | None = None,
+    ) -> list[float]:
+        """Return corpus-order cosine scores without ranking or object creation.
+
+        Hybrid retrieval needs every embedding score for global min-max
+        normalization, but it does not need the embedding-only ranking. This
+        path preserves the same six-decimal scores as :meth:`retrieve` while
+        avoiding a full sort and hundreds of thousands of temporary
+        ``EmbeddingCandidate`` objects.
+        """
+        query_model = model or self.model
+        if query_model is None:
+            raise ValueError("A SentenceTransformer model is required to embed the query.")
+        q_emb = query_model.encode(query, show_progress_bar=False, normalize_embeddings=True)
+        scores = self.embeddings @ q_emb
+        return [float(round(score, 6)) for score in scores]
+
+
+def _ordered_subset_positions(
+    cached_codes: Sequence[str],
+    cached_vocabularies: Sequence[str],
+    expected_codes: Sequence[str],
+    expected_vocabularies: Sequence[str],
+) -> list[int] | None:
+    """Locate an order-preserving expected corpus inside a cached corpus."""
+    if (
+        len(expected_codes) != len(expected_vocabularies)
+        or len(expected_codes) > len(cached_codes)
+    ):
+        return None
+    positions: list[int] = []
+    expected_index = 0
+    for cached_index, (code, vocabulary) in enumerate(
+        zip(cached_codes, cached_vocabularies)
+    ):
+        if expected_index >= len(expected_codes):
+            break
+        if (
+            code == expected_codes[expected_index]
+            and vocabulary == expected_vocabularies[expected_index]
+        ):
+            positions.append(cached_index)
+            expected_index += 1
+    return positions if expected_index == len(expected_codes) else None
 
 
 def _release_asset_url(asset_name: str) -> str | None:
