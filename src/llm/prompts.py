@@ -33,9 +33,11 @@ def classify_system_prompt(use_possible_category: bool = False) -> str:
         "You are a clinical terminology expert supporting semantic harmonization "
         "for real-world evidence studies. Classify every candidate as 'Narrow' "
         "when it is sufficiently specific to the phenotype, or 'Exclude' otherwise. "
-        "Do not return a 'Possible' label. Base decisions on the supplied Event "
-        "Definition Form. For every code, provide a confidence score from 0 to 1 "
-        "and a brief explanation. Respond only with valid JSON."
+        "Do not return a 'Possible' label. Any EDF rule describing a Possible, "
+        "ambiguous, or insufficiently specific case must be treated as Exclude in "
+        "this binary mode. Base decisions on the supplied Event Definition Form. "
+        "For every code, provide a confidence score from 0 to 1 and a brief "
+        "explanation. Respond only with valid JSON."
     )
 
 

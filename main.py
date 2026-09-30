@@ -22,11 +22,14 @@ from src.evaluation.metrics import (
     filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
+    narrow_loss_breakdown,
     to_predicted_codelist,
 )
 from src.llm.classify import (
     AdaptiveStoppingConfig,
     ClassificationRunInfo,
+    GPTReviewRunInfo,
+    gpt_review_low_confidence,
     llm_classify,
 )
 from src.llm.client import resolve_provider
@@ -52,8 +55,8 @@ def run_pipeline(
     """Run the full semantic harmonization pipeline for a single phenotype.
 
     Stages: load EDF -> load full reference code system(s) -> hybrid
-    retrieval -> LLM ranking -> LLM classification -> uncertainty-based
-    review selection -> evaluation against the expert-curated ground truth.
+    retrieval -> Jev classification -> GPT review of low-confidence decisions
+    -> review selection -> evaluation against the expert-curated ground truth.
 
     Parameters
     ----------
@@ -75,12 +78,12 @@ def run_pipeline(
     # Step 1: Load the structured phenotype definition (EDF) — the actual
     # input to the system. It encodes the clinical definition, inclusion/
     # exclusion criteria, decision rules, synonyms, etc.
-    report("Step 1/8: Loading EDF")
+    report("Step 1/9: Loading EDF")
     logger.info("Loading EDF for phenotype '%s'", phenotype)
     edf = load_edf(phenotype, edf_dir=config.paths.edf_dir)
     query = edf.to_prompt_context()
 
-    report("Step 2/8: Loading query embedding model")
+    report("Step 2/9: Loading query embedding model")
     from sentence_transformers import SentenceTransformer
 
     query_model = SentenceTransformer(config.retrieval.embedding_model)
@@ -89,7 +92,7 @@ def run_pipeline(
     # the complete ICD-10-CM code list), not just phenotype-specific
     # candidates. Each vocabulary's processed corpus is cached to Parquet so
     # the (slow) source file is only parsed once across runs.
-    report("Step 3/8: Loading terminology corpora")
+    report("Step 3/9: Loading terminology corpora")
     logger.info("Loading full code system corpus for vocabularies: %s", config.retrieval.vocabularies)
     raw_codes = load_code_system_corpus(
         config.retrieval.vocabularies,
@@ -105,11 +108,11 @@ def run_pipeline(
     # ranked; top-k remains available as an optional hard compatibility cap.
     # The embedding index is cached to disk (per vocabulary set + model) so
     # the (potentially large) corpus is only embedded once, not every run.
-    report("Step 4/8: Loading or building embedding indexes", 0, len(config.retrieval.vocabularies))
+    report("Step 4/9: Loading or building embedding indexes", 0, len(config.retrieval.vocabularies))
     embedding_progress = None
     if progress_callback is not None:
         embedding_progress = lambda completed, total: report(
-            "Step 4/8: Loading or building embedding indexes",
+            "Step 4/9: Loading or building embedding indexes",
             completed,
             total,
         )
@@ -122,7 +125,7 @@ def run_pipeline(
         progress_callback=embedding_progress,
     )
 
-    report("Step 5/8: Running hybrid retrieval")
+    report("Step 5/9: Running hybrid retrieval")
     logger.info("Running hybrid retrieval over %d candidate codes", len(codes))
     retrieval_limit = config.retrieval.top_k if config.retrieval.use_top_k_limit else None
     candidates = hybrid_retrieval(
@@ -154,7 +157,7 @@ def run_pipeline(
     # Step 5: LLM classification — assign each candidate a Narrow/Exclude
     # label (optionally Possible), confidence score, and short explanation.
     # Adaptive stopping ends the scan once Narrow results stay sparse.
-    report("Step 6/8: LLM classification", 0, len(candidates))
+    report("Step 6/9: Stage-2 classification", 0, len(candidates))
     logger.info("Classifying candidates with LLM (provider=%s, model=%s)", provider, model)
     stopping_config = None
     if config.llm.adaptive_stopping_enabled:
@@ -180,7 +183,7 @@ def run_pipeline(
         adaptive_stopping=stopping_config,
         run_info_callback=capture_run_info,
         progress_callback=lambda completed, total: report(
-            "Step 6/8: LLM classification",
+            "Step 6/9: Stage-2 classification",
             completed,
             total,
         ),
@@ -195,13 +198,39 @@ def run_pipeline(
         )
         if classification_run_info.stopped_early:
             report(
-                "Step 6/8: Adaptive classification complete",
+                "Step 6/9: Adaptive classification complete",
                 classification_run_info.candidates_classified,
                 classification_run_info.candidates_classified,
             )
 
-    # Step 6: Add review annotations without filtering or relabeling results.
-    report("Step 7/8: Adding manual-review flags")
+    # Step 7: Use GPT only for low-confidence stage-2 classifications.
+    gpt_review_run_info: GPTReviewRunInfo | None = None
+    if config.uncertainty.gpt_review_enabled:
+        report("Step 7/9: GPT review of low-confidence decisions")
+        classified, gpt_review_run_info = gpt_review_low_confidence(
+            classified,
+            edf,
+            confidence_threshold=config.uncertainty.confidence_threshold,
+            model=config.llm.openai_model,
+            max_retries=config.llm.max_retries,
+            batch_size=config.uncertainty.gpt_review_batch_size,
+            use_possible_category=config.llm.use_possible_category,
+            progress_callback=lambda completed, total: report(
+                "Step 7/9: GPT review of low-confidence decisions",
+                completed,
+                total,
+            ),
+        )
+        logger.info(
+            "GPT reviewed %d candidates and changed %d labels",
+            gpt_review_run_info.candidates_reviewed,
+            gpt_review_run_info.labels_changed,
+        )
+    else:
+        report("Step 7/9: GPT review disabled")
+
+    # Step 8: Add review annotations for any uncertainty that remains.
+    report("Step 8/9: Adding manual-review flags")
     review_items = select_uncertain(
         classified,
         confidence_threshold=config.uncertainty.confidence_threshold,
@@ -214,7 +243,7 @@ def run_pipeline(
         100 * review_rate(classified, review_items),
     )
 
-    # Step 7: Evaluation — render the predicted codelist in the same schema as
+    # Step 9: Evaluation — render the predicted codelist in the same schema as
     # the ground-truth AESI export, then score it against that ground truth
     # (retrieval sensitivity/precision/F1 and classification accuracy/Cohen's
     # kappa), restricted to `evaluation.compare_vocabularies` (ICD10CM only
@@ -238,7 +267,7 @@ def run_pipeline(
         )
     predicted_codelist = to_predicted_codelist(classified_dicts)
 
-    report("Step 8/8: Evaluating against available ground truth")
+    report("Step 9/9: Evaluating against available ground truth")
     metrics: dict | None = None
     aesi_path = config.paths.aesi_datasets.get(phenotype)
     if aesi_path:
@@ -258,6 +287,9 @@ def run_pipeline(
             gold_scoped,
             narrow_only_as_positive=config.evaluation.narrow_only_as_positive,
             include_possible=config.llm.use_possible_category,
+        )
+        metrics["narrow_loss_breakdown"] = asdict(
+            narrow_loss_breakdown(predicted_scoped, gold_scoped)
         )
         metrics["evaluation_scope"] = {
             "selected_vocabularies": compare_vocab,
@@ -285,6 +317,9 @@ def run_pipeline(
         "review_rate": round(review_rate(classified, review_items), 4),
         "classification_run": (
             asdict(classification_run_info) if classification_run_info is not None else None
+        ),
+        "gpt_review_run": (
+            asdict(gpt_review_run_info) if gpt_review_run_info is not None else None
         ),
         "metrics": metrics,
     }
@@ -322,6 +357,7 @@ def main() -> None:
         "review_items": results["review_items"],
         "review_rate": results["review_rate"],
         "classification_run": results["classification_run"],
+        "gpt_review_run": results["gpt_review_run"],
         "metrics": results["metrics"],
     }
     metrics_path.write_text(json.dumps(metrics_payload, indent=2))

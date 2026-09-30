@@ -32,11 +32,14 @@ from src.evaluation.metrics import (
     evaluate,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
+    narrow_loss_breakdown,
     to_predicted_codelist,
 )
 from src.llm.classify import (
     AdaptiveStoppingConfig,
     ClassificationRunInfo,
+    GPTReviewRunInfo,
+    gpt_review_low_confidence,
     llm_classify,
 )
 from src.llm.client import default_model_for, resolve_provider
@@ -102,7 +105,9 @@ def _init_state() -> None:
         "phenotype_name": "",
         "retrieval_candidates": None,
         "classified": None,
+        "stage2_classified": None,
         "classification_run": None,
+        "gpt_review_run": None,
         "metrics_result": None,
         "predicted_codelist": None,
         "classification_use_possible": CONFIG.llm.use_possible_category,
@@ -287,7 +292,9 @@ if run_retrieval and edf is not None and selected_vocabularies:
     st.session_state.retrieval_candidates = candidates
     st.session_state.retrieval_vocabularies = vocab_tuple
     st.session_state.classified = None
+    st.session_state.stage2_classified = None
     st.session_state.classification_run = None
+    st.session_state.gpt_review_run = None
     st.session_state.metrics_result = None
 
 if st.session_state.retrieval_candidates:
@@ -363,10 +370,12 @@ with sparsity_col3:
 
 llm_col1, llm_col2 = st.columns(2)
 with llm_col1:
+    provider_options = ["auto", "anthropic", "openai", "jev", "google"]
+    configured_provider = CONFIG.llm.provider if CONFIG.llm.provider in provider_options else "auto"
     provider_choice = st.selectbox(
         "Provider",
-        options=["auto", "anthropic", "openai", "jev", "google"],
-        index=0,
+        options=provider_options,
+        index=provider_options.index(configured_provider),
     )
 with llm_col2:
     try:
@@ -421,9 +430,11 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
             )
         progress.progress(1.0, text="Classification complete")
         st.session_state.classified = classified
+        st.session_state.stage2_classified = classified
         st.session_state.classification_run = (
             classification_run_holder[0] if classification_run_holder else None
         )
+        st.session_state.gpt_review_run = None
         st.session_state.classification_use_possible = use_possible_category
         st.session_state.metrics_result = None
     except Exception as exc:  # noqa: BLE001
@@ -465,11 +476,17 @@ if st.session_state.classified:
             st.caption(run_info.stop_reason)
     st.dataframe(classified_df, width='stretch', hide_index=True)
 
-    st.info(
-        f"{len(review_items)}/{len(st.session_state.classified)} candidates flagged for human review "
-        f"({100 * review_rate(st.session_state.classified, review_items):.1f}%)."
-    )
-    st.caption("Manual-review flags are annotations only; no rows or classifications are changed.")
+    if st.session_state.gpt_review_run is None:
+        st.info(
+            f"{len(review_items)}/{len(st.session_state.classified)} candidates are below the "
+            f"confidence threshold ({100 * review_rate(st.session_state.classified, review_items):.1f}%) "
+            "and are eligible for final GPT review."
+        )
+    else:
+        st.info(
+            f"{len(review_items)}/{len(st.session_state.classified)} candidates remain flagged "
+            f"after GPT review ({100 * review_rate(st.session_state.classified, review_items):.1f}%)."
+        )
 
     predicted_codelist = to_predicted_codelist(classified_df.to_dict("records"))
     st.session_state.predicted_codelist = predicted_codelist
@@ -487,9 +504,83 @@ if st.session_state.classified:
 st.divider()
 
 # ---------------------------------------------------------------------------
-# Block 5: Ground truth & metrics
+# Block 5: GPT review of low-confidence stage-2 decisions
 # ---------------------------------------------------------------------------
-st.header("5. Evaluate against ground truth")
+st.header("5. Review low-confidence decisions with GPT")
+st.caption(
+    "Only stage-2 results below the confidence threshold are sent to GPT. "
+    "All other Jev classifications remain unchanged."
+)
+
+gpt_col1, gpt_col2 = st.columns(2)
+with gpt_col1:
+    gpt_confidence_threshold = st.number_input(
+        "Stage-2 confidence threshold",
+        min_value=0.0,
+        max_value=1.0,
+        value=float(CONFIG.uncertainty.confidence_threshold),
+        step=0.05,
+    )
+with gpt_col2:
+    gpt_model = st.text_input("GPT review model", value=CONFIG.llm.openai_model)
+
+stage2_classified = st.session_state.stage2_classified or st.session_state.classified or []
+gpt_review_candidates = [
+    item for item in stage2_classified if item.confidence < gpt_confidence_threshold
+]
+st.caption(
+    f"{len(gpt_review_candidates):,} of {len(stage2_classified):,} stage-2 classifications "
+    "would be reviewed."
+)
+
+run_gpt_review = st.button(
+    "Run final GPT review",
+    disabled=not stage2_classified or edf is None or not gpt_review_candidates,
+)
+if run_gpt_review and edf is not None:
+    try:
+        progress = st.progress(0.0, text="Reviewing low-confidence decisions with GPT...")
+
+        def _update_gpt_progress(completed: int, total: int) -> None:
+            progress.progress(
+                completed / total if total else 1.0,
+                text=f"Reviewing low-confidence decisions with GPT... {completed}/{total}",
+            )
+
+        with st.spinner("Running final GPT review..."):
+            reviewed, review_run = gpt_review_low_confidence(
+                stage2_classified,
+                edf,
+                confidence_threshold=float(gpt_confidence_threshold),
+                model=gpt_model or None,
+                max_retries=CONFIG.llm.max_retries,
+                batch_size=CONFIG.uncertainty.gpt_review_batch_size,
+                progress_callback=_update_gpt_progress,
+                use_possible_category=st.session_state.classification_use_possible,
+            )
+        progress.progress(1.0, text="GPT review complete")
+        st.session_state.classified = reviewed
+        st.session_state.gpt_review_run = review_run
+        st.session_state.metrics_result = None
+        st.rerun()
+    except Exception as exc:  # noqa: BLE001
+        st.error(f"GPT review failed: {exc}")
+
+if st.session_state.gpt_review_run is not None:
+    review_run: GPTReviewRunInfo = st.session_state.gpt_review_run
+    st.success(
+        f"GPT reviewed {review_run.candidates_reviewed:,} low-confidence decisions and "
+        f"changed {review_run.labels_changed:,} labels: "
+        f"{review_run.exclude_to_narrow:,} Exclude→Narrow and "
+        f"{review_run.narrow_to_exclude:,} Narrow→Exclude."
+    )
+
+st.divider()
+
+# ---------------------------------------------------------------------------
+# Block 6: Ground truth & metrics
+# ---------------------------------------------------------------------------
+st.header("6. Evaluate against ground truth")
 
 registered_aesi_path = CONFIG.paths.aesi_datasets.get(st.session_state.phenotype_name)
 gt_col1, gt_col2 = st.columns(2)
@@ -545,6 +636,9 @@ if run_metrics:
             narrow_only_as_positive=CONFIG.evaluation.narrow_only_as_positive,
             include_possible=st.session_state.classification_use_possible,
         )
+        st.session_state.metrics_result["narrow_loss_breakdown"] = asdict(
+            narrow_loss_breakdown(predicted_scoped, gold_scoped)
+        )
         st.session_state.metrics_result["evaluation_scope"] = {
             "selected_vocabularies": effective_compare_vocabularies,
             "gold_rows_in_selected_vocabularies": len(gold_vocabulary_scoped),
@@ -554,6 +648,10 @@ if run_metrics:
         if st.session_state.classification_run is not None:
             st.session_state.metrics_result["classification_run"] = asdict(
                 st.session_state.classification_run
+            )
+        if st.session_state.gpt_review_run is not None:
+            st.session_state.metrics_result["gpt_review_run"] = asdict(
+                st.session_state.gpt_review_run
             )
         st.session_state.metrics_gold_scoped = gold_scoped
         st.session_state.metrics_predicted_scoped = predicted_scoped
@@ -651,6 +749,28 @@ if st.session_state.metrics_result:
             st.caption("Run metrics to see missed retrievals.")
 
     st.subheader("Metrics after LLM classification")
+    gold_scoped = st.session_state.get("metrics_gold_scoped")
+    classified_dicts = st.session_state.get("metrics_classified_dicts", [])
+    if gold_scoped is not None:
+        losses = narrow_loss_breakdown(classified_dicts, gold_scoped)
+        run_info = st.session_state.get("classification_run")
+        stopped_early = bool(run_info and run_info.stopped_early)
+        pre_classifier_label = (
+            "Missed: early stopping" if stopped_early else "Missed before classifier"
+        )
+        st.markdown("#### Gold Narrow recovery")
+        recovery_columns = st.columns(5)
+        recovery_columns[0].metric("Gold Narrow available", losses.gold_narrow_available)
+        recovery_columns[1].metric("Correctly recovered", losses.correctly_classified)
+        recovery_columns[2].metric(pre_classifier_label, losses.not_classified)
+        recovery_columns[3].metric("Missed: misclassified", losses.misclassified)
+        recovery_columns[4].metric("End-to-end recall", f"{losses.end_to_end_recall:.1%}")
+        st.caption(
+            f"{losses.total_missed} gold Narrow codes were missed in total: "
+            f"{losses.not_classified} did not reach classification and "
+            f"{losses.misclassified} reached the model but were assigned another label."
+        )
+
     metric_columns = st.columns(6)
     metric_columns[0].metric("Accuracy", f"{classification_metrics['accuracy']:.1%}")
     metric_columns[1].metric("Narrow TN", classification_metrics["true_negatives"])
@@ -662,8 +782,6 @@ if st.session_state.metrics_result:
         "Sensitivity, precision, and F1 treat Narrow as the positive class. "
         "Macro averages for all enabled labels are available in Full metrics."
     )
-    gold_scoped = st.session_state.get("metrics_gold_scoped")
-    classified_dicts = st.session_state.get("metrics_classified_dicts", [])
     display_labels = ["Narrow", "Possible", "Exclude"] if st.session_state.classification_use_possible else ["Narrow", "Exclude"]
     classification_summary = pd.DataFrame(0, index=display_labels, columns=display_labels)
     if gold_scoped is not None:

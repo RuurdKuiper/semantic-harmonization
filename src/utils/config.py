@@ -27,8 +27,8 @@ class PathsConfig:
 
 @dataclass
 class RetrievalConfig:
-    lexical_weight: float = 0.5
-    embedding_weight: float = 0.5
+    lexical_weight: float = 0.1
+    embedding_weight: float = 0.9
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = 50
     use_top_k_limit: bool = False
@@ -40,7 +40,7 @@ class RetrievalConfig:
 
 @dataclass
 class LLMConfig:
-    provider: str = "auto"  # "auto", "anthropic", "openai", "google", or "jev"
+    provider: str = "jev"  # Stage 2 defaults to Jev; other providers remain available.
     anthropic_model: str = "claude-opus-4-8"
     openai_model: str = "gpt-4o"
     google_model: str = "gemini-3-flash-preview"
@@ -50,8 +50,8 @@ class LLMConfig:
     max_retries: int = 3
     use_possible_category: bool = False
     adaptive_stopping_enabled: bool = True
-    sparse_narrow_threshold: int = 1
-    consecutive_sparse_batches: int = 3
+    sparse_narrow_threshold: int = 0
+    consecutive_sparse_batches: int = 10
     minimum_batches: int = 3
 
 
@@ -59,6 +59,8 @@ class LLMConfig:
 class UncertaintyConfig:
     confidence_threshold: float = 0.7
     possible_requires_review: bool = False
+    gpt_review_enabled: bool = True
+    gpt_review_batch_size: int = 10
 
 
 @dataclass

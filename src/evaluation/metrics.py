@@ -36,6 +36,18 @@ class ClassificationMetrics:
     per_label: dict[str, dict[str, float]]
 
 
+@dataclass(slots=True)
+class NarrowLossBreakdown:
+    """Where available gold-Narrow codes were lost end to end."""
+
+    gold_narrow_available: int
+    correctly_classified: int
+    misclassified: int
+    not_classified: int
+    total_missed: int
+    end_to_end_recall: float
+
+
 def _standardized_key(code: str, vocabulary: str) -> tuple[str, str]:
     return standardize_code(code, vocabulary), (vocabulary or "").strip().upper()
 
@@ -76,6 +88,49 @@ def filter_gold_by_available_codes(
         axis=1,
     )
     return gold_labels[mask].reset_index(drop=True)
+
+
+def narrow_loss_breakdown(
+    classified: list[dict],
+    gold_labels: pd.DataFrame,
+) -> NarrowLossBreakdown:
+    """Separate gold-Narrow losses before and during LLM classification.
+
+    ``not_classified`` covers gold-Narrow codes that never reached the model
+    (for example because adaptive stopping or a hard top-k limit ended the
+    scan). ``misclassified`` covers codes that did reach the model but were
+    assigned a label other than Narrow.
+    """
+    gold_narrow_keys = {
+        _standardized_key(row["code"], row["vocabulary"])
+        for _, row in gold_labels.iterrows()
+        if str(row["label"]).strip().title() == "Narrow"
+    }
+    predictions_by_key = {
+        _standardized_key(item["code"], item["vocabulary"]):
+        str(item.get("label", "")).strip().title()
+        for item in classified
+    }
+
+    correctly_classified = sum(
+        predictions_by_key.get(key) == "Narrow" for key in gold_narrow_keys
+    )
+    misclassified = sum(
+        key in predictions_by_key and predictions_by_key[key] != "Narrow"
+        for key in gold_narrow_keys
+    )
+    not_classified = len(gold_narrow_keys - predictions_by_key.keys())
+    total_missed = misclassified + not_classified
+    recall = correctly_classified / len(gold_narrow_keys) if gold_narrow_keys else 0.0
+
+    return NarrowLossBreakdown(
+        gold_narrow_available=len(gold_narrow_keys),
+        correctly_classified=correctly_classified,
+        misclassified=misclassified,
+        not_classified=not_classified,
+        total_missed=total_missed,
+        end_to_end_recall=round(recall, 4),
+    )
 
 
 def to_predicted_codelist(classified: list[dict]) -> pd.DataFrame:

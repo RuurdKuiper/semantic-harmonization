@@ -19,19 +19,24 @@ For a single phenotype, `main.py`:
    its source CSV is newer. Non-codable dictionary range rows such as
    `N17-N19` or `N17–N19` are removed before retrieval and classification.
 3. Gives every code a combined BM25 lexical and sentence-embedding similarity
-   score, then ranks the complete corpus. Vector indexes are cached per
+   score (10% lexical, 90% semantic by default), then ranks the complete corpus.
+   The lexical query contains the phenotype name and its EDF synonyms. Vector indexes are cached per
    vocabulary in `data/codes/embeddings/` and validated against the current
    corpus before reuse. An optional hard top-k cap is retained for fixed-size
    experiments.
-4. Passes ranked candidates directly to LLM classification in batches. LLM
+4. Passes ranked candidates directly to Jev classification in batches. LLM
    re-ranking is implemented but currently disabled. By default, classification
    stops adaptively once Narrow results remain sparse for several consecutive
    batches.
 5. Classifies each candidate as `Narrow` or `Exclude`. The `Possible` category
-   is optional via `llm.use_possible_category` and is off by default.
-6. Adds a `manual_review` flag and reason to low-confidence results. Review
-   annotation never removes, relabels, or otherwise changes a result.
-7. Evaluates the output against the phenotype's registered AESI codelist,
+   is optional via `llm.use_possible_category` and is off by default. When it
+   is off, the EDF's Possible rules remain in the prompt and explicitly map to
+   `Exclude` rather than being discarded.
+6. Sends only low-confidence stage-2 decisions to GPT for final adjudication.
+   High-confidence Jev decisions remain unchanged. The threshold and GPT stage
+   are configurable under `uncertainty`.
+7. Adds a `manual_review` flag and reason to any low-confidence results that remain.
+8. Evaluates the output against the phenotype's registered AESI codelist,
    restricted to selected vocabularies and gold codes actually present in the
    loaded terminology versions. The metrics report how many unavailable gold
    rows were excluded. Predictions and metrics are written to `results/`.
@@ -77,21 +82,28 @@ rendered in the browser.
 ### Adaptive classification stopping
 
 The default settings score the full selected terminology corpus and classify it
-in similarity order. Classification stops after three consecutive batches each
-containing at most one `Narrow` result, once at least three batches have been
+in similarity order. Classification stops after ten consecutive batches each
+containing no `Narrow` results, once at least three batches have been
 processed. These controls are available in the Streamlit app and under `llm`
 in `configs/default.yaml`:
 
 ```yaml
 retrieval:
+  lexical_weight: 0.1
+  embedding_weight: 0.9
   top_k: 5                  # preview size
   use_top_k_limit: false    # true restores a hard retrieval cap
 
 llm:
   adaptive_stopping_enabled: true
-  sparse_narrow_threshold: 1
-  consecutive_sparse_batches: 3
+  sparse_narrow_threshold: 0
+  consecutive_sparse_batches: 10
   minimum_batches: 3
+
+uncertainty:
+  confidence_threshold: 0.7
+  gpt_review_enabled: true
+  gpt_review_batch_size: 10
 ```
 
 All processed candidates still receive a `Narrow` or `Exclude` label. Adaptive

@@ -66,6 +66,102 @@ class ClassifiedCandidate:
     retrieval_score: float = 0.0
 
 
+@dataclass(frozen=True, slots=True)
+class GPTReviewRunInfo:
+    """Summary of final-stage GPT adjudication of uncertain classifications."""
+
+    confidence_threshold: float
+    candidates_reviewed: int
+    labels_changed: int
+    narrow_to_exclude: int
+    exclude_to_narrow: int
+
+
+def gpt_review_low_confidence(
+    classified: Sequence[ClassifiedCandidate],
+    edf: EventDefinitionForm,
+    *,
+    confidence_threshold: float = 0.7,
+    model: str | None = None,
+    max_retries: int = 3,
+    batch_size: int = 10,
+    progress_callback: Callable[[int, int], None] | None = None,
+    use_possible_category: bool = False,
+) -> tuple[list[ClassifiedCandidate], GPTReviewRunInfo]:
+    """Use GPT to adjudicate only classifications below the confidence cutoff.
+
+    Results at or above the threshold are preserved exactly. Reviewed results
+    replace the corresponding stage-2 labels while retaining their original
+    list positions and recording the prior label/confidence in the explanation.
+    """
+    if not 0.0 <= confidence_threshold <= 1.0:
+        raise ValueError("confidence_threshold must be between 0 and 1")
+
+    uncertain = [item for item in classified if item.confidence < confidence_threshold]
+    if not uncertain:
+        return list(classified), GPTReviewRunInfo(
+            confidence_threshold=confidence_threshold,
+            candidates_reviewed=0,
+            labels_changed=0,
+            narrow_to_exclude=0,
+            exclude_to_narrow=0,
+        )
+
+    reviewed = llm_classify(
+        uncertain,
+        edf,
+        provider="openai",
+        model=model,
+        max_retries=max_retries,
+        batch_size=batch_size,
+        progress_callback=progress_callback,
+        use_possible_category=use_possible_category,
+        adaptive_stopping=None,
+    )
+    reviewed_by_key = {(item.code, item.vocabulary): item for item in reviewed}
+
+    merged: list[ClassifiedCandidate] = []
+    labels_changed = 0
+    narrow_to_exclude = 0
+    exclude_to_narrow = 0
+    for original in classified:
+        replacement = reviewed_by_key.get((original.code, original.vocabulary))
+        if replacement is None:
+            merged.append(original)
+            continue
+
+        if replacement.label != original.label:
+            labels_changed += 1
+            if original.label == "Narrow" and replacement.label == "Exclude":
+                narrow_to_exclude += 1
+            elif original.label == "Exclude" and replacement.label == "Narrow":
+                exclude_to_narrow += 1
+        merged.append(
+            ClassifiedCandidate(
+                code=original.code,
+                description=original.description,
+                vocabulary=original.vocabulary,
+                label=replacement.label,
+                confidence=replacement.confidence,
+                explanation=(
+                    "GPT review of low-confidence stage-2 result "
+                    f"(previous label={original.label}, confidence={original.confidence:.2f}). "
+                    + replacement.explanation
+                ),
+                relevance_score=original.relevance_score,
+                retrieval_score=original.retrieval_score,
+            )
+        )
+
+    return merged, GPTReviewRunInfo(
+        confidence_threshold=confidence_threshold,
+        candidates_reviewed=len(uncertain),
+        labels_changed=labels_changed,
+        narrow_to_exclude=narrow_to_exclude,
+        exclude_to_narrow=exclude_to_narrow,
+    )
+
+
 def llm_classify(
     candidates: Sequence[ClassificationCandidate],
     edf: EventDefinitionForm,

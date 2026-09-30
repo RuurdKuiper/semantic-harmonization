@@ -25,8 +25,8 @@ paths:
     SNOMEDCT_US: data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv
 
 retrieval:
-  lexical_weight: 0.5
-  embedding_weight: 0.5
+  lexical_weight: 0.1
+  embedding_weight: 0.9
   embedding_model: sentence-transformers/all-MiniLM-L6-v2
   # Used for the on-screen preview and, when enabled, as a hard candidate cap.
   top_k: 5
@@ -40,7 +40,7 @@ retrieval:
     - SNOMEDCT_US
 
 llm:
-  provider: auto
+  provider: jev
   anthropic_model: claude-opus-4-8
   openai_model: gpt-5-mini
   google_model: gemini-3-flash-preview
@@ -50,13 +50,15 @@ llm:
   max_retries: 3
   use_possible_category: false
   adaptive_stopping_enabled: true
-  sparse_narrow_threshold: 1
-  consecutive_sparse_batches: 3
+  sparse_narrow_threshold: 0
+  consecutive_sparse_batches: 10
   minimum_batches: 3
 
 uncertainty:
   confidence_threshold: 0.7
   possible_requires_review: false
+  gpt_review_enabled: true
+  gpt_review_batch_size: 10
 
 evaluation:
   narrow_only_as_positive: true

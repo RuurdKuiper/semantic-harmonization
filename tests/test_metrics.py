@@ -12,6 +12,7 @@ from src.evaluation.metrics import (
     filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
+    narrow_loss_breakdown,
     to_predicted_codelist,
 )
 
@@ -119,6 +120,30 @@ def test_filter_gold_by_available_codes_standardizes_keys(sample_gold):
 def test_filter_gold_by_available_codes_rejects_invalid_corpus(sample_gold):
     with pytest.raises(ValueError):
         filter_gold_by_available_codes(sample_gold, pd.DataFrame({"code": ["I40.0"]}))
+
+
+def test_narrow_loss_breakdown_separates_unclassified_and_misclassified():
+    gold = pd.DataFrame(
+        [
+            {"code": "I400", "vocabulary": "ICD10CM", "label": "Narrow"},
+            {"code": "I40.1", "vocabulary": "ICD10CM", "label": "Narrow"},
+            {"code": "I40.2", "vocabulary": "ICD10CM", "label": "Narrow"},
+            {"code": "I30.9", "vocabulary": "ICD10CM", "label": "Exclude"},
+        ]
+    )
+    classified = [
+        {"code": "I40.0", "vocabulary": "icd10cm", "label": "Narrow"},
+        {"code": "I40.1", "vocabulary": "ICD10CM", "label": "Exclude"},
+    ]
+
+    losses = narrow_loss_breakdown(classified, gold)
+
+    assert losses.gold_narrow_available == 3
+    assert losses.correctly_classified == 1
+    assert losses.misclassified == 1
+    assert losses.not_classified == 1
+    assert losses.total_missed == 2
+    assert losses.end_to_end_recall == pytest.approx(1 / 3, abs=0.0001)
 
 
 def test_to_predicted_codelist_schema_and_values():

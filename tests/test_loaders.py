@@ -41,6 +41,14 @@ def test_edf_to_prompt_context_contains_key_sections():
     assert "Criteria for Narrow classification:" in context
 
 
+def test_edf_lexical_query_includes_name_and_synonyms():
+    edf = load_edf("kidney_disease")
+    query = edf.to_lexical_query()
+    assert query.startswith("Kidney disease")
+    assert "Acute kidney failure" in query
+    assert "Nephropathy" in query
+
+
 @pytest.mark.parametrize(
     "name",
     [

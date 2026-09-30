@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from src.data.loaders import load_edf
-from src.llm.prompts import build_classify_prompt, build_rank_prompt
+from src.llm.prompts import build_classify_prompt, build_rank_prompt, classify_system_prompt
 
 
 def test_build_rank_prompt_includes_edf_and_candidates():
@@ -33,7 +33,10 @@ def test_build_classify_prompt_can_enable_possible():
     assert "'Possible'" in prompt
 
 
-def test_binary_prompt_omits_possible_decision_rules():
-    edf = load_edf("type_1_diabetes")
+def test_binary_prompt_maps_possible_decision_rules_to_exclude():
+    edf = load_edf("kidney_disease")
     prompt = build_classify_prompt(edf, [], use_possible_category=False)
     assert "Criteria for Possible classification" not in prompt
+    assert "classify as Exclude because Possible is disabled" in prompt
+    assert "Simple renal cysts or benign neoplasms" in prompt
+    assert "must be treated as Exclude" in classify_system_prompt(False)

@@ -34,7 +34,11 @@ class EventDefinitionForm:
     references: list[str] = field(default_factory=list)
 
     def to_prompt_context(self, include_possible: bool = True) -> str:
-        """Render the EDF as structured text suitable for retrieval or an LLM prompt."""
+        """Render the EDF as structured text suitable for retrieval or an LLM prompt.
+
+        Possible rules are never discarded. In binary mode they define cases
+        that are insufficient for Narrow and therefore map to Exclude.
+        """
         lines = [
             f"Preferred name: {self.preferred_name}",
             f"Definition: {self.definition}",
@@ -50,8 +54,14 @@ class EventDefinitionForm:
         if self.narrow_decision_rules:
             lines.append("Criteria for Narrow classification:")
             lines += [f"  - {c}" for c in self.narrow_decision_rules]
-        if include_possible and self.possible_decision_rules:
-            lines.append("Criteria for Possible classification (when enabled):")
+        if self.possible_decision_rules:
+            if include_possible:
+                lines.append("Criteria for Possible classification (when enabled):")
+            else:
+                lines.append(
+                    "Criteria that are insufficient for Narrow classification "
+                    "(classify as Exclude because Possible is disabled):"
+                )
             lines += [f"  - {c}" for c in self.possible_decision_rules]
         if self.exclude_decision_rules:
             lines.append("Criteria for Exclude classification:")
@@ -84,8 +94,9 @@ class EventDefinitionForm:
         return "\n".join(lines)
 
     def to_lexical_query(self) -> str:
-        """Render the short text used for lexical matching."""
-        return self.preferred_name.strip()
+        """Render the phenotype name and its synonyms for lexical matching."""
+        terms = [self.preferred_name.strip(), *(term.strip() for term in self.synonyms)]
+        return " ".join(dict.fromkeys(term for term in terms if term))
 
     def to_embedding_query(self) -> str:
         """Render the EDF subset used for semantic embedding matching."""

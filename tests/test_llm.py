@@ -5,7 +5,12 @@ from __future__ import annotations
 from unittest.mock import patch
 
 from src.data.loaders import load_edf
-from src.llm.classify import AdaptiveStoppingConfig, llm_classify
+from src.llm.classify import (
+    AdaptiveStoppingConfig,
+    ClassifiedCandidate,
+    gpt_review_low_confidence,
+    llm_classify,
+)
 from src.llm.rank import llm_rank
 from src.retrieval.hybrid import HybridCandidate
 
@@ -135,8 +140,57 @@ def test_llm_classify_empty_candidates_returns_empty():
     assert llm_classify([], edf) == []
 
 
-def test_llm_classify_with_jev_typed_choices():
+def test_gpt_review_only_replaces_low_confidence_results():
     edf = load_edf("myocarditis")
+    classified = [
+        ClassifiedCandidate("A", "Certain", "TEST", "Narrow", 0.9, "Jev certain"),
+        ClassifiedCandidate("B", "Uncertain", "TEST", "Exclude", 0.4, "Jev uncertain"),
+    ]
+    response = {
+        "classifications": [
+            {
+                "code": "B",
+                "vocabulary": "TEST",
+                "label": "Narrow",
+                "confidence": 0.95,
+                "explanation": "GPT adjudication",
+            }
+        ]
+    }
+
+    with patch("src.llm.classify.call_llm_json", return_value=response) as call:
+        reviewed, run = gpt_review_low_confidence(
+            classified,
+            edf,
+            confidence_threshold=0.7,
+            model="gpt-test",
+        )
+
+    assert call.call_count == 1
+    assert reviewed[0] is classified[0]
+    assert reviewed[1].label == "Narrow"
+    assert reviewed[1].confidence == 0.95
+    assert "previous label=Exclude" in reviewed[1].explanation
+    assert run.candidates_reviewed == 1
+    assert run.labels_changed == 1
+    assert run.exclude_to_narrow == 1
+    assert run.narrow_to_exclude == 0
+
+
+def test_gpt_review_skips_call_when_no_result_is_below_threshold():
+    edf = load_edf("myocarditis")
+    classified = [
+        ClassifiedCandidate("A", "Certain", "TEST", "Narrow", 0.9, "Jev certain")
+    ]
+    with patch("src.llm.classify.call_llm_json") as call:
+        reviewed, run = gpt_review_low_confidence(classified, edf, confidence_threshold=0.7)
+    call.assert_not_called()
+    assert reviewed == classified
+    assert run.candidates_reviewed == 0
+
+
+def test_llm_classify_with_jev_typed_choices():
+    edf = load_edf("kidney_disease")
     with patch("src.llm.rank.call_llm_json", return_value={"ranked_codes": []}):
         ranked = llm_rank(_candidates(), edf, model="test-model")
     response = {
@@ -162,6 +216,7 @@ def test_llm_classify_with_jev_typed_choices():
     assert classified[0].confidence == 0.94
     assert "0.97" in classified[0].explanation
     assert len(call.call_args.kwargs["questions"]) == 2
+    assert "classify as Exclude because Possible is disabled" in call.call_args.kwargs["state"]
 
 
 def _adaptive_candidates(count: int = 8):
