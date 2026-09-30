@@ -25,10 +25,10 @@ from dotenv import load_dotenv
 
 from src.data.code_systems import load_code_system_corpus
 from src.data.loaders import EventDefinitionForm, load_aesi_dataset
-from src.data.preprocessing import preprocess_corpus
+from src.data.preprocessing import preprocess_corpus, standardize_code
+from src.evaluation import metrics as evaluation_metrics
 from src.evaluation.metrics import (
     evaluate,
-    filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
     to_predicted_codelist,
@@ -57,6 +57,39 @@ AVAILABLE_VOCABULARIES = {
     "RCD2": "RCD2",
     "SNOMEDCT_US": "SNOMED CT (US)",
 }
+
+
+def _filter_gold_by_available_codes(
+    gold_labels: pd.DataFrame,
+    available_codes: pd.DataFrame,
+) -> pd.DataFrame:
+    """Use the current metrics helper, with support for rolling app reloads.
+
+    Streamlit can briefly keep the previous revision of an imported module in
+    memory while re-running a newly deployed ``app.py``. The fallback keeps
+    startup and evaluation working when that older module predates the helper.
+    """
+    filter_fn = getattr(evaluation_metrics, "filter_gold_by_available_codes", None)
+    if filter_fn is not None:
+        return filter_fn(gold_labels, available_codes)
+
+    required = {"code", "vocabulary"}
+    missing = required - set(available_codes.columns)
+    if missing:
+        raise ValueError(f"Available code corpus missing required columns: {missing}")
+
+    def standardized_key(code: str, vocabulary: str) -> tuple[str, str]:
+        return standardize_code(code, vocabulary), (vocabulary or "").strip().upper()
+
+    available_keys = {
+        standardized_key(row["code"], row["vocabulary"])
+        for _, row in available_codes.iterrows()
+    }
+    mask = gold_labels.apply(
+        lambda row: standardized_key(row["code"], row["vocabulary"]) in available_keys,
+        axis=1,
+    )
+    return gold_labels[mask].reset_index(drop=True)
 
 
 def _init_state() -> None:
@@ -416,7 +449,7 @@ if run_metrics:
         ]
         gold_vocabulary_scoped = filter_gold_by_vocabulary(gold_labels, effective_compare_vocabularies)
         available_codes = _load_corpus(tuple(retrieval_vocabularies))
-        gold_scoped = filter_gold_by_available_codes(gold_vocabulary_scoped, available_codes)
+        gold_scoped = _filter_gold_by_available_codes(gold_vocabulary_scoped, available_codes)
         predicted_scoped = filter_records_by_vocabulary(classified_dicts, effective_compare_vocabularies)
         st.session_state.metrics_result = evaluate(
             predicted_scoped,
