@@ -20,10 +20,12 @@ For a single phenotype, `main.py`:
    `N17-N19` or `N17–N19` are removed before retrieval and classification.
 3. Gives every code a combined BM25 lexical and sentence-embedding similarity
    score (10% lexical, 90% semantic by default), then ranks the complete corpus.
-   The lexical query contains the phenotype name and its EDF synonyms. Vector indexes are cached per
-   vocabulary in `data/codes/embeddings/` and validated against the current
-   corpus before reuse. An optional hard top-k cap is retained for fixed-size
-   experiments.
+   The lexical query contains the phenotype name and its EDF synonyms. OpenAI
+   `text-embedding-3-large` at its full 3,072 dimensions is the default semantic
+   encoder; the previous local `all-MiniLM-L6-v2` encoder remains selectable.
+   Vector indexes are cached per vocabulary, provider, model, and dimension in
+   `data/codes/embeddings/`, so the OpenAI and local indexes coexist. An optional
+   hard top-k cap is retained for fixed-size experiments.
 4. Passes ranked candidates directly to Jev classification in batches. LLM
    re-ranking is implemented but currently disabled. By default, classification
    stops adaptively once Narrow results remain sparse for several consecutive
@@ -92,6 +94,9 @@ in `configs/default.yaml`:
 retrieval:
   lexical_weight: 0.1
   embedding_weight: 0.9
+  embedding_provider: openai
+  embedding_model: text-embedding-3-large
+  embedding_dimensions: 3072
   top_k: 5                  # preview size
   use_top_k_limit: false    # true restores a hard retrieval cap
 
@@ -136,6 +141,12 @@ phenotype/setting combinations. By default, each phenotype is run only against
 vocabularies present in its AESI ground truth; use `--all-vocabularies` to
 override this. The command prints each pipeline stage and live progress bars
 for embedding-index preparation and LLM classification.
+
+The first run with the OpenAI embedding backend requires `OPENAI_API_KEY` and
+creates a separately named cache. To use the existing local cache instead, set
+`embedding_provider: local`, `embedding_model:
+sentence-transformers/all-MiniLM-L6-v2`, and `embedding_dimensions: null`, or
+choose the local backend in the Streamlit app.
 
 Useful options:
 

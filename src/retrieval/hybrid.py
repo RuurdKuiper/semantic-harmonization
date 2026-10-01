@@ -5,9 +5,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import pandas as pd
-from sentence_transformers import SentenceTransformer
 
-from src.retrieval.embeddings import EmbeddingIndex, retrieve_embeddings
+from src.retrieval.embeddings import EmbeddingEncoder, EmbeddingIndex, retrieve_embeddings
 from src.retrieval.lexical import build_lexical_index, score_lexical
 
 
@@ -45,7 +44,7 @@ def hybrid_retrieval(
     top_k: int | None = 25,
     per_vocabulary_top_k: bool = True,
     embedding_index: EmbeddingIndex | None = None,
-    query_model: SentenceTransformer | None = None,
+    query_model: EmbeddingEncoder | None = None,
     lexical_query: str | None = None,
     embedding_query: str | None = None,
 ) -> list[HybridCandidate]:
@@ -73,8 +72,8 @@ def hybrid_retrieval(
         vocabularies.
     embedding_index : EmbeddingIndex, optional
         Pre-built embedding index to reuse across multiple queries.
-    query_model : SentenceTransformer, optional
-        Cached transformer used to embed the EDF/query text.
+    query_model : EmbeddingEncoder, optional
+        Cached local or API-backed encoder used to embed the EDF/query text.
     lexical_query : str, optional
         Text used for the BM25 lexical score. If omitted, *query* is used.
     embedding_query : str, optional

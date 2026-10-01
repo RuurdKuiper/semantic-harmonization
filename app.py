@@ -43,9 +43,15 @@ from src.llm.classify import (
     GPTReviewRunInfo,
     gpt_review_low_confidence,
     llm_classify,
+    select_gpt_review_candidates,
 )
 from src.llm.client import default_model_for, resolve_provider
-from src.retrieval.embeddings import EmbeddingIndex
+from src.retrieval.embeddings import (
+    DEFAULT_LOCAL_EMBEDDING_MODEL,
+    DEFAULT_OPENAI_EMBEDDING_MODEL,
+    EmbeddingIndex,
+    create_embedding_model,
+)
 from src.retrieval.hybrid import hybrid_retrieval
 from src.uncertainty.selection import review_rate, select_uncertain
 from src.utils.config import load_config
@@ -216,6 +222,35 @@ st.divider()
 # ---------------------------------------------------------------------------
 st.header("3. Run hybrid retrieval")
 
+embedding_options = {
+    "OpenAI text-embedding-3-large": (
+        "openai",
+        DEFAULT_OPENAI_EMBEDDING_MODEL,
+        CONFIG.retrieval.embedding_dimensions,
+    ),
+    "Local all-MiniLM-L6-v2": (
+        "local",
+        DEFAULT_LOCAL_EMBEDDING_MODEL,
+        None,
+    ),
+}
+configured_embedding_label = next(
+    (
+        label
+        for label, (provider, model, _dimensions) in embedding_options.items()
+        if provider == CONFIG.retrieval.embedding_provider
+        and model == CONFIG.retrieval.embedding_model
+    ),
+    "OpenAI text-embedding-3-large",
+)
+embedding_choice = st.selectbox(
+    "Embedding backend",
+    options=list(embedding_options),
+    index=list(embedding_options).index(configured_embedding_label),
+    help="Each provider/model uses its own embedding cache; switching does not overwrite existing vectors.",
+)
+embedding_provider, embedding_model, embedding_dimensions = embedding_options[embedding_choice]
+
 top_k = st.number_input(
     "Candidates to preview (top-k)",
     min_value=1,
@@ -247,21 +282,44 @@ def _load_corpus(vocabularies: tuple[str, ...]) -> pd.DataFrame:
 
 
 @st.cache_resource(show_spinner="Building/loading embedding index (only happens once per corpus)...")
-def _load_embedding_index(vocabularies: tuple[str, ...]) -> EmbeddingIndex:
+def _load_embedding_index(
+    vocabularies: tuple[str, ...],
+    provider: str,
+    model_name: str,
+    dimensions: int | None,
+    batch_size: int,
+) -> EmbeddingIndex:
     codes = _load_corpus(vocabularies)
+    model = create_embedding_model(
+        provider,
+        model_name,
+        dimensions=dimensions,
+        batch_size=batch_size,
+    )
     return EmbeddingIndex.load_for_vocabularies(
         codes,
         vocabularies=vocabularies,
         cache_dir=CONFIG.paths.embeddings_dir,
-        model_name=CONFIG.retrieval.embedding_model,
+        model_name=model_name,
+        model=model,
+        provider=provider,
+        dimensions=dimensions,
     )
 
 
 @st.cache_resource(show_spinner="Loading query embedding model...")
-def _load_query_model() -> object:
-    from sentence_transformers import SentenceTransformer
-
-    return SentenceTransformer(CONFIG.retrieval.embedding_model)
+def _load_query_model(
+    provider: str,
+    model_name: str,
+    dimensions: int | None,
+    batch_size: int,
+) -> object:
+    return create_embedding_model(
+        provider,
+        model_name,
+        dimensions=dimensions,
+        batch_size=batch_size,
+    )
 
 
 run_retrieval = st.button("Run hybrid retrieval", disabled=(edf is None or not selected_vocabularies))
@@ -269,8 +327,19 @@ run_retrieval = st.button("Run hybrid retrieval", disabled=(edf is None or not s
 if run_retrieval and edf is not None and selected_vocabularies:
     vocab_tuple = tuple(sorted(selected_vocabularies))
     codes = _load_corpus(vocab_tuple)
-    embedding_index = _load_embedding_index(vocab_tuple)
-    query_model = _load_query_model()
+    embedding_index = _load_embedding_index(
+        vocab_tuple,
+        embedding_provider,
+        embedding_model,
+        embedding_dimensions,
+        CONFIG.retrieval.embedding_batch_size,
+    )
+    query_model = _load_query_model(
+        embedding_provider,
+        embedding_model,
+        embedding_dimensions,
+        CONFIG.retrieval.embedding_batch_size,
+    )
     retrieval_limit = int(top_k) if use_top_k_limit else None
     spinner_text = (
         f"Retrieving top {top_k} candidates from {len(codes)} codes..."
@@ -283,7 +352,7 @@ if run_retrieval and edf is not None and selected_vocabularies:
             codes,
             lexical_weight=CONFIG.retrieval.lexical_weight,
             embedding_weight=CONFIG.retrieval.embedding_weight,
-            embedding_model=CONFIG.retrieval.embedding_model,
+            embedding_model=embedding_model,
             top_k=retrieval_limit,
             per_vocabulary_top_k=bool(per_vocabulary_top_k),
             embedding_index=embedding_index,
@@ -515,7 +584,7 @@ st.caption(
     "All other Jev classifications remain unchanged."
 )
 
-gpt_col1, gpt_col2, gpt_col3 = st.columns(3)
+gpt_col1, gpt_col2, gpt_col3, gpt_col4 = st.columns(4)
 with gpt_col1:
     gpt_confidence_threshold = st.number_input(
         "Stage-2 confidence threshold",
@@ -525,8 +594,15 @@ with gpt_col1:
         step=0.05,
     )
 with gpt_col2:
-    gpt_model = st.text_input("GPT review model", value=CONFIG.llm.openai_model)
+    gpt_review_max_candidates = st.number_input(
+        "Maximum candidates",
+        min_value=1,
+        value=CONFIG.uncertainty.gpt_review_max_candidates,
+        help="If more qualify, GPT reviews the lowest-confidence decisions first.",
+    )
 with gpt_col3:
+    gpt_model = st.text_input("GPT review model", value=CONFIG.llm.openai_model)
+with gpt_col4:
     gpt_reasoning_enabled = st.checkbox(
         "Enable GPT reasoning",
         value=CONFIG.uncertainty.gpt_review_reasoning_enabled,
@@ -534,12 +610,18 @@ with gpt_col3:
     )
 
 stage2_classified = st.session_state.stage2_classified or st.session_state.classified or []
-gpt_review_candidates = [
-    item for item in stage2_classified if item.confidence < gpt_confidence_threshold
-]
+gpt_review_eligible_count = sum(
+    item.confidence < gpt_confidence_threshold for item in stage2_classified
+)
+gpt_review_candidates = select_gpt_review_candidates(
+    stage2_classified,
+    confidence_threshold=float(gpt_confidence_threshold),
+    max_candidates=int(gpt_review_max_candidates),
+)
 st.caption(
-    f"{len(gpt_review_candidates):,} of {len(stage2_classified):,} stage-2 classifications "
-    "would be reviewed."
+    f"{gpt_review_eligible_count:,} of {len(stage2_classified):,} stage-2 classifications "
+    f"are below the threshold; GPT would review the {len(gpt_review_candidates):,} "
+    "lowest-confidence decisions."
 )
 
 run_gpt_review = st.button(
@@ -561,6 +643,7 @@ if run_gpt_review and edf is not None:
                 stage2_classified,
                 edf,
                 confidence_threshold=float(gpt_confidence_threshold),
+                max_candidates=int(gpt_review_max_candidates),
                 model=gpt_model or None,
                 max_retries=CONFIG.llm.max_retries,
                 batch_size=CONFIG.uncertainty.gpt_review_batch_size,
@@ -693,6 +776,9 @@ if run_metrics:
                     predicted_scoped,
                     gold_scoped,
                     confidence_threshold=st.session_state.gpt_review_run.confidence_threshold,
+                    max_candidates=getattr(
+                        st.session_state.gpt_review_run, "max_candidates", None
+                    ),
                     include_possible=st.session_state.classification_use_possible,
                 )
             )

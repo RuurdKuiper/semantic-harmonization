@@ -182,6 +182,34 @@ def test_evaluate_gpt_review_counts_corrected_and_harmful_changes():
     assert result.net_correct_change == 0
 
 
+def test_evaluate_gpt_review_respects_lowest_confidence_cap():
+    stage2 = [
+        {"code": "A", "vocabulary": "TEST", "label": "Exclude", "confidence": 0.6},
+        {"code": "B", "vocabulary": "TEST", "label": "Exclude", "confidence": 0.1},
+    ]
+    final = [
+        {"code": "A", "vocabulary": "TEST", "label": "Narrow"},
+        {"code": "B", "vocabulary": "TEST", "label": "Narrow"},
+    ]
+    gold = pd.DataFrame(
+        [
+            {"code": "A", "vocabulary": "TEST", "label": "Narrow"},
+            {"code": "B", "vocabulary": "TEST", "label": "Narrow"},
+        ]
+    )
+
+    result = evaluate_gpt_review(
+        stage2,
+        final,
+        gold,
+        confidence_threshold=0.7,
+        max_candidates=1,
+    )
+
+    assert result.candidates_reviewed == 1
+    assert result.corrected_changes == 1
+
+
 def test_to_predicted_codelist_schema_and_values():
     classified = [
         {

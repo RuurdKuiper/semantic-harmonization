@@ -155,6 +155,7 @@ def evaluate_gpt_review(
     gold_labels: pd.DataFrame,
     *,
     confidence_threshold: float,
+    max_candidates: int | None = None,
     include_possible: bool = False,
 ) -> GPTReviewEvaluation:
     """Measure whether GPT's reviewed labels improved stage-2 decisions."""
@@ -172,6 +173,17 @@ def evaluate_gpt_review(
         for item in final_classified
     }
 
+    eligible = [
+        item
+        for item in stage2_classified
+        if float(item.get("confidence", 0.0)) < confidence_threshold
+    ]
+    eligible.sort(key=lambda item: float(item.get("confidence", 0.0)))
+    selected = eligible[:max_candidates] if max_candidates is not None else eligible
+    selected_keys = {
+        _standardized_key(item["code"], item["vocabulary"]) for item in selected
+    }
+
     reviewed = 0
     changed = 0
     corrected = 0
@@ -179,9 +191,9 @@ def evaluate_gpt_review(
     correct_before = 0
     correct_after = 0
     for original in stage2_classified:
-        if float(original.get("confidence", 0.0)) >= confidence_threshold:
-            continue
         key = _standardized_key(original["code"], original["vocabulary"])
+        if key not in selected_keys:
+            continue
         if key not in final_by_key:
             continue
         reviewed += 1

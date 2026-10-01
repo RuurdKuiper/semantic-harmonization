@@ -29,7 +29,10 @@ class PathsConfig:
 class RetrievalConfig:
     lexical_weight: float = 0.1
     embedding_weight: float = 0.9
-    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    embedding_provider: str = "openai"
+    embedding_model: str = "text-embedding-3-large"
+    embedding_dimensions: int | None = 3072
+    embedding_batch_size: int = 512
     top_k: int = 50
     use_top_k_limit: bool = False
     per_vocabulary_top_k: bool = True
@@ -58,6 +61,7 @@ class LLMConfig:
 @dataclass
 class UncertaintyConfig:
     confidence_threshold: float = 0.7
+    gpt_review_max_candidates: int = 200
     possible_requires_review: bool = False
     gpt_review_enabled: bool = True
     gpt_review_batch_size: int = 10

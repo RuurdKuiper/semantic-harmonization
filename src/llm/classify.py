@@ -71,6 +71,8 @@ class GPTReviewRunInfo:
     """Summary of final-stage GPT adjudication of uncertain classifications."""
 
     confidence_threshold: float
+    max_candidates: int | None
+    eligible_candidates: int
     candidates_reviewed: int
     labels_changed: int
     narrow_to_exclude: int
@@ -78,11 +80,29 @@ class GPTReviewRunInfo:
     reasoning_effort: str
 
 
+def select_gpt_review_candidates(
+    classified: Sequence[ClassifiedCandidate],
+    *,
+    confidence_threshold: float,
+    max_candidates: int | None = None,
+) -> list[ClassifiedCandidate]:
+    """Select the lowest-confidence eligible decisions for GPT review."""
+    if not 0.0 <= confidence_threshold <= 1.0:
+        raise ValueError("confidence_threshold must be between 0 and 1")
+    if max_candidates is not None and max_candidates < 1:
+        raise ValueError("max_candidates must be at least 1 when provided")
+
+    eligible = [item for item in classified if item.confidence < confidence_threshold]
+    eligible.sort(key=lambda item: item.confidence)
+    return eligible[:max_candidates] if max_candidates is not None else eligible
+
+
 def gpt_review_low_confidence(
     classified: Sequence[ClassifiedCandidate],
     edf: EventDefinitionForm,
     *,
     confidence_threshold: float = 0.7,
+    max_candidates: int | None = None,
     model: str | None = None,
     max_retries: int = 3,
     batch_size: int = 10,
@@ -96,13 +116,17 @@ def gpt_review_low_confidence(
     replace the corresponding stage-2 labels while retaining their original
     list positions and recording the prior label/confidence in the explanation.
     """
-    if not 0.0 <= confidence_threshold <= 1.0:
-        raise ValueError("confidence_threshold must be between 0 and 1")
-
-    uncertain = [item for item in classified if item.confidence < confidence_threshold]
+    eligible_count = sum(item.confidence < confidence_threshold for item in classified)
+    uncertain = select_gpt_review_candidates(
+        classified,
+        confidence_threshold=confidence_threshold,
+        max_candidates=max_candidates,
+    )
     if not uncertain:
         return list(classified), GPTReviewRunInfo(
             confidence_threshold=confidence_threshold,
+            max_candidates=max_candidates,
+            eligible_candidates=eligible_count,
             candidates_reviewed=0,
             labels_changed=0,
             narrow_to_exclude=0,
@@ -159,6 +183,8 @@ def gpt_review_low_confidence(
 
     return merged, GPTReviewRunInfo(
         confidence_threshold=confidence_threshold,
+        max_candidates=max_candidates,
+        eligible_candidates=eligible_count,
         candidates_reviewed=len(uncertain),
         labels_changed=labels_changed,
         narrow_to_exclude=narrow_to_exclude,

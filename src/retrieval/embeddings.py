@@ -1,18 +1,139 @@
-"""Embedding-based retrieval using sentence-transformers."""
+"""Embedding-based retrieval using local or API-backed encoders."""
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from collections.abc import Callable
+from dataclasses import dataclass
 import os
 from pathlib import Path
-from typing import Sequence
+import re
+from typing import Protocol, Sequence
 from urllib.error import URLError
 from urllib.request import urlopen
 
 import numpy as np
 import pandas as pd
-from sentence_transformers import SentenceTransformer
+
+DEFAULT_LOCAL_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_OPENAI_EMBEDDING_MODEL = "text-embedding-3-large"
+
+
+def _create_local_embedding_model(model_name: str):
+    """Import the optional local stack only when that backend is selected."""
+    from sentence_transformers import SentenceTransformer
+
+    return SentenceTransformer(model_name)
+
+
+class EmbeddingEncoder(Protocol):
+    """Common interface for local and API-backed embedding models."""
+
+    def encode(self, sentences, **kwargs): ...
+
+
+class OpenAIEmbeddingModel:
+    """SentenceTransformer-compatible adapter for OpenAI embeddings."""
+
+    def __init__(
+        self,
+        model_name: str = DEFAULT_OPENAI_EMBEDDING_MODEL,
+        *,
+        dimensions: int | None = 3072,
+        batch_size: int = 512,
+    ) -> None:
+        if dimensions is not None and dimensions < 1:
+            raise ValueError("Embedding dimensions must be at least 1")
+        if batch_size < 1:
+            raise ValueError("Embedding batch size must be at least 1")
+        self.model_name = model_name
+        self.dimensions = dimensions
+        self.batch_size = batch_size
+        self._client = None
+
+    def _get_client(self):
+        if self._client is None:
+            import openai
+
+            self._client = openai.OpenAI()
+        return self._client
+
+    def encode(
+        self,
+        sentences,
+        *,
+        normalize_embeddings: bool = True,
+        show_progress_bar: bool = False,
+        **_kwargs,
+    ) -> np.ndarray:
+        del show_progress_bar
+        single = isinstance(sentences, str)
+        inputs = [sentences] if single else [str(item) for item in sentences]
+        if not inputs:
+            width = self.dimensions or 0
+            return np.empty((0, width), dtype=np.float32)
+
+        # Convert each response to float32 immediately. Keeping hundreds of
+        # thousands of embeddings as Python float lists can require many times
+        # more memory than the final NumPy matrix.
+        chunks: list[np.ndarray] = []
+        client = self._get_client()
+        for start in range(0, len(inputs), self.batch_size):
+            request = {
+                "model": self.model_name,
+                "input": inputs[start : start + self.batch_size],
+                "encoding_format": "float",
+            }
+            if self.dimensions is not None:
+                request["dimensions"] = self.dimensions
+            response = client.embeddings.create(**request)
+            chunks.append(
+                np.asarray(
+                    [
+                        item.embedding
+                        for item in sorted(response.data, key=lambda item: item.index)
+                    ],
+                    dtype=np.float32,
+                )
+            )
+
+        result = np.vstack(chunks)
+        if normalize_embeddings:
+            norms = np.linalg.norm(result, axis=1, keepdims=True)
+            result = result / np.maximum(norms, 1e-12)
+        return result[0] if single else result
+
+
+def create_embedding_model(
+    provider: str,
+    model_name: str,
+    *,
+    dimensions: int | None = None,
+    batch_size: int = 512,
+) -> EmbeddingEncoder:
+    """Construct a local SentenceTransformer or OpenAI embedding adapter."""
+    provider = provider.strip().lower()
+    if provider == "local":
+        return _create_local_embedding_model(model_name)
+    if provider == "openai":
+        return OpenAIEmbeddingModel(
+            model_name,
+            dimensions=dimensions,
+            batch_size=batch_size,
+        )
+    raise ValueError(f"Unsupported embedding provider: {provider!r}")
+
+
+def embedding_cache_key(
+    provider: str,
+    model_name: str,
+    dimensions: int | None = None,
+) -> str:
+    """Return a filesystem-safe cache identity without mixing providers/models."""
+    model_key = re.sub(r"[^A-Za-z0-9_.-]+", "_", model_name).strip("_")
+    if provider.strip().lower() == "local":
+        return model_key
+    dimension_key = f"_{dimensions}" if dimensions is not None else ""
+    return f"{provider.strip().lower()}_{model_key}{dimension_key}"
 
 
 @dataclass(slots=True)
@@ -33,7 +154,7 @@ class EmbeddingCandidate:
 class EmbeddingIndex:
     """Wraps embedding model + corpus embeddings for fast cosine-sim search."""
 
-    model: SentenceTransformer
+    model: EmbeddingEncoder | None
     descriptions: list[str]
     codes: list[str]
     vocabularies: list[str]
@@ -43,15 +164,15 @@ class EmbeddingIndex:
     def from_codes(
         cls,
         codes: pd.DataFrame,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-        model: SentenceTransformer | None = None,
+        model_name: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
+        model: EmbeddingEncoder | None = None,
         show_progress_bar: bool = False,
     ) -> "EmbeddingIndex":
         df = codes.copy()
         for col in ("code", "vocabulary"):
             if col not in df.columns:
                 df[col] = ""
-        embedding_model = model or SentenceTransformer(model_name)
+        embedding_model = model or _create_local_embedding_model(model_name)
         descs = df["description"].fillna("").astype(str).tolist()
         embs = embedding_model.encode(
             descs,
@@ -83,14 +204,14 @@ class EmbeddingIndex:
     def load(
         cls,
         path: str | Path,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-        model: SentenceTransformer | None = None,
+        model_name: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
+        model: EmbeddingEncoder | None = None,
         load_model: bool = True,
     ) -> "EmbeddingIndex":
         """Load a previously-saved embedding index from disk."""
         data = np.load(path, allow_pickle=True)
         return cls(
-            model=model or (SentenceTransformer(model_name) if load_model else None),
+            model=model or (_create_local_embedding_model(model_name) if load_model else None),
             descriptions=list(data["descriptions"]),
             codes=list(data["codes"]),
             vocabularies=list(data["vocabularies"]),
@@ -102,8 +223,8 @@ class EmbeddingIndex:
         cls,
         codes: pd.DataFrame,
         cache_path: str | Path,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-        model: SentenceTransformer | None = None,
+        model_name: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
+        model: EmbeddingEncoder | None = None,
         load_model: bool = True,
         show_progress_bar: bool = False,
     ) -> "EmbeddingIndex":
@@ -122,7 +243,9 @@ class EmbeddingIndex:
                 load_model=load_model,
             )
             expected_codes = codes.get("code", pd.Series(dtype=str)).astype(str).tolist()
-            expected_vocabularies = codes.get("vocabulary", pd.Series(dtype=str)).astype(str).tolist()
+            expected_vocabularies = (
+                codes.get("vocabulary", pd.Series(dtype=str)).astype(str).tolist()
+            )
             if cached.codes == expected_codes and cached.vocabularies == expected_vocabularies:
                 return cached
             subset_positions = _ordered_subset_positions(
@@ -177,7 +300,9 @@ class EmbeddingIndex:
             descriptions=descriptions,
             codes=codes,
             vocabularies=vocabularies,
-            embeddings=np.vstack(embeddings).astype(np.float32) if embeddings else np.empty((0, 0), dtype=np.float32),
+            embeddings=np.vstack(embeddings).astype(np.float32)
+            if embeddings
+            else np.empty((0, 0), dtype=np.float32),
         )
 
     @classmethod
@@ -186,13 +311,16 @@ class EmbeddingIndex:
         codes: pd.DataFrame,
         vocabularies: Sequence[str],
         cache_dir: str | Path,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-        model: SentenceTransformer | None = None,
+        model_name: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
+        model: EmbeddingEncoder | None = None,
+        provider: str = "local",
+        dimensions: int | None = None,
         progress_callback: Callable[[int, int], None] | None = None,
     ) -> "EmbeddingIndex":
         """Load per-vocabulary embedding caches and concatenate them.
 
-        Each vocabulary is cached independently as ``embeddings_<vocab>_<model>.npz``.
+        Each vocabulary is cached independently by vocabulary, provider,
+        model, and output dimensions.
         Selected vocabularies are then combined in memory for retrieval.
         """
         cache_dir = Path(cache_dir)
@@ -201,11 +329,18 @@ class EmbeddingIndex:
         if progress_callback is not None:
             progress_callback(0, total)
         for position, vocabulary in enumerate(vocabularies, start=1):
-            vocab_df = codes[codes["vocabulary"].astype(str).str.upper() == vocabulary.upper()].reset_index(drop=True)
+            vocab_df = codes[
+                codes["vocabulary"].astype(str).str.upper() == vocabulary.upper()
+            ].reset_index(drop=True)
             if vocab_df.empty:
                 continue
-            cache_path = cache_dir / f"embeddings_{vocabulary}_{model_name.replace('/', '_')}.npz"
-            _ensure_embedding_asset(cache_path)
+            cache_identity = embedding_cache_key(provider, model_name, dimensions)
+            cache_path = cache_dir / f"embeddings_{vocabulary}_{cache_identity}.npz"
+            # Existing release assets contain the legacy local MiniLM indexes.
+            # OpenAI indexes are private, paid-to-generate local artifacts and
+            # must not be mistaken for downloadable release assets.
+            if provider.strip().lower() == "local":
+                _ensure_embedding_asset(cache_path)
             indexes.append(
                 cls.from_cache_or_build(
                     vocab_df,
@@ -223,20 +358,22 @@ class EmbeddingIndex:
             descriptions=[d for index in indexes for d in index.descriptions],
             codes=[c for index in indexes for c in index.codes],
             vocabularies=[v for index in indexes for v in index.vocabularies],
-            embeddings=
-            np.vstack([np.asarray(index.embeddings, dtype=np.float32) for index in indexes]).astype(np.float32)
+            embeddings=np.vstack(
+                [np.asarray(index.embeddings, dtype=np.float32) for index in indexes]
+            ).astype(np.float32)
             if indexes
             else np.empty((0, 0), dtype=np.float32),
         )
+
     def retrieve(
         self,
         query: str,
         top_k: int | None = None,
-        model: SentenceTransformer | None = None,
+        model: EmbeddingEncoder | None = None,
     ) -> list[EmbeddingCandidate]:
         query_model = model or self.model
         if query_model is None:
-            raise ValueError("A SentenceTransformer model is required to embed the query.")
+            raise ValueError("An embedding model is required to embed the query.")
         q_emb = query_model.encode(query, show_progress_bar=False, normalize_embeddings=True)
         scores = self.embeddings @ q_emb  # cosine similarity (both normalised)
         if top_k is not None and len(scores) > top_k:
@@ -259,7 +396,7 @@ class EmbeddingIndex:
     def score_all(
         self,
         query: str,
-        model: SentenceTransformer | None = None,
+        model: EmbeddingEncoder | None = None,
     ) -> list[float]:
         """Return corpus-order cosine scores without ranking or object creation.
 
@@ -271,7 +408,7 @@ class EmbeddingIndex:
         """
         query_model = model or self.model
         if query_model is None:
-            raise ValueError("A SentenceTransformer model is required to embed the query.")
+            raise ValueError("An embedding model is required to embed the query.")
         q_emb = query_model.encode(query, show_progress_bar=False, normalize_embeddings=True)
         scores = self.embeddings @ q_emb
         return [float(round(score, 6)) for score in scores]
@@ -337,7 +474,7 @@ def _ensure_embedding_asset(cache_path: Path) -> None:
 def retrieve_embeddings(
     query: str,
     codes: pd.DataFrame,
-    model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+    model_name: str = DEFAULT_LOCAL_EMBEDDING_MODEL,
     top_k: int | None = None,
 ) -> list[EmbeddingCandidate]:
     """Build an embedding index on *codes* and retrieve candidates for *query*.
@@ -363,7 +500,7 @@ def retrieve_embeddings(
             df[col] = ""
 
     descs = df["description"].fillna("").astype(str).tolist()
-    model = SentenceTransformer(model_name)
+    model = _create_local_embedding_model(model_name)
     embs = model.encode(descs, show_progress_bar=False, normalize_embeddings=True)
     q_emb = model.encode(query, show_progress_bar=False, normalize_embeddings=True)
     scores = embs @ q_emb

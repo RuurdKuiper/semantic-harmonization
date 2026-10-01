@@ -13,12 +13,16 @@ def test_load_default_config():
     assert config.retrieval.vocabularies == ["ICD10CM", "ICD9CM", "ICPC", "MDR", "RCD2", "SNOMEDCT_US"]
     assert config.retrieval.lexical_weight == 0.1
     assert config.retrieval.embedding_weight == 0.9
+    assert config.retrieval.embedding_provider == "openai"
+    assert config.retrieval.embedding_model == "text-embedding-3-large"
+    assert config.retrieval.embedding_dimensions == 3072
     assert config.llm.provider == "jev"
     assert config.llm.anthropic_model == "claude-opus-4-8"
     assert config.llm.openai_model == "gpt-6-luna"
     assert config.llm.google_model == "gemini-3-flash-preview"
     assert config.llm.jev_model == "jev-latest"
     assert config.uncertainty.confidence_threshold == 0.7
+    assert config.uncertainty.gpt_review_max_candidates == 200
     assert config.llm.use_possible_category is False
     assert config.llm.adaptive_stopping_enabled is True
     assert config.llm.sparse_narrow_threshold == 0

@@ -34,7 +34,7 @@ from src.llm.classify import (
     llm_classify,
 )
 from src.llm.client import resolve_provider
-from src.retrieval.embeddings import EmbeddingIndex
+from src.retrieval.embeddings import EmbeddingIndex, create_embedding_model
 from src.retrieval.hybrid import hybrid_retrieval
 from src.uncertainty.selection import review_rate, select_uncertain
 from src.utils.config import PipelineConfig, load_config
@@ -85,9 +85,12 @@ def run_pipeline(
     query = edf.to_prompt_context()
 
     report("Step 2/9: Loading query embedding model")
-    from sentence_transformers import SentenceTransformer
-
-    query_model = SentenceTransformer(config.retrieval.embedding_model)
+    query_model = create_embedding_model(
+        config.retrieval.embedding_provider,
+        config.retrieval.embedding_model,
+        dimensions=config.retrieval.embedding_dimensions,
+        batch_size=config.retrieval.embedding_batch_size,
+    )
 
     # Step 2: Load the full reference code system(s) to retrieve from (e.g.
     # the complete ICD-10-CM code list), not just phenotype-specific
@@ -123,6 +126,8 @@ def run_pipeline(
         cache_dir=config.paths.embeddings_dir,
         model_name=config.retrieval.embedding_model,
         model=query_model,
+        provider=config.retrieval.embedding_provider,
+        dimensions=config.retrieval.embedding_dimensions,
         progress_callback=embedding_progress,
     )
 
@@ -215,6 +220,7 @@ def run_pipeline(
             classified,
             edf,
             confidence_threshold=config.uncertainty.confidence_threshold,
+            max_candidates=config.uncertainty.gpt_review_max_candidates,
             model=config.llm.openai_model,
             max_retries=config.llm.max_retries,
             batch_size=config.uncertainty.gpt_review_batch_size,
@@ -323,6 +329,7 @@ def run_pipeline(
                     predicted_scoped,
                     gold_scoped,
                     confidence_threshold=gpt_review_run_info.confidence_threshold,
+                    max_candidates=gpt_review_run_info.max_candidates,
                     include_possible=config.llm.use_possible_category,
                 )
             )

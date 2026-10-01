@@ -192,6 +192,38 @@ def test_gpt_review_skips_call_when_no_result_is_below_threshold():
     assert run.candidates_reviewed == 0
 
 
+def test_gpt_review_caps_selection_at_lowest_confidence_candidates():
+    edf = load_edf("myocarditis")
+    classified = [
+        ClassifiedCandidate("A", "A", "TEST", "Exclude", 0.6, "Jev"),
+        ClassifiedCandidate("B", "B", "TEST", "Exclude", 0.1, "Jev"),
+        ClassifiedCandidate("C", "C", "TEST", "Exclude", 0.4, "Jev"),
+    ]
+    response = {
+        "classifications": [
+            {"code": "B", "vocabulary": "TEST", "label": "Narrow", "confidence": 0.9},
+            {"code": "C", "vocabulary": "TEST", "label": "Narrow", "confidence": 0.9},
+        ]
+    }
+
+    with patch("src.llm.classify.call_llm_json", return_value=response) as call:
+        reviewed, run = gpt_review_low_confidence(
+            classified,
+            edf,
+            confidence_threshold=0.7,
+            max_candidates=2,
+        )
+
+    sent_prompt = call.call_args.kwargs["user_prompt"]
+    assert "B" in sent_prompt and "C" in sent_prompt
+    assert reviewed[0].label == "Exclude"
+    assert reviewed[1].label == "Narrow"
+    assert reviewed[2].label == "Narrow"
+    assert run.eligible_candidates == 3
+    assert run.candidates_reviewed == 2
+    assert run.max_candidates == 2
+
+
 def test_llm_classify_with_jev_typed_choices():
     edf = load_edf("kidney_disease")
     with patch("src.llm.rank.call_llm_json", return_value={"ranked_codes": []}):
