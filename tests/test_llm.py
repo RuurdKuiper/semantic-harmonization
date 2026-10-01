@@ -164,6 +164,7 @@ def test_gpt_review_only_replaces_low_confidence_results():
             edf,
             confidence_threshold=0.7,
             model="gpt-test",
+            reasoning_effort="none",
         )
 
     assert call.call_count == 1
@@ -175,6 +176,8 @@ def test_gpt_review_only_replaces_low_confidence_results():
     assert run.labels_changed == 1
     assert run.exclude_to_narrow == 1
     assert run.narrow_to_exclude == 0
+    assert run.reasoning_effort == "none"
+    assert call.call_args.kwargs["reasoning_effort"] == "none"
 
 
 def test_gpt_review_skips_call_when_no_result_is_below_threshold():

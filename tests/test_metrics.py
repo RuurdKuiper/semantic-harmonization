@@ -8,6 +8,7 @@ import pytest
 from src.evaluation.metrics import (
     evaluate,
     evaluate_classification,
+    evaluate_gpt_review,
     evaluate_retrieval,
     filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
@@ -144,6 +145,41 @@ def test_narrow_loss_breakdown_separates_unclassified_and_misclassified():
     assert losses.not_classified == 1
     assert losses.total_missed == 2
     assert losses.end_to_end_recall == pytest.approx(1 / 3, abs=0.0001)
+
+
+def test_evaluate_gpt_review_counts_corrected_and_harmful_changes():
+    gold = pd.DataFrame(
+        [
+            {"code": "A", "vocabulary": "TEST", "label": "Narrow"},
+            {"code": "B", "vocabulary": "TEST", "label": "Exclude"},
+            {"code": "C", "vocabulary": "TEST", "label": "Narrow"},
+        ]
+    )
+    stage2 = [
+        {"code": "A", "vocabulary": "TEST", "label": "Exclude", "confidence": 0.1},
+        {"code": "B", "vocabulary": "TEST", "label": "Exclude", "confidence": 0.2},
+        {"code": "C", "vocabulary": "TEST", "label": "Narrow", "confidence": 0.3},
+        {"code": "D", "vocabulary": "TEST", "label": "Exclude", "confidence": 0.9},
+    ]
+    final = [
+        {"code": "A", "vocabulary": "TEST", "label": "Narrow"},
+        {"code": "B", "vocabulary": "TEST", "label": "Narrow"},
+        {"code": "C", "vocabulary": "TEST", "label": "Narrow"},
+        {"code": "D", "vocabulary": "TEST", "label": "Exclude"},
+    ]
+
+    result = evaluate_gpt_review(
+        stage2, final, gold, confidence_threshold=0.7, include_possible=False
+    )
+
+    assert result.candidates_reviewed == 3
+    assert result.labels_changed == 2
+    assert result.corrected_changes == 1
+    assert result.harmful_changes == 1
+    assert result.unchanged == 1
+    assert result.correct_before == 2
+    assert result.correct_after == 2
+    assert result.net_correct_change == 0
 
 
 def test_to_predicted_codelist_schema_and_values():

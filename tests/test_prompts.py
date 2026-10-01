@@ -24,6 +24,9 @@ def test_build_classify_prompt_includes_edf_and_candidates():
     assert "classifications" in prompt
     assert "'Narrow' or 'Exclude'" in prompt
     assert "'Possible'" not in prompt.split("Return a JSON object", 1)[1]
+    requested = prompt.split("requested key order:", 1)[1]
+    assert requested.index("'explanation'") < requested.index("'label'")
+    assert requested.index("'label'") < requested.index("'confidence'")
 
 
 def test_build_classify_prompt_can_enable_possible():

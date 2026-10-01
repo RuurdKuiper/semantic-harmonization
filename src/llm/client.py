@@ -22,7 +22,7 @@ logger = get_logger(__name__)
 _JSON_BLOCK_RE = re.compile(r"\{.*\}", re.DOTALL)
 
 DEFAULT_ANTHROPIC_MODEL = "claude-haiku-4-8"
-DEFAULT_OPENAI_MODEL = "gpt-5-mini"
+DEFAULT_OPENAI_MODEL = "gpt-6-luna"
 DEFAULT_GOOGLE_MODEL = "gemini-3-flash-preview"
 DEFAULT_JEV_MODEL = "jev-latest"
 DEFAULT_JEV_API_URL = "https://api.typesafe.ai/v1/systemone"
@@ -152,11 +152,11 @@ def _call_anthropic(system_prompt: str, user_prompt: str, model: str, max_tokens
     )
 
 
-_REASONING_MODEL_PREFIXES = ("gpt-5", "o1", "o3", "o4")
+_REASONING_MODEL_PREFIXES = ("gpt-5", "gpt-6", "o1", "o3", "o4")
 
 
 def _is_reasoning_model(model: str) -> bool:
-    """Whether *model* is an OpenAI reasoning model (gpt-5/o1/o3/o4 families).
+    """Whether *model* is an OpenAI reasoning model (GPT-5/6 and o-series).
 
     Reasoning models spend part of their completion token budget on hidden
     reasoning tokens before producing visible output, and support a

@@ -70,7 +70,7 @@ def test_resolve_provider_auto_no_keys_raises(monkeypatch):
 
 def test_default_model_for():
     assert default_model_for("anthropic") == "claude-haiku-4-8"
-    assert default_model_for("openai") == "gpt-5-mini"
+    assert default_model_for("openai") == "gpt-6-luna"
     assert default_model_for("google") == "gemini-3-flash-preview"
     assert default_model_for("jev") == "jev-latest"
 
@@ -126,6 +126,28 @@ def test_call_llm_json_success_openai(monkeypatch):
         result = call_llm_json("system", "user", provider="openai", max_retries=1)
 
     assert result == {"result": "ok"}
+
+
+@pytest.mark.parametrize("effort", ["none", "medium"])
+def test_call_llm_json_passes_reasoning_effort_to_gpt6(monkeypatch, effort):
+    monkeypatch.setenv("OPENAI_API_KEY", "fake-key")
+    mock_message = MagicMock(content='{"result": "ok"}')
+    mock_choice = MagicMock(message=mock_message)
+    mock_response = MagicMock(choices=[mock_choice])
+    mock_client = MagicMock()
+    mock_client.chat.completions.create.return_value = mock_response
+
+    with patch("src.llm.client._get_openai_client", return_value=mock_client):
+        call_llm_json(
+            "system",
+            "user",
+            provider="openai",
+            model="gpt-6-luna",
+            reasoning_effort=effort,
+            max_retries=1,
+        )
+
+    assert mock_client.chat.completions.create.call_args.kwargs["reasoning_effort"] == effort
 
 
 def test_call_llm_json_success_google():

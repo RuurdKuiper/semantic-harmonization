@@ -42,11 +42,11 @@ class RetrievalConfig:
 class LLMConfig:
     provider: str = "jev"  # Stage 2 defaults to Jev; other providers remain available.
     anthropic_model: str = "claude-opus-4-8"
-    openai_model: str = "gpt-4o"
+    openai_model: str = "gpt-6-luna"
     google_model: str = "gemini-3-flash-preview"
     jev_model: str = "jev-latest"
     rank_effort: str = "low"
-    classify_effort: str = "low"
+    classify_effort: str = "medium"
     max_retries: int = 3
     use_possible_category: bool = False
     adaptive_stopping_enabled: bool = True
@@ -61,6 +61,7 @@ class UncertaintyConfig:
     possible_requires_review: bool = False
     gpt_review_enabled: bool = True
     gpt_review_batch_size: int = 10
+    gpt_review_reasoning_enabled: bool = True
 
 
 @dataclass

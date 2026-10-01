@@ -32,9 +32,10 @@ For a single phenotype, `main.py`:
    is optional via `llm.use_possible_category` and is off by default. When it
    is off, the EDF's Possible rules remain in the prompt and explicitly map to
    `Exclude` rather than being discarded.
-6. Sends only low-confidence stage-2 decisions to GPT for final adjudication.
+6. Sends only low-confidence stage-2 decisions to GPT-6 Luna for final adjudication.
    High-confidence Jev decisions remain unchanged. The threshold and GPT stage
-   are configurable under `uncertainty`.
+   are configurable under `uncertainty`. GPT reasoning can be switched on
+   (`medium`) or off (`none`); it is on by default.
 7. Adds a `manual_review` flag and reason to any low-confidence results that remain.
 8. Evaluates the output against the phenotype's registered AESI codelist,
    restricted to selected vocabularies and gold codes actually present in the
@@ -104,6 +105,7 @@ uncertainty:
   confidence_threshold: 0.7
   gpt_review_enabled: true
   gpt_review_batch_size: 10
+  gpt_review_reasoning_enabled: true  # medium when true; none when false
 ```
 
 All processed candidates still receive a `Narrow` or `Exclude` label. Adaptive

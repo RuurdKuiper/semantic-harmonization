@@ -75,6 +75,7 @@ class GPTReviewRunInfo:
     labels_changed: int
     narrow_to_exclude: int
     exclude_to_narrow: int
+    reasoning_effort: str
 
 
 def gpt_review_low_confidence(
@@ -87,6 +88,7 @@ def gpt_review_low_confidence(
     batch_size: int = 10,
     progress_callback: Callable[[int, int], None] | None = None,
     use_possible_category: bool = False,
+    reasoning_effort: str = "medium",
 ) -> tuple[list[ClassifiedCandidate], GPTReviewRunInfo]:
     """Use GPT to adjudicate only classifications below the confidence cutoff.
 
@@ -105,6 +107,7 @@ def gpt_review_low_confidence(
             labels_changed=0,
             narrow_to_exclude=0,
             exclude_to_narrow=0,
+            reasoning_effort=reasoning_effort,
         )
 
     reviewed = llm_classify(
@@ -117,6 +120,7 @@ def gpt_review_low_confidence(
         progress_callback=progress_callback,
         use_possible_category=use_possible_category,
         adaptive_stopping=None,
+        reasoning_effort=reasoning_effort,
     )
     reviewed_by_key = {(item.code, item.vocabulary): item for item in reviewed}
 
@@ -159,6 +163,7 @@ def gpt_review_low_confidence(
         labels_changed=labels_changed,
         narrow_to_exclude=narrow_to_exclude,
         exclude_to_narrow=exclude_to_narrow,
+        reasoning_effort=reasoning_effort,
     )
 
 
@@ -173,6 +178,7 @@ def llm_classify(
     use_possible_category: bool = False,
     adaptive_stopping: AdaptiveStoppingConfig | None = None,
     run_info_callback: Callable[[ClassificationRunInfo], None] | None = None,
+    reasoning_effort: str | None = None,
 ) -> list[ClassifiedCandidate]:
     """Classify candidates as Narrow/Exclude, optionally allowing Possible.
 
@@ -199,6 +205,8 @@ def llm_classify(
         for the configured number of consecutive batches.
     run_info_callback : callable, optional
         Invoked once with the completed/stopped run summary.
+    reasoning_effort : str, optional
+        OpenAI reasoning effort, such as ``"none"`` or ``"medium"``.
 
     Returns
     -------
@@ -248,6 +256,7 @@ def llm_classify(
             provider=resolved_provider,
             model=model,
             max_retries=max_retries,
+            reasoning_effort=reasoning_effort,
         )
 
         classifications_raw = response.get("classifications", [])

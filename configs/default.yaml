@@ -42,11 +42,11 @@ retrieval:
 llm:
   provider: jev
   anthropic_model: claude-opus-4-8
-  openai_model: gpt-5-mini
+  openai_model: gpt-6-luna
   google_model: gemini-3-flash-preview
   jev_model: jev-latest
   rank_effort: low
-  classify_effort: low
+  classify_effort: medium
   max_retries: 3
   use_possible_category: false
   adaptive_stopping_enabled: true
@@ -59,6 +59,8 @@ uncertainty:
   possible_requires_review: false
   gpt_review_enabled: true
   gpt_review_batch_size: 10
+  # true sends medium reasoning effort; false sends none.
+  gpt_review_reasoning_enabled: true
 
 evaluation:
   narrow_only_as_positive: true

@@ -7,8 +7,9 @@ The page walks through the pipeline step by step:
 1. Select which clinical coding system(s) to retrieve from.
 2. Provide the phenotype's Event Definition Form (EDF).
 3. Run hybrid (lexical + embedding) retrieval over the full code system(s).
-4. Run LLM classification (Narrow/Exclude, optionally Possible) on candidates.
-5. Optionally score the result against a ground-truth AESI codelist.
+4. Run stage-2 Jev classification (Narrow/Exclude, optionally Possible).
+5. Use GPT to review only low-confidence stage-2 decisions.
+6. Optionally score the final result against a ground-truth AESI codelist.
 """
 
 from __future__ import annotations
@@ -30,6 +31,7 @@ from src.data.preprocessing import preprocess_corpus, standardize_code
 from src.evaluation import metrics as evaluation_metrics
 from src.evaluation.metrics import (
     evaluate,
+    evaluate_gpt_review,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
     narrow_loss_breakdown,
@@ -427,6 +429,7 @@ if run_classification and st.session_state.retrieval_candidates and edf is not N
                 use_possible_category=use_possible_category,
                 adaptive_stopping=stopping_config,
                 run_info_callback=_capture_run_info,
+                reasoning_effort=CONFIG.llm.classify_effort,
             )
         progress.progress(1.0, text="Classification complete")
         st.session_state.classified = classified
@@ -512,7 +515,7 @@ st.caption(
     "All other Jev classifications remain unchanged."
 )
 
-gpt_col1, gpt_col2 = st.columns(2)
+gpt_col1, gpt_col2, gpt_col3 = st.columns(3)
 with gpt_col1:
     gpt_confidence_threshold = st.number_input(
         "Stage-2 confidence threshold",
@@ -523,6 +526,12 @@ with gpt_col1:
     )
 with gpt_col2:
     gpt_model = st.text_input("GPT review model", value=CONFIG.llm.openai_model)
+with gpt_col3:
+    gpt_reasoning_enabled = st.checkbox(
+        "Enable GPT reasoning",
+        value=CONFIG.uncertainty.gpt_review_reasoning_enabled,
+        help="Enabled uses medium reasoning effort; disabled sends reasoning effort none.",
+    )
 
 stage2_classified = st.session_state.stage2_classified or st.session_state.classified or []
 gpt_review_candidates = [
@@ -557,6 +566,7 @@ if run_gpt_review and edf is not None:
                 batch_size=CONFIG.uncertainty.gpt_review_batch_size,
                 progress_callback=_update_gpt_progress,
                 use_possible_category=st.session_state.classification_use_possible,
+                reasoning_effort="medium" if gpt_reasoning_enabled else "none",
             )
         progress.progress(1.0, text="GPT review complete")
         st.session_state.classified = reviewed
@@ -572,7 +582,8 @@ if st.session_state.gpt_review_run is not None:
         f"GPT reviewed {review_run.candidates_reviewed:,} low-confidence decisions and "
         f"changed {review_run.labels_changed:,} labels: "
         f"{review_run.exclude_to_narrow:,} Exclude→Narrow and "
-        f"{review_run.narrow_to_exclude:,} Narrow→Exclude."
+        f"{review_run.narrow_to_exclude:,} Narrow→Exclude "
+        f"(reasoning: {getattr(review_run, 'reasoning_effort', 'not recorded')})."
     )
 
 st.divider()
@@ -626,6 +637,17 @@ if run_metrics:
             }
             for c in st.session_state.classified
         ]
+        stage2_dicts = [
+            {
+                "code": c.code,
+                "vocabulary": c.vocabulary,
+                "description": c.description,
+                "label": c.label,
+                "confidence": c.confidence,
+                "explanation": c.explanation,
+            }
+            for c in (st.session_state.stage2_classified or [])
+        ]
         gold_vocabulary_scoped = filter_gold_by_vocabulary(gold_labels, effective_compare_vocabularies)
         available_codes = _load_corpus(tuple(retrieval_vocabularies))
         gold_scoped = _filter_gold_by_available_codes(gold_vocabulary_scoped, available_codes)
@@ -652,6 +674,27 @@ if run_metrics:
         if st.session_state.gpt_review_run is not None:
             st.session_state.metrics_result["gpt_review_run"] = asdict(
                 st.session_state.gpt_review_run
+            )
+            stage2_scoped = filter_records_by_vocabulary(
+                stage2_dicts, effective_compare_vocabularies
+            )
+            stage2_metrics = evaluate(
+                stage2_scoped,
+                gold_scoped,
+                narrow_only_as_positive=CONFIG.evaluation.narrow_only_as_positive,
+                include_possible=st.session_state.classification_use_possible,
+            )
+            st.session_state.metrics_result["stage2_before_gpt"] = stage2_metrics[
+                "classification"
+            ]
+            st.session_state.metrics_result["gpt_review_evaluation"] = asdict(
+                evaluate_gpt_review(
+                    stage2_scoped,
+                    predicted_scoped,
+                    gold_scoped,
+                    confidence_threshold=st.session_state.gpt_review_run.confidence_threshold,
+                    include_possible=st.session_state.classification_use_possible,
+                )
             )
         st.session_state.metrics_gold_scoped = gold_scoped
         st.session_state.metrics_predicted_scoped = predicted_scoped
@@ -749,6 +792,26 @@ if st.session_state.metrics_result:
             st.caption("Run metrics to see missed retrievals.")
 
     st.subheader("Metrics after LLM classification")
+    gpt_evaluation = metrics.get("gpt_review_evaluation")
+    if gpt_evaluation:
+        st.markdown("#### GPT review impact")
+        gpt_columns = st.columns(5)
+        gpt_columns[0].metric("Reviewed", gpt_evaluation["candidates_reviewed"])
+        gpt_columns[1].metric("Corrected changes", gpt_evaluation["corrected_changes"])
+        gpt_columns[2].metric("Harmful changes", gpt_evaluation["harmful_changes"])
+        gpt_columns[3].metric("Net correct", f"{gpt_evaluation['net_correct_change']:+d}")
+        gpt_columns[4].metric(
+            "Reviewed-set accuracy",
+            f"{gpt_evaluation['reviewed_accuracy_after']:.1%}",
+            delta=(
+                f"{gpt_evaluation['reviewed_accuracy_after'] - gpt_evaluation['reviewed_accuracy_before']:+.1%}"
+            ),
+        )
+        st.caption(
+            f"Accuracy among reviewed decisions changed from "
+            f"{gpt_evaluation['reviewed_accuracy_before']:.1%} to "
+            f"{gpt_evaluation['reviewed_accuracy_after']:.1%}."
+        )
     gold_scoped = st.session_state.get("metrics_gold_scoped")
     classified_dicts = st.session_state.get("metrics_classified_dicts", [])
     if gold_scoped is not None:

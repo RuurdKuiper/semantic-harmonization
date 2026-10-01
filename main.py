@@ -19,6 +19,7 @@ from src.data.loaders import load_aesi_dataset, load_edf
 from src.data.preprocessing import preprocess_corpus
 from src.evaluation.metrics import (
     evaluate,
+    evaluate_gpt_review,
     filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
@@ -187,6 +188,7 @@ def run_pipeline(
             completed,
             total,
         ),
+        reasoning_effort=config.llm.classify_effort,
     )
     if classification_run_info is not None:
         logger.info(
@@ -202,6 +204,8 @@ def run_pipeline(
                 classification_run_info.candidates_classified,
                 classification_run_info.candidates_classified,
             )
+
+    stage2_classified = list(classified)
 
     # Step 7: Use GPT only for low-confidence stage-2 classifications.
     gpt_review_run_info: GPTReviewRunInfo | None = None
@@ -219,6 +223,9 @@ def run_pipeline(
                 "Step 7/9: GPT review of low-confidence decisions",
                 completed,
                 total,
+            ),
+            reasoning_effort=(
+                "medium" if config.uncertainty.gpt_review_reasoning_enabled else "none"
             ),
         )
         logger.info(
@@ -265,6 +272,17 @@ def run_pipeline(
                 "review_reason": review_reason,
             }
         )
+    stage2_dicts = [
+        {
+            "code": candidate.code,
+            "vocabulary": candidate.vocabulary,
+            "description": candidate.description,
+            "label": candidate.label,
+            "confidence": candidate.confidence,
+            "explanation": candidate.explanation,
+        }
+        for candidate in stage2_classified
+    ]
     predicted_codelist = to_predicted_codelist(classified_dicts)
 
     report("Step 9/9: Evaluating against available ground truth")
@@ -291,6 +309,23 @@ def run_pipeline(
         metrics["narrow_loss_breakdown"] = asdict(
             narrow_loss_breakdown(predicted_scoped, gold_scoped)
         )
+        if gpt_review_run_info is not None:
+            stage2_scoped = filter_records_by_vocabulary(stage2_dicts, compare_vocab)
+            metrics["stage2_before_gpt"] = evaluate(
+                stage2_scoped,
+                gold_scoped,
+                narrow_only_as_positive=config.evaluation.narrow_only_as_positive,
+                include_possible=config.llm.use_possible_category,
+            )["classification"]
+            metrics["gpt_review_evaluation"] = asdict(
+                evaluate_gpt_review(
+                    stage2_scoped,
+                    predicted_scoped,
+                    gold_scoped,
+                    confidence_threshold=gpt_review_run_info.confidence_threshold,
+                    include_possible=config.llm.use_possible_category,
+                )
+            )
         metrics["evaluation_scope"] = {
             "selected_vocabularies": compare_vocab,
             "gold_rows_in_selected_vocabularies": len(gold_vocabulary_scoped),

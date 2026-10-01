@@ -48,6 +48,22 @@ class NarrowLossBreakdown:
     end_to_end_recall: float
 
 
+@dataclass(slots=True)
+class GPTReviewEvaluation:
+    """Gold-standard impact of the final low-confidence GPT review."""
+
+    candidates_reviewed: int
+    labels_changed: int
+    corrected_changes: int
+    harmful_changes: int
+    unchanged: int
+    correct_before: int
+    correct_after: int
+    net_correct_change: int
+    reviewed_accuracy_before: float
+    reviewed_accuracy_after: float
+
+
 def _standardized_key(code: str, vocabulary: str) -> tuple[str, str]:
     return standardize_code(code, vocabulary), (vocabulary or "").strip().upper()
 
@@ -130,6 +146,71 @@ def narrow_loss_breakdown(
         not_classified=not_classified,
         total_missed=total_missed,
         end_to_end_recall=round(recall, 4),
+    )
+
+
+def evaluate_gpt_review(
+    stage2_classified: list[dict],
+    final_classified: list[dict],
+    gold_labels: pd.DataFrame,
+    *,
+    confidence_threshold: float,
+    include_possible: bool = False,
+) -> GPTReviewEvaluation:
+    """Measure whether GPT's reviewed labels improved stage-2 decisions."""
+    gold_by_key = {
+        _standardized_key(row["code"], row["vocabulary"]): (
+            row["label"]
+            if include_possible or row["label"] != "Possible"
+            else "Exclude"
+        )
+        for _, row in gold_labels.iterrows()
+    }
+    final_by_key = {
+        _standardized_key(item["code"], item["vocabulary"]):
+        str(item.get("label", "")).strip().title()
+        for item in final_classified
+    }
+
+    reviewed = 0
+    changed = 0
+    corrected = 0
+    harmful = 0
+    correct_before = 0
+    correct_after = 0
+    for original in stage2_classified:
+        if float(original.get("confidence", 0.0)) >= confidence_threshold:
+            continue
+        key = _standardized_key(original["code"], original["vocabulary"])
+        if key not in final_by_key:
+            continue
+        reviewed += 1
+        original_label = str(original.get("label", "")).strip().title()
+        final_label = final_by_key[key]
+        if not include_possible:
+            original_label = "Exclude" if original_label == "Possible" else original_label
+            final_label = "Exclude" if final_label == "Possible" else final_label
+        gold_label = gold_by_key.get(key, "Exclude")
+        was_correct = original_label == gold_label
+        is_correct = final_label == gold_label
+        correct_before += was_correct
+        correct_after += is_correct
+        if original_label != final_label:
+            changed += 1
+            corrected += is_correct and not was_correct
+            harmful += was_correct and not is_correct
+
+    return GPTReviewEvaluation(
+        candidates_reviewed=reviewed,
+        labels_changed=changed,
+        corrected_changes=corrected,
+        harmful_changes=harmful,
+        unchanged=reviewed - changed,
+        correct_before=correct_before,
+        correct_after=correct_after,
+        net_correct_change=correct_after - correct_before,
+        reviewed_accuracy_before=round(correct_before / reviewed, 4) if reviewed else 0.0,
+        reviewed_accuracy_after=round(correct_after / reviewed, 4) if reviewed else 0.0,
     )
 
 
