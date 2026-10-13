@@ -40,3 +40,17 @@ def test_load_default_config():
     assert "erythema_multiforme" in config.paths.aesi_datasets
     assert "guillain_barre" in config.paths.aesi_datasets
     assert len(config.paths.aesi_datasets) == 8
+    assert config.codemapper.enabled is False
+
+
+def test_codemapper_experiment_settings():
+    config = load_config("configs/codemapper_experiment.yaml")
+    assert config.retrieval.embedding_provider == "local"
+    assert config.retrieval.embedding_model == "sentence-transformers/all-MiniLM-L6-v2"
+    assert config.retrieval.use_top_k_limit is False
+    assert config.llm.openai_model == "gpt-6-luna"
+    assert config.uncertainty.confidence_threshold == .3
+    assert config.uncertainty.gpt_review_max_candidates == 300
+    assert config.uncertainty.gpt_review_reasoning_enabled
+    assert config.codemapper.enabled
+    assert config.codemapper.requests_per_minute == 6

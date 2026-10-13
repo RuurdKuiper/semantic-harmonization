@@ -48,6 +48,10 @@ class LLMConfig:
     openai_model: str = "gpt-6-luna"
     google_model: str = "gemini-3-flash-preview"
     jev_model: str = "jev-latest"
+    openai_decisions_model: str = "gpt-6-luna"
+    laya_model: str = "multilingual"
+    jpt_model: str = "kirp/jpt-4b"
+    mlx_model: str = "mlx-community/Qwen3.5-9B-8bit"
     rank_effort: str = "low"
     classify_effort: str = "medium"
     max_retries: int = 3
@@ -60,6 +64,8 @@ class LLMConfig:
 
 @dataclass
 class UncertaintyConfig:
+    review_provider: str = "openai"
+    review_model: str | None = None
     confidence_threshold: float = 0.7
     gpt_review_max_candidates: int = 200
     possible_requires_review: bool = False
@@ -77,6 +83,29 @@ class EvaluationConfig:
 
 
 @dataclass
+class CodeMapperConfig:
+    enabled: bool = False
+    base_url: str = "https://app.vac4eu.org/codemapper-testing/api"
+    cache_dir: str = "results/codemapper/cache"
+    batch_size: int = 100
+    requests_per_minute: float = 6
+    timeout_seconds: float = 30
+    max_retries: int = 3
+    vocabulary_versions: dict[str, str] = field(default_factory=lambda: {
+        "ICD10CM": "2026", "ICD9CM": "2014", "ICPC": "1993",
+        "MDR": "28.0", "RCD2": "20200401", "SNOMEDCT_US": "2025_09_01",
+    })
+
+    def __post_init__(self):
+        if self.batch_size < 1 or self.requests_per_minute <= 0:
+            raise ValueError("CodeMapper batch size and request rate must be positive")
+        if self.timeout_seconds <= 0 or self.max_retries < 1:
+            raise ValueError("CodeMapper timeout and retry count must be positive")
+        if not self.base_url.startswith("https://"):
+            raise ValueError("CodeMapper requires an HTTPS base URL")
+
+
+@dataclass
 class PipelineConfig:
     phenotype: str = "myocarditis"
     verbose: bool = True
@@ -85,6 +114,7 @@ class PipelineConfig:
     llm: LLMConfig = field(default_factory=LLMConfig)
     uncertainty: UncertaintyConfig = field(default_factory=UncertaintyConfig)
     evaluation: EvaluationConfig = field(default_factory=EvaluationConfig)
+    codemapper: CodeMapperConfig = field(default_factory=CodeMapperConfig)
 
 
 def load_config(path: str | Path) -> PipelineConfig:
@@ -101,4 +131,5 @@ def load_config(path: str | Path) -> PipelineConfig:
         llm=LLMConfig(**raw.get("llm", {})),
         uncertainty=UncertaintyConfig(**raw.get("uncertainty", {})),
         evaluation=EvaluationConfig(**raw.get("evaluation", {})),
+        codemapper=CodeMapperConfig(**raw.get("codemapper", {})),
     )

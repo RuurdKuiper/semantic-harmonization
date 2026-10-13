@@ -20,6 +20,7 @@ from src.data.preprocessing import preprocess_corpus
 from src.evaluation.metrics import (
     evaluate,
     evaluate_gpt_review,
+    evaluate_retrieval,
     filter_gold_by_available_codes,
     filter_gold_by_vocabulary,
     filter_records_by_vocabulary,
@@ -34,6 +35,7 @@ from src.llm.classify import (
     llm_classify,
 )
 from src.llm.client import resolve_provider
+from src.mapping.codemapper import expand_narrow_matches
 from src.retrieval.embeddings import EmbeddingIndex, create_embedding_model
 from src.retrieval.hybrid import hybrid_retrieval
 from src.uncertainty.selection import review_rate, select_uncertain
@@ -52,12 +54,15 @@ ProgressCallback = Callable[[str, int | None, int | None], None]
 def run_pipeline(
     config: PipelineConfig,
     progress_callback: ProgressCallback | None = None,
+    stage_callback: Callable[[str, list[dict]], None] | None = None,
+    resource_cache: dict | None = None,
 ) -> dict:
     """Run the full semantic harmonization pipeline for a single phenotype.
 
     Stages: load EDF -> load full reference code system(s) -> hybrid
     retrieval -> Jev classification -> GPT review of low-confidence decisions
-    -> review selection -> evaluation against the expert-curated ground truth.
+    -> optional direct CodeMapper expansion -> review selection -> evaluation
+    against the expert-curated ground truth.
 
     Parameters
     ----------
@@ -83,9 +88,13 @@ def run_pipeline(
     logger.info("Loading EDF for phenotype '%s'", phenotype)
     edf = load_edf(phenotype, edf_dir=config.paths.edf_dir)
     query = edf.to_prompt_context()
+    resource_key = json.dumps({"retrieval": asdict(config.retrieval),
+                               "sources": config.paths.code_systems,
+                               "embeddings_dir": config.paths.embeddings_dir}, sort_keys=True)
+    prepared = (resource_cache or {}).get(resource_key)
 
     report("Step 2/9: Loading query embedding model")
-    query_model = create_embedding_model(
+    query_model = prepared[0] if prepared else create_embedding_model(
         config.retrieval.embedding_provider,
         config.retrieval.embedding_model,
         dimensions=config.retrieval.embedding_dimensions,
@@ -98,12 +107,12 @@ def run_pipeline(
     # the (slow) source file is only parsed once across runs.
     report("Step 3/9: Loading terminology corpora")
     logger.info("Loading full code system corpus for vocabularies: %s", config.retrieval.vocabularies)
-    raw_codes = load_code_system_corpus(
+    raw_codes = prepared[1] if prepared else load_code_system_corpus(
         config.retrieval.vocabularies,
         source_paths=config.paths.code_systems,
         cache_dir=config.paths.codes_parquet_dir,
     )
-    codes = preprocess_corpus(raw_codes)
+    codes = raw_codes if prepared else preprocess_corpus(raw_codes)
     logger.info("Loaded %d codes across %s", len(codes), config.retrieval.vocabularies)
 
     # Step 3: Hybrid retrieval — rank every code in the full corpus against
@@ -120,7 +129,7 @@ def run_pipeline(
             completed,
             total,
         )
-    embedding_index = EmbeddingIndex.load_for_vocabularies(
+    embedding_index = prepared[2] if prepared else EmbeddingIndex.load_for_vocabularies(
         codes,
         vocabularies=config.retrieval.vocabularies,
         cache_dir=config.paths.embeddings_dir,
@@ -130,6 +139,8 @@ def run_pipeline(
         dimensions=config.retrieval.embedding_dimensions,
         progress_callback=embedding_progress,
     )
+    if resource_cache is not None and not prepared:
+        resource_cache[resource_key] = (query_model, codes, embedding_index)
 
     report("Step 5/9: Running hybrid retrieval")
     logger.info("Running hybrid retrieval over %d candidate codes", len(codes))
@@ -184,7 +195,7 @@ def run_pipeline(
         provider=provider,
         model=model,
         max_retries=config.llm.max_retries,
-        batch_size=20 if provider == "jev" else 10,
+        batch_size=20 if provider in {"jev", "openai_decisions", "laya", "jpt"} else 10,
         use_possible_category=config.llm.use_possible_category,
         adaptive_stopping=stopping_config,
         run_info_callback=capture_run_info,
@@ -211,6 +222,8 @@ def run_pipeline(
             )
 
     stage2_classified = list(classified)
+    if stage_callback:
+        stage_callback("jev", [asdict(c) for c in stage2_classified])
 
     # Step 7: Use GPT only for low-confidence stage-2 classifications.
     gpt_review_run_info: GPTReviewRunInfo | None = None
@@ -221,7 +234,8 @@ def run_pipeline(
             edf,
             confidence_threshold=config.uncertainty.confidence_threshold,
             max_candidates=config.uncertainty.gpt_review_max_candidates,
-            model=config.llm.openai_model,
+            model=config.uncertainty.review_model or getattr(config.llm, f"{config.uncertainty.review_provider}_model"),
+            provider=config.uncertainty.review_provider,
             max_retries=config.llm.max_retries,
             batch_size=config.uncertainty.gpt_review_batch_size,
             use_possible_category=config.llm.use_possible_category,
@@ -242,6 +256,20 @@ def run_pipeline(
     else:
         report("Step 7/9: GPT review disabled")
 
+    gpt_classified = list(classified)
+    if stage_callback:
+        stage_callback("gpt", [asdict(c) for c in gpt_classified])
+    codemapper_run_info = {"enabled": False}
+    if config.codemapper.enabled:
+        report("After GPT review: expanding Narrow codes through CodeMapper (no descendants)")
+        classified, codemapper_run_info = expand_narrow_matches(
+            classified, codes, config.retrieval.vocabularies, config.codemapper,
+        )
+        logger.info("CodeMapper added %d unseen codes and promoted %d existing decisions",
+                    len(codemapper_run_info["new_codes"]), len(codemapper_run_info["promoted_codes"]))
+    if stage_callback:
+        stage_callback("codemapper", [asdict(c) for c in classified])
+
     # Step 8: Add review annotations for any uncertainty that remains.
     report("Step 8/9: Adding manual-review flags")
     review_items = select_uncertain(
@@ -259,8 +287,7 @@ def run_pipeline(
     # Step 9: Evaluation — render the predicted codelist in the same schema as
     # the ground-truth AESI export, then score it against that ground truth
     # (retrieval sensitivity/precision/F1 and classification accuracy/Cohen's
-    # kappa), restricted to `evaluation.compare_vocabularies` (ICD10CM only
-    # for now, since that's the only full reference list currently loaded).
+    # kappa), restricted to `evaluation.compare_vocabularies` and available codes.
     # Skipped entirely if no ground truth is registered for this phenotype.
     review_by_key = {(r.code, r.vocabulary): r.reason for r in review_items}
     classified_dicts = []
@@ -276,6 +303,10 @@ def run_pipeline(
                 "explanation": candidate.explanation,
                 "manual_review": bool(review_reason),
                 "review_reason": review_reason,
+                "decision_origin": candidate.decision_origin,
+                "mapping_provenance": candidate.mapping_provenance,
+                "prior_label": candidate.prior_label,
+                "prior_confidence": candidate.prior_confidence,
             }
         )
     stage2_dicts = [
@@ -290,6 +321,12 @@ def run_pipeline(
         for candidate in stage2_classified
     ]
     predicted_codelist = to_predicted_codelist(classified_dicts)
+    stage_decisions = {
+        "jev": [asdict(c) for c in stage2_classified],
+        "gpt": [asdict(c) for c in gpt_classified],
+        "codemapper": [asdict(c) for c in classified],
+    }
+    stage_metrics = {}
 
     report("Step 9/9: Evaluating against available ground truth")
     metrics: dict | None = None
@@ -326,7 +363,7 @@ def run_pipeline(
             metrics["gpt_review_evaluation"] = asdict(
                 evaluate_gpt_review(
                     stage2_scoped,
-                    predicted_scoped,
+                    filter_records_by_vocabulary(stage_decisions["gpt"], compare_vocab),
                     gold_scoped,
                     confidence_threshold=gpt_review_run_info.confidence_threshold,
                     max_candidates=gpt_review_run_info.max_candidates,
@@ -338,7 +375,24 @@ def run_pipeline(
             "gold_rows_in_selected_vocabularies": len(gold_vocabulary_scoped),
             "gold_rows_available_in_loaded_sources": len(gold_scoped),
             "gold_rows_excluded_as_unavailable": len(gold_vocabulary_scoped) - len(gold_scoped),
+            "gold_narrow_in_selected_vocabularies": int((gold_vocabulary_scoped["label"] == "Narrow").sum()),
+            "gold_narrow_available": int((gold_scoped["label"] == "Narrow").sum()),
+            "gold_narrow_excluded_as_unavailable": int((gold_vocabulary_scoped["label"] == "Narrow").sum()
+                                                      - (gold_scoped["label"] == "Narrow").sum()),
         }
+        for stage, decisions in stage_decisions.items():
+            scoped = filter_records_by_vocabulary(decisions, compare_vocab)
+            stage_metrics[stage] = evaluate(
+                scoped, gold_scoped,
+                narrow_only_as_positive=config.evaluation.narrow_only_as_positive,
+                include_possible=config.llm.use_possible_category,
+            )
+            stage_metrics[stage]["narrow_codelist"] = asdict(evaluate_retrieval(
+                [c for c in scoped if c["label"] == "Narrow"], gold_scoped,
+                narrow_only_as_positive=True,
+            ))
+            stage_metrics[stage]["narrow_loss_breakdown"] = asdict(narrow_loss_breakdown(scoped, gold_scoped))
+        metrics["stages"] = stage_metrics
         logger.info("Evaluation metrics (vocabularies=%s): %s", compare_vocab, metrics)
     else:
         logger.warning("No ground-truth codelist registered for phenotype '%s'; skipping evaluation", phenotype)
@@ -364,6 +418,8 @@ def run_pipeline(
             asdict(gpt_review_run_info) if gpt_review_run_info is not None else None
         ),
         "metrics": metrics,
+        "stage_decisions": stage_decisions,
+        "codemapper_run": codemapper_run_info,
     }
 
 
@@ -400,6 +456,7 @@ def main() -> None:
         "review_rate": results["review_rate"],
         "classification_run": results["classification_run"],
         "gpt_review_run": results["gpt_review_run"],
+        "codemapper_run": results["codemapper_run"],
         "metrics": results["metrics"],
     }
     metrics_path.write_text(json.dumps(metrics_payload, indent=2))

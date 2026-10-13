@@ -38,14 +38,54 @@ For a single phenotype, `main.py`:
    High-confidence Jev decisions remain unchanged. The threshold and GPT stage
    are configurable under `uncertainty`. GPT reasoning can be switched on
    (`medium`) or off (`none`); it is on by default.
-7. Adds a `manual_review` flag and reason to any low-confidence results that remain.
-8. Evaluates the output against the phenotype's registered AESI codelist,
+7. Optionally expands post-GPT `Narrow` decisions using direct CodeMapper CUI
+   matches in other selected vocabularies. No descendants or recursive expansion
+   are used. Matches must exist in the loaded corpus; they are added as `Narrow`
+   even if an earlier model decision was `Exclude`. Provenance and the earlier
+   decision are retained, and mapping decisions are flagged for manual review.
+8. Adds a `manual_review` flag and reason to any low-confidence results that remain.
+9. Evaluates the output against the phenotype's registered AESI codelist,
    restricted to selected vocabularies and gold codes actually present in the
    loaded terminology versions. The metrics report how many unavailable gold
    rows were excluded. Predictions and metrics are written to `results/`.
 
 Available full code systems are ICD-10-CM, ICD-9-CM, ICPC, MedDRA (`MDR`),
 RCD2, and SNOMED CT (US).
+
+An optional standalone [CodeMapper API probe](experiments/codemapper_probe.md)
+tests cross-vocabulary mapping and descendants using credentials from `.env`.
+It records responses and timings without changing pipeline results.
+
+Enable the production mapping pass with `codemapper.enabled: true` and set
+`CODEMAPPER_USERNAME` / `CODEMAPPER_PASSWORD` in `.env`. Its default batch size
+is 100 and interim request rate is six per minute, including login/logout.
+Responses are cached under `results/codemapper/cache`; clients sharing that
+directory also share a request limiter. Vocabulary versions are pinned in
+`CodeMapperConfig`; clear the mapping cache when changing the underlying
+mapping release. Unavailable mapped codes remain diagnostic records and cannot
+bypass corpus validation. A mapping decision's confidence is stored as zero
+to denote unassessed EDF applicability, not an LLM probability.
+
+Run the paired eight-EDF experiment:
+
+The [7 October 2026 experimental report](experiments/codemapper_edfs_report.md)
+compares Jev, GPT review, and direct mapping expansion on all eight EDFs.
+
+The [JAMIA Open manuscript draft](manuscript/jamia_open/README.md) includes a
+two-column PDF, editable LaTeX, figures, supplementary tables, and a separate
+double-spaced review copy.
+
+```bash
+.venv/bin/python scripts/run_codemapper_experiment.py
+```
+
+`configs/codemapper_experiment.yaml` uses the existing local MiniLM indexes,
+Jev classification, GPT-6 Luna review below 0.3 confidence (at most 300 decisions,
+medium reasoning), and direct mapping expansion. It scores and ranks the full
+corpus with adaptive stopping, without a hard top-k cap. Stage codelists,
+provenance, metrics, and a concise report are written to
+`results/experiments/codemapper_edfs/`. Completed EDFs are reused on rerun if
+configuration and source hashes match; use `--output-dir` for a fresh repetition.
 
 ## Setup
 
@@ -209,3 +249,10 @@ missing indexes locally.
 pytest
 pytest -m "not embeddings"
 ```
+## Pipeline design study
+
+The [resumable validation/test/benchmark study](experiments/pipeline_design/README.md)
+compares lexical and MiniLM retrieval, four decision providers, three reviewers,
+and optional direct CodeMapper expansion after review. Seven EDFs select settings;
+type 1 diabetes supplies a provisional retrospective test. Successful batches are
+saved so API spending limits or interrupted local runs can be resumed.

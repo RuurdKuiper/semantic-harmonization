@@ -4,6 +4,7 @@ expert-curated gold-standard phenotype codelists."""
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+import json
 
 import pandas as pd
 
@@ -249,6 +250,10 @@ def to_predicted_codelist(classified: list[dict]) -> pd.DataFrame:
     annotation_columns = ["confidence", "explanation", "manual_review", "review_reason"]
     include_annotations = any(any(column in item for column in annotation_columns) for item in classified)
     columns = base_columns + annotation_columns if include_annotations else base_columns
+    mapping_columns = ["decision_origin", "mapping_provenance", "prior_label", "prior_confidence"]
+    include_mapping = any(c.get("decision_origin") == "codemapper" for c in classified)
+    if include_mapping:
+        columns += mapping_columns
     return pd.DataFrame(
         [
             {
@@ -262,12 +267,19 @@ def to_predicted_codelist(classified: list[dict]) -> pd.DataFrame:
                     {
                         "confidence": c.get("confidence", ""),
                         "explanation": c.get("explanation", ""),
-                        "manual_review": bool(c.get("manual_review", False)),
-                        "review_reason": c.get("review_reason", ""),
+                        "manual_review": bool(c.get("manual_review", False) or c.get("decision_origin") == "codemapper"),
+                        "review_reason": c.get("review_reason") or (
+                            "included by CodeMapper mapping; EDF scope not independently assessed"
+                            if c.get("decision_origin") == "codemapper" else ""
+                        ),
                     }
                     if include_annotations
                     else {}
                 ),
+                **({"decision_origin": c.get("decision_origin", "llm"),
+                    "mapping_provenance": json.dumps(c.get("mapping_provenance", [])),
+                    "prior_label": c.get("prior_label"),
+                    "prior_confidence": c.get("prior_confidence")} if include_mapping else {}),
             }
             for c in classified
         ],

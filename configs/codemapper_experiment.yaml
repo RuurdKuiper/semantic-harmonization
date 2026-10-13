@@ -1,0 +1,74 @@
+phenotype: myocarditis
+verbose: true
+paths:
+  edf_dir: data/edfs/yamls
+  codes_parquet_dir: data/codes/parquet
+  embeddings_dir: data/codes/embeddings
+  results_dir: results
+  aesi_datasets:
+    acute_disseminated_encephalomyelitis: data/codelists/AESI/Ref-N_ADEM_AESI.csv
+    acute_myocardial_infarction: data/codelists/AESI/Ref-C_AMI_AESI.csv
+    eczema_vaccinatum: data/codelists/AESI/Ref-Sk_ECZEMAVACCINATUM_AESI.csv
+    erythema_multiforme: data/codelists/AESI/Sk_ERYTHMULTI_AESI.csv
+    guillain_barre: data/codelists/AESI/N_GBS_AESI_filtered.csv
+    kidney_disease: data/codelists/AESI/Ref-G_KIDNEYDISEASE_COV.csv
+    myocarditis: data/codelists/AESI/C_MYOCARD_AESI_filtered.csv
+    type_1_diabetes: data/codelists/AESI/Ref-E_DM1_AESI.csv
+  code_systems:
+    ICD10CM: data/codes/csv/ICD10CM@2026-codes.csv
+    ICD9CM: data/codes/csv/ICD9CM@2014-codes.csv
+    ICPC: data/codes/csv/ICPC@1993-codes.csv
+    MDR: data/codes/csv/MDR@28.0-codes.csv
+    RCD2: data/codes/csv/RCD2@20200401-codes.csv
+    SNOMEDCT_US: data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv
+retrieval:
+  lexical_weight: 0.1
+  embedding_weight: 0.9
+  embedding_provider: local
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  embedding_dimensions: null
+  embedding_batch_size: 512
+  top_k: 5
+  use_top_k_limit: false
+  vocabularies:
+  - ICD10CM
+  - ICD9CM
+  - ICPC
+  - MDR
+  - RCD2
+  - SNOMEDCT_US
+llm:
+  provider: jev
+  anthropic_model: claude-opus-4-8
+  openai_model: gpt-6-luna
+  google_model: gemini-3-flash-preview
+  jev_model: jev-latest
+  rank_effort: low
+  classify_effort: medium
+  max_retries: 3
+  use_possible_category: false
+  adaptive_stopping_enabled: true
+  sparse_narrow_threshold: 0
+  consecutive_sparse_batches: 10
+  minimum_batches: 3
+uncertainty:
+  confidence_threshold: 0.3
+  gpt_review_max_candidates: 300
+  possible_requires_review: false
+  gpt_review_enabled: true
+  gpt_review_batch_size: 10
+  gpt_review_reasoning_enabled: true
+evaluation:
+  narrow_only_as_positive: true
+  compare_vocabularies:
+  - ICD10CM
+  - ICD9CM
+  - ICPC
+  - MDR
+  - RCD2
+  - SNOMEDCT_US
+codemapper:
+  enabled: true
+  batch_size: 100
+  requests_per_minute: 6
+  cache_dir: results/codemapper/cache

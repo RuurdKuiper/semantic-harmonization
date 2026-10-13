@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from collections.abc import Callable, Sequence
 import json
 from typing import Protocol
@@ -64,6 +64,10 @@ class ClassifiedCandidate:
     explanation: str
     relevance_score: float = 0.0
     retrieval_score: float = 0.0
+    decision_origin: str = "llm"
+    mapping_provenance: list[dict] = field(default_factory=list)
+    prior_label: str | None = None
+    prior_confidence: float | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -109,6 +113,7 @@ def gpt_review_low_confidence(
     progress_callback: Callable[[int, int], None] | None = None,
     use_possible_category: bool = False,
     reasoning_effort: str = "medium",
+    provider: str = "openai",
 ) -> tuple[list[ClassifiedCandidate], GPTReviewRunInfo]:
     """Use GPT to adjudicate only classifications below the confidence cutoff.
 
@@ -137,7 +142,7 @@ def gpt_review_low_confidence(
     reviewed = llm_classify(
         uncertain,
         edf,
-        provider="openai",
+        provider=provider,
         model=model,
         max_retries=max_retries,
         batch_size=batch_size,
@@ -205,6 +210,7 @@ def llm_classify(
     adaptive_stopping: AdaptiveStoppingConfig | None = None,
     run_info_callback: Callable[[ClassificationRunInfo], None] | None = None,
     reasoning_effort: str | None = None,
+    thinking_budget: int | None = None,
 ) -> list[ClassifiedCandidate]:
     """Classify candidates as Narrow/Exclude, optionally allowing Possible.
 
@@ -249,17 +255,19 @@ def llm_classify(
         raise ValueError("batch_size must be at least 1")
 
     resolved_provider = resolve_provider(provider)
-    if resolved_provider == "jev":
+    if resolved_provider in {"jev", "openai_decisions", "laya", "jpt"}:
+        from src.llm.decisions import DEFAULT_DECISION_MODELS
         return _jev_classify(
             candidates,
             edf,
-            model=model or "jev-latest",
+            model=model or DEFAULT_DECISION_MODELS[resolved_provider],
             max_retries=max_retries,
             batch_size=batch_size,
             progress_callback=progress_callback,
             use_possible_category=use_possible_category,
             adaptive_stopping=adaptive_stopping,
             run_info_callback=run_info_callback,
+            provider=resolved_provider,
         )
 
     results: list[ClassifiedCandidate] = []
@@ -283,6 +291,7 @@ def llm_classify(
             model=model,
             max_retries=max_retries,
             reasoning_effort=reasoning_effort,
+            **({'thinking_budget':thinking_budget} if thinking_budget is not None else {}),
         )
 
         classifications_raw = response.get("classifications", [])
@@ -376,6 +385,7 @@ def _jev_classify(
     use_possible_category: bool,
     adaptive_stopping: AdaptiveStoppingConfig | None,
     run_info_callback: Callable[[ClassificationRunInfo], None] | None,
+    provider: str = "jev",
 ) -> list[ClassifiedCandidate]:
     """Classify candidates with Jev typed choice questions."""
     effective_batch_size = min(batch_size, 20)
@@ -412,7 +422,12 @@ def _jev_classify(
             }
             for offset, candidate in enumerate(batch)
         }
-        response = call_jev_decisions(
+        if provider == "jev":
+            decision_call = call_jev_decisions
+        else:
+            from src.llm.decisions import call_decisions
+            decision_call = lambda **kwargs: call_decisions(provider=provider, **kwargs)
+        response = decision_call(
             state=state,
             questions=questions,
             model=model,
@@ -436,7 +451,8 @@ def _jev_classify(
                     vocabulary=candidate.vocabulary,
                     label=label,
                     confidence=float(confidence),
-                    explanation="Jev choice probabilities: " + json.dumps(probabilities, sort_keys=True),
+                    explanation=f"{provider} choice probabilities: " + json.dumps(probabilities, sort_keys=True)
+                    + "; confidence source: " + answer.get("confidence_source", "provider" if answer.get("confidence") is not None else "max_probability"),
                     relevance_score=float(getattr(candidate, "relevance_score", 0.0)),
                     retrieval_score=float(
                         getattr(

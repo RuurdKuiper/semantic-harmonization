@@ -152,6 +152,15 @@ by general categories observed in the published references; it contains no
 phenotype-specific codes or terms, but its use must still be reported as a
 reference-alignment choice rather than a blinded replication.
 
+## Saved developmental runs
+
+The saved manifests distinguish two configurations: `20261001T102727Z` used
+local MiniLM with the initial classification policy; `20261001T124607Z` used
+OpenAI `text-embedding-3-large` with the expanded reference-aligned policy. Both
+used 10% BM25 and 90% embedding similarity. Their outcome differences cannot
+isolate the effect of the embedding model because classification policy also
+changed. The configuration above describes the later run.
+
 ## Run
 
 First install the updated requirements. Then run a small smoke experiment:

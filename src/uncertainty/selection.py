@@ -47,6 +47,8 @@ def select_uncertain(
     review_items: list[ReviewItem] = []
     for c in classified:
         reasons: list[str] = []
+        if c.decision_origin == "codemapper":
+            reasons.append("included by CodeMapper mapping; EDF scope not independently assessed")
         if c.confidence < confidence_threshold:
             reasons.append(f"confidence {c.confidence:.2f} below threshold {confidence_threshold:.2f}")
         if possible_requires_review and c.label == "Possible":

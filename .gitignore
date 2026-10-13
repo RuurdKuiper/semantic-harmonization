@@ -1,6 +1,8 @@
 .claude/
 .qwen/
 .venv/
+.venv-study/
+.model-cache/
 __pycache__/
 *.pyc
 .env
@@ -41,3 +43,13 @@ dist/
 data/codes/parquet/*.parquet
 data/codes/embeddings/*.npz
 results/
+
+# Local manuscript, reports, and paper-preparation scripts
+/manuscript/
+/experiments/*_report.md
+/experiments/*_probe.md
+/experiments/pipeline_design/report.md
+/experiments/pipeline_design/figures/
+/experiments/pipeline_design/report.py
+/experiments/pipeline_design/*manuscript*.py
+/experiments/pipeline_design/workflow_figures.py

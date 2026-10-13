@@ -58,7 +58,7 @@ def resolve_provider(provider: str = "auto") -> str:
         The resolved provider name.
     """
     provider = (provider or "auto").lower()
-    if provider in {"anthropic", "openai", "google", "jev"}:
+    if provider in {"anthropic", "openai", "google", "jev", "openai_decisions", "laya", "jpt", "mlx"}:
         return provider
     if provider != "auto":
         raise LLMCallError(
@@ -85,6 +85,9 @@ def default_model_for(provider: str) -> str:
         return DEFAULT_GOOGLE_MODEL
     if provider == "jev":
         return DEFAULT_JEV_MODEL
+    if provider in {"laya", "jpt", "mlx"}:
+        return {"laya": "multilingual", "jpt": "kirp/jpt-4b",
+                "mlx": "mlx-community/Qwen3.5-9B-8bit"}[provider]
     return DEFAULT_OPENAI_MODEL
 
 
@@ -305,6 +308,7 @@ def call_llm_json(
     max_retries: int = 3,
     max_tokens: int = 8192,
     reasoning_effort: str | None = None,
+    thinking_budget: int | None = None,
 ) -> dict[str, Any]:
     """Call the configured LLM provider and parse a JSON object from the response,
     retrying on transient failures or malformed JSON output.
@@ -337,7 +341,7 @@ def call_llm_json(
         Parsed JSON response body.
     """
     resolved_provider = resolve_provider(provider)
-    if resolved_provider == "jev":
+    if resolved_provider in {"jev", "openai_decisions", "laya", "jpt"}:
         raise LLMCallError(
             "Jev uses typed decisions rather than generative JSON. "
             "Call call_jev_decisions(), or use llm_classify(provider='jev')."
@@ -353,6 +357,10 @@ def call_llm_json(
                 text = _call_openai(
                     system_prompt, user_prompt, resolved_model, max_tokens, reasoning_effort
                 )
+            elif resolved_provider == "mlx":
+                from src.llm.local import call_mlx_json
+                return call_mlx_json(system_prompt, user_prompt, resolved_model, max_tokens, reasoning_effort,
+                                     thinking_budget if thinking_budget is not None else 1024)
             else:
                 text = _call_google(system_prompt, user_prompt, resolved_model, max_tokens)
             return extract_json(text)

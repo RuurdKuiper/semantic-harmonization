@@ -79,3 +79,10 @@ evaluation:
     - MDR
     - RCD2
     - SNOMEDCT_US
+
+# Optional single CUI-mapping pass after GPT review. No descendants.
+codemapper:
+  enabled: false
+  batch_size: 100
+  requests_per_minute: 6
+  cache_dir: results/codemapper/cache

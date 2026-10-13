@@ -1,0 +1,70 @@
+base_pipeline_config: configs/codemapper_experiment.yaml
+output_dir: results/experiments/pipeline_design/20261008_cap10000
+validation_edfs:
+  - acute_disseminated_encephalomyelitis
+  - acute_myocardial_infarction
+  - eczema_vaccinatum
+  - erythema_multiforme
+  - guillain_barre
+  - kidney_disease
+  - myocarditis
+test_edfs: [type_1_diabetes]
+# All eight EDFs were used in earlier development: the test is retrospective.
+test_status: provisional_previously_used
+retrieval:
+  embedding_provider: local
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2
+  embedding_dimensions: null
+  lexical_weights: [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]
+  recall_budgets: [200, 1000, 5000]
+  selection_metric: mean_average_precision
+decision_models:
+  - {name: jev, provider: jev, model: jev-latest, branch: proprietary}
+  - {name: openai_decisions, provider: openai_decisions, model: gpt-6-luna, branch: proprietary}
+  - {name: jpt4b, provider: jpt, model: kirp/jpt-4b, branch: open_weight}
+excluded_decision_models:
+  - name: laya
+    provider: laya
+    model: multilingual
+    branch: open_weight
+    reason: Withdrawn at the user's request after excessive Narrow decisions, including unrelated codes, in early validation runs.
+    status: stopped_before_completing_validation
+review_models:
+  - {name: gpt6_luna, provider: openai, model: gpt-6-luna, branch: proprietary}
+  - {name: gpt61_sol, provider: openai, model: gpt-6.1-sol, branch: proprietary}
+  - {name: qwen35_9b_8bit, provider: mlx, model: mlx-community/Qwen3.5-9B-8bit, branch: open_weight}
+pending_reviewers: []
+classification:
+  batch_size: 20
+  max_candidates: 10000
+  sparse_narrow_threshold: 0
+  consecutive_sparse_batches: 10
+  minimum_batches: 3
+review:
+  confidence_threshold: 0.3
+  max_candidates: 300
+  batch_size: 10
+  reasoning_effort: medium
+  qwen_thinking_budget: 1024
+selection_metric: mean_edf_f1
+mapping:
+  enabled: true
+  batch_size: 100
+  requests_per_minute: 6
+  selection_rule: validation_mean_f1_improvement
+benchmark:
+  browser: experiments/matthewman_2026/data/CPRDAurumMedical.txt
+  references: experiments/matthewman_2026/data/llmcodelists_public
+  subsets: [full, read]
+  # Freeze before benchmark scoring. The initial policy avoids adopting scope
+  # instructions tuned against published benchmark reference lists.
+  policy:
+    definition: Include codes indicating that the person currently has the condition.
+    narrow_decision_rules:
+      - Include codes that directly assert the current target condition or a specific subtype.
+    exclude_decision_rules:
+      - Exclude historical, family-history, administrative, screening, suspected, or negated conditions and nonspecific symptoms.
+execution:
+  max_requests: 10000
+  # Paid calls are authorized subject to the user's automatic account limit.
+  # This request ceiling is operational, rather than a currency budget.
