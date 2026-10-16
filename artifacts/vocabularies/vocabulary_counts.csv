@@ -1,0 +1,7 @@
+vocabulary,source,loaded_unique_codes,retrieval_codes
+SNOMEDCT_US,SNOMEDCT_US@2025_09_01-codes.csv,384620,384620
+ICD10CM,ICD10CM@2026-codes.csv,98506,98187
+RCD2,RCD2@20200401-codes.csv,89616,84888
+MDR,MDR@28.0-codes.csv,28889,28889
+ICD9CM,ICD9CM@2014-codes.csv,22406,22203
+ICPC,ICPC@1993-codes.csv,740,740
