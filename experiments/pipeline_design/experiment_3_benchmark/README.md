@@ -13,6 +13,28 @@ codes outside a tested corpus are outside its denominator and should be describe
 as scope exclusions. Results are saved in `benchmark_metrics.csv`, with separate
 resumable decision and review files for each corpus subset.
 
+The local and proprietary branches can run concurrently using the same frozen
+settings and checkpoints:
+
+```sh
+.venv-study/bin/python experiments/pipeline_design/parallel_benchmark.py --branch proprietary --detach --report
+.venv-study/bin/python experiments/pipeline_design/parallel_benchmark.py --branch open_weight --detach --report
+```
+
+Stop an existing sequential study worker gracefully before switching to this
+runner. Each branch holds an exclusive worker lock to prevent duplicate calls.
+Scores are cached under locks; shared metrics are merged atomically by branch,
+corpus, and phenotype. Model decisions and reviews retain their existing paths
+and signatures. The frozen `study.py` implementation is reused unchanged.
+Report generation is serialized when workers finish or stop, including on usage
+limits. Relaunch the affected branch with the same command to resume.
+
+Progress is in `run.benchmark.proprietary.log` and
+`run.benchmark.open_weight.log` under the dated output directory.
+`status.benchmark.<branch>.json` and `worker.benchmark.<branch>.json` record each
+worker; `status.json` combines their states. `parallel_benchmark.<branch>.json`
+records the scheduling wrapper and frozen-pipeline hashes.
+
 The benchmark identifies codes by `OriginalReadCode` from the CPRD browser.
 If validation selects CodeMapper, the runner adapts these identifiers through
 explicit native Read and SNOMED columns in the same browser. Read identifiers

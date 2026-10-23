@@ -22,6 +22,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config',default=str(Path(__file__).with_name('config.yaml')))
     parser.add_argument('--phase',choices=(*PHASES,'all'),default='retrieval')
+    parser.add_argument('--from-phase',choices=PHASES,help='With --phase all, resume at this phase.')
     parser.add_argument('--output-dir',help='Override the dated results directory.')
     parser.add_argument('--models',nargs='+',help='Run selected decision-model names; selection waits for all models.')
     parser.add_argument('--report',action='store_true',help='Refresh the report after each phase and on interruption.')
@@ -35,6 +36,8 @@ def main():
     config=yaml.safe_load(Path(args.config).read_text())
     if args.output_dir:config['output_dir']=args.output_dir
     study=Study(config)
+    os.environ.setdefault('LOCAL_RESPONSE_DIR',str(study.output/'local_responses'))
+    if args.from_phase and args.phase!='all':parser.error('--from-phase requires --phase all.')
     if args.models and args.phase!='decisions':parser.error('--models applies to --phase decisions only.')
     status=study.output/('status.'+'-'.join(args.models)+'.json' if args.models else 'status.json')
     def refresh_report():
@@ -42,7 +45,8 @@ def main():
         command=[sys.executable,str(Path(__file__).with_name('report.py')),'--config',args.config]
         if args.output_dir:command+=['--output-dir',args.output_dir]
         subprocess.run(command,check=True)
-    for phase in PHASES if args.phase=='all' else (args.phase,):
+    phases=PHASES[PHASES.index(args.from_phase):] if args.from_phase else PHASES
+    for phase in phases if args.phase=='all' else (args.phase,):
         print(f'=== Study phase: {phase} ===',flush=True)
         save_json(status,{'phase':phase,'status':'running','updated_at':datetime.now(timezone.utc).isoformat()})
         try:

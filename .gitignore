@@ -41,7 +41,7 @@ dist/
 
 # Pipeline caches/outputs (regenerated from source CSVs and EDF YAMLs)
 data/codes/parquet/*.parquet
-data/codes/embeddings/*.npz
+data/codes/embeddings/
 results/
 
 # Local manuscript, reports, and paper-preparation scripts

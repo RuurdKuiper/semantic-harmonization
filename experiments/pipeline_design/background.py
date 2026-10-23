@@ -16,8 +16,14 @@ from experiments.pipeline_design.study import save_json
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config',default=str(Path(__file__).with_name('config.yaml')))
+    parser.add_argument('--from-phase',choices=('retrieval','decisions','review','mapping','freeze','test','benchmark'))
     args=parser.parse_args();config=yaml.safe_load(Path(args.config).read_text())
     output=ROOT/config['output_dir'];output.mkdir(parents=True,exist_ok=True)
+    for branch_marker in output.glob('worker.benchmark.*.json'):
+        branch_worker=json.loads(branch_marker.read_text())
+        try:os.kill(branch_worker['pid'],0)
+        except ProcessLookupError:continue
+        raise RuntimeError(f"Parallel benchmark worker PID {branch_worker['pid']} is alive. Resume branches with parallel_benchmark.py after they exit.")
     marker=output/'worker.json'
     if marker.exists():
         previous=json.loads(marker.read_text())
@@ -25,6 +31,7 @@ def main():
         except ProcessLookupError:pass
         else:raise RuntimeError(f"Worker PID {previous['pid']} is still alive. Inspect it before starting another run.")
     command=[sys.executable,'-u',str(Path(__file__).with_name('run.py')),'--config',args.config,'--phase','all','--report']
+    if args.from_phase:command+=['--from-phase',args.from_phase]
     log=output/'run.log'
     with log.open('a') as handle:
         process=subprocess.Popen(command,cwd=ROOT,stdin=subprocess.DEVNULL,stdout=handle,

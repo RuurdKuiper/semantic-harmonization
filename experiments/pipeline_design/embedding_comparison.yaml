@@ -1,0 +1,20 @@
+source_study_config: experiments/pipeline_design/config.yaml
+output_dir: results/experiments/embedding_comparison/20261022
+embedding_cache_dir: data/codes/embeddings/openai_text-embedding-3-large_3072_resumable
+embedding:
+  provider: openai
+  model: text-embedding-3-large
+  dimensions: 3072
+  batch_size: 512
+  # UTF-8 bytes conservatively bound token counts without another tokenizer.
+  max_batch_bytes: 200000
+  max_input_bytes: 8192
+fixed_lexical_weight: 0.5
+recall_budgets: [200, 1000, 5000, 10000]
+evaluation:
+  stages: [decision, review]
+  mapping: false
+  primary_selection: mean_edf_average_precision
+  # Same frozen Jev and GPT-6 Luna choices; no reviewer/model re-selection.
+  use_frozen_proprietary_models: true
+  validation_only: true

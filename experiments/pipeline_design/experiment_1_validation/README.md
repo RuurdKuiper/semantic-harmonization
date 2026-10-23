@@ -38,3 +38,7 @@ Results: `retrieval.csv`, `decision_metrics.csv`, `review_metrics.csv`,
 results directory. Partial files contain only completed cases and never establish
 final winners. Each decision and review file retains batch durations and runtime
 information. The concise [report](../report.md) is generated from these artifacts.
+
+The additional [controlled embedding comparison](embedding_comparison.md) tests
+MiniLM versus OpenAI embeddings on these seven validation EDFs, retaining the
+original frozen study in a separate output directory.
