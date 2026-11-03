@@ -1,0 +1,57 @@
+preferred_name: Acute Disseminated Encephalomyelitis (ADEM)
+definition: >
+  Acute Disseminated Encephalomyelitis (ADEM) is an acute, immune-mediated
+  inflammatory demyelinating disorder of the central nervous system, typically
+  monophasic and often preceded by infection or, rarely, vaccination. It
+  presents with acute onset of encephalopathy and focal or multifocal
+  neurologic signs, accompanied by demyelinating lesions on brain MRI
+  (magnetic resonance imaging). Diagnosis is clinical and radiological,
+  supported by exclusion of other causes.
+narrow_definition: >
+  Diagnosis codes that explicitly refer to acute disseminated encephalomyelitis
+  or acute disseminated demyelination, regardless of cause, with or without
+  reference to post-infectious, post-immunization, or chronic/multiphasic
+  variants.
+inclusion_criteria:
+  - Acute demyelinating processes affecting the central nervous system, regardless of etiology, when explicitly identified as ADEM
+  - Noninfectious ADEM
+exclusion_criteria:
+  - Chronic CNS demyelinating diseases, relapses, or recurrences, including multiple sclerosis, mitochondrial disorders, and systemic lupus erythematosus
+  - Acute demyelinating disorders that are not ADEM, including multiple sclerosis, neuromyelitis optica, clinically isolated syndrome, MOG antibody-associated disease, acute haemorrhagic leukoencephalitis, transverse myelitis, Marburg disease, and optic neuritis
+  - Acute demyelinating diseases solely affecting the peripheral nervous system
+  - Acute necrotizing encephalopathy
+narrow_decision_rules:
+  - Include an explicit ADEM diagnosis or synonym in the absence of chronic or relapsing disease codes
+exclude_decision_rules:
+  - Do not include chronic demyelinating diseases, their relapses, or recurrences
+  - Do not include acute demyelinating syndromes that are not ADEM
+  - Do not include acute demyelinating diseases solely affecting the peripheral nervous system
+  - Do not include acute necrotizing encephalopathy
+possible_decision_rules:
+  - A code for an acute demyelinating syndrome that is unspecified as ADEM cannot confirm or rule out ADEM
+  - Encephalitis, myelitis, or encephalopathy alone cannot confirm ADEM but cannot be ruled out
+  - Codes not explicitly reflecting acuteness cannot confirm ADEM
+synonyms:
+  - ADEM
+  - Acute demyelinating encephalomyelitis
+  - Acute post-infectious encephalomyelitis
+anatomical_location: Central nervous system (brain and/or spinal cord)
+temporal_characteristics: Identify incident cases only; exclude codes reflecting chronicity, relapse, or history of prior ADEM
+etiology: Autoimmune; post-infectious or post-vaccinal immune response, often idiopathic
+morphology: >
+  Demyelination; scattered focal or multifocal (disseminated) areas of
+  inflammation and demyelination in cerebral subcortical and deep cortical
+  white matter. Gray matter, particularly the thalamus, may also be involved
+  but is generally a minor component compared with white matter disease on MRI.
+candidate_anchor_codes:
+  - "ICD10CM G04.00 — Acute disseminated encephalomyelitis, unspecified"
+  - "ICD10CM G04.01 — Postinfectious acute disseminated encephalomyelitis"
+  - "ICD10CM G04.02 — Postimmunization acute disseminated encephalomyelitis"
+  - "ICD10CM G04.81 — Other encephalitis and encephalomyelitis; noninfectious ADEM"
+ambiguities:
+  - Specific etiologies do not prevent an explicitly acute ADEM concept from being narrow
+  - Encephalitis or myelitis alone is not narrow ADEM but cannot be ruled out
+  - An unspecified acute demyelinating syndrome should be possible rather than narrow or excluded
+references:
+  - "Sejvar JJ, Kohl KS, Bilynsky R, et al. Encephalitis, myelitis, and acute disseminated encephalomyelitis (ADEM): case definitions and guidelines. Vaccine. 2007;25(31):5771-5792. doi:10.1016/j.vaccine.2007.04.060."
+

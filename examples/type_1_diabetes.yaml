@@ -1,0 +1,70 @@
+preferred_name: Type 1 diabetes mellitus
+definition: >
+  Type 1 diabetes mellitus (T1DM) is diabetes characterized by insulin
+  deficiency from destruction or loss of pancreatic beta-cell function. It may
+  occur with or without acute or chronic complications, including ketoacidosis,
+  hypoglycemia, and kidney, neurological, ophthalmic, circulatory, skin, or
+  other specified complications. Clinical and laboratory findings are generally
+  unavailable in structured diagnosis-code data and are unnecessary when an
+  explicit T1DM diagnosis code is present.
+narrow_definition: >
+  Diagnosis codes explicitly identifying type 1 diabetes mellitus, with or
+  without specified diabetic complications. The concept must identify diabetes
+  as type 1. Historical insulin-dependent diabetes terminology can qualify when
+  it explicitly denotes type 1; diabetes codes that do not distinguish type 1
+  from other forms are insufficient.
+exclusion_criteria:
+  - Type 2 diabetes mellitus
+  - Gestational diabetes and other explicitly non-type-1 diabetes forms
+  - Nephrogenic diabetes insipidus
+  - Unspecified diabetes that does not establish type 1
+  - Isolated complications, manifestations, treatment, or laboratory findings without explicit T1DM
+narrow_decision_rules:
+  - Include explicit type 1 or type I diabetes mellitus concepts
+  - Include T1DM with or without complications; a complication does not make explicit T1DM non-narrow
+  - Include historical terminology explicitly identifying type I juvenile diabetes or insulin-dependent diabetes when it denotes T1DM
+  - Do not require glucose results, insulin treatment, complication codes, or other clinical evidence when the diagnosis explicitly identifies T1DM
+exclude_decision_rules:
+  - Exclude diabetes explicitly identified as type 2 or another non-type-1 form
+  - Exclude unspecified or broad diabetes concepts that do not establish T1DM
+  - Exclude isolated diabetic manifestations or complications when the concept does not identify T1DM
+  - Exclude history or resolved T1DM concepts when identifying incident current disease
+  - Do not infer T1DM from insulin treatment, hyperglycemia, hypoglycemia, ketoacidosis, laboratory findings, or complications alone
+possible_decision_rules:
+  - Nonspecific diabetes concepts that do not establish T1DM
+  - Manifestations or complications alone without an underlying explicit T1DM diagnosis
+  - Insulin use or insulin-dependent status alone without explicit T1DM
+synonyms:
+  - Type 1 diabetes mellitus
+  - Type 1 diabetes
+  - T1DM
+  - Type I diabetes mellitus
+  - Juvenile-type diabetes mellitus
+  - Insulin-dependent diabetes mellitus
+anatomical_location: Endocrine pancreas and pancreatic beta-cell function
+temporal_characteristics: >
+  Chronic disease. For incident T1DM, an explicit current diagnosis qualifies
+  regardless of duration. The Sentinel report used a 183-day diagnosis-free
+  washout, which is a study implementation rule rather than an intrinsic code
+  classification criterion.
+etiology: Loss of insulin-producing beta-cell function with consequent insulin deficiency; causes or risk factors alone do not establish T1DM
+morphology: Not applicable
+candidate_anchor_codes:
+  - "ICD10CM E10 — Type 1 diabetes mellitus"
+  - "ICD10CM E10.9 — T1DM without complications"
+  - "ICD10CM E10.1 — T1DM with ketoacidosis"
+  - "ICD10CM E10.2 — T1DM with kidney complications"
+  - "ICD10CM E10.3 — T1DM with ophthalmic complications"
+  - "ICD10CM E10.4 — T1DM with neurological complications"
+  - "ICD10CM E10.5 — T1DM with circulatory complications"
+  - "ICD10CM E10.6 — T1DM with other specified complications"
+  - "ICD10CM E10.8 — T1DM with unspecified complications"
+  - "ICD9CM 250.01 — Type I diabetes without complication, not stated as uncontrolled"
+  - "ICD9CM 250.03 — Type I diabetes without complication, uncontrolled"
+  - "ICD9CM 250.x1 — Type I diabetes, not stated as uncontrolled, with manifestation represented by fourth digit"
+  - "ICD9CM 250.x3 — Type I diabetes, uncontrolled, with manifestation represented by fourth digit"
+ambiguities:
+  - Insulin-dependent diabetes mellitus may historically denote T1DM or merely insulin-treated diabetes; include only when the terminology equates it with T1DM
+  - Juvenile diabetes is narrow only when used as an explicit T1DM synonym; childhood onset alone is insufficient
+references:
+  - "U.S. FDA Sentinel System. Coding Trend Analysis: Type 1 Diabetes Mellitus. CIDA Tool version 5.4.4, October 11, 2018. https://www.sentinelinitiative.org/methods-data-tools/health-outcomes-interest/coding-trend-analyses-type-1-diabetes-mellitus"

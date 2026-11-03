@@ -1,0 +1,73 @@
+preferred_name: Acute Myocardial Infarction (AMI)
+definition: >
+  Acute myocardial infarction (AMI) is acute myocardial injury due to ischemia,
+  resulting in myocardial necrosis. Clinically, diagnosis is based on cardiac
+  biomarkers, ischemic symptoms, ECG changes, cardiac imaging or procedural
+  findings, or pathological evidence. These findings are generally unavailable
+  in structured diagnosis-code data and are not required when an explicit AMI
+  diagnosis is coded. This EDF treats AMI as an incident event, but not
+  necessarily a first-ever episode.
+narrow_definition: >
+  Diagnosis codes explicitly representing acute myocardial infarction or acute
+  heart attack, including STEMI, NSTEMI, type 1, 2, 3, 4, and 5 MI, acute
+  myocardial necrosis or ischemia explicitly identified as infarction,
+  site-specific AMI, unspecified AMI, and postoperative myocardial infarction.
+  Broader ischemic heart disease, acute coronary syndrome, angina, myocardial
+  ischemia, or myocardial injury without explicit infarction or acuteness are
+  insufficient.
+exclusion_criteria:
+  - Old myocardial infarction, history of MI, or post-MI status without current AMI
+  - Myocarditis, pericarditis, heart failure, cardiac arrest, or arrhythmia without AMI
+  - Chest pain, elevated cardiac biomarkers or troponin, or ECG abnormalities without explicit AMI
+  - Suspected or rule-out AMI without a confirmed diagnosis
+narrow_decision_rules:
+  - Include explicit AMI concepts, including STEMI, NSTEMI, type 1/2/3/4/5 MI, site-specific AMI, unspecified AMI, and other explicitly coded acute MI subtypes
+  - Include AMI regardless of myocardial site or STEMI/NSTEMI classification
+  - Include current acute complications occurring immediately after an acute myocardial infarction
+  - Do not require biomarkers, ischemic symptoms, ECG changes, imaging, catheterization, PCI, or other clinical evidence when AMI itself is explicitly coded
+exclude_decision_rules:
+  - Exclude myocarditis, pericarditis, heart failure, and other cardiac conditions without explicit AMI
+  - Exclude old or history-of-MI concepts and non-current MI status for incident AMI
+  - Exclude chest pain, elevated cardiac biomarkers, ECG abnormalities, cardiac arrest, and other manifestations without explicit AMI
+  - Exclude suspected or rule-out AMI when distinguishable from confirmed disease
+  - Do not infer AMI from PCI, coronary angiography, CABG, thrombolysis, biomarkers, ECG, or other tests or procedures alone
+possible_decision_rules:
+  - I21.A* codes may not explicitly reflect acuity and are treated as possible based on reported validation performance
+  - Acute coronary syndrome or acute ischemic heart disease without explicit MI cannot be narrow but cannot be ruled out
+  - Angina, myocardial ischemia, and ischemic heart disease without explicit acute infarction cannot be narrow but should not automatically be excluded
+  - Myocardial injury without explicit infarction and acuteness is insufficient for narrow inclusion but should not automatically be excluded
+synonyms:
+  - Acute myocardial infarction
+  - AMI
+  - Acute MI
+  - Acute heart attack
+  - ST-elevation myocardial infarction
+  - STEMI
+  - Non-ST-elevation myocardial infarction
+  - NSTEMI
+  - Acute subendocardial myocardial infarction
+anatomical_location: Heart and myocardium; may involve anterior, inferior, lateral, posterior, inferolateral, inferoposterior, or other myocardial regions
+temporal_characteristics: >
+  Acute/current event. Exclude explicit old/history-of-MI concepts. In the
+  Mini-Sentinel ICD-9-CM validation, 410.x0 and 410.x1 were included while
+  410.x2, indicating a subsequent episode of care for a past MI, was excluded
+  from the narrow incident algorithm.
+etiology: Acute ischemic myocardial injury; etiologic subtype does not prevent inclusion when the diagnosis explicitly represents AMI
+morphology: Acute myocardial infarction and myocardial necrosis
+candidate_anchor_codes:
+  - "ICD10CM I21 — Acute myocardial infarction"
+  - "ICD10CM I21.0-I21.3 — STEMI by site"
+  - "ICD10CM I21.4 — NSTEMI"
+  - "ICD10CM I21.9 — Acute myocardial infarction, unspecified"
+  - "ICD10CM I22 — Subsequent STEMI and NSTEMI"
+  - "ICD9CM 410.x0 — AMI, episode of care unspecified"
+  - "ICD9CM 410.x1 — AMI, initial episode of care"
+ambiguities:
+  - I22 represents a subsequent but still acute MI and belongs semantically to AMI
+  - Type 3 MI is narrow, but sudden death without an explicit cardiac MI diagnosis is not a direct synonym
+  - Acute coronary syndrome and acute ischemic heart disease can occur without infarction
+references:
+  - "Cutrona SL, Toh D, Iyer A, et al. Mini-Sentinel systematic validation of health outcome of interest: acute myocardial infarction cases report. 2011. https://www.sentinelinitiative.org/methods-data-tools/health-outcomes-interest/validation-acute-myocardial-infarction-cases"
+  - "Sentinel Initiative. Validation of Acute Myocardial Infarction Cases. 2011. https://www.sentinelinitiative.org/methods-data-tools/health-outcomes-interest/coding-trend-analyses-acute-myocardial-infarction"
+  - "Domienik-Karłowicz J, et al. Fourth universal definition of myocardial infarction. Cardiol J. 2021;28(2):195-201. doi:10.5603/CJ.a2021.0036."
+  - "Slezak J, et al. Validation of ICD-10 Diagnosis Codes for Identification of Acute Myocardial Infarction. Pharmacoepidemiol Drug Saf. 2025;34(7):e70179. doi:10.1002/pds.70179."
