@@ -1,0 +1,38 @@
+[
+  {
+    "file": "icd10_2025.zip",
+    "url": "https://ftp.cdc.gov/pub/health_statistics/nchs/publications/ICD10CM/2025/ICD10-CM%20Code%20Descriptions%202025.zip",
+    "bytes": 2318003,
+    "sha256": "5a9ff9e18d90a9979a144559a93e377624795369123cebf76817c44f565f0c60",
+    "status": 200
+  },
+  {
+    "file": "icd10_2026.zip",
+    "url": "https://ftp.cdc.gov/pub/health_statistics/nchs/publications/ICD10CM/2026/icd10cm-Code%20Descriptions-2026.zip",
+    "bytes": 2198159,
+    "sha256": "a852eb91b3344ae38476e63816976ee1eeb94dcced7151118324f060e8499f88",
+    "status": 200
+  },
+  {
+    "file": "snomed_codesystems.json",
+    "url": "https://browser.ihtsdotools.org/snowstorm/snomed-ct/codesystems",
+    "error": "HTTPError: HTTP Error 405: Not Allowed"
+  },
+  {
+    "file": "icd9_v32.zip",
+    "url": "https://www.cms.gov/medicare/coding/icd9providerdiagnosticcodes/downloads/icd-9-cm-v32-master-descriptions.zip",
+    "bytes": 1079497,
+    "status": 200,
+    "sha256": "45a7d05ddcadf124af88375b64cdf068bb1e3f999ce7fdacb91f65f4e6d55f08"
+  },
+  {
+    "file": "snomed_sample_inactive.json",
+    "url": "https://browser.ihtsdotools.org/snowstorm/snomed-ct/browser/MAIN/2025-03-01/concepts/194488006",
+    "error": "HTTPError: HTTP Error 423: "
+  },
+  {
+    "file": "snomed_lookup_config.html",
+    "url": "https://lookup.snomedtools.org/",
+    "error": "HTTPError: HTTP Error 423: "
+  }
+]

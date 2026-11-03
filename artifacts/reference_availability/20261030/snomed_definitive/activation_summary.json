@@ -1,0 +1,26 @@
+{
+  "source": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes definitive.csv",
+  "source_sha256": "2925788262144dc8bad27da140a84bac7e9e4aca85314aff8903c17a8fd077b2",
+  "identical_to_new_export": true,
+  "codes": 382170,
+  "blank_descriptions": 0,
+  "parquet": "data/codes/parquet/snomed_definitive_20261030/codes_SNOMEDCT_US.parquet",
+  "readable_csv": "data/codes/parquet/snomed_definitive_20261030/SNOMEDCT_US_imported.csv",
+  "embeddings_dir": "data/codes/embeddings/snomed_definitive_20261030",
+  "snomed_embeddings_generated": true,
+  "unchanged_embedding_caches_cloned": [
+    "data/codes/embeddings/snomed_definitive_20261030/embeddings_MDR_sentence-transformers_all-MiniLM-L6-v2.npz",
+    "data/codes/embeddings/snomed_definitive_20261030/embeddings_ICD10CM_sentence-transformers_all-MiniLM-L6-v2.npz",
+    "data/codes/embeddings/snomed_definitive_20261030/embeddings_ICPC_sentence-transformers_all-MiniLM-L6-v2.npz",
+    "data/codes/embeddings/snomed_definitive_20261030/embeddings_RCD2_sentence-transformers_all-MiniLM-L6-v2.npz",
+    "data/codes/embeddings/snomed_definitive_20261030/embeddings_ICD9CM_sentence-transformers_all-MiniLM-L6-v2.npz"
+  ],
+  "protected_original_files_verified": 29,
+  "verification": {
+    "targeted_tests_passed": 20,
+    "unchanged_subset_reuse_test_passed": true,
+    "protected_original_files_unchanged": 29,
+    "external_model_calls": 0
+  },
+  "embedding_build_summary": "artifacts/reference_availability/20261030/snomed_definitive/embedding_build_summary.json"
+}

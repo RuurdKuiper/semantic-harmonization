@@ -40,7 +40,7 @@ dist/
 *.log
 
 # Pipeline caches/outputs (regenerated from source CSVs and EDF YAMLs)
-data/codes/parquet/*.parquet
+data/codes/parquet/
 data/codes/embeddings/
 results/
 

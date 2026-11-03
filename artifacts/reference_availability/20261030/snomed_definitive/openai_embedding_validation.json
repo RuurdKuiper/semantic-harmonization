@@ -1,0 +1,10 @@
+{
+  "model": "text-embedding-3-large",
+  "rows": 382170,
+  "dimensions": 3072,
+  "cache": "data/codes/embeddings/snomed_definitive_20261030/embeddings_SNOMEDCT_US_openai_text-embedding-3-large_3072.npz",
+  "metadata_matches_current_corpus": true,
+  "all_vectors_finite_and_normalized": true,
+  "all_saved_vectors_match_checkpoint": true,
+  "cache_reload_without_rebuilding": true
+}

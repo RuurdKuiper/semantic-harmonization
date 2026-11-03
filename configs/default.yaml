@@ -4,8 +4,9 @@ verbose: true
 
 paths:
   edf_dir: data/edfs/yamls
-  codes_parquet_dir: data/codes/parquet
-  embeddings_dir: data/codes/embeddings
+  # Keep the original study caches in their existing folders.
+  codes_parquet_dir: data/codes/parquet/snomed_definitive_20261030
+  embeddings_dir: data/codes/embeddings/snomed_definitive_20261030
   results_dir: results
   aesi_datasets:
     acute_disseminated_encephalomyelitis: data/codelists/AESI/Ref-N_ADEM_AESI.csv
@@ -22,7 +23,7 @@ paths:
     ICPC: data/codes/csv/ICPC@1993-codes.csv
     MDR: data/codes/csv/MDR@28.0-codes.csv
     RCD2: data/codes/csv/RCD2@20200401-codes.csv
-    SNOMEDCT_US: data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv
+    SNOMEDCT_US: data/codes/csv/SNOMEDCT_US@2025_09_01-codes definitive.csv
 
 retrieval:
   lexical_weight: 0.1

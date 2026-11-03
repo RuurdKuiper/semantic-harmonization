@@ -9,8 +9,8 @@ import yaml
 @dataclass
 class PathsConfig:
     edf_dir: str = "data/edfs/yamls"
-    codes_parquet_dir: str = "data/codes/parquet"
-    embeddings_dir: str = "data/codes/embeddings"
+    codes_parquet_dir: str = "data/codes/parquet/snomed_definitive_20261030"
+    embeddings_dir: str = "data/codes/embeddings/snomed_definitive_20261030"
     results_dir: str = "results"
     aesi_datasets: dict[str, str] = field(default_factory=dict)
     code_systems: dict[str, str] = field(
@@ -20,7 +20,7 @@ class PathsConfig:
             "ICPC": "data/codes/csv/ICPC@1993-codes.csv",
             "MDR": "data/codes/csv/MDR@28.0-codes.csv",
             "RCD2": "data/codes/csv/RCD2@20200401-codes.csv",
-            "SNOMEDCT_US": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv",
+            "SNOMEDCT_US": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes definitive.csv",
         }
     )
 

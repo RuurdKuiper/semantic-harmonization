@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import csv
+from io import StringIO
+
 import pandas as pd
 import pytest
 
@@ -59,3 +62,33 @@ def test_load_code_system_corpus_caches_to_parquet(tmp_path):
     # Second call should read from cache (fast path) and return identical data.
     cached_codes = load_code_system_corpus(["ICD10CM", "ICPC"], cache_dir=cache_dir)
     pd.testing.assert_frame_equal(codes.reset_index(drop=True), cached_codes.reset_index(drop=True))
+
+
+def test_snomed_excel_wrapping_preserves_punctuation_and_full_term(tmp_path):
+    path = tmp_path / "snomed new.csv"
+    expected = [
+        ("10011003", "Absolute refractory period, nerve cell (finding)"),
+        ("1148906001", "Acute myeloid leukemia with t(8;21)(q22;q22)"),
+        ("1153377008", 'Finding with "quoted" text, t(9;22); BCR-ABL1'),
+    ]
+    with path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.writer(handle, delimiter=";")
+        writer.writerow(["code,term", "", "", ""])
+        for code, term in expected:
+            inner = StringIO()
+            csv.writer(inner, lineterminator="").writerow([code, term])
+            writer.writerow([inner.getvalue(), "", "", ""])
+        # The observed export also splits genuine semicolons across outer cells.
+        writer.writerow(["123,Term with t(8", "21)(q22", "q22)", ""])
+        writer.writerow(["456,", "", "", ""])
+
+    frame = load_snomedct_full(path)
+    assert list(zip(frame.code, frame.description)) == expected + [("123", "Term with t(8;21)(q22;q22)")]
+    assert set(frame.vocabulary) == {"SNOMEDCT_US"}
+
+
+def test_snomed_excel_wrapping_rejects_malformed_inner_record(tmp_path):
+    path = tmp_path / "malformed.csv"
+    path.write_text('code,term;;;\n123,unquoted,extra;;;\n')
+    with pytest.raises(ValueError, match="Expected code and term"):
+        load_snomedct_full(path)

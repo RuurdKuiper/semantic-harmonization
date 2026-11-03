@@ -10,6 +10,7 @@ is cached to disk as Parquet so the source file only needs to be parsed once.
 
 from __future__ import annotations
 
+import csv
 from pathlib import Path
 
 import pandas as pd
@@ -21,7 +22,7 @@ DEFAULT_CODE_SYSTEM_PATHS = {
     "ICPC": "data/codes/csv/ICPC@1993-codes.csv",
     "MDR": "data/codes/csv/MDR@28.0-codes.csv",
     "RCD2": "data/codes/csv/RCD2@20200401-codes.csv",
-    "SNOMEDCT_US": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv",
+    "SNOMEDCT_US": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes definitive.csv",
 }
 
 
@@ -133,6 +134,50 @@ def load_rcd2_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["RCD2"]) -> 
 
 
 def load_snomedct_full(csv_path: str | Path = DEFAULT_CODE_SYSTEM_PATHS["SNOMEDCT_US"]) -> pd.DataFrame:
+    path = Path(csv_path)
+    if not path.exists():
+        raise FileNotFoundError(f"Full SNOMEDCT_US code list not found: {path}")
+
+    # Excel can wrap each original comma-delimited record in a semicolon-
+    # delimited sheet. Decode the outer quoting before the original CSV quoting.
+    # Terms containing semicolons may occupy more than one outer cell, so join
+    # those cells back together rather than truncating the term at the first one.
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.reader(handle, delimiter=";")
+        header = next(reader, [])
+        inner_header = next(csv.reader([header[0]]), []) if header else []
+        wrapped = (
+            len(header) > 1
+            and len(inner_header) == 2
+            and inner_header[0].strip().lower() == "code"
+            and inner_header[1].strip().lower() in {"term", "description"}
+            and not any(cell.strip() for cell in header[1:])
+        )
+        if wrapped:
+            rows = []
+            for row in reader:
+                if not row or not any(cell.strip() for cell in row):
+                    continue
+                record = ";".join(row).rstrip(";")
+                try:
+                    fields = next(csv.reader([record], strict=True))
+                except csv.Error as exc:
+                    raise ValueError(
+                        f"Malformed nested SNOMED CSV at source line {reader.line_num}"
+                    ) from exc
+                if len(fields) != 2:
+                    raise ValueError(
+                        f"Expected code and term at SNOMED source line {reader.line_num}"
+                    )
+                code, description = (value.strip() for value in fields)
+                if code and description:
+                    rows.append((code, description))
+            if not rows:
+                raise ValueError(f"No rows loaded from {path}")
+            frame = pd.DataFrame(rows, columns=["code", "description"])
+            frame["vocabulary"] = "SNOMEDCT_US"
+            return frame.drop_duplicates(subset=["code", "vocabulary"], keep="first").reset_index(drop=True)
+
     return _load_two_column_text(csv_path, vocabulary="SNOMEDCT_US", delimiter=",")
 
 
@@ -149,7 +194,7 @@ CODE_SYSTEM_LOADERS = {
 def load_code_system_corpus(
     vocabularies: list[str],
     source_paths: dict[str, str] | None = None,
-    cache_dir: str | Path = "data/codes/parquet",
+    cache_dir: str | Path = "data/codes/parquet/snomed_definitive_20261030",
 ) -> pd.DataFrame:
     """Load (and cache) the full reference code corpus for the given vocabularies.
 

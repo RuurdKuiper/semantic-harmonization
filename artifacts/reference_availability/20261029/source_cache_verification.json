@@ -1,0 +1,56 @@
+[
+  {
+    "terminology": "ICD10CM",
+    "source": "data/codes/csv/ICD10CM@2026-codes.csv",
+    "source_sha256": "2b579d1fada2d5cf3eb96f59e71eb8326d3375144301ba27ffd62c0a561250db",
+    "cache": "data/codes/parquet/codes_ICD10CM.parquet",
+    "cache_sha256": "0475c5ab1c3b27f54b95cf84e7e636a92ba56ef5e422cc421a84d4a75fc9e07f",
+    "fresh_parse_equals_frozen_cache": true,
+    "parsed_rows": 98506
+  },
+  {
+    "terminology": "ICD9CM",
+    "source": "data/codes/csv/ICD9CM@2014-codes.csv",
+    "source_sha256": "69907b27b5fe085325e075b96f3854465068563a00d1568ec215f121afd5f7f3",
+    "cache": "data/codes/parquet/codes_ICD9CM.parquet",
+    "cache_sha256": "7336fa7fe9757acba3d351814ef63d5a03cc96fb27ee9a889bbc1ea4568603c1",
+    "fresh_parse_equals_frozen_cache": true,
+    "parsed_rows": 22406
+  },
+  {
+    "terminology": "ICPC",
+    "source": "data/codes/csv/ICPC@1993-codes.csv",
+    "source_sha256": "d8655cd1f0e00f60ed9af89e5c97c705817697c0a42363cc0d9d8ee11a87ff8d",
+    "cache": "data/codes/parquet/codes_ICPC.parquet",
+    "cache_sha256": "437d1af7a90cf67a2ecaf3a1a2157cdaa6130fc696bb6e462b92519e0b80bbb4",
+    "fresh_parse_equals_frozen_cache": true,
+    "parsed_rows": 740
+  },
+  {
+    "terminology": "MDR",
+    "source": "data/codes/csv/MDR@28.0-codes.csv",
+    "source_sha256": "9d099ed545f7c5df8535fbba2e458ebd08f4b46b6b0a6e8de355b331d62ab06e",
+    "cache": "data/codes/parquet/codes_MDR.parquet",
+    "cache_sha256": "434e9c1921e925cb27340ed5af8cd885682b916d2d8c17d716922bc74e556d04",
+    "fresh_parse_equals_frozen_cache": true,
+    "parsed_rows": 28889
+  },
+  {
+    "terminology": "RCD2",
+    "source": "data/codes/csv/RCD2@20200401-codes.csv",
+    "source_sha256": "f3e77513ea89c4e23748034b2c396fe97a5765c473db48eb76f25f851f91304c",
+    "cache": "data/codes/parquet/codes_RCD2.parquet",
+    "cache_sha256": "f972e7ab1a0fc5e6b8a9d33873b0df34ecb55aa83df8cfd8823630a48fcde61b",
+    "fresh_parse_equals_frozen_cache": true,
+    "parsed_rows": 89616
+  },
+  {
+    "terminology": "SNOMEDCT_US",
+    "source": "data/codes/csv/SNOMEDCT_US@2025_09_01-codes.csv",
+    "source_sha256": "176b85738be2cbe527a057561478dcf3ef8153985e817fabea670b16f4ac5c4d",
+    "cache": "data/codes/parquet/codes_SNOMEDCT_US.parquet",
+    "cache_sha256": "ceed498117380143e046298f835d9c4dcc03ad52f326cb680bd1711482948d17",
+    "fresh_parse_equals_frozen_cache": true,
+    "parsed_rows": 384620
+  }
+]

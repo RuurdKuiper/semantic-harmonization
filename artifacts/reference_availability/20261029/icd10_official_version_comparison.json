@@ -1,0 +1,65 @@
+[
+  {
+    "official_year": 2025,
+    "official_codes": 97584,
+    "local_codes": 98506,
+    "official_missing_from_local": 12,
+    "local_codes_not_in_official": 934,
+    "sample_official_only": [
+      "S301XXA",
+      "S301XXD",
+      "S301XXS",
+      "T7807XA",
+      "T7807XD",
+      "T7807XS",
+      "T7808XA",
+      "T7808XD",
+      "T7808XS",
+      "T781XXA",
+      "T781XXD",
+      "T781XXS"
+    ],
+    "sample_local_only": [
+      "A00-A09",
+      "A00-B99",
+      "A15-A19",
+      "A20-A28",
+      "A30-A49",
+      "A50-A64",
+      "A65-A69",
+      "A70-A74",
+      "A75-A79",
+      "A80-A89",
+      "A90-A99",
+      "B00-B09",
+      "B10-B10",
+      "B15-B19",
+      "B20-B20"
+    ]
+  },
+  {
+    "official_year": 2026,
+    "official_codes": 98186,
+    "local_codes": 98506,
+    "official_missing_from_local": 0,
+    "local_codes_not_in_official": 320,
+    "sample_official_only": [],
+    "sample_local_only": [
+      "A00-A09",
+      "A00-B99",
+      "A15-A19",
+      "A20-A28",
+      "A30-A49",
+      "A50-A64",
+      "A65-A69",
+      "A70-A74",
+      "A75-A79",
+      "A80-A89",
+      "A90-A99",
+      "B00-B09",
+      "B10-B10",
+      "B15-B19",
+      "B20-B20"
+    ]
+  }
+]

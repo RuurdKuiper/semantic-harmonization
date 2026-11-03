@@ -1,0 +1,6 @@
+{
+  "data/codes/embeddings/embeddings_SNOMEDCT_US_sentence-transformers_all-MiniLM-L6-v2.npz": "c6e7551981a94871722e3a868c51ed33a95018144e968366267ba0dce99f8b12",
+  "data/codes/embeddings/openai_text-embedding-3-large_3072_resumable/SNOMEDCT_US/rows.parquet": "e3ad03d928dc587b2cd4e9b65d8b8e78e6834b2c3d2e2ff8357fbab6e0bc3e52",
+  "data/codes/embeddings/openai_text-embedding-3-large_3072_resumable/SNOMEDCT_US/vectors.npy": "930f01b0f9f366bf2c0dd7943786f838d84118ee006c148a2810c1d4b82b382f",
+  "data/codes/embeddings/openai_text-embedding-3-large_3072_resumable/SNOMEDCT_US/state.json": "a14b0a086ad30018012c312cb391f76aef92074fa4ad0a03c52e1a2e43c71ca2"
+}

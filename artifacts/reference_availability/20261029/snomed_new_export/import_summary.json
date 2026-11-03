@@ -1,0 +1,90 @@
+{
+  "old_codes": 384620,
+  "new_codes": 382170,
+  "added_codes": 0,
+  "removed_codes": 2450,
+  "changed_selected_descriptions": 199267,
+  "reference_coverage": [
+    {
+      "phenotype": "acute_disseminated_encephalomyelitis",
+      "snomed_reference_narrow": 5,
+      "available_old": 2,
+      "available_new": 2,
+      "unavailable_old": 3,
+      "unavailable_new": 3,
+      "recovered": 0,
+      "newly_unavailable": 0
+    },
+    {
+      "phenotype": "acute_myocardial_infarction",
+      "snomed_reference_narrow": 68,
+      "available_old": 52,
+      "available_new": 52,
+      "unavailable_old": 16,
+      "unavailable_new": 16,
+      "recovered": 0,
+      "newly_unavailable": 0
+    },
+    {
+      "phenotype": "eczema_vaccinatum",
+      "snomed_reference_narrow": 3,
+      "available_old": 2,
+      "available_new": 2,
+      "unavailable_old": 1,
+      "unavailable_new": 1,
+      "recovered": 0,
+      "newly_unavailable": 0
+    },
+    {
+      "phenotype": "erythema_multiforme",
+      "snomed_reference_narrow": 33,
+      "available_old": 21,
+      "available_new": 21,
+      "unavailable_old": 12,
+      "unavailable_new": 12,
+      "recovered": 0,
+      "newly_unavailable": 0
+    },
+    {
+      "phenotype": "guillain_barre",
+      "snomed_reference_narrow": 16,
+      "available_old": 11,
+      "available_new": 11,
+      "unavailable_old": 5,
+      "unavailable_new": 5,
+      "recovered": 0,
+      "newly_unavailable": 0
+    },
+    {
+      "phenotype": "kidney_disease",
+      "snomed_reference_narrow": 2108,
+      "available_old": 1766,
+      "available_new": 1765,
+      "unavailable_old": 342,
+      "unavailable_new": 343,
+      "recovered": 0,
+      "newly_unavailable": 1
+    },
+    {
+      "phenotype": "myocarditis",
+      "snomed_reference_narrow": 114,
+      "available_old": 83,
+      "available_new": 83,
+      "unavailable_old": 31,
+      "unavailable_new": 31,
+      "recovered": 0,
+      "newly_unavailable": 0
+    },
+    {
+      "phenotype": "type_1_diabetes",
+      "snomed_reference_narrow": 148,
+      "available_old": 112,
+      "available_new": 112,
+      "unavailable_old": 36,
+      "unavailable_new": 36,
+      "recovered": 0,
+      "newly_unavailable": 0
+    }
+  ],
+  "imported_parquet": "artifacts/reference_availability/20261029/snomed_new_export/parquet/codes_SNOMEDCT_US.parquet"
+}

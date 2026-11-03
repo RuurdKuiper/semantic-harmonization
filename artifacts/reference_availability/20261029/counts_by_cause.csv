@@ -1,0 +1,7 @@
+vocabulary,diagnosis,reference_entries
+ICD9CM,reference_code_absent_from_official_CMS_diagnosis_list,1
+ICPC,Dutch_ICPC_subcode_absent_from_base_export,3
+ICPC,ICPC2_code_absent_from_1993_export,1
+MDR,code_present_but_description_empty,443
+SNOMEDCT_US,UK_namespace_code_absent_from_US_export,31
+SNOMEDCT_US,code_present_but_description_empty,415

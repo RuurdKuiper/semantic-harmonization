@@ -272,24 +272,39 @@ per_vocabulary_top_k = st.checkbox(
 
 
 @st.cache_resource(show_spinner="Loading code system corpus...")
-def _load_corpus(vocabularies: tuple[str, ...]) -> pd.DataFrame:
+def _load_corpus_cached(
+    vocabularies: tuple[str, ...],
+    source_paths: tuple[tuple[str, str], ...],
+    cache_dir: str,
+) -> pd.DataFrame:
     raw_codes = load_code_system_corpus(
         list(vocabularies),
-        source_paths=CONFIG.paths.code_systems,
-        cache_dir=CONFIG.paths.codes_parquet_dir,
+        source_paths=dict(source_paths),
+        cache_dir=cache_dir,
     )
     return preprocess_corpus(raw_codes)
 
 
+def _load_corpus(vocabularies: tuple[str, ...]) -> pd.DataFrame:
+    return _load_corpus_cached(
+        vocabularies,
+        tuple(sorted(CONFIG.paths.code_systems.items())),
+        CONFIG.paths.codes_parquet_dir,
+    )
+
+
 @st.cache_resource(show_spinner="Building/loading embedding index (only happens once per corpus)...")
-def _load_embedding_index(
+def _load_embedding_index_cached(
     vocabularies: tuple[str, ...],
     provider: str,
     model_name: str,
     dimensions: int | None,
     batch_size: int,
+    source_paths: tuple[tuple[str, str], ...],
+    corpus_cache_dir: str,
+    embedding_cache_dir: str,
 ) -> EmbeddingIndex:
-    codes = _load_corpus(vocabularies)
+    codes = _load_corpus_cached(vocabularies, source_paths, corpus_cache_dir)
     model = create_embedding_model(
         provider,
         model_name,
@@ -299,11 +314,26 @@ def _load_embedding_index(
     return EmbeddingIndex.load_for_vocabularies(
         codes,
         vocabularies=vocabularies,
-        cache_dir=CONFIG.paths.embeddings_dir,
+        cache_dir=embedding_cache_dir,
         model_name=model_name,
         model=model,
         provider=provider,
         dimensions=dimensions,
+    )
+
+
+def _load_embedding_index(
+    vocabularies: tuple[str, ...],
+    provider: str,
+    model_name: str,
+    dimensions: int | None,
+    batch_size: int,
+) -> EmbeddingIndex:
+    return _load_embedding_index_cached(
+        vocabularies, provider, model_name, dimensions, batch_size,
+        tuple(sorted(CONFIG.paths.code_systems.items())),
+        CONFIG.paths.codes_parquet_dir,
+        CONFIG.paths.embeddings_dir,
     )
 
 
@@ -668,6 +698,39 @@ if st.session_state.gpt_review_run is not None:
         f"{review_run.narrow_to_exclude:,} Narrow→Exclude "
         f"(reasoning: {getattr(review_run, 'reasoning_effort', 'not recorded')})."
     )
+    reviewed_keys = {
+        (item.code, item.vocabulary)
+        for item in select_gpt_review_candidates(
+            stage2_classified,
+            confidence_threshold=review_run.confidence_threshold,
+            max_candidates=review_run.max_candidates,
+        )
+    }
+    original_by_key = {(item.code, item.vocabulary): item for item in stage2_classified}
+    reviewed_df = classified_df.copy()
+    reviewed_df["explanation"] = reviewed_df["explanation"].str.replace(
+        r"^GPT review of low-confidence stage-2 result \(previous label=[^,]+, confidence=[^)]+\)\.\s*",
+        "",
+        regex=True,
+    )
+    decision_keys = list(zip(reviewed_df["code"], reviewed_df["vocabulary"]))
+    reviewed_df["reviewed_by_gpt"] = [key in reviewed_keys for key in decision_keys]
+    reviewed_df["previous_label"] = [original_by_key[key].label for key in decision_keys]
+    reviewed_df["previous_confidence"] = [original_by_key[key].confidence for key in decision_keys]
+    reviewed_df["label_changed"] = reviewed_df["label"] != reviewed_df["previous_label"]
+
+    st.caption(
+        "Labels, confidence scores and explanations below reflect the completed GPT review. "
+        "Previous values show the initial classification."
+    )
+    show_only_gpt_reviewed = st.checkbox(
+        "Show only GPT-reviewed decisions",
+        value=True,
+        key="show_only_gpt_reviewed",
+    )
+    if show_only_gpt_reviewed:
+        reviewed_df = reviewed_df[reviewed_df["reviewed_by_gpt"]]
+    st.dataframe(reviewed_df, width='stretch', hide_index=True)
 
 st.divider()
 

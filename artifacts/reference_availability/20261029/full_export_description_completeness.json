@@ -1,0 +1,109 @@
+[
+  {
+    "source": "ICD10CM@2026-codes.csv",
+    "source_sha256": "2b579d1fada2d5cf3eb96f59e71eb8326d3375144301ba27ffd62c0a561250db",
+    "raw_code_rows": 98506,
+    "unique_code_identifiers": 98506,
+    "blank_description_rows": 0,
+    "unique_codes_without_any_description": 0,
+    "unique_codes_with_description": 98506,
+    "codes_with_both_blank_and_populated_rows": 0,
+    "percent_unique_codes_without_description": 0.0,
+    "examples_without_description": []
+  },
+  {
+    "source": "ICD9CM@2014-codes.csv",
+    "source_sha256": "69907b27b5fe085325e075b96f3854465068563a00d1568ec215f121afd5f7f3",
+    "raw_code_rows": 22406,
+    "unique_code_identifiers": 22406,
+    "blank_description_rows": 0,
+    "unique_codes_without_any_description": 0,
+    "unique_codes_with_description": 22406,
+    "codes_with_both_blank_and_populated_rows": 0,
+    "percent_unique_codes_without_description": 0.0,
+    "examples_without_description": []
+  },
+  {
+    "source": "ICPC@1993-codes.csv",
+    "source_sha256": "d8655cd1f0e00f60ed9af89e5c97c705817697c0a42363cc0d9d8ee11a87ff8d",
+    "raw_code_rows": 777,
+    "unique_code_identifiers": 747,
+    "blank_description_rows": 7,
+    "unique_codes_without_any_description": 7,
+    "unique_codes_with_description": 740,
+    "codes_with_both_blank_and_populated_rows": 0,
+    "percent_unique_codes_without_description": 0.94,
+    "examples_without_description": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  },
+  {
+    "source": "MDR@28.0-codes.csv",
+    "source_sha256": "9d099ed545f7c5df8535fbba2e458ebd08f4b46b6b0a6e8de355b331d62ab06e",
+    "raw_code_rows": 92257,
+    "unique_code_identifiers": 92107,
+    "blank_description_rows": 63218,
+    "unique_codes_without_any_description": 63218,
+    "unique_codes_with_description": 28889,
+    "codes_with_both_blank_and_populated_rows": 0,
+    "percent_unique_codes_without_description": 68.64,
+    "examples_without_description": [
+      "10000001",
+      "10000003",
+      "10000004",
+      "10000006",
+      "10000008",
+      "10000010",
+      "10000012",
+      "10000015"
+    ]
+  },
+  {
+    "source": "RCD2@20200401-codes.csv",
+    "source_sha256": "f3e77513ea89c4e23748034b2c396fe97a5765c473db48eb76f25f851f91304c",
+    "raw_code_rows": 89676,
+    "unique_code_identifiers": 89676,
+    "blank_description_rows": 60,
+    "unique_codes_without_any_description": 60,
+    "unique_codes_with_description": 89616,
+    "codes_with_both_blank_and_populated_rows": 0,
+    "percent_unique_codes_without_description": 0.07,
+    "examples_without_description": [
+      "13m0.",
+      "13m1.",
+      "13m2.",
+      "13m3.",
+      "98BY.",
+      "98BZ.",
+      "98Ba.",
+      "98Bb."
+    ]
+  },
+  {
+    "source": "SNOMEDCT_US@2025_09_01-codes.csv",
+    "source_sha256": "176b85738be2cbe527a057561478dcf3ef8153985e817fabea670b16f4ac5c4d",
+    "raw_code_rows": 971688,
+    "unique_code_identifiers": 532287,
+    "blank_description_rows": 147667,
+    "unique_codes_without_any_description": 147667,
+    "unique_codes_with_description": 384620,
+    "codes_with_both_blank_and_populated_rows": 0,
+    "percent_unique_codes_without_description": 27.74,
+    "examples_without_description": [
+      "100000000",
+      "1000004",
+      "100001001",
+      "100002008",
+      "100003003",
+      "100004009",
+      "100005",
+      "100005005"
+    ]
+  }
+]

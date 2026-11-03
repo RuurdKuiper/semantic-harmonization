@@ -1,0 +1,895 @@
+phenotype,vocabulary,reference_code,normalised_code,description,is_range,raw_source_rows,nonempty_raw_descriptions,raw_descriptions,cause
+type_1_diabetes,ICD9CM,260.61,260.61,Diabetes type 1,False,0,0,,code_absent_from_raw_export
+guillain_barre,ICPC,N94.01,N94.01,Syndroom van Guillain-Barré,False,0,0,,code_absent_from_raw_export
+kidney_disease,ICPC,U99.01,U99.01,Renal impairment/renal impairment,False,0,0,,code_absent_from_raw_export
+type_1_diabetes,ICPC,T89,T89,Diabetes insulin dependent,False,0,0,,code_absent_from_raw_export
+type_1_diabetes,ICPC,T90.01,T90.01,Diabetes mellitus type 1,False,0,0,,code_absent_from_raw_export
+acute_myocardial_infarction,MDR,10000920,10000920,"Acute myocardial infarction, subendocardial infarction",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000926,10000926,"Acute myocardial infarction, true posterior wall infarction, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000916,10000916,"Acute myocardial infarction, of other specified sites",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000922,10000922,"Acute myocardial infarction, subendocardial infarction, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000925,10000925,"Acute myocardial infarction, true posterior wall infarction, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000910,10000910,"Acute myocardial infarction, of other inferior wall, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000909,10000909,"Acute myocardial infarction, of other inferior wall, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000908,10000908,"Acute myocardial infarction, of other inferior wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000914,10000914,"Acute myocardial infarction, of other lateral wall, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000913,10000913,"Acute myocardial infarction, of other lateral wall, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000912,10000912,"Acute myocardial infarction, of other lateral wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000902,10000902,"Acute myocardial infarction, of inferoposterior wall, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000901,10000901,"Acute myocardial infarction, of inferoposterior wall, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000930,10000930,"Acute myocardial infarction, unspecified site, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000918,10000918,"Acute myocardial infarction, of other specified sites, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000917,10000917,"Acute myocardial infarction, of other specified sites, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10066546,10066546,Acute antero septal myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000900,10000900,"Acute myocardial infarction, of inferoposterior wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000896,10000896,"Acute myocardial infarction, of inferolateral wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000906,10000906,"Acute myocardial infarction, of other anterior wall, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000905,10000905,"Acute myocardial infarction, of other anterior wall, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000904,10000904,"Acute myocardial infarction, of other anterior wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000898,10000898,"Acute myocardial infarction, of inferolateral wall, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000897,10000897,"Acute myocardial infarction, of inferolateral wall, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000921,10000921,"Acute myocardial infarction, subendocardial infarction, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000894,10000894,"Acute myocardial infarction, of anterolateral wall, initial episode of care",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000893,10000893,"Acute myocardial infarction, of anterolateral wall, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000892,10000892,"Acute myocardial infarction, of anterolateral wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10028597,10028597,Myocardial infarction acute,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000928,10000928,"Acute myocardial infarction, unspecified site",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000929,10000929,"Acute myocardial infarction, unspecified site, episode of care unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10067273,10067273,Acute transmural myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10066645,10066645,Acute myocardial reinfarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10066641,10066641,"Acute myocardial infarction, of anterior wall",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10079262,10079262,Acute myocardial infarction type 1,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,MDR,10000924,10000924,"Acute myocardial infarction, true posterior wall infarction",False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10015221,10015221,Erythema multiforme minor,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10006561,10006561,Bullous erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10015211,10015211,Erythema exudativum multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10015219,10015219,Erythema multiforme exudativum,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10015209,10015209,Erythema exsudativum multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10014493,10014493,EM,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10087609,10087609,Oral erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,MDR,10015220,10015220,Erythema multiforme major,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,MDR,10087910,10087910,AIDP,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,MDR,10067898,10067898,Acute inflammatory demyelinating polyradiculoneuropathy,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,MDR,10067604,10067604,Acute inflammatory demyelinating polyradiculopathy,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,MDR,10018766,10018766,Guillain Barre syndrome,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,MDR,10042812,10042812,Syndrome Guillain-Barre,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,MDR,10076684,10076684,Fisher syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10058124,10058124,Nephrogenic anemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10010139,10010139,"Complete disruption of kidney parenchyma, with open wound into cavity",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10082589,10082589,Obstructive pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001048,10001048,Acute renal failure with lesion of renal medullary (papillary) necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018672,10018672,Granular cell carcinoma of the kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038458,10038458,Renal granular cell carcinoma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020681,10020681,Hypernephroma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038416,10038416,Renal clear cell carcinoma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10009251,10009251,Clear cell carcinoma of the kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038409,10038409,Renal cell carcinoma NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10072445,10072445,Grawitz tumour,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038407,10038407,Renal cell cancer,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10072444,10072444,Grawitz tumor,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001174,10001174,Adenocarcinoma of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038415,10038415,Renal cell carcinoma stage unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038401,10038401,Renal cell adenocarcinoma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10050440,10050440,Acute renal insufficiency,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020820,10020820,"Hypertensive heart and renal disease, unspecified, with congestive heart failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020838,10020838,"Hypertensive renal disease, unspecified, without mention of renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020821,10020821,"Hypertensive heart and renal disease, unspecified, with congestive heart failure and renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10022221,10022221,Injury to kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038473,10038473,Renal injury NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019437,10019437,"Hematoma of kidney, without rupture of capsule, with open wound into cavity",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023592,10023592,Laceration of kidney with open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10045971,10045971,Unspecified injury to kidney with open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10022222,10022222,Injury to kidney with open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023593,10023593,Laceration of kidney without mention of open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019015,10019015,Haemorrhagic nephrosonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10055301,10055301,Korean hemorrhagic fever,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10075020,10075020,Hemorrhagic fever with renal syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10062539,10062539,Puumala virus nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019606,10019606,Hemorrhagic nephrosonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023484,10023484,Korean haemorrhagic fever,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019142,10019142,Hanta virus infection (korean),False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10028481,10028481,Mycoplasmal pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10045224,10045224,Type 1 (distal) RTA,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10013478,10013478,Distal RTA,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10088489,10088489,Distal renal tubular acidosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10081476,10081476,Drug-induced kidney injury,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10067974,10067974,Automated peritoneal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10036047,10036047,"Polycystic kidney, autosomal recessive",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10032704,10032704,Other specified disorders resulting from impaired renal function,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029168,10029168,Nephrotic syndrome with lesion of minimal change glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029136,10029136,Nephritis interstitial chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008929,10008929,Chronic interstitial nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10022615,10022615,Interstitial nephritis chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10003188,10003188,Arteriovenous fistula creation,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10003854,10003854,AV fistula creation,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10060402,10060402,Nephropathy hypercalcaemic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10060485,10060485,Hypercalcemic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029152,10029152,Nephropathy hypercalcemic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10071875,10071875,Renal bleeding,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019557,10019557,Hemorrhage kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10055820,10055820,Haemorrhage kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038463,10038463,Renal hemorrhage,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037600,10037600,Pyelonephritis acute NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001032,10001032,Acute pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10048614,10048614,Glomerulosclerosis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10076412,10076412,Chronic kidney disease stage 5,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10082314,10082314,Diabetic glomerulopathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10024146,10024146,Legally induced abortion complicated by renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10024174,10024174,"Legally induced abortion, unspecified, complicated by renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10060885,10060885,Benign familial hematuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10012600,10012600,Diabetes insipidus nephrogenic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008888,10008888,Chronic glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10069039,10069039,TINU syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029135,10029135,Nephritis interstitial acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000819,10000819,Acute interstitial nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10022614,10022614,Interstitial nephritis acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029163,10029163,Nephrosis osmotic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10068155,10068155,Dialysis dementia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10076408,10076408,Chronic kidney disease stage 1,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001049,10001049,Acute renal failure with lesion of tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020837,10020837,"Hypertensive renal disease, unspecified, with renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020822,10020822,"Hypertensive heart and renal disease, unspecified, with renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10079502,10079502,Pauci-immune glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10052786,10052786,Masugi's nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037654,10037654,Pyonephrosis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10078096,10078096,CKD-MBD,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020472,10020472,HUS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10060422,10060422,Syndrome haemolytic uraemic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019515,10019515,Hemolytic uremic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018933,10018933,Haemolytic-uraemic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019516,10019516,Hemolytic-uremic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10042814,10042814,Syndrome hemolytic uremic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10065333,10065333,BK virus nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10069390,10069390,Ischemic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027104,10027104,Medullary sponge kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10089534,10089534,Cacchi-Ricci disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10041712,10041712,"Spontaneous abortion, incomplete, complicated by renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10063210,10063210,Transplant glomerulopathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10064116,10064116,Continuous ambulatory peritoneal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10007184,10007184,CAPD,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10033699,10033699,Papillary necrosis renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10033711,10033711,Papillitis renal necrotizing,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10033695,10033695,Papillary kidney necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038479,10038479,Renal medullary necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10028865,10028865,Necrosis kidney papillary,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10028876,10028876,Necrosis papillary kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038493,10038493,Renal papillitis necrotising,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10056221,10056221,Papillitis renal necrotising,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038494,10038494,Renal papillitis necrotizing,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10009119,10009119,Chronic renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023420,10023420,Kidney failure chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038444,10038444,Renal failure chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10014646,10014646,End stage renal disease (ESRD),False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10014647,10014647,End stage renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001051,10001051,"Acute renal failure, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001041,10001041,Acute renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038526,10038526,Renal shutdown acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038436,10038436,Renal failure acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000821,10000821,Acute kidney failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10016150,10016150,Failure kidney acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023419,10023419,Kidney failure acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10024963,10024963,Lower nephron nephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001099,10001099,Acute tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038541,10038541,Renal tubular necrosis acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029162,10029162,Nephrosis lower nephron,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023438,10023438,Kidney transplant,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10021851,10021851,"Infection of kidney, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10021895,10021895,Infections of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10021850,10021850,Infection of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023429,10023429,Kidney infection NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10066248,10066248,Nephronophthisis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038439,10038439,Renal failure acute ischemic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038438,10038438,Renal failure acute ischaemic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018874,10018874,Haemodialysed,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10019480,10019480,Hemodialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10060607,10060607,Hemodialyzed,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029154,10029154,Nephropathy NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10051051,10051051,Renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038429,10038429,Renal disorder NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029149,10029149,Nephropathies,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10013231,10013231,Disorder kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10013263,10013263,Disorder renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10051052,10051052,Kidney disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023414,10023414,Kidney cortex necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10028864,10028864,Necrosis kidney cortex,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10041703,10041703,"Spontaneous abortion, complete, complicated by renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10087425,10087425,HDR syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038355,10038355,Renal agenesis and dysgenesis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10045838,10045838,Unspecified disorder resulting from impaired renal function,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10013385,10013385,Disorders resulting from impaired renal function,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000707,10000707,Acute diffuse glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10063631,10063631,Chronic pyelitis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10089968,10089968,Granulomatous interstitial nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10009022,10009022,Chronic nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10012700,10012700,Dialysis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000790,10000790,Acute glomerulonephritis with lesion of proliferative glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008893,10008893,Chronic glomerulonephritis with lesion of rapidly progressive glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018379,10018379,Glomerulonephritis rapidly progressive chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10044861,10044861,"Tuberculosis of kidney, unspecified examination",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10044854,10044854,Tuberculosis of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038531,10038531,Renal TB,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020831,10020831,"Hypertensive renal disease, benign, with renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020833,10020833,"Hypertensive renal disease, malignant",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020830,10020830,"Hypertensive renal disease, benign",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020832,10020832,"Hypertensive renal disease, benign, without mention of renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10041694,10041694,Spontaneous abortion complicated by renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038489,10038489,Renal osteodystrophy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018363,10018363,Glomerulitis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038471,10038471,Renal infarction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038376,10038376,Renal artery embolism,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029143,10029143,Nephritis-glomerular,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018375,10018375,Glomerulonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10065581,10065581,Focal glomerulosclerosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10087691,10087691,APOL1-mediated focal segmental glomerulosclerosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10016832,10016832,Focal & segmental glomerulosclerosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027170,10027170,Membranous nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10009116,10009116,Chronic pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037602,10037602,Pyelonephritis chronic NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038448,10038448,Renal failure NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038449,10038449,Renal failure unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10016149,10016149,Failure kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023418,10023418,Kidney failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038450,10038450,"Renal failure, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018369,10018369,Glomerulonephritis focal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10069341,10069341,Berger's disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027168,10027168,Membranoproliferative glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027388,10027388,Mesangiocapillary glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10021365,10021365,Illegally induced abortion complicated by renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10021394,10021394,"Illegally induced abortion, unspecified, complicated by renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020810,10020810,"Hypertensive heart and renal disease, benign, with congestive heart failure and renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020811,10020811,"Hypertensive heart and renal disease, benign, with renal failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020809,10020809,"Hypertensive heart and renal disease, benign, with congestive heart failure",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037604,10037604,Pyelonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037606,10037606,"Pyelonephritis, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020808,10020808,"Hypertensive heart and renal disease, benign",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10074389,10074389,Xanthogranulomatous pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020807,10020807,Hypertensive heart and renal disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020819,10020819,"Hypertensive heart and renal disease, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020806,10020806,Hypertensive heart and renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10025602,10025602,Malignant hypertensive heart and renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020814,10020814,"Hypertensive heart and renal disease, malignant",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10080271,10080271,Stage 3 acute kidney injury,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10080266,10080266,Stage 1 acute kidney injury,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10076410,10076410,Chronic kidney disease stage 3,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10076409,10076409,Chronic kidney disease stage 2,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10016647,10016647,Fibrosis kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10010140,10010140,"Complete disruption of kidney parenchyma, without mention of open wound into cavity",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10022467,10022467,Insufficiency renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10021523,10021523,Impaired renal function,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038469,10038469,Renal impairment NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038474,10038474,Renal insufficiency,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10040622,10040622,Shutdown renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029156,10029156,Nephropathy tubular,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038539,10038539,Renal tubular disorder NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023442,10023442,Kidney tubule disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10013277,10013277,Disorder tubular kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023440,10023440,Kidney tubular disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020829,10020829,Hypertensive renal disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020836,10020836,"Hypertensive renal disease, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10020828,10020828,Hypertensive renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029153,10029153,Nephropathy hypertensive,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10012678,10012678,Diabetic nephropathy NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10012687,10012687,Diabetic renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10084917,10084917,Diabetic kidney disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10012638,10012638,Diabetes with renal manifestations,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10066351,10066351,Collecting duct renal cancer,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10073252,10073252,Carcinoma of the collecting ducts of Bellini,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001046,10001046,"Acute renal failure with delivery, with mention of postpartum complication",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001042,10001042,Acute renal failure following labor and delivery,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001045,10001045,Acute renal failure following labour and delivery,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001043,10001043,"Acute renal failure following labor and delivery, postpartum condition or complication",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008891,10008891,Chronic glomerulonephritis with lesion of membranous glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008890,10008890,Chronic glomerulonephritis with lesion of membranoproliferative glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10080269,10080269,Stage 2 acute kidney injury,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10004564,10004564,Bilateral hydronephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10064886,10064886,Renal medullary carcinoma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027103,10027103,Medullary cystic kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027102,10027102,Medullary cystic disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038446,10038446,Renal failure following abortion and ectopic and molar pregnancies,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10044238,10044238,Toxic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10044258,10044258,Toxicity renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10067571,10067571,Nephrotoxicity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018377,10018377,Glomerulonephritis proliferative chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10046504,10046504,Uric acid nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10011745,10011745,"Cyst of kidney, acquired",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10063417,10063417,Salt-losing nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10080174,10080174,Salt-losing nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10073600,10073600,Myeloma kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10018479,10018479,Glycosuria renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10046138,10046138,"Unspecified renal disease in pregnancy, without mention of hypertension",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10058205,10058205,Azotaemia of renal origin,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10058206,10058206,Azotaemia renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10003887,10003887,Azotemia of renal origin,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10003889,10003889,Azotemia renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000939,10000939,Acute nephritic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029118,10029118,Nephritis acute,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000940,10000940,Acute nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029172,10029172,Nephrotic syndrome with unspecified pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10091967,10091967,Glomerulopathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038525,10038525,"Renal sclerosis, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038524,10038524,Renal sclerosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10003214,10003214,Arteriosclerosis renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001031,10001031,Acute pyelitis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037586,10037586,"Pyelitis, acute",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000494,10000494,Acidosis renal tubular,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10039248,10039248,RTA,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038353,10038353,Renal acidosis tubular,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10054353,10054353,Chronic renal failure anemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10009120,10009120,Chronic renal failure anaemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029171,10029171,Nephrotic syndrome with other specified pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10042826,10042826,Syndrome nephrotic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10058325,10058325,Lipoid nephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10058326,10058326,Minimal change disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10027643,10027643,Minimal change glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10080893,10080893,Oxalate nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008917,10008917,Chronic hereditary nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029134,10029134,Nephritis interstitial,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10047986,10047986,Wilms tumour,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10047985,10047985,Wilms tumor,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10047987,10047987,Wilms' tumor,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10090284,10090284,Sclerosing glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10083793,10083793,Dense deposit disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10012347,10012347,Dependence on renal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10064758,10064758,Immune complex glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10076411,10076411,Chronic kidney disease stage 4,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038358,10038358,Renal and perinephric abscess,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10065144,10065144,Renal scarring,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10016148,10016148,Failure hepatorenal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10042815,10042815,Syndrome hepatorenal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029167,10029167,Nephrotic syndrome with lesion of membranous glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000794,10000794,Acute glomerulonephritis with unspecified pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000789,10000789,Acute glomerulonephritis in diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029166,10029166,Nephrotic syndrome with lesion of membranoproliferative glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000793,10000793,Acute glomerulonephritis with other specified pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000791,10000791,Acute glomerulonephritis with lesion of rapidly progressive glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10078248,10078248,Multicystic dysplastic kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000788,10000788,Acute glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10002195,10002195,Analgesic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10048747,10048747,Renal graft function delayed,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10042884,10042884,Syphilis of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10009122,10009122,Chronic renal impairment,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10050441,10050441,Chronic renal insufficiency,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10088267,10088267,Systemic primary carnitine deficiency,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029123,10029123,"Nephritis and nephropathy, not spec as acute or chronic, with lesion of renal medullary necrosis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029131,10029131,"Nephritis and nephropathy, not specified as acute or chronic, with lesion of renal cortical necrosis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029165,10029165,Nephrotic syndrome in diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008896,10008896,Chronic glomerulonephritis with unspecified pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008894,10008894,Chronic glomerulonephritis with other pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038440,10038440,Renal failure acute on chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000952,10000952,Acute on chronic renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008889,10008889,Chronic glomerulonephritis in diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10008895,10008895,Chronic glomerulonephritis with other specified pathological lesion in kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10083554,10083554,Malignant renal neoplasm,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023400,10023400,Kidney cancer,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000972,10000972,Acute papillary necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10036046,10036046,"Polycystic kidney, autosomal dominant",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10069671,10069671,Rupture of renal pelvis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10049051,10049051,Renal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10011379,10011379,Crescentic glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10073747,10073747,Hydrocalycosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029138,10029138,Nephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029121,10029121,Nephritis and nephropathy not specified as acute or chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029126,10029126,"Nephritis and nephropathy, not specified as acute or chronic",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029127,10029127,"Nephritis and nephropathy, not specified as acute or chronic, in diseases classified elsewhere",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10072914,10072914,Steroid-resistant nephrotic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10060740,10060740,Congenital nephrotic syndrome - finnish type,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10001047,10001047,Acute renal failure with lesion of renal cortical necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037082,10037082,Proximal RTA,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037080,10037080,Proximal renal tubular acidosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10086680,10086680,Chronic nephritic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10089276,10089276,Lupus-like nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10040970,10040970,SLE nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029141,10029141,Nephritis SLE,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10029142,10029142,Nephritis systemic lupus erythematosus,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10078903,10078903,Living donor renal transplant,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10046370,10046370,Uremia of renal origin,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10046321,10046321,Uraemia of renal origin,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10065937,10065937,Congenital small kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10080747,10080747,Congenital renal atrophy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038480,10038480,Renal metastases,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10039852,10039852,Secondary malignant neoplasm of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10028880,10028880,Necrosis tubular kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023443,10023443,Kidney tubule necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10028866,10028866,Necrosis kidney tubular,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023441,10023441,Kidney tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10045144,10045144,Tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10091619,10091619,Kidney laceration,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10039332,10039332,Ruptured kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10063904,10063904,Renal ischemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10000286,10000286,Abscess kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10023394,10023394,Kidney abscess,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038352,10038352,Renal abscess NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10037081,10037081,Proximal renal tubular dysfunction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038475,10038475,Renal interstitial fibrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,MDR,10038517,10038517,Renal pelvis cancer NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028613,10028613,Myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028619,10028619,"Myocarditis, unspecified",False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028609,10028609,Myocarditis due to toxoplasmosis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028611,10028611,Myocarditis interstitial,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10087741,10087741,Viral perimyocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028618,10028618,Myocarditis viral NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10001058,10001058,Acute rheumatic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10027277,10027277,Meningococcal myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10013027,10013027,Diphtheritic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10014800,10014800,Endomyocardial fibrosis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10031466,10031466,Other acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10031516,10031516,Other and unspecified acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10044235,10044235,Toxic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10040068,10040068,Septic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10021234,10021234,Idiopathic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10000933,10000933,Acute myocarditis in diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10000934,10000934,"Acute myocarditis, unspecified",False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10000932,10000932,Acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10014953,10014953,Eosinophilic endomyocardial disease,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028614,10028614,Myocarditis rheumatic,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10039066,10039066,Rheumatic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10001715,10001715,Allergic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028610,10028610,Myocarditis eosinophilic,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10028607,10028607,Myocarditis allergic,False,1,0,,raw_code_present_but_description_empty
+myocarditis,MDR,10042917,10042917,Syphilitic myocarditis,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10045237,10045237,Type I diabetes mellitus with unspecified complication,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10063623,10063623,Type I diabetes mellitus inadequate control,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10045234,10045234,Type I diabetes mellitus with other specified manifestations,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10022497,10022497,Insulin-dependent diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10045228,10045228,Type I diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10021211,10021211,IDDM,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10022482,10022482,Insulin dependent diabetic,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10012609,10012609,Diabetes mellitus juvenile onset,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10012608,10012608,Diabetes mellitus insulin-dependent,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10023253,10023253,Juvenile diabetes,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10085412,10085412,Immune-mediated diabetes,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10045230,10045230,Type I diabetes mellitus with ketoacidosis,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10091459,10091459,Type 1 diabetes mellitus stage 1,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10091458,10091458,Type 1 diabetes mellitus stage 2,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10091460,10091460,Type 1 diabetes mellitus stage 3,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10045235,10045235,Type I diabetes mellitus with peripheral circulatory disorders,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10012595,10012595,Diabetes brittle,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10006372,10006372,Brittle diabetes,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10045232,10045232,Type I diabetes mellitus with ophthalmic manifestations,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,MDR,10072583,10072583,Fulminant type I diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+acute_disseminated_encephalomyelitis,SNOMEDCT_US,194488006,194488006,"[X]Acute disseminated demyelination, unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_disseminated_encephalomyelitis,SNOMEDCT_US,192934005,192934005,"[X]Acute disseminated demyelination, unspecified",False,1,0,,raw_code_present_but_description_empty
+acute_disseminated_encephalomyelitis,SNOMEDCT_US,194451008,194451008,"[X]Other encephalitis, myelitis and encephalomyelitis",False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,195545006,195545006,[X]Acute transmural myocardial infarction of unspecified site,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,194807009,194807009,[X]Acute transmural myocardial infarction of unspecified site,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,194798004,194798004,Acute anteroapical infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,155319007,155319007,Acute Q wave myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,194805001,194805001,Acute Q wave myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,194796000,194796000,Cardiac rupture after acute myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,155304006,155304006,Acute myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,194811003,194811003,Acute myocardial infarction NOS,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,266288001,266288001,Acute myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,155321002,155321002,Acute non-Q wave infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,194803008,194803008,Acute non-Q wave infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,703326006,703326006,Mitral regurgitation due to acute myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,393588004,393588004,First myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,182761001,182761001,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,72977004,72977004,Acute myocardial infarction of atrium,False,1,0,,raw_code_present_but_description_empty
+acute_myocardial_infarction,SNOMEDCT_US,412771006,412771006,acute myocardial infarction of posterolateral wall (disorder),False,1,0,,raw_code_present_but_description_empty
+eczema_vaccinatum,SNOMEDCT_US,29821004,29821004,Eczema vaccinatum,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,81487000,81487000,Erythema iris,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,200926006,200926006,Non-bullous erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,200927002,200927002,Other specified erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,402971008,402971008,Erythema multiforme due to mycoplasma infection,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,156362004,156362004,Stevens-Johnson synd.,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,267848009,267848009,Stevens-Johnson synd.,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,238819008,238819008,Bullous erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,200919006,200919006,Erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,200928007,200928007,Erythema multiforme NOS,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,201381000,201381000,[X]Other erythema multiforme,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,95331002,95331002,Ocular-mucous membrane syndrome,False,1,0,,raw_code_present_but_description_empty
+erythema_multiforme,SNOMEDCT_US,403215006,403215006,Erythema multiforme/toxic epidermal necrolysis overlap,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,SNOMEDCT_US,267707000,267707000,Guillain-Barre syndrome,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,SNOMEDCT_US,155082001,155082001,Guillain-Barre syndrome,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,SNOMEDCT_US,26261000119109,26261000119109,Acute inflammatory demyelinating polyneuropathy,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,SNOMEDCT_US,230548007,230548007,Miller-Fisher variant of Guillain-Barre syndrome,False,1,0,,raw_code_present_but_description_empty
+guillain_barre,SNOMEDCT_US,193175006,193175006,Miller-Fisher variant of Guillain-Barre syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,175910004,175910004,Excision of rejected transplanted kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,26056000,26056000,Removal of rejected kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,223166002,223166002,[X]Foreign object accidentally left in body during kidney dialysis or other perfusion,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,25955005,25955005,Complete disruption of kidney parenchyma with open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,309819001,309819001,[X] Peritoneal dialysis associated peritonitis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,213116007,213116007,[X] Peritoneal dialysis associated peritonitis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,223178003,223178003,[X]Failure of sterile precautions during kidney dialysis or other perfusion,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,188251003,188251003,Hypernephroma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,431581000124100,431581000124100,Disease of renal parenchyma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,57333009,57333009,Alport's syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,269158000,269158000,Injury to kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,210209001,210209001,Ruptured kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,157343006,157343006,Injury of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,210206008,210206008,Kidney laceration with open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,210204006,210204006,"Kidney injury with open wound into cavity, unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,210208009,210208009,Kidney injury with open wound into cavity NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,210200002,210200002,Kidney laceration without mention of open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,1721000119108,1721000119108,Awaiting renal transplant,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266623004,266623004,Nephrolithiasis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,70826003,70826003,Epidemic hemorrhagic fever,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,102455002,102455002,Epidemic haemorrhagic fever,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,186701001,186701001,Haemorrhagic fever with renal syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204964001,204964001,Fibrocystic kidney disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,86210009,86210009,Classical renal tubular acidosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,216877000,216877000,"Accidental cut, puncture, perforation or haemorrhage during kidney dialysis or other perfusion",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,223155009,223155009,"[X]Unintentional cut, puncture, perforation or haemorrhage during kidney dialysis or other perfusion",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,8468007,8468007,Legal abortion with uraemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,20483002,20483002,Legal abortion with renal tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,52342006,52342006,Legal abortion with acute renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197592009,197592009,Nephrotic syndrome with minimal change glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266549004,266549004,Nephrotic syndrome with minimal change glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,191048009,191048009,[X]Unspecified diabetes mellitus with renal complications,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155862004,155862004,Acute pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266620001,266620001,Acute pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197771007,197771007,Acute pyelonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266617009,266617009,Glomerulosclerosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155858005,155858005,Glomerulosclerosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,444699000,444699000,Medullary cystic kidney disease type 1,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,60009009,60009009,Diabetic glomerulopathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,267470000,267470000,Kimmelstiel-Wilson synd,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,4576001,4576001,Legal abortion complicated by renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198695004,198695004,Unspecified legal abortion with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236421001,236421001,Benign familial haematuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,401111003,401111003,Type 2 diabetes mellitus with persistent proteinuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,123294004,123294004,Nephrogenic diabetes insipidus,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155852006,155852006,Nephritis - chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266614002,266614002,Nephritis - chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197612003,197612003,Nephritis - chronic,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197621002,197621002,Chronic glomerulonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197672006,197672006,Acute interstitial nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197716006,197716006,Isolated proteinuria with specified morphological lesion,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236497009,236497009,Familial gout with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197788000,197788000,Hydronephrosis with renal and ureteral calculous obstruction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204959000,204959000,"Medullary cystic disease, adult type",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,156974008,156974008,Congenital hydronephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,123641000119107,123641000119107,Malignant carcinoid tumor of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,713574000,713574000,Malignant carcinoid tumor of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,949921000000100,949921000000100,CKD with GFR category G3a & albuminuria category A2,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949621000000109,949621000000109,CKD with GFR category G2 & albuminuria category A2,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324441000000106,324441000000106,CKD stage 3B without proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950211000000107,950211000000107,CKD with GFR category G4 & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324121000000109,324121000000109,Chronic kidney disease stage 1 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949881000000106,949881000000106,CKD with GFR category G2 & albuminuria category A3,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324251000000105,324251000000105,Chronic kidney disease stage 3 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324311000000101,324311000000101,Chronic kidney disease stage 3A with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324501000000107,324501000000107,Chronic kidney disease stage 5 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324341000000100,324341000000100,Chronic kidney disease stage 3A with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949901000000109,949901000000109,CKD with GFR category G3a & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324151000000104,324151000000104,CKD stage 1 without proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950081000000107,950081000000107,CKD with GFR category G3b & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324181000000105,324181000000105,Chronic kidney disease stage 2 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324281000000104,324281000000104,Chronic kidney disease stage 3 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949421000000107,949421000000107,CKD with GFR category G1 & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324211000000106,324211000000106,CKD stage 2 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324471000000100,324471000000100,CKD stage 4 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950291000000103,950291000000103,CKD with GFR category G5 & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949401000000103,949401000000103,CKD with GFR category G1 & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950181000000106,950181000000106,CKD with GFR category G3b & albuminuria category A3,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324371000000106,324371000000106,Chronic kidney disease stage 3B with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950061000000103,950061000000103,CKD with GFR category G3a & albuminuria category A3,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950251000000106,950251000000106,CKD with GFR category G4 & albuminuria category A3,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949481000000108,949481000000108,CKD with GFR category G1 & albuminuria category A2,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324541000000105,324541000000105,CKD stage 5 with proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950101000000101,950101000000101,CKD with GFR category G3b & albuminuria category A2,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950231000000104,950231000000104,CKD with GFR category G4 & albuminuria category A3,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,324411000000105,324411000000105,Chronic kidney disease stage 3B without proteinuria,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,949561000000100,949561000000100,CKD with GFR category G2 & albuminuria category A1,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,950311000000102,950311000000102,CKD with GFR category G5 & albuminuria category A3,False,0,0,,code_absent_from_raw_export
+kidney_disease,SNOMEDCT_US,194774006,194774006,Hypertensive renal disease with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,698810000,698810000,Hypertensive renal disease with end stage renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197781006,197781006,Pyonephrosis unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,123308008,123308008,Haemolytic uraemic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,191269003,191269003,Anaemia secondary to renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204954005,204954005,Fibrocystic kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,29780007,29780007,Medullary cystic disease of the kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198747002,198747002,Incomplete illegal abortion with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198759003,198759003,Complete illegal abortion with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197651008,197651008,Acute renal medullary necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197654000,197654000,Chronic renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197655004,197655004,End stage renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155856009,155856009,Chronic renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197755007,197755007,End stage renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155855008,155855008,Acute renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197653006,197653006,Acute renal failure NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,122586001,122586001,Peritoneal dialysis fluid specimen,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,145370008,145370008,Peritoneal dialysate sample,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,1913007,1913007,Familial renal glucosuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197649009,197649009,Acute tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,149586006,149586006,Renal transplant,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,175904004,175904004,Transplantation of kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,151055004,151055004,Peritoneal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197785002,197785002,Infection of kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266618004,266618004,Infection - kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155865002,155865002,Infection of kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,151048001,151048001,Dialysis - renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,309432002,309432002,Haemodialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266809003,266809003,Dialysis - renal,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,27392003,27392003,Artificial kidney dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,274108006,274108006,Kidney disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266624005,266624005,Kidney &/or ureter disorder NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266627003,266627003,Renal disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,156978006,156978006,Alport's syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,205827004,205827004,Alport's syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197630005,197630005,Alport's syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204953004,204953004,Renal agenesis or dysgenesis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,268331005,268331005,Absent kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,156972007,156972007,Absent kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197577008,197577008,"Nephritis, nephrosis and nephrotic syndrome",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197758009,197758009,"Nephritis, nephrosis and nephrotic syndrome NOS",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155849003,155849003,"Nephritis, nephrosis and nephrotic syndrome",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197749002,197749002,Drug- and heavy-metal-induced tubulo-interstitial and tubular conditions,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197745008,197745008,Renal tubulo-interstitial disorders in systemic connective tissue disorders,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197744007,197744007,Renal tubulo-interstitial disorders in metabolic diseases,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197743001,197743001,Renal tubulo-interstitial disorders in blood diseases and disorders involving the immune mechanism,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,783157004,783157004,Infantile subacute necrotising encephalopathy with nephrotic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197742006,197742006,Renal tubulo-interstitial disorders in neoplastic diseases,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197751003,197751003,"Nephropathy induced by other drugs, medicaments and biological substances",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197738008,197738008,Glomerular disorders in neoplastic diseases,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197663003,197663003,Impaired renal function disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197674007,197674007,Impaired renal function disorder NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,69982006,69982006,Malarial nephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198506002,198506002,Renal tubulo-interstitial disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,28689008,28689008,Renal tubulo-interstitial disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198721006,198721006,Complete legal abortion with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197740003,197740003,Renal tubulo-interstitial disorders in diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198708004,198708004,Incomplete legal abortion with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197614002,197614002,Chronic rapidly progressive glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,24295008,24295008,Chronic non-obstructive atrophic pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,186235002,186235002,Tuberculous nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,186236001,186236001,Tuberculosis of kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198847005,198847005,Renal failure NOS following abortive pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,373916005,373916005,Renal failure NOS following abortive pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198841006,198841006,Renal failure following abortive pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,118951003,118951003,Drug-induced nephrogenic diabetes insipidus,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,707755000,707755000,Familial hypokalaemic and hypomagnesaemic tubulopathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197668007,197668007,Renal osteodystrophy NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155904000,155904000,Renal infarction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197603000,197603000,Nephrotic syndrome associated with another disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,86564006,86564006,Renal glycinuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197648001,197648001,Unspecified glomerulonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197710000,197710000,Membranous glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197767009,197767009,Chronic pyelonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,123293005,123293005,Chronic pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155861006,155861006,Chronic pyonephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266619007,266619007,Chronic pyonephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266553002,266553002,Renal failure unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,156092003,156092003,Renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197656003,197656003,Uraemia NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266616000,266616000,Uraemia NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198524000,198524000,Renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,234179006,234179006,Relative hypovolaemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,4451004,4451004,Illegal abortion with renal tubular necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,33561005,33561005,Illegal abortion with acute renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198735008,198735008,Unspecified illegal abortion with renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,8996006,8996006,Illegal abortion complicated by renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,462933006,462933006,Peritoneal dialysis system tubing set,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,28560003,28560003,Depletion of volume of plasma AND/OR extracellular fluid,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,152210002,152210002,Renal transplant planned,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190506003,190506003,Bartter's syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,71275003,71275003,Aldosteronism with hyperplasia of the adrenal cortex,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236465009,236465009,Bartter's syndrome with hypercalciuria and nephrocalcinosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197780007,197780007,Pyelitis unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197779009,197779009,Pyelonephritis unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197784003,197784003,Unspecified pyelonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,194778009,194778009,Benign hypertensive heart and renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197777006,197777006,Xanthogranulomatous pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155299005,155299005,Hypertensive heart and renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,194776008,194776008,Hypertensive heart and renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,194782006,194782006,Hypertensive heart and renal disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,194777004,194777004,Malignant hypertensive heart and renal disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,216978006,216978006,Mechanical failure of apparatus during renal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,31298003,31298003,Secondary hyperparathyroidism of renal origin,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236425005,236425005,Chronic kidney disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,722433005,722433005,Dyschondrosteosis and nephritis syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,210201003,210201003,Complete disruption of kidney parenchyma without mention of open wound into cavity,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,180270009,180270009,Compensation for renal failure NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,180266001,180266001,Compensation for renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,265763003,265763003,Compensation for renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197657007,197657007,Renal impairment,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,194773000,194773000,Hypertensive nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266230002,266230002,Hypertensive renal disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,194775007,194775007,Hypertensive renal disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,445503007,445503007,Medullary cystic kidney disease type 2,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,21858001,21858001,Diabetes with renal manifestations,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,154677000,154677000,Diabetes + nephropathy (& [Kimmelstiel-Wilson syndrome]),False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190342007,190342007,Diabetes mellitis with nephropathy NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,267381003,267381003,Diabetes mellitus with renal manifestation,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190338009,190338009,Diabetes mellitus with renal manifestation,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197787005,197787005,Hydroureteronephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,13010001,13010001,Acute renal failure following labor and delivery,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197746009,197746009,Renal tubulo-interstitial disorder in systemic lupus erythematosus,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,267415003,267415003,Infantile nephropathic cystinosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,191307001,191307001,Henoch-Schonlein nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,206585006,206585006,Congenital renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198531001,198531001,[X]Other disorders resulting from impaired renal tubular function,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197652001,197652001,Other acute renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198525004,198525004,[X]Other acute renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204961009,204961009,Medullary cystic disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197748005,197748005,Balkan nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197638003,197638003,"[X]Tubulo-interstitial nephritis, not specified as acute or chronic",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198522001,198522001,"[X]Tubulo-interstitial nephritis, not specified as acute or chronic",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197747000,197747000,Renal tubulo-interstitial disorders in transplant rejection,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,720701005,720701005,Chronic kidney disease clinical management plan,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198508001,198508001,[X]Other and unspecified hydronephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,27893002,27893002,Toxic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197737003,197737003,"[X]Hereditary nephropathy, unspecified morphological changes",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198505003,198505003,"[X]Hereditary nephropathy, unspecified morphological changes",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198507006,198507006,[X]Other chronic tubulo-interstitial nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197706003,197706003,"Recurrent and persistent haematuria, diffuse crescentic glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198501007,198501007,"[X]Unspecified nephritic syndrome, dense deposit disease",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197640008,197640008,"[X]Unspecified nephritic syndrome, dense deposit disease",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197705004,197705004,"Recurrent and persistent haematuria, dense deposit disease",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198499004,198499004,"[X]Unspecified nephritic syndrome, diffuse mesangial proliferative glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197642000,197642000,"[X]Unspecified nephritic syndrome, diffuse mesangial proliferative glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,2738006,2738006,Urate nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,16410004,16410004,Uric acid nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198500008,198500008,"[X]Unspecified nephritic syndrome, diffuse endocapillary proliferative glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197641007,197641007,"[X]Unspecified nephritic syndrome, diffuse endocapillary proliferative glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197616000,197616000,Chronic glomerulonephritis associated with another disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,16147005,16147005,Arteriolar nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,45406000,45406000,Idiopathic crescentic glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197702001,197702001,"Recurrent and persistent haematuria, diffuse mesangial proliferative glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198497002,198497002,"[X]Rapidly progressive nephritic syndrome, other",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197701008,197701008,"Recurrent and persistent haematuria, diffuse membranous glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198498007,198498007,"[X]Unspecified nephritic syndrome, minor glomerular abnormality",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197704000,197704000,"Recurrent and persistent haematuria, diffuse mesangiocapillary glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197703006,197703006,"Recurrent and persistent haematuria, diffuse endocapillary proliferative glomerulonephritis",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197699008,197699008,"Recurrent and persistent haematuria, minor glomerular abnormality",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197700009,197700009,"Recurrent and persistent haematuria, focal and segmental glomerular lesions",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198490000,198490000,[X]Glomerular disorders in infectious and parasitic diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198496006,198496006,[X]Glomerular disorders in other diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197826009,197826009,Salt-losing nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236568008,236568008,Kidney transplant disorder,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236367002,236367002,Renal diabetes,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,154737003,154737003,Renal glycosuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190759004,190759004,Renal diabetes,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,367418000,367418000,Renal glucosuria,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,368931000119104,368931000119104,Isolated proteinuria co-occurrent and due to membranoproliferative glomerulonephritis type 3,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197670003,197670003,Albright renal tubular acidosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236462007,236462007,Distal renal tubular acidosis with bicarbonate wasting,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,434431000124103,434431000124103,End stage renal disease due to hypertension,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,237231000,237231000,Nephropathy NOS in pregnancy without hypertension,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,8756002,8756002,Dense deposit disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197680004,197680004,Acute nephritic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155850003,155850003,Acute nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236386005,236386005,Acute nephritic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197578003,197578003,Acute nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266613008,266613008,Acute nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198489009,198489009,Glomerular disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,76910007,76910007,Renal glomerular disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197766000,197766000,Calculous pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197658002,197658002,Renal sclerosis unspecified,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197662008,197662008,Renal sclerosis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,191270002,191270002,Anaemia secondary to chronic renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,189813000,189813000,[M] Clear cell sarcoma of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155851004,155851004,Nephrotic syndrome,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197611005,197611005,Nephrotic syndrome NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,154747000,154747000,Chronic urate nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,200118004,200118004,Post-delivery acute renal failure with postnatal problem,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,200117009,200117009,Post-delivery acute renal failure - delivered with postnatal problem,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,59479006,59479006,Dense deposit disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197791000,197791000,Hydronephrosis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155866001,155866001,Hydronephrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,285639008,285639008,Metastasis to kidney of unknown primary,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190363009,190363009,Insulin-dependent diabetes mellitus with renal complications,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,61165007,61165007,ADH-resistant diabetes insipidus,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190385003,190385003,Non-insulin-dependent diabetes mellitus with renal complications,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,1144960002,1144960002,Acute tubular necrosis due to ischaemia and caused by toxin,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197775003,197775003,Renal and perinephric abscess NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266621002,266621002,Renal/perinephric abscess,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155863009,155863009,Renal/perinephric abscess,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,213047004,213047004,Mechanical complication of dialysis catheter,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,17778006,17778006,Mechanical complication of dialysis catheter,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204962002,204962002,MCKD - Multicystic kidney disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197588002,197588002,Acute glomerulonephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197750002,197750002,Analgesic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155854007,155854007,Analgesic nephropathy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,269301005,269301005,Kidney failure as a complication of care,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,213240007,213240007,Kidney failure as a complication of care,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,206255002,206255002,Kidney injury due to birth trauma,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236429004,236429004,Acute drug-induced renal failure,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197609001,197609001,Nephrotic syndrome in diseases EC NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,154542008,154542008,Malignant tumor of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,188249002,188249002,Renal malignant neoplasm,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,28728008,28728008,ADPKD - Autosomal dominant polycystic kidney disease,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,180267005,180267005,Renal dialysis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197711001,197711001,Chronic mesangial proliferative glomerulonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197786001,197786001,Hydrocalycosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,274107001,274107001,Nephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,266615001,266615001,Nephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,155853001,155853001,Nephritis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197752005,197752005,"Nephropathy induced by unspecifed drug, medicament or biological substance",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,14350001000004108,14350001000004108,Acute injury of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197608009,197608009,Lupus nephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197673001,197673001,Renal acidaemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,204966004,204966004,Congenital cystic kidney disease NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,236440007,236440007,Congenital cystic disease of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,190836004,190836004,Gout secondary to renal impairment,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,23184002,23184002,Congenital atrophy of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,154569009,154569009,Metastasis to kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,28196006,28196006,Uraemia following molar AND/OR ectopic pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,26235008,26235008,Renal tubular necrosis following molar AND/OR ectopic pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,71909003,71909003,Acute renal failure following molar AND/OR ectopic pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,43629001,43629001,Renal failure following molar AND/OR ectopic pregnancy,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197765001,197765001,Chronic obstructive pyelonephritis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197760006,197760006,Chronic pyelonephritis without medullary necrosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,7270003,7270003,Autotransplantation of kidney,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,262892004,262892004,Ruptured kidney NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,897308007,897308007,Chronic kidney disease with osteoporosis,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,462316005,462316005,Haemodialysis start/stop set,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,429489008,429489008,Acute renal failure due to obstruction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198952001,198952001,"Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198951008,198951008,"Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198955004,198955004,"Renal hypertension complicating pregnancy, childbirth and the puerperium NOS",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198950009,198950009,"Renal hypertension complicating pregnancy, childbirth and the puerperium unspecified",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,198953006,198953006,"Renal hypertension complicating pregnancy, childbirth and the puerperium - not delivered",False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,188254006,188254006,Malignant neoplasm of renal pelvis NOS,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,310670008,310670008,Hydronephrosis with pelviureteric junction obstruction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,197789008,197789008,Hydronephrosis with ureteropelvic junction obstruction,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,367481000119108,367481000119108,Extrarenal uraemia,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,434421000124101,434421000124101,Chronic kidney disease due to hypertension,False,1,0,,raw_code_present_but_description_empty
+kidney_disease,SNOMEDCT_US,216878005,216878005,"Accidental cut, puncture, perforation or haemorrhage during kidney dialysis",False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195119007,195119007,Myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,251060004,251060004,Myocardial inflammation,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,155380004,155380004,Myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195570006,195570006,[X]Myocarditis in bacterial diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195571005,195571005,[X]Myocarditis in viral diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195572003,195572003,[X]Myocarditis in other infectious and parasitic diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195573008,195573008,[X]Myocarditis in other diseases classified elsewhere,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,434911000124100,434911000124100,Myocarditis due to H1N1 Influenza virus,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,155269001,155269001,Acute rheumatic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,4536006,4536006,Rheumatic degeneration of myocardium,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,266285003,266285003,Rheumatic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194939001,194939001,Subacute myoendocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194936008,194936008,Acute myoendocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,34336004,34336004,Aseptic myocarditis of newborn,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,275512002,275512002,Myocarditis - virus unidentified,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194954007,194954007,Giant cell myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195568002,195568002,[X]Other acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194960007,194960007,Other acute myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194952006,194952006,Other acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,186370003,186370003,Acute myocarditis - meningococcal,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194959002,194959002,Septic myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194955008,194955008,Idiopathic myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194951004,194951004,"Acute myocarditis in diseases EC, NOS",False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195569005,195569005,"[X]Acute myocarditis, unspecified",False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194953001,194953001,"Acute myocarditis, unspecified",False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,194961006,194961006,Acute myocarditis NOS,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,155336004,155336004,Acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,195135000,195135000,Sarcoid myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,186881007,186881007,Syphilitic myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,8402005,8402005,AIDS with acute myocarditis,False,1,0,,raw_code_present_but_description_empty
+myocarditis,SNOMEDCT_US,13452004,13452004,AIDS with subacute myocarditis,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190423009,190423009,"Diabetes mellitus, juvenile type, with unspecified complication",False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,371054002,371054002,Type 1 diabetes mellitus with complication,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190371008,190371008,Insulin-dependent diabetes mellitus - poor control,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190381007,190381007,Type I diabetes mellitus with neuropathic arthropathy,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,314894004,314894004,Insulin dependent diabetes mellitus with neuropathic arthropathy,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190377007,190377007,Type I diabetes mellitus with hypoglycaemic coma,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,314771006,314771006,Insulin dependent diabetes mellitus with hypoglycaemic coma,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190380008,190380008,Type 1 diabetes mellitus with arthropathy,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190363009,190363009,Insulin-dependent diabetes mellitus with renal complications,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190364003,190364003,Insulin-dependent diabetes mellitus with ophthalmic complications,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190365002,190365002,Insulin-dependent diabetes mellitus with neurological complications,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,422228004,422228004,Multiple complications due to type 1 diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190366001,190366001,Insulin-dependent diabetes mellitus with multiple complications,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190418009,190418009,"Diabetes mellitus, juvenile type, with other specified manifestation",False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,408287009,408287009,Type 1 diabetes mellitus with exudative maculopathy,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,237618001,237618001,Congenital insulin-dependent diabetes mellitus with fatal secretory diarrhea,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190367005,190367005,Unstable type I diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190362004,190362004,Type I diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190322003,190322003,Insulin dependent diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,267469001,267469001,Diabetes mellitus - juvenile,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,154673001,154673001,Diabetes mellitus: [juvenile] or [insulin dependent],False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190325001,190325001,"Diabetes mellitus, juvenile type, with ketoacidosis",False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,371055001,371055001,Type I diabetes mellitus with ketoacidosis,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,789542009,789542009,Neuropathy due to type 1 diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190378002,190378002,Type I diabetes mellitus with diabetic cataract,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,314887002,314887002,Insulin dependent diabetes mellitus with diabetic cataract,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190358005,190358005,IDDM with peripheral circulatory disorder,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190355008,190355008,"Diabetes mellitus, juvenile type, with peripheral circulatory disorder",False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,401110002,401110002,Type 1 diabetes mellitus with persistent microalbuminuria,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,425442003,425442003,Diabetic autonomic neuropathy associated with type 1 diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,425159004,425159004,Diabetes type 1 with gastroparesis,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,435011000124100,435011000124100,Ankle ulcer associated with type 1 diabetes mellitus,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190373006,190373006,Type I diabetes mellitus without complication,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,313435000,313435000,Insulin-dependent diabetes without complication,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,190369008,190369008,Insulin-dependent diabetes mellitus with gangrene,False,1,0,,raw_code_present_but_description_empty
+type_1_diabetes,SNOMEDCT_US,82561000119101,82561000119101,Cranial nerve palsy due to diabetes mellitus type 1,False,1,0,,raw_code_present_but_description_empty

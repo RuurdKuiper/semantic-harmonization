@@ -1,0 +1,447 @@
+phenotype,code,reference_description,old_cause,present_in_new_export
+acute_disseminated_encephalomyelitis,194488006,"[X]Acute disseminated demyelination, unspecified",empty description,False
+acute_disseminated_encephalomyelitis,192934005,"[X]Acute disseminated demyelination, unspecified",empty description,False
+acute_disseminated_encephalomyelitis,194451008,"[X]Other encephalitis, myelitis and encephalomyelitis",empty description,False
+acute_myocardial_infarction,195545006,[X]Acute transmural myocardial infarction of unspecified site,empty description,False
+acute_myocardial_infarction,194807009,[X]Acute transmural myocardial infarction of unspecified site,empty description,False
+acute_myocardial_infarction,194798004,Acute anteroapical infarction,empty description,False
+acute_myocardial_infarction,155319007,Acute Q wave myocardial infarction,empty description,False
+acute_myocardial_infarction,194805001,Acute Q wave myocardial infarction,empty description,False
+acute_myocardial_infarction,194796000,Cardiac rupture after acute myocardial infarction,empty description,False
+acute_myocardial_infarction,155304006,Acute myocardial infarction,empty description,False
+acute_myocardial_infarction,194811003,Acute myocardial infarction NOS,empty description,False
+acute_myocardial_infarction,266288001,Acute myocardial infarction,empty description,False
+acute_myocardial_infarction,155321002,Acute non-Q wave infarction,empty description,False
+acute_myocardial_infarction,194803008,Acute non-Q wave infarction,empty description,False
+acute_myocardial_infarction,703326006,Mitral regurgitation due to acute myocardial infarction,empty description,False
+acute_myocardial_infarction,393588004,First myocardial infarction,empty description,False
+acute_myocardial_infarction,182761001,Diabetes mellitus insulin-glucose infusion in acute myocardial infarction,empty description,False
+acute_myocardial_infarction,72977004,Acute myocardial infarction of atrium,empty description,False
+acute_myocardial_infarction,412771006,acute myocardial infarction of posterolateral wall (disorder),empty description,False
+eczema_vaccinatum,29821004,Eczema vaccinatum,empty description,False
+erythema_multiforme,81487000,Erythema iris,empty description,False
+erythema_multiforme,200926006,Non-bullous erythema multiforme,empty description,False
+erythema_multiforme,200927002,Other specified erythema multiforme,empty description,False
+erythema_multiforme,402971008,Erythema multiforme due to mycoplasma infection,empty description,False
+erythema_multiforme,156362004,Stevens-Johnson synd.,empty description,False
+erythema_multiforme,267848009,Stevens-Johnson synd.,empty description,False
+erythema_multiforme,238819008,Bullous erythema multiforme,empty description,False
+erythema_multiforme,200919006,Erythema multiforme,empty description,False
+erythema_multiforme,200928007,Erythema multiforme NOS,empty description,False
+erythema_multiforme,201381000,[X]Other erythema multiforme,empty description,False
+erythema_multiforme,95331002,Ocular-mucous membrane syndrome,empty description,False
+erythema_multiforme,403215006,Erythema multiforme/toxic epidermal necrolysis overlap,empty description,False
+guillain_barre,267707000,Guillain-Barre syndrome,empty description,False
+guillain_barre,155082001,Guillain-Barre syndrome,empty description,False
+guillain_barre,26261000119109,Acute inflammatory demyelinating polyneuropathy,empty description,False
+guillain_barre,230548007,Miller-Fisher variant of Guillain-Barre syndrome,empty description,False
+guillain_barre,193175006,Miller-Fisher variant of Guillain-Barre syndrome,empty description,False
+kidney_disease,175910004,Excision of rejected transplanted kidney,empty description,False
+kidney_disease,26056000,Removal of rejected kidney,empty description,False
+kidney_disease,223166002,[X]Foreign object accidentally left in body during kidney dialysis or other perfusion,empty description,False
+kidney_disease,25955005,Complete disruption of kidney parenchyma with open wound into cavity,empty description,False
+kidney_disease,309819001,[X] Peritoneal dialysis associated peritonitis,empty description,False
+kidney_disease,213116007,[X] Peritoneal dialysis associated peritonitis,empty description,False
+kidney_disease,223178003,[X]Failure of sterile precautions during kidney dialysis or other perfusion,empty description,False
+kidney_disease,188251003,Hypernephroma,empty description,False
+kidney_disease,431581000124100,Disease of renal parenchyma,empty description,False
+kidney_disease,57333009,Alport's syndrome,empty description,False
+kidney_disease,269158000,Injury to kidney NOS,empty description,False
+kidney_disease,210209001,Ruptured kidney NOS,empty description,False
+kidney_disease,157343006,Injury of kidney,empty description,False
+kidney_disease,210206008,Kidney laceration with open wound into cavity,empty description,False
+kidney_disease,210204006,"Kidney injury with open wound into cavity, unspecified",empty description,False
+kidney_disease,210208009,Kidney injury with open wound into cavity NOS,empty description,False
+kidney_disease,210200002,Kidney laceration without mention of open wound into cavity,empty description,False
+kidney_disease,1721000119108,Awaiting renal transplant,empty description,False
+kidney_disease,266623004,Nephrolithiasis,empty description,False
+kidney_disease,70826003,Epidemic hemorrhagic fever,empty description,False
+kidney_disease,102455002,Epidemic haemorrhagic fever,empty description,False
+kidney_disease,186701001,Haemorrhagic fever with renal syndrome,empty description,False
+kidney_disease,204964001,Fibrocystic kidney disease,empty description,False
+kidney_disease,86210009,Classical renal tubular acidosis,empty description,False
+kidney_disease,216877000,"Accidental cut, puncture, perforation or haemorrhage during kidney dialysis or other perfusion",empty description,False
+kidney_disease,223155009,"[X]Unintentional cut, puncture, perforation or haemorrhage during kidney dialysis or other perfusion",empty description,False
+kidney_disease,8468007,Legal abortion with uraemia,empty description,False
+kidney_disease,20483002,Legal abortion with renal tubular necrosis,empty description,False
+kidney_disease,52342006,Legal abortion with acute renal failure,empty description,False
+kidney_disease,197592009,Nephrotic syndrome with minimal change glomerulonephritis,empty description,False
+kidney_disease,266549004,Nephrotic syndrome with minimal change glomerulonephritis,empty description,False
+kidney_disease,191048009,[X]Unspecified diabetes mellitus with renal complications,empty description,False
+kidney_disease,155862004,Acute pyelonephritis,empty description,False
+kidney_disease,266620001,Acute pyelonephritis,empty description,False
+kidney_disease,197771007,Acute pyelonephritis NOS,empty description,False
+kidney_disease,266617009,Glomerulosclerosis,empty description,False
+kidney_disease,155858005,Glomerulosclerosis,empty description,False
+kidney_disease,444699000,Medullary cystic kidney disease type 1,empty description,False
+kidney_disease,60009009,Diabetic glomerulopathy,empty description,False
+kidney_disease,267470000,Kimmelstiel-Wilson synd,empty description,False
+kidney_disease,4576001,Legal abortion complicated by renal failure,empty description,False
+kidney_disease,198695004,Unspecified legal abortion with renal failure,empty description,False
+kidney_disease,236421001,Benign familial haematuria,empty description,False
+kidney_disease,401111003,Type 2 diabetes mellitus with persistent proteinuria,empty description,False
+kidney_disease,123294004,Nephrogenic diabetes insipidus,empty description,False
+kidney_disease,155852006,Nephritis - chronic,empty description,False
+kidney_disease,266614002,Nephritis - chronic,empty description,False
+kidney_disease,197612003,Nephritis - chronic,empty description,False
+kidney_disease,197621002,Chronic glomerulonephritis NOS,empty description,False
+kidney_disease,197672006,Acute interstitial nephritis,empty description,False
+kidney_disease,197716006,Isolated proteinuria with specified morphological lesion,empty description,False
+kidney_disease,236497009,Familial gout with renal failure,empty description,False
+kidney_disease,197788000,Hydronephrosis with renal and ureteral calculous obstruction,empty description,False
+kidney_disease,204959000,"Medullary cystic disease, adult type",empty description,False
+kidney_disease,156974008,Congenital hydronephrosis,empty description,False
+kidney_disease,123641000119107,Malignant carcinoid tumor of kidney,empty description,False
+kidney_disease,713574000,Malignant carcinoid tumor of kidney,empty description,False
+kidney_disease,949921000000100,CKD with GFR category G3a & albuminuria category A2,absent identifier,False
+kidney_disease,949621000000109,CKD with GFR category G2 & albuminuria category A2,absent identifier,False
+kidney_disease,324441000000106,CKD stage 3B without proteinuria,absent identifier,False
+kidney_disease,950211000000107,CKD with GFR category G4 & albuminuria category A1,absent identifier,False
+kidney_disease,324121000000109,Chronic kidney disease stage 1 with proteinuria,absent identifier,False
+kidney_disease,949881000000106,CKD with GFR category G2 & albuminuria category A3,absent identifier,False
+kidney_disease,324251000000105,Chronic kidney disease stage 3 with proteinuria,absent identifier,False
+kidney_disease,324311000000101,Chronic kidney disease stage 3A with proteinuria,absent identifier,False
+kidney_disease,324501000000107,Chronic kidney disease stage 5 with proteinuria,absent identifier,False
+kidney_disease,324341000000100,Chronic kidney disease stage 3A with proteinuria,absent identifier,False
+kidney_disease,949901000000109,CKD with GFR category G3a & albuminuria category A1,absent identifier,False
+kidney_disease,324151000000104,CKD stage 1 without proteinuria,absent identifier,False
+kidney_disease,950081000000107,CKD with GFR category G3b & albuminuria category A1,absent identifier,False
+kidney_disease,324181000000105,Chronic kidney disease stage 2 with proteinuria,absent identifier,False
+kidney_disease,324281000000104,Chronic kidney disease stage 3 with proteinuria,absent identifier,False
+kidney_disease,949421000000107,CKD with GFR category G1 & albuminuria category A1,absent identifier,False
+kidney_disease,324211000000106,CKD stage 2 with proteinuria,absent identifier,False
+kidney_disease,324471000000100,CKD stage 4 with proteinuria,absent identifier,False
+kidney_disease,950291000000103,CKD with GFR category G5 & albuminuria category A1,absent identifier,False
+kidney_disease,949401000000103,CKD with GFR category G1 & albuminuria category A1,absent identifier,False
+kidney_disease,950181000000106,CKD with GFR category G3b & albuminuria category A3,absent identifier,False
+kidney_disease,324371000000106,Chronic kidney disease stage 3B with proteinuria,absent identifier,False
+kidney_disease,950061000000103,CKD with GFR category G3a & albuminuria category A3,absent identifier,False
+kidney_disease,950251000000106,CKD with GFR category G4 & albuminuria category A3,absent identifier,False
+kidney_disease,949481000000108,CKD with GFR category G1 & albuminuria category A2,absent identifier,False
+kidney_disease,324541000000105,CKD stage 5 with proteinuria,absent identifier,False
+kidney_disease,950101000000101,CKD with GFR category G3b & albuminuria category A2,absent identifier,False
+kidney_disease,950231000000104,CKD with GFR category G4 & albuminuria category A3,absent identifier,False
+kidney_disease,324411000000105,Chronic kidney disease stage 3B without proteinuria,absent identifier,False
+kidney_disease,949561000000100,CKD with GFR category G2 & albuminuria category A1,absent identifier,False
+kidney_disease,950311000000102,CKD with GFR category G5 & albuminuria category A3,absent identifier,False
+kidney_disease,194774006,Hypertensive renal disease with renal failure,empty description,False
+kidney_disease,698810000,Hypertensive renal disease with end stage renal failure,empty description,False
+kidney_disease,197781006,Pyonephrosis unspecified,empty description,False
+kidney_disease,123308008,Haemolytic uraemic syndrome,empty description,False
+kidney_disease,191269003,Anaemia secondary to renal failure,empty description,False
+kidney_disease,204954005,Fibrocystic kidney,empty description,False
+kidney_disease,29780007,Medullary cystic disease of the kidney,empty description,False
+kidney_disease,198747002,Incomplete illegal abortion with renal failure,empty description,False
+kidney_disease,198759003,Complete illegal abortion with renal failure,empty description,False
+kidney_disease,197651008,Acute renal medullary necrosis,empty description,False
+kidney_disease,197654000,Chronic renal failure,empty description,False
+kidney_disease,197655004,End stage renal failure,empty description,False
+kidney_disease,155856009,Chronic renal failure,empty description,False
+kidney_disease,197755007,End stage renal failure,empty description,False
+kidney_disease,155855008,Acute renal failure,empty description,False
+kidney_disease,197653006,Acute renal failure NOS,empty description,False
+kidney_disease,122586001,Peritoneal dialysis fluid specimen,empty description,False
+kidney_disease,145370008,Peritoneal dialysate sample,empty description,False
+kidney_disease,1913007,Familial renal glucosuria,empty description,False
+kidney_disease,197649009,Acute tubular necrosis,empty description,False
+kidney_disease,149586006,Renal transplant,empty description,False
+kidney_disease,175904004,Transplantation of kidney NOS,empty description,False
+kidney_disease,151055004,Peritoneal dialysis,empty description,False
+kidney_disease,197785002,Infection of kidney NOS,empty description,False
+kidney_disease,266618004,Infection - kidney,empty description,False
+kidney_disease,155865002,Infection of kidney NOS,empty description,False
+kidney_disease,151048001,Dialysis - renal,empty description,False
+kidney_disease,309432002,Haemodialysis,empty description,False
+kidney_disease,266809003,Dialysis - renal,empty description,False
+kidney_disease,27392003,Artificial kidney dialysis,empty description,False
+kidney_disease,274108006,Kidney disease NOS,empty description,False
+kidney_disease,266624005,Kidney &/or ureter disorder NOS,empty description,False
+kidney_disease,266627003,Renal disease NOS,empty description,False
+kidney_disease,156978006,Alport's syndrome,empty description,False
+kidney_disease,205827004,Alport's syndrome,empty description,False
+kidney_disease,197630005,Alport's syndrome,empty description,False
+kidney_disease,204953004,Renal agenesis or dysgenesis NOS,empty description,False
+kidney_disease,268331005,Absent kidney,empty description,False
+kidney_disease,156972007,Absent kidney,empty description,False
+kidney_disease,197577008,"Nephritis, nephrosis and nephrotic syndrome",empty description,False
+kidney_disease,197758009,"Nephritis, nephrosis and nephrotic syndrome NOS",empty description,False
+kidney_disease,155849003,"Nephritis, nephrosis and nephrotic syndrome",empty description,False
+kidney_disease,197749002,Drug- and heavy-metal-induced tubulo-interstitial and tubular conditions,empty description,False
+kidney_disease,197745008,Renal tubulo-interstitial disorders in systemic connective tissue disorders,empty description,False
+kidney_disease,197744007,Renal tubulo-interstitial disorders in metabolic diseases,empty description,False
+kidney_disease,197743001,Renal tubulo-interstitial disorders in blood diseases and disorders involving the immune mechanism,empty description,False
+kidney_disease,783157004,Infantile subacute necrotising encephalopathy with nephrotic syndrome,empty description,False
+kidney_disease,197742006,Renal tubulo-interstitial disorders in neoplastic diseases,empty description,False
+kidney_disease,197751003,"Nephropathy induced by other drugs, medicaments and biological substances",empty description,False
+kidney_disease,197738008,Glomerular disorders in neoplastic diseases,empty description,False
+kidney_disease,197663003,Impaired renal function disorder,empty description,False
+kidney_disease,197674007,Impaired renal function disorder NOS,empty description,False
+kidney_disease,69982006,Malarial nephrosis,empty description,False
+kidney_disease,198506002,Renal tubulo-interstitial disease,empty description,False
+kidney_disease,28689008,Renal tubulo-interstitial disease,empty description,False
+kidney_disease,198721006,Complete legal abortion with renal failure,empty description,False
+kidney_disease,197740003,Renal tubulo-interstitial disorders in diseases classified elsewhere,empty description,False
+kidney_disease,198708004,Incomplete legal abortion with renal failure,empty description,False
+kidney_disease,197614002,Chronic rapidly progressive glomerulonephritis,empty description,False
+kidney_disease,24295008,Chronic non-obstructive atrophic pyelonephritis,empty description,False
+kidney_disease,186235002,Tuberculous nephropathy,empty description,False
+kidney_disease,186236001,Tuberculosis of kidney NOS,empty description,False
+kidney_disease,198847005,Renal failure NOS following abortive pregnancy,empty description,False
+kidney_disease,373916005,Renal failure NOS following abortive pregnancy,empty description,False
+kidney_disease,198841006,Renal failure following abortive pregnancy,empty description,False
+kidney_disease,118951003,Drug-induced nephrogenic diabetes insipidus,empty description,False
+kidney_disease,707755000,Familial hypokalaemic and hypomagnesaemic tubulopathy,empty description,False
+kidney_disease,197668007,Renal osteodystrophy NOS,empty description,False
+kidney_disease,155904000,Renal infarction,empty description,False
+kidney_disease,197603000,Nephrotic syndrome associated with another disorder,empty description,False
+kidney_disease,86564006,Renal glycinuria,empty description,False
+kidney_disease,197648001,Unspecified glomerulonephritis NOS,empty description,False
+kidney_disease,197710000,Membranous glomerulonephritis,empty description,False
+kidney_disease,197767009,Chronic pyelonephritis NOS,empty description,False
+kidney_disease,123293005,Chronic pyelonephritis,empty description,False
+kidney_disease,155861006,Chronic pyonephrosis,empty description,False
+kidney_disease,266619007,Chronic pyonephrosis,empty description,False
+kidney_disease,266553002,Renal failure unspecified,empty description,False
+kidney_disease,156092003,Renal failure,empty description,False
+kidney_disease,197656003,Uraemia NOS,empty description,False
+kidney_disease,266616000,Uraemia NOS,empty description,False
+kidney_disease,198524000,Renal failure,empty description,False
+kidney_disease,234179006,Relative hypovolaemia,empty description,False
+kidney_disease,4451004,Illegal abortion with renal tubular necrosis,empty description,False
+kidney_disease,33561005,Illegal abortion with acute renal failure,empty description,False
+kidney_disease,198735008,Unspecified illegal abortion with renal failure,empty description,False
+kidney_disease,8996006,Illegal abortion complicated by renal failure,empty description,False
+kidney_disease,462933006,Peritoneal dialysis system tubing set,empty description,False
+kidney_disease,28560003,Depletion of volume of plasma AND/OR extracellular fluid,empty description,False
+kidney_disease,152210002,Renal transplant planned,empty description,False
+kidney_disease,190506003,Bartter's syndrome,empty description,False
+kidney_disease,71275003,Aldosteronism with hyperplasia of the adrenal cortex,empty description,False
+kidney_disease,236465009,Bartter's syndrome with hypercalciuria and nephrocalcinosis,empty description,False
+kidney_disease,197780007,Pyelitis unspecified,empty description,False
+kidney_disease,197779009,Pyelonephritis unspecified,empty description,False
+kidney_disease,197784003,Unspecified pyelonephritis NOS,empty description,False
+kidney_disease,194778009,Benign hypertensive heart and renal disease,empty description,False
+kidney_disease,197777006,Xanthogranulomatous pyelonephritis,empty description,False
+kidney_disease,155299005,Hypertensive heart and renal disease,empty description,False
+kidney_disease,194776008,Hypertensive heart and renal disease,empty description,False
+kidney_disease,194782006,Hypertensive heart and renal disease NOS,empty description,False
+kidney_disease,194777004,Malignant hypertensive heart and renal disease,empty description,False
+kidney_disease,216978006,Mechanical failure of apparatus during renal dialysis,empty description,False
+kidney_disease,31298003,Secondary hyperparathyroidism of renal origin,empty description,False
+kidney_disease,236425005,Chronic kidney disease,empty description,False
+kidney_disease,722433005,Dyschondrosteosis and nephritis syndrome,empty description,False
+kidney_disease,210201003,Complete disruption of kidney parenchyma without mention of open wound into cavity,empty description,False
+kidney_disease,180270009,Compensation for renal failure NOS,empty description,False
+kidney_disease,180266001,Compensation for renal failure,empty description,False
+kidney_disease,265763003,Compensation for renal failure,empty description,False
+kidney_disease,197657007,Renal impairment,empty description,False
+kidney_disease,194773000,Hypertensive nephropathy,empty description,False
+kidney_disease,266230002,Hypertensive renal disease NOS,empty description,False
+kidney_disease,194775007,Hypertensive renal disease NOS,empty description,False
+kidney_disease,445503007,Medullary cystic kidney disease type 2,empty description,False
+kidney_disease,21858001,Diabetes with renal manifestations,empty description,False
+kidney_disease,154677000,Diabetes + nephropathy (& [Kimmelstiel-Wilson syndrome]),empty description,False
+kidney_disease,190342007,Diabetes mellitis with nephropathy NOS,empty description,False
+kidney_disease,267381003,Diabetes mellitus with renal manifestation,empty description,False
+kidney_disease,190338009,Diabetes mellitus with renal manifestation,empty description,False
+kidney_disease,197787005,Hydroureteronephrosis,empty description,False
+kidney_disease,13010001,Acute renal failure following labor and delivery,empty description,False
+kidney_disease,197746009,Renal tubulo-interstitial disorder in systemic lupus erythematosus,empty description,False
+kidney_disease,267415003,Infantile nephropathic cystinosis,empty description,False
+kidney_disease,191307001,Henoch-Schonlein nephritis,empty description,False
+kidney_disease,206585006,Congenital renal failure,empty description,False
+kidney_disease,198531001,[X]Other disorders resulting from impaired renal tubular function,empty description,False
+kidney_disease,197652001,Other acute renal failure,empty description,False
+kidney_disease,198525004,[X]Other acute renal failure,empty description,False
+kidney_disease,204961009,Medullary cystic disease NOS,empty description,False
+kidney_disease,197748005,Balkan nephropathy,empty description,False
+kidney_disease,197638003,"[X]Tubulo-interstitial nephritis, not specified as acute or chronic",empty description,False
+kidney_disease,198522001,"[X]Tubulo-interstitial nephritis, not specified as acute or chronic",empty description,False
+kidney_disease,197747000,Renal tubulo-interstitial disorders in transplant rejection,empty description,False
+kidney_disease,720701005,Chronic kidney disease clinical management plan,empty description,False
+kidney_disease,198508001,[X]Other and unspecified hydronephrosis,empty description,False
+kidney_disease,27893002,Toxic nephropathy,empty description,False
+kidney_disease,197737003,"[X]Hereditary nephropathy, unspecified morphological changes",empty description,False
+kidney_disease,198505003,"[X]Hereditary nephropathy, unspecified morphological changes",empty description,False
+kidney_disease,198507006,[X]Other chronic tubulo-interstitial nephritis,empty description,False
+kidney_disease,197706003,"Recurrent and persistent haematuria, diffuse crescentic glomerulonephritis",empty description,False
+kidney_disease,198501007,"[X]Unspecified nephritic syndrome, dense deposit disease",empty description,False
+kidney_disease,197640008,"[X]Unspecified nephritic syndrome, dense deposit disease",empty description,False
+kidney_disease,197705004,"Recurrent and persistent haematuria, dense deposit disease",empty description,False
+kidney_disease,198499004,"[X]Unspecified nephritic syndrome, diffuse mesangial proliferative glomerulonephritis",empty description,False
+kidney_disease,197642000,"[X]Unspecified nephritic syndrome, diffuse mesangial proliferative glomerulonephritis",empty description,False
+kidney_disease,2738006,Urate nephropathy,empty description,False
+kidney_disease,16410004,Uric acid nephropathy,empty description,False
+kidney_disease,198500008,"[X]Unspecified nephritic syndrome, diffuse endocapillary proliferative glomerulonephritis",empty description,False
+kidney_disease,197641007,"[X]Unspecified nephritic syndrome, diffuse endocapillary proliferative glomerulonephritis",empty description,False
+kidney_disease,197616000,Chronic glomerulonephritis associated with another disorder,empty description,False
+kidney_disease,16147005,Arteriolar nephritis,empty description,False
+kidney_disease,45406000,Idiopathic crescentic glomerulonephritis,empty description,False
+kidney_disease,197702001,"Recurrent and persistent haematuria, diffuse mesangial proliferative glomerulonephritis",empty description,False
+kidney_disease,198497002,"[X]Rapidly progressive nephritic syndrome, other",empty description,False
+kidney_disease,197701008,"Recurrent and persistent haematuria, diffuse membranous glomerulonephritis",empty description,False
+kidney_disease,198498007,"[X]Unspecified nephritic syndrome, minor glomerular abnormality",empty description,False
+kidney_disease,197704000,"Recurrent and persistent haematuria, diffuse mesangiocapillary glomerulonephritis",empty description,False
+kidney_disease,197703006,"Recurrent and persistent haematuria, diffuse endocapillary proliferative glomerulonephritis",empty description,False
+kidney_disease,197699008,"Recurrent and persistent haematuria, minor glomerular abnormality",empty description,False
+kidney_disease,197700009,"Recurrent and persistent haematuria, focal and segmental glomerular lesions",empty description,False
+kidney_disease,198490000,[X]Glomerular disorders in infectious and parasitic diseases classified elsewhere,empty description,False
+kidney_disease,198496006,[X]Glomerular disorders in other diseases classified elsewhere,empty description,False
+kidney_disease,197826009,Salt-losing nephritis,empty description,False
+kidney_disease,236568008,Kidney transplant disorder,empty description,False
+kidney_disease,236367002,Renal diabetes,empty description,False
+kidney_disease,154737003,Renal glycosuria,empty description,False
+kidney_disease,190759004,Renal diabetes,empty description,False
+kidney_disease,367418000,Renal glucosuria,empty description,False
+kidney_disease,368931000119104,Isolated proteinuria co-occurrent and due to membranoproliferative glomerulonephritis type 3,empty description,False
+kidney_disease,197670003,Albright renal tubular acidosis,empty description,False
+kidney_disease,236462007,Distal renal tubular acidosis with bicarbonate wasting,empty description,False
+kidney_disease,434431000124103,End stage renal disease due to hypertension,empty description,False
+kidney_disease,237231000,Nephropathy NOS in pregnancy without hypertension,empty description,False
+kidney_disease,8756002,Dense deposit disease,empty description,False
+kidney_disease,197680004,Acute nephritic syndrome,empty description,False
+kidney_disease,155850003,Acute nephritis,empty description,False
+kidney_disease,236386005,Acute nephritic syndrome,empty description,False
+kidney_disease,197578003,Acute nephritis,empty description,False
+kidney_disease,266613008,Acute nephritis,empty description,False
+kidney_disease,198489009,Glomerular disease,empty description,False
+kidney_disease,76910007,Renal glomerular disease,empty description,False
+kidney_disease,197766000,Calculous pyelonephritis,empty description,False
+kidney_disease,197658002,Renal sclerosis unspecified,empty description,False
+kidney_disease,197662008,Renal sclerosis NOS,empty description,False
+kidney_disease,191270002,Anaemia secondary to chronic renal failure,empty description,False
+kidney_disease,189813000,[M] Clear cell sarcoma of kidney,empty description,False
+kidney_disease,155851004,Nephrotic syndrome,empty description,False
+kidney_disease,197611005,Nephrotic syndrome NOS,empty description,False
+kidney_disease,154747000,Chronic urate nephropathy,empty description,False
+kidney_disease,200118004,Post-delivery acute renal failure with postnatal problem,empty description,False
+kidney_disease,200117009,Post-delivery acute renal failure - delivered with postnatal problem,empty description,False
+kidney_disease,59479006,Dense deposit disease,empty description,False
+kidney_disease,197791000,Hydronephrosis NOS,empty description,False
+kidney_disease,155866001,Hydronephrosis,empty description,False
+kidney_disease,285639008,Metastasis to kidney of unknown primary,empty description,False
+kidney_disease,190363009,Insulin-dependent diabetes mellitus with renal complications,empty description,False
+kidney_disease,61165007,ADH-resistant diabetes insipidus,empty description,False
+kidney_disease,190385003,Non-insulin-dependent diabetes mellitus with renal complications,empty description,False
+kidney_disease,1144960002,Acute tubular necrosis due to ischaemia and caused by toxin,empty description,False
+kidney_disease,197775003,Renal and perinephric abscess NOS,empty description,False
+kidney_disease,266621002,Renal/perinephric abscess,empty description,False
+kidney_disease,155863009,Renal/perinephric abscess,empty description,False
+kidney_disease,213047004,Mechanical complication of dialysis catheter,empty description,False
+kidney_disease,17778006,Mechanical complication of dialysis catheter,empty description,False
+kidney_disease,204962002,MCKD - Multicystic kidney disease,empty description,False
+kidney_disease,197588002,Acute glomerulonephritis NOS,empty description,False
+kidney_disease,197750002,Analgesic nephropathy,empty description,False
+kidney_disease,155854007,Analgesic nephropathy,empty description,False
+kidney_disease,269301005,Kidney failure as a complication of care,empty description,False
+kidney_disease,213240007,Kidney failure as a complication of care,empty description,False
+kidney_disease,206255002,Kidney injury due to birth trauma,empty description,False
+kidney_disease,236429004,Acute drug-induced renal failure,empty description,False
+kidney_disease,197609001,Nephrotic syndrome in diseases EC NOS,empty description,False
+kidney_disease,154542008,Malignant tumor of kidney,empty description,False
+kidney_disease,188249002,Renal malignant neoplasm,empty description,False
+kidney_disease,28728008,ADPKD - Autosomal dominant polycystic kidney disease,empty description,False
+kidney_disease,180267005,Renal dialysis,empty description,False
+kidney_disease,197711001,Chronic mesangial proliferative glomerulonephritis,empty description,False
+kidney_disease,197786001,Hydrocalycosis,empty description,False
+kidney_disease,274107001,Nephritis NOS,empty description,False
+kidney_disease,266615001,Nephritis NOS,empty description,False
+kidney_disease,155853001,Nephritis NOS,empty description,False
+kidney_disease,197752005,"Nephropathy induced by unspecifed drug, medicament or biological substance",empty description,False
+kidney_disease,14350001000004108,Acute injury of kidney,empty description,False
+kidney_disease,197608009,Lupus nephritis,empty description,False
+kidney_disease,197673001,Renal acidaemia,empty description,False
+kidney_disease,204966004,Congenital cystic kidney disease NOS,empty description,False
+kidney_disease,236440007,Congenital cystic disease of kidney,empty description,False
+kidney_disease,190836004,Gout secondary to renal impairment,empty description,False
+kidney_disease,23184002,Congenital atrophy of kidney,empty description,False
+kidney_disease,154569009,Metastasis to kidney,empty description,False
+kidney_disease,28196006,Uraemia following molar AND/OR ectopic pregnancy,empty description,False
+kidney_disease,26235008,Renal tubular necrosis following molar AND/OR ectopic pregnancy,empty description,False
+kidney_disease,71909003,Acute renal failure following molar AND/OR ectopic pregnancy,empty description,False
+kidney_disease,43629001,Renal failure following molar AND/OR ectopic pregnancy,empty description,False
+kidney_disease,197765001,Chronic obstructive pyelonephritis,empty description,False
+kidney_disease,197760006,Chronic pyelonephritis without medullary necrosis,empty description,False
+kidney_disease,7270003,Autotransplantation of kidney,empty description,False
+kidney_disease,262892004,Ruptured kidney NOS,empty description,False
+kidney_disease,897308007,Chronic kidney disease with osteoporosis,empty description,False
+kidney_disease,462316005,Haemodialysis start/stop set,empty description,False
+kidney_disease,429489008,Acute renal failure due to obstruction,empty description,False
+kidney_disease,198952001,"Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication",empty description,False
+kidney_disease,198951008,"Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered",empty description,False
+kidney_disease,198955004,"Renal hypertension complicating pregnancy, childbirth and the puerperium NOS",empty description,False
+kidney_disease,198950009,"Renal hypertension complicating pregnancy, childbirth and the puerperium unspecified",empty description,False
+kidney_disease,198953006,"Renal hypertension complicating pregnancy, childbirth and the puerperium - not delivered",empty description,False
+kidney_disease,188254006,Malignant neoplasm of renal pelvis NOS,empty description,False
+kidney_disease,310670008,Hydronephrosis with pelviureteric junction obstruction,empty description,False
+kidney_disease,197789008,Hydronephrosis with ureteropelvic junction obstruction,empty description,False
+kidney_disease,367481000119108,Extrarenal uraemia,empty description,False
+kidney_disease,434421000124101,Chronic kidney disease due to hypertension,empty description,False
+kidney_disease,216878005,"Accidental cut, puncture, perforation or haemorrhage during kidney dialysis",empty description,False
+myocarditis,195119007,Myocarditis NOS,empty description,False
+myocarditis,251060004,Myocardial inflammation,empty description,False
+myocarditis,155380004,Myocarditis NOS,empty description,False
+myocarditis,195570006,[X]Myocarditis in bacterial diseases classified elsewhere,empty description,False
+myocarditis,195571005,[X]Myocarditis in viral diseases classified elsewhere,empty description,False
+myocarditis,195572003,[X]Myocarditis in other infectious and parasitic diseases classified elsewhere,empty description,False
+myocarditis,195573008,[X]Myocarditis in other diseases classified elsewhere,empty description,False
+myocarditis,434911000124100,Myocarditis due to H1N1 Influenza virus,empty description,False
+myocarditis,155269001,Acute rheumatic myocarditis,empty description,False
+myocarditis,4536006,Rheumatic degeneration of myocardium,empty description,False
+myocarditis,266285003,Rheumatic myocarditis,empty description,False
+myocarditis,194939001,Subacute myoendocarditis NOS,empty description,False
+myocarditis,194936008,Acute myoendocarditis NOS,empty description,False
+myocarditis,34336004,Aseptic myocarditis of newborn,empty description,False
+myocarditis,275512002,Myocarditis - virus unidentified,empty description,False
+myocarditis,194954007,Giant cell myocarditis,empty description,False
+myocarditis,195568002,[X]Other acute myocarditis,empty description,False
+myocarditis,194960007,Other acute myocarditis NOS,empty description,False
+myocarditis,194952006,Other acute myocarditis,empty description,False
+myocarditis,186370003,Acute myocarditis - meningococcal,empty description,False
+myocarditis,194959002,Septic myocarditis NOS,empty description,False
+myocarditis,194955008,Idiopathic myocarditis NOS,empty description,False
+myocarditis,194951004,"Acute myocarditis in diseases EC, NOS",empty description,False
+myocarditis,195569005,"[X]Acute myocarditis, unspecified",empty description,False
+myocarditis,194953001,"Acute myocarditis, unspecified",empty description,False
+myocarditis,194961006,Acute myocarditis NOS,empty description,False
+myocarditis,155336004,Acute myocarditis,empty description,False
+myocarditis,195135000,Sarcoid myocarditis,empty description,False
+myocarditis,186881007,Syphilitic myocarditis,empty description,False
+myocarditis,8402005,AIDS with acute myocarditis,empty description,False
+myocarditis,13452004,AIDS with subacute myocarditis,empty description,False
+type_1_diabetes,190423009,"Diabetes mellitus, juvenile type, with unspecified complication",empty description,False
+type_1_diabetes,371054002,Type 1 diabetes mellitus with complication,empty description,False
+type_1_diabetes,190371008,Insulin-dependent diabetes mellitus - poor control,empty description,False
+type_1_diabetes,190381007,Type I diabetes mellitus with neuropathic arthropathy,empty description,False
+type_1_diabetes,314894004,Insulin dependent diabetes mellitus with neuropathic arthropathy,empty description,False
+type_1_diabetes,190377007,Type I diabetes mellitus with hypoglycaemic coma,empty description,False
+type_1_diabetes,314771006,Insulin dependent diabetes mellitus with hypoglycaemic coma,empty description,False
+type_1_diabetes,190380008,Type 1 diabetes mellitus with arthropathy,empty description,False
+type_1_diabetes,190363009,Insulin-dependent diabetes mellitus with renal complications,empty description,False
+type_1_diabetes,190364003,Insulin-dependent diabetes mellitus with ophthalmic complications,empty description,False
+type_1_diabetes,190365002,Insulin-dependent diabetes mellitus with neurological complications,empty description,False
+type_1_diabetes,422228004,Multiple complications due to type 1 diabetes mellitus,empty description,False
+type_1_diabetes,190366001,Insulin-dependent diabetes mellitus with multiple complications,empty description,False
+type_1_diabetes,190418009,"Diabetes mellitus, juvenile type, with other specified manifestation",empty description,False
+type_1_diabetes,408287009,Type 1 diabetes mellitus with exudative maculopathy,empty description,False
+type_1_diabetes,237618001,Congenital insulin-dependent diabetes mellitus with fatal secretory diarrhea,empty description,False
+type_1_diabetes,190367005,Unstable type I diabetes mellitus,empty description,False
+type_1_diabetes,190362004,Type I diabetes mellitus,empty description,False
+type_1_diabetes,190322003,Insulin dependent diabetes mellitus,empty description,False
+type_1_diabetes,267469001,Diabetes mellitus - juvenile,empty description,False
+type_1_diabetes,154673001,Diabetes mellitus: [juvenile] or [insulin dependent],empty description,False
+type_1_diabetes,190325001,"Diabetes mellitus, juvenile type, with ketoacidosis",empty description,False
+type_1_diabetes,371055001,Type I diabetes mellitus with ketoacidosis,empty description,False
+type_1_diabetes,789542009,Neuropathy due to type 1 diabetes mellitus,empty description,False
+type_1_diabetes,190378002,Type I diabetes mellitus with diabetic cataract,empty description,False
+type_1_diabetes,314887002,Insulin dependent diabetes mellitus with diabetic cataract,empty description,False
+type_1_diabetes,190358005,IDDM with peripheral circulatory disorder,empty description,False
+type_1_diabetes,190355008,"Diabetes mellitus, juvenile type, with peripheral circulatory disorder",empty description,False
+type_1_diabetes,401110002,Type 1 diabetes mellitus with persistent microalbuminuria,empty description,False
+type_1_diabetes,425442003,Diabetic autonomic neuropathy associated with type 1 diabetes mellitus,empty description,False
+type_1_diabetes,425159004,Diabetes type 1 with gastroparesis,empty description,False
+type_1_diabetes,435011000124100,Ankle ulcer associated with type 1 diabetes mellitus,empty description,False
+type_1_diabetes,190373006,Type I diabetes mellitus without complication,empty description,False
+type_1_diabetes,313435000,Insulin-dependent diabetes without complication,empty description,False
+type_1_diabetes,190369008,Insulin-dependent diabetes mellitus with gangrene,empty description,False
+type_1_diabetes,82561000119101,Cranial nerve palsy due to diabetes mellitus type 1,empty description,False

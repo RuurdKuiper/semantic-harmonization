@@ -1,0 +1,13 @@
+{
+  "checked_on": "2026-10-30",
+  "historical_read_date": "2026-09-17",
+  "evidence": [
+    {
+      "timestamp": "2026-09-17T08:23:00.936Z",
+      "operation": "Read first 20 raw CSV lines and another raw-file segment; no write operation.",
+      "first_raw_rows_excerpt": "': 'code,term\\n100000000,\\n10000006,Radiating chest pain\\n10000006,Radiating chest pain (finding)\\n1000001000004108,Mismatch repair endonuclease PMS2\\n1000001000004108,Mismatch repair endonuclease PMS2 (substance)\\n1000004,\\n"
+    }
+  ],
+  "old_csv_byte_identical_to_first_git_commit": true,
+  "conclusion": "Blank raw-source rows predate the recent parser and were recorded during the initial September setup. The exact generating export policy and whether the currently viewed SharePoint file is the same historical version are not established."
+}

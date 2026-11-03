@@ -1,0 +1,34 @@
+{
+  "model": "text-embedding-3-large",
+  "independently_reembedded_changed_rows": 5,
+  "codes": [
+    "10000006",
+    "21502000",
+    "360143004",
+    "58805000",
+    "9998002"
+  ],
+  "cosine_similarities": [
+    0.9999994039535522,
+    0.9999991655349731,
+    0.9999992847442627,
+    0.9999995827674866,
+    0.9999996423721313
+  ],
+  "cosine_similarities_to_old_wording_vectors": [
+    0.8630967140197754,
+    0.8411666750907898,
+    0.910331130027771,
+    0.7633772492408752,
+    0.8431206941604614
+  ],
+  "minimum_cosine_similarity": 0.9999991655349731,
+  "maximum_absolute_difference": 0.00013798847794532776,
+  "acceptance_minimum_cosine": 0.99999,
+  "independent_reembedding_matches": true,
+  "recorded_validation_request_tokens": 38,
+  "validation_requests_total": 2,
+  "earlier_strict_float_tolerance_check_passed": false,
+  "earlier_max_absolute_difference": 0.00016591325402259827,
+  "note": "Fresh API calls vary slightly; cosine agreement is tested rather than bitwise equality. Token count records this request only."
+}

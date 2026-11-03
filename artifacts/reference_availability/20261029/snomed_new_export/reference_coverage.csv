@@ -1,0 +1,9 @@
+phenotype,snomed_reference_narrow,available_old,available_new,unavailable_old,unavailable_new,recovered,newly_unavailable
+acute_disseminated_encephalomyelitis,5,2,2,3,3,0,0
+acute_myocardial_infarction,68,52,52,16,16,0,0
+eczema_vaccinatum,3,2,2,1,1,0,0
+erythema_multiforme,33,21,21,12,12,0,0
+guillain_barre,16,11,11,5,5,0,0
+kidney_disease,2108,1766,1765,342,343,0,1
+myocarditis,114,83,83,31,31,0,0
+type_1_diabetes,148,112,112,36,36,0,0

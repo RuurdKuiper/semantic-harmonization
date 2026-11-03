@@ -1,0 +1,70 @@
+{
+  "pasted_rows": 28,
+  "pasted_distinct_identifiers": 14,
+  "all_source_rows_found": true,
+  "all_identifiers_imported": true,
+  "selected_rows": [
+    {
+      "code": "10000006",
+      "description": "Radiating chest pain (finding)"
+    },
+    {
+      "code": "1000001000004108",
+      "description": "Mismatch repair endonuclease PMS2"
+    },
+    {
+      "code": "10001000004107",
+      "description": "Smallest length dimension of excised neoplasm"
+    },
+    {
+      "code": "10001005",
+      "description": "Bacterial sepsis (disorder)"
+    },
+    {
+      "code": "10002003",
+      "description": "Resection of stomach fundus (procedure)"
+    },
+    {
+      "code": "10003008",
+      "description": "Non-specific"
+    },
+    {
+      "code": "10004002",
+      "description": "Moxostoma carinatum"
+    },
+    {
+      "code": "10005001",
+      "description": "Common redpoll"
+    },
+    {
+      "code": "10007009",
+      "description": "Coffin-Siris syndrome"
+    },
+    {
+      "code": "1001000",
+      "description": "Cauterization of Bartholin's gland (procedure)"
+    },
+    {
+      "code": "1001000087107",
+      "description": "Ultrasonography of calf of right lower leg (procedure)"
+    },
+    {
+      "code": "1001000119102",
+      "description": "Pulmonary embolism with pulmonary infarction"
+    },
+    {
+      "code": "1001000124104",
+      "description": "Normal left ventricular systolic function (finding)"
+    },
+    {
+      "code": "1001000181105",
+      "description": "Comamonas aquatilis"
+    }
+  ],
+  "original_blank_code_examples_absent_from_new_raw_text": [
+    "194488006",
+    "192934005",
+    "194451008"
+  ],
+  "conclusion": "The populated examples import correctly. Repeated descriptions of the same code become one corpus entry; the missing-reference issue concerns other identifiers."
+}

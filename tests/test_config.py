@@ -34,6 +34,9 @@ def test_load_default_config():
     assert config.uncertainty.gpt_review_reasoning_enabled is True
     assert config.llm.classify_effort == "medium"
     assert config.paths.code_systems.get("ICD10CM") == "data/codes/csv/ICD10CM@2026-codes.csv"
+    assert config.paths.code_systems["SNOMEDCT_US"].endswith(" definitive.csv")
+    assert config.paths.codes_parquet_dir.endswith("snomed_definitive_20261030")
+    assert config.paths.embeddings_dir.endswith("snomed_definitive_20261030")
     assert config.paths.results_dir == "results"
     assert config.evaluation.compare_vocabularies == ["ICD10CM", "ICD9CM", "ICPC", "MDR", "RCD2", "SNOMEDCT_US"]
     assert "myocarditis" in config.paths.aesi_datasets
@@ -45,6 +48,9 @@ def test_load_default_config():
 
 def test_codemapper_experiment_settings():
     config = load_config("configs/codemapper_experiment.yaml")
+    assert config.paths.code_systems["SNOMEDCT_US"].endswith("2025_09_01-codes.csv")
+    assert config.paths.codes_parquet_dir == "data/codes/parquet"
+    assert config.paths.embeddings_dir == "data/codes/embeddings"
     assert config.retrieval.embedding_provider == "local"
     assert config.retrieval.embedding_model == "sentence-transformers/all-MiniLM-L6-v2"
     assert config.retrieval.use_top_k_limit is False

@@ -1,0 +1,11 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "rows": 382170,
+  "dimensions": 384,
+  "cache": "data/codes/embeddings/snomed_definitive_20261030/embeddings_SNOMEDCT_US_sentence-transformers_all-MiniLM-L6-v2.npz",
+  "metadata_matches_current_corpus": true,
+  "all_vectors_finite_and_normalized": true,
+  "all_saved_vectors_match_checkpoint": true,
+  "independently_reembedded_changed_rows": 5,
+  "independent_reembedding_matches": true
+}

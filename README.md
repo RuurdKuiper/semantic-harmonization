@@ -9,13 +9,34 @@ An Event Definition Form (EDF) is the semantic input. Original EDF documents
 are retained as DOCX, while reviewed YAML representations are used at runtime.
 AESI codelist CSVs are expert-generated ground truth used only for evaluation.
 
+The active default configuration uses `SNOMEDCT_US@2025_09_01-codes definitive.csv`.
+It is byte-identical to the `new.csv` export and imports as 382,170 distinct codes
+with populated descriptions. Its corpus and embedding caches use the
+`snomed_definitive_20261030` subfolders. The original study configuration and
+caches remain unchanged in their original locations; manuscript results still
+refer to that original corpus. SNOMED indexes for the definitive export are
+available for both MiniLM (384 dimensions) and OpenAI `text-embedding-3-large`
+(3,072 dimensions). Existing embeddings
+for the unchanged terminologies are retained in the new cache folder.
+
+Build or resume the SNOMED indexes without running classification or evaluation:
+
+```bash
+PYTHONPATH=. .venv/bin/python scripts/build_snomed_embeddings.py --provider local
+PYTHONPATH=. .venv/bin/python scripts/build_snomed_embeddings.py --provider openai
+```
+
+The builder reuses original vectors only when code, vocabulary and description
+match exactly; it embeds changed wording again. Checkpoints retain completed
+rows, while final `.npz` files use the cache names expected by the pipeline.
+
 For a single phenotype, `main.py`:
 
 1. Loads `data/edfs/yamls/<phenotype>.yaml`, including its definition,
    inclusion/exclusion criteria, decision rules, synonyms, anchor codes,
    ambiguities, and references.
 2. Loads the selected complete terminology sources from `data/codes/csv/`.
-   Parsed corpora are cached in `data/codes/parquet/`; a cache is rebuilt when
+   Parsed corpora are cached in the configured `paths.codes_parquet_dir`; a cache is rebuilt when
    its source CSV is newer. Non-codable dictionary range rows such as
    `N17-N19` or `N17–N19` are removed before retrieval and classification.
 3. Gives every code a combined BM25 lexical and sentence-embedding similarity
@@ -24,8 +45,9 @@ For a single phenotype, `main.py`:
    `text-embedding-3-large` at its full 3,072 dimensions is the default semantic
    encoder; the previous local `all-MiniLM-L6-v2` encoder remains selectable.
    Vector indexes are cached per vocabulary, provider, model, and dimension in
-   `data/codes/embeddings/`, so the OpenAI and local indexes coexist. An optional
+   the configured `paths.embeddings_dir`, so the OpenAI and local indexes coexist. An optional
    hard top-k cap is retained for fixed-size experiments.
+   Cached vectors are reused only when their codes, vocabularies and descriptions match.
 4. Passes ranked candidates directly to Jev classification in batches. LLM
    re-ranking is implemented but currently disabled. By default, classification
    stops adaptively once Narrow results remain sparse for several consecutive

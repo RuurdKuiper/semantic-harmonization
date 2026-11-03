@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-29",
+  "available_reference_entries": 3051,
+  "unavailable_reference_entries": 894,
+  "unique_unavailable_code_terminology_pairs": 893,
+  "empty_description_entries": 858,
+  "all_six_corpus_hashes_match_frozen_study": true,
+  "reference_sha256": {
+    "data/codelists/AESI/Ref-N_ADEM_AESI.csv": "5e6cce0420d5d35e8446aa1f84b22123365052061481a85145ffefaa3a067c25",
+    "data/codelists/AESI/Ref-C_AMI_AESI.csv": "0ed6f96a3d3675bc6f41d001144591b88f9897008774b2891a5cc7beea0e11ff",
+    "data/codelists/AESI/Ref-Sk_ECZEMAVACCINATUM_AESI.csv": "e4128b1703a992751f45f2457cf9dd393002a38b8134618d909a9d6020485dae",
+    "data/codelists/AESI/Sk_ERYTHMULTI_AESI.csv": "7fe82472fdc615b86eaa0d84b2473543ef65c3d48959e27f636f95c86409b08d",
+    "data/codelists/AESI/N_GBS_AESI_filtered.csv": "ec6072893459363cb919e22dc9db3c933c8f112ee31c47b841a97719fb4d38e5",
+    "data/codelists/AESI/Ref-G_KIDNEYDISEASE_COV.csv": "9a910c6e8e167b5148dc801c8835af0c656d8aa66f30a97057fcc5b55612c926",
+    "data/codelists/AESI/C_MYOCARD_AESI_filtered.csv": "3828207ddff517c77a9f6d66dc5814e42b885169c38cf34bec7bac4be0ab0f57",
+    "data/codelists/AESI/Ref-E_DM1_AESI.csv": "541c669bf8f8e8ae1ae5fe5e7f4dcec1ec7415668d0e9ccf0a068f6861d43956"
+  },
+  "causes": [
+    {
+      "vocabulary": "ICD9CM",
+      "diagnosis": "reference_code_absent_from_official_CMS_diagnosis_list",
+      "reference_entries": 1
+    },
+    {
+      "vocabulary": "ICPC",
+      "diagnosis": "Dutch_ICPC_subcode_absent_from_base_export",
+      "reference_entries": 3
+    },
+    {
+      "vocabulary": "ICPC",
+      "diagnosis": "ICPC2_code_absent_from_1993_export",
+      "reference_entries": 1
+    },
+    {
+      "vocabulary": "MDR",
+      "diagnosis": "code_present_but_description_empty",
+      "reference_entries": 443
+    },
+    {
+      "vocabulary": "SNOMEDCT_US",
+      "diagnosis": "UK_namespace_code_absent_from_US_export",
+      "reference_entries": 31
+    },
+    {
+      "vocabulary": "SNOMEDCT_US",
+      "diagnosis": "code_present_but_description_empty",
+      "reference_entries": 415
+    }
+  ],
+  "official_icd10_comparisons": [
+    {
+      "official_year": 2025,
+      "official_codes": 97584,
+      "official_missing_from_local": 12,
+      "local_codes_not_in_official": 934
+    },
+    {
+      "official_year": 2026,
+      "official_codes": 98186,
+      "official_missing_from_local": 0,
+      "local_codes_not_in_official": 320
+    }
+  ],
+  "additional_noncode_header_in_corpus": [
+    {
+      "code": "ICD-10-CM",
+      "description": "ICD-10-CM TABULAR LIST of DISEASES and INJURIES",
+      "vocabulary": "ICD10CM"
+    }
+  ],
+  "snomed_exact_release_independently_verified": false,
+  "limitations": [
+    "Raw sources have no active-status or hierarchy metadata; blank descriptions do not establish inactivity or MedDRA term level.",
+    "SNOMED public-browser requests were unavailable (HTTP 405/423); no per-code status claims were inferred.",
+    "SNOMED export/configuration label is 2025_09_01; original package metadata is needed to distinguish a correctly labelled release from a mislabelled export."
+  ],
+  "production_inputs_predictions_and_manuscript_unchanged": true,
+  "icd10_fy2026_identifiers_exact_match_after_removing_ranges_and_header": true
+}

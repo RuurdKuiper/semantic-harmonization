@@ -246,7 +246,12 @@ class EmbeddingIndex:
             expected_vocabularies = (
                 codes.get("vocabulary", pd.Series(dtype=str)).astype(str).tolist()
             )
-            if cached.codes == expected_codes and cached.vocabularies == expected_vocabularies:
+            expected_descriptions = codes["description"].fillna("").astype(str).tolist()
+            if (
+                cached.codes == expected_codes
+                and cached.vocabularies == expected_vocabularies
+                and cached.descriptions == expected_descriptions
+            ):
                 return cached
             subset_positions = _ordered_subset_positions(
                 cached.codes,
@@ -254,15 +259,16 @@ class EmbeddingIndex:
                 expected_codes,
                 expected_vocabularies,
             )
-            if subset_positions is not None:
+            if subset_positions is not None and all(
+                cached.descriptions[position] == description
+                for position, description in zip(subset_positions, expected_descriptions)
+            ):
                 # Corpus preprocessing can intentionally remove non-codable
                 # dictionary rows (for example ICD range headers). Reuse the
                 # matching cached vectors instead of re-embedding every code.
                 subset = cls(
                     model=cached.model,
-                    descriptions=codes.get("description", pd.Series(dtype=str))
-                    .astype(str)
-                    .tolist(),
+                    descriptions=expected_descriptions,
                     codes=expected_codes,
                     vocabularies=expected_vocabularies,
                     embeddings=np.asarray(cached.embeddings[subset_positions], dtype=np.float32),

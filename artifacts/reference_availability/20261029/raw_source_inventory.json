@@ -1,0 +1,22 @@
+[
+  {
+    "vocabulary": "ICD9CM",
+    "raw_rows": 22406,
+    "empty_description_rows": 0
+  },
+  {
+    "vocabulary": "ICPC",
+    "raw_rows": 777,
+    "empty_description_rows": 7
+  },
+  {
+    "vocabulary": "MDR",
+    "raw_rows": 92257,
+    "empty_description_rows": 63218
+  },
+  {
+    "vocabulary": "SNOMEDCT_US",
+    "raw_rows": 971688,
+    "empty_description_rows": 147667
+  }
+]

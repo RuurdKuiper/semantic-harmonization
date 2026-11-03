@@ -1,0 +1,11 @@
+{
+  "old_populated_identifiers": 384620,
+  "old_blank_identifiers": 147667,
+  "new_populated_identifiers": 382170,
+  "new_rows": 788036,
+  "malformed_records": [],
+  "added_identifiers": 0,
+  "removed_populated_identifiers": 2450,
+  "old_blank_ids_now_populated": 0,
+  "previously_unavailable_reference_entries_recovered": 0
+}
