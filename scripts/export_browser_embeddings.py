@@ -43,10 +43,11 @@ def quantize_unit_vectors(vectors):
     return quantized.tobytes() + inverse_norms.tobytes()
 
 
-def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: str, chunk_rows=4096, dimensions=384, dtype="fp32") -> dict:
+def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: str, chunk_rows=4096, dimensions=384, dtype="fp32", source_dimensions=None) -> dict:
     """Require exact code/vocabulary/description matches with the saved vectors."""
-    if index.embeddings.ndim != 2 or index.embeddings.shape[1] != dimensions:
-        raise ValueError(f"Browser packs require {dimensions}-dimensional vectors")
+    expected = source_dimensions or dimensions
+    if index.embeddings.ndim != 2 or index.embeddings.shape[1] != expected or dimensions > expected:
+        raise ValueError(f"Browser packs require {expected}-dimensional source vectors")
     if dtype not in {"fp32", "int8"}:
         raise ValueError("Unsupported vector storage format")
     lookup = {(code, vocab, desc): i for i, (code, vocab, desc) in
@@ -74,7 +75,7 @@ def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: s
     lexical_asset = write_asset(staging / "lexical.json.gz", json_gzip(lexical))
     for start in range(0, count, chunk_rows):
         selected = rows[start:start + chunk_rows]
-        vectors = np.asarray(index.embeddings[positions[start:start + chunk_rows]], dtype="<f4")
+        vectors = np.asarray(index.embeddings[positions[start:start + chunk_rows], :dimensions], dtype="<f4")
         if not np.isfinite(vectors).all():
             raise ValueError(f"Non-finite vectors in {vocabulary}")
         norms = np.linalg.norm(vectors, axis=1, keepdims=True)
@@ -112,21 +113,23 @@ def main():
     parser.add_argument("--vocabularies", nargs="+")
     parser.add_argument("--provider", choices=["minilm", "openai"], default="minilm")
     parser.add_argument("--dtype", choices=["fp32", "int8"])
+    parser.add_argument("--dimensions", type=int)
     parser.add_argument("--previous-manifest", type=Path, default=Path("dist/browser-assets/manifest.json"))
     parser.add_argument("--chunk-rows", type=int)
     args = parser.parse_args()
-    chunk_rows = args.chunk_rows if args.chunk_rows is not None else (2048 if args.provider == "openai" else 4096)
+    dtype = args.dtype or "int8"
+    is_openai = args.provider == "openai"
+    dimensions = args.dimensions if args.dimensions is not None else (256 if is_openai and dtype == "int8" else 3072 if is_openai else 384)
+    if (is_openai and not 1 <= dimensions <= 3072) or (not is_openai and dimensions != 384):
+        parser.error("MiniLM requires 384 dimensions; OpenAI supports 1 to 3072")
+    chunk_rows = args.chunk_rows if args.chunk_rows is not None else (2048 if is_openai and dtype == "fp32" else 4096)
     if chunk_rows < 1:
         parser.error("--chunk-rows must be positive")
     config = load_config(args.config)
-    dtype = args.dtype or ("int8" if args.provider == "minilm" else "fp32")
-    if args.provider == "openai" and dtype != "fp32":
-        parser.error("OpenAI packs currently require fp32 storage")
-    output = Path(args.output_dir or ("dist/browser-openai-assets" if args.provider == "openai" else "dist/browser-minilm-int8-assets" if dtype == "int8" else "dist/browser-assets"))
+    default_output = (f"dist/browser-openai-{dimensions}-int8-assets" if dtype == "int8" else "dist/browser-openai-assets") if is_openai else ("dist/browser-minilm-int8-assets" if dtype == "int8" else "dist/browser-assets")
+    output = Path(args.output_dir or default_output)
     output.mkdir(parents=True, exist_ok=True)
     vocabularies = args.vocabularies or config.retrieval.vocabularies
-    is_openai = args.provider == "openai"
-    dimensions = 3072 if is_openai else 384
     manifest = {"format": f"semantic-harmonization-{args.provider}-v1", "dimensions": dimensions,
                 "model": "text-embedding-3-large" if is_openai else "Xenova/all-MiniLM-L6-v2", "dtype": dtype, "maxLength": 8192 if is_openai else 256,
                 "vocabularies": []}
@@ -138,10 +141,10 @@ def main():
             [vocabulary], source_paths=config.paths.code_systems, cache_dir=config.paths.codes_parquet_dir))
         identity = embedding_cache_key('openai', 'text-embedding-3-large', 3072) if is_openai else embedding_cache_key('local', DEFAULT_LOCAL_EMBEDDING_MODEL)
         cache = Path(config.paths.embeddings_dir) / f"embeddings_{vocabulary}_{identity}.npz"
-        if cache.exists():
-            index = EmbeddingIndex.load(cache, load_model=False)
-        elif is_openai:
-            checkpoint = Path('data/codes/embeddings/openai_text-embedding-3-large_3072_resumable') / vocabulary
+        checkpoint = next((path for path in [Path(config.paths.embeddings_dir) / 'openai_text-embedding-3-large_3072_resumable' / vocabulary,
+                                            Path('data/codes/embeddings/openai_text-embedding-3-large_3072_resumable') / vocabulary]
+                           if (path / 'state.json').is_file()), None) if is_openai else None
+        if checkpoint is not None:
             state = json.loads((checkpoint / 'state.json').read_text())
             if not state.get('complete') or state.get('dimensions') != 3072 or state.get('model') != 'text-embedding-3-large':
                 raise ValueError(f"The saved OpenAI checkpoint for {vocabulary} is incomplete or incompatible")
@@ -149,9 +152,12 @@ def main():
             rows = pd.read_parquet(checkpoint / 'rows.parquet')
             index = EmbeddingIndex(None, rows.description.tolist(), rows.code.tolist(), rows.vocabulary.tolist(),
                                    np.load(checkpoint / 'vectors.npy', mmap_mode='r'))
+        elif cache.exists():
+            index = EmbeddingIndex.load(cache, load_model=False)
         else:
             raise FileNotFoundError(f"Precomputed index is missing for {vocabulary}; export does not build embeddings")
-        manifest["vocabularies"].append(export_vocabulary(corpus, index, output, vocabulary, chunk_rows, dimensions, dtype))
+        manifest["vocabularies"].append(export_vocabulary(corpus, index, output, vocabulary, chunk_rows, dimensions, dtype,
+                                                         source_dimensions=3072 if is_openai else 384))
         del index, corpus
     if dtype == "int8" and args.previous_manifest.is_file():
         previous = json.loads(args.previous_manifest.read_text())

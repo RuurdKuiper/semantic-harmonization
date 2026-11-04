@@ -210,7 +210,7 @@ function updateQueryPreview() {
 function selectedProvider() { return $('embedding-provider').value; }
 function manifestURL() {
   const provider = selectedProvider();
-  const value = state.config.embeddingManifests?.[provider] || (provider === 'minilm' ? state.config.manifestUrl : `${state.config.apiBaseUrl}/api/assets/openai/manifest.json`);
+  const value = state.config.embeddingManifests?.[provider] || (provider === 'minilm' ? state.config.manifestUrl : `${state.config.apiBaseUrl}/api/assets/openai-256-int8/manifest.json`);
   if (!value) throw Error('The tool is not configured yet. Please contact its administrator.');
   return new URL(value, location.href).href;
 }
@@ -256,7 +256,8 @@ $('run-retrieval').addEventListener('click', () => action(async () => {
   let embeddingVector;
   if (provider === 'openai') {
     showProgress('Embedding your event definition with OpenAI…');
-    const result = await postAPI('embed', { edf: definition });
+    const result = await postAPI('embed', { edf: definition, dimensions: state.pack.dimensions });
+    if (result.dimensions !== state.pack.dimensions || result.model !== state.pack.model) throw Error('The query embedding does not match the selected terminology pack.');
     embeddingVector = result.vector;
     state.abort = null;
   }

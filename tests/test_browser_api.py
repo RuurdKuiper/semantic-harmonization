@@ -100,7 +100,7 @@ def test_asset_download_requires_auth_and_does_not_allow_arbitrary_paths(client)
         upstream.assert_not_called()
 
 
-@pytest.mark.parametrize("prefix,extension", [("", "f32"), ("minilm-int8/", "i8")])
+@pytest.mark.parametrize("prefix,extension", [("", "f32"), ("minilm-int8/", "i8"), ("openai-256-int8/", "i8")])
 def test_public_vectors_download_directly_without_exposing_hf_credentials(client, monkeypatch, prefix, extension):
     import httpx
     monkeypatch.setenv("PIPELINE_PUBLIC_ACCESS", "true")
@@ -144,18 +144,24 @@ def test_public_mode_allows_classification_without_user_credentials(client, monk
         assert client.post("/api/classify", json=body()).status_code == 200
 
 
-def test_public_openai_embedding_encodes_only_semantic_edf_fields(client, monkeypatch):
+@pytest.mark.parametrize("requested_dimensions", [None, 256, 3072])
+def test_public_openai_embedding_encodes_only_semantic_edf_fields(client, monkeypatch, requested_dimensions):
     from types import SimpleNamespace
     from unittest.mock import Mock
     monkeypatch.setenv("PIPELINE_PUBLIC_ACCESS", "true")
-    create = Mock(return_value=SimpleNamespace(data=[SimpleNamespace(embedding=[2.] + [0.] * 3071)]))
+    dimensions = requested_dimensions or 3072
+    create = Mock(return_value=SimpleNamespace(data=[SimpleNamespace(embedding=[2.] + [0.] * (dimensions - 1))]))
     sdk = SimpleNamespace(embeddings=SimpleNamespace(create=create))
     with patch("backend.app._get_openai_client", return_value=sdk):
-        result = client.post("/api/embed", json={"edf": {"preferred_name": "Migraine", "exclusion_criteria": ["excluded concept"]}})
+        payload = {"edf": {"preferred_name": "Migraine", "exclusion_criteria": ["excluded concept"]}}
+        if requested_dimensions is not None:
+            payload["dimensions"] = requested_dimensions
+        result = client.post("/api/embed", json=payload)
     assert result.status_code == 200
-    assert result.json()["vector"] == [1.] + [0.] * 3071
+    assert result.json()["vector"] == [1.] + [0.] * (dimensions - 1)
+    assert result.json()["dimensions"] == dimensions
     assert create.call_args.kwargs["input"] == "Migraine"
-    assert create.call_args.kwargs["dimensions"] == 3072
+    assert create.call_args.kwargs["dimensions"] == dimensions
 
 
 def test_public_paid_model_requests_are_bounded_before_provider_call(client, monkeypatch):

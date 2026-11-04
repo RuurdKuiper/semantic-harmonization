@@ -11,7 +11,7 @@ MiniLM and 0.35/0.65 for OpenAI.
 
 BM25, cosine scoring, normalization, ranking and reference scoring run in a Web
 Worker on the visitor's computer. MiniLM also embeds the EDF in the browser.
-OpenAI sends the EDF to the API to obtain a `text-embedding-3-large` query vector;
+OpenAI sends the EDF to the API to obtain a `text-embedding-3-large` query vector shortened to 256 dimensions;
 Jev classification and GPT review send the EDF and the current candidate batch.
 Provider keys and the Hugging Face dataset credential stay on the server.
 
@@ -20,7 +20,8 @@ The dataset `Ruurd/semantic-harmonization-minilm` remains private storage. With
 through the app's public download endpoints. It supplies temporary direct CDN links for vectors and streams metadata,
 without keeping a vector index or generating terminology embeddings. Both models use precomputed
 vectors for 617,077 codes across six terminologies. MiniLM packs total about
-236 MiB using 8-bit storage (previously 912 MiB); full-dimensional OpenAI packs total about 7.07 GiB. Only selected
+236 MiB using 8-bit storage (previously 912 MiB); the app's 256-dimensional, 8-bit OpenAI pack totals about 161 MiB. The 3,072-dimensional
+full-precision study vectors and legacy packs remain unchanged. Only selected
 terminologies download. Hash-verified chunks are saved in IndexedDB for reuse;
 browser storage can be evicted. A bounded window prefetches up to four fragments in parallel; scoring preserves
 corpus order. Cached fragments are reused without another download.
@@ -52,21 +53,24 @@ From the repository root:
 
 ```sh
 PYTHONPATH=. .venv/bin/python scripts/export_browser_embeddings.py
-PYTHONPATH=. .venv/bin/python scripts/export_browser_embeddings.py --provider openai --output-dir dist/browser-openai-assets
+PYTHONPATH=. .venv/bin/python scripts/export_browser_embeddings.py --provider openai --dimensions 256 --dtype int8
 ```
 
 The exporter checks the active corpus against saved vectors and refuses missing
 or mismatched embeddings. It creates content-addressed packs, with 4,096-row
-MiniLM chunks or 2,048-row OpenAI chunks by default. It never calls a provider to
+compact MiniLM/OpenAI chunks or 2,048-row full-precision OpenAI chunks by default. It never calls a provider to
 generate corpus embeddings. MiniLM defaults to int8 packs in
 `dist/browser-minilm-int8-assets`; use `--dtype fp32` for the original format.
-Upload int8 MiniLM assets under `minilm-int8/` and OpenAI
-assets under `openai/`, preserving the manifest's paths and raw compressed bytes.
+Upload int8 MiniLM assets under `minilm-int8/`, compact OpenAI assets from
+`dist/browser-openai-256-int8-assets` under `openai-256-int8/`, and legacy full-size
+OpenAI assets under `openai/`, preserving the manifest's paths and raw compressed bytes.
 Do not set `Content-Encoding: gzip` on `.json.gz` assets; the worker verifies their
 hashes before decompressing. Older full-precision MiniLM manifests stay at the
-dataset root for compatibility. The int8 manifest lists obsolete fp32 vector
+dataset root for compatibility. To export full OpenAI packs explicitly, use
+`--provider openai --dimensions 3072 --dtype fp32`. The int8 manifest lists obsolete fp32 vector
 hashes so the browser can remove those cached vectors on upgrade, preserving
-shared metadata and OpenAI data.
+shared metadata and the other encoder's vectors. For an OpenAI upgrade, supply
+`--previous-manifest` pointing to the legacy OpenAI manifest.
 
 ## Hosting
 
@@ -74,7 +78,7 @@ The frontend is published on the dedicated `browser-app-pages` branch. It
 contains the interface, examples and MiniLM runtime, without vectors or secrets.
 The GitHub Pages publishing source is GitHub Actions. Public build variables
 `PIPELINE_API_URL` and `PIPELINE_MANIFEST_URL` supply the API base URL and MiniLM
-manifest URL; the OpenAI manifest defaults to `/api/assets/openai/manifest.json`
+manifest URL; the app's OpenAI manifest defaults to `/api/assets/openai-256-int8/manifest.json`
 on that API. `web/public/config.json` provides defaults for local development.
 
 The API runs as a Docker Hugging Face Space. To prepare its source and the
@@ -86,7 +90,7 @@ PYTHONPATH=. .venv/bin/python scripts/prepare_huggingface_deployment.py --accoun
 
 The generated Dockerfile uses port 7860. The helper's `--upload` option checks
 the intended account, uploads the listed files and sets configuration through
-the Hugging Face API. OpenAI packs are uploaded separately under `openai/`.
+the Hugging Face API. Compact OpenAI packs are uploaded separately under `openai-256-int8/`.
 Set `JEV_API_KEY`, `OPENAI_API_KEY` and a persistent read-only `HF_TOKEN` as Space secrets.
 Initial classification uses Jev (`jev-latest`); GPT review uses OpenAI.
 Configure these separately using `PIPELINE_CLASSIFIER_PROVIDER`,
@@ -121,7 +125,11 @@ Only stored corpus vectors are quantized: each row uses signed int8 components
 scaled to its largest absolute component, followed by a little-endian float32
 inverse norm. Cosine scores use the float32 query and normalized quantized row.
 This uses 388 bytes per 384-dimensional vector instead of 1,536 bytes.
-OpenAI uses normalized `text-embedding-3-large` vectors with 3,072 dimensions.
+The online app uses the first 256 dimensions of existing `text-embedding-3-large`
+vectors, renormalized and stored with the same per-row int8 format (260 bytes
+per vector). Study settings and source vectors remain at 3,072 dimensions/fp32.
+The embedding endpoint accepts an explicit dimension count; its legacy default
+remains 3,072 so older clients can keep using the full-size pack.
 BM25 follows the Python tokenizer, per-vocabulary statistics and repeated query
 terms. Score normalization spans all selected vocabularies; combined scores are
 rounded to six decimals, with corpus-order ties. EDF field selection matches the Python pipeline. Browser semantic queries contain
@@ -161,3 +169,11 @@ format. `scripts/compare_browser_query_labels.py` reproduces the comparison usin
 existing corpus checkpoints, with 14 small query embeddings per encoder. Its
 report is separate from frozen study results. No corpus re-embedding or new
 terminology download is needed for this query-format change.
+
+For the compact OpenAI app variant, the seven validation EDFs at fixed 35/65
+weighting gave MAP 0.6485793, recall at 1,000 of 0.8797354 and recall at 10,000
+of 0.9603661. Full-size values were 0.6509634, 0.8746845 and 0.9698973. Kidney
+disease recall at 10,000 fell from 0.7968 to 0.7376. The compact representation
+was selected for the online app's practical download size after reviewing this
+trade-off; the study retains full-size vectors. The comparison is reproducible
+with `scripts/evaluate_openai_compaction.py`; it does not modify study outputs.

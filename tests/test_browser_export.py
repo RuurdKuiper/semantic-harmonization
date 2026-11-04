@@ -54,3 +54,21 @@ def test_int8_export_preserves_signed_directions_with_unit_normalizers(tmp_path)
     np.testing.assert_allclose(np.linalg.norm(decoded, axis=1), 1, atol=1e-6)
     expected = vectors / np.linalg.norm(vectors, axis=1, keepdims=True)
     assert np.min(np.sum(decoded * expected, axis=1)) > .9999
+
+
+def test_compact_openai_export_uses_prefix_without_changing_study_vectors(tmp_path):
+    vectors = np.zeros((2, 3072), dtype=np.float32)
+    vectors[:, :3] = [[1, -.5, .25], [-.25, 1, -.5]]
+    vectors[:, 256:] = 1000  # Discarded dimensions must not affect prefix directions.
+    original = vectors.copy()
+    corpus = pd.DataFrame({"code": ["A", "B"], "description": ["alpha", "beta"], "vocabulary": ["TEST"] * 2})
+    index = EmbeddingIndex(None, corpus.description.tolist(), corpus.code.tolist(), corpus.vocabulary.tolist(), vectors)
+    pack = export_vocabulary(corpus, index, tmp_path, "TEST", dimensions=256, dtype="int8", source_dimensions=3072)
+    data = (tmp_path / pack["chunks"][0]["vectors"]["url"]).read_bytes()
+    assert len(data) == 2 * 260
+    values = np.frombuffer(data, dtype=np.int8, count=512).reshape(2, 256)
+    inverse = np.frombuffer(data, dtype="<f4", offset=512)
+    decoded = values * inverse[:, None]
+    expected = vectors[:, :256] / np.linalg.norm(vectors[:, :256], axis=1, keepdims=True)
+    assert np.min(np.sum(decoded * expected, axis=1)) > .9999
+    np.testing.assert_array_equal(vectors, original)

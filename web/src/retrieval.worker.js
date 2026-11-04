@@ -78,11 +78,12 @@ async function retrieve({ edf, manifestUrl, vocabularies, weight, provider = 'mi
   const response = await fetch(manifestUrl, { cache: 'no-cache' });
   if (!response.ok) throw Error('Cannot load the terminology data. Please retry or contact the tool administrator.');
   const manifest = await response.json();
-  const dimensions = provider === 'openai' ? 3072 : 384;
+  const dimensions = provider === 'openai' ? manifest.dimensions : 384;
   if (manifest.format !== `semantic-harmonization-${provider}-v1` || manifest.dimensions !== dimensions
     || manifest.model !== (provider === 'openai' ? 'text-embedding-3-large' : 'Xenova/all-MiniLM-L6-v2')
     || !['fp32', 'int8'].includes(manifest.dtype)
-    || (manifest.dtype === 'int8' && (provider !== 'minilm' || manifest.quantization !== 'symmetric-int8-unit-vectors-v1'))
+    || (provider === 'openai' && ![256, 3072].includes(dimensions))
+    || (manifest.dtype === 'int8' && manifest.quantization !== 'symmetric-int8-unit-vectors-v1')
     || (provider === 'minilm' && manifest.maxLength !== 256)) throw Error('The terminology pack does not match the selected embedding model.');
   if (manifest.dtype === 'int8') await removeObsoleteVectors(manifest.obsoleteVectorHashes);
   const selected = vocabularies.map(id => {

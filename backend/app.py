@@ -125,13 +125,18 @@ class Batch(EventRequest):
         return self
 
 
+class EmbeddingRequest(EventRequest):
+    # Preserve the original API default for older clients and full-size packs.
+    dimensions: Literal[256, 3072] = 3072
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "retrieval": ["browser-minilm", "browser-openai"]}
 
 
 _ASSET_PATH = re.compile(
-    r"(?:(?:openai|minilm-int8)/)?(?:manifest\.json|(?:ICD10CM|ICD9CM|ICPC|MDR|RCD2|SNOMEDCT_US)-[0-9a-f]{20}/"
+    r"(?:(?:openai|openai-256-int8|minilm-int8)/)?(?:manifest\.json|(?:ICD10CM|ICD9CM|ICPC|MDR|RCD2|SNOMEDCT_US)-[0-9a-f]{20}/"
     r"(?:lexical\.json\.gz|[0-9]{7}\.(?:json\.gz|f32|i8)))\Z"
 )
 
@@ -242,19 +247,19 @@ def review(batch: Batch):
 
 
 @app.post("/api/embed", dependencies=[Depends(authorize), Depends(model_rate_limit)])
-def embed(event: EventRequest):
+def embed(event: EmbeddingRequest):
     """Encode one EDF query; terminology vectors are always precomputed."""
     query = EventDefinitionForm(name="browser-edf", **event.edf).to_embedding_query(include_labels=False)
     try:
         response = _get_openai_client().embeddings.create(
-            model="text-embedding-3-large", input=query, dimensions=3072, encoding_format="float")
+            model="text-embedding-3-large", input=query, dimensions=event.dimensions, encoding_format="float")
     except Exception as exc:
         logger.warning("Embedding request failed (%s)", type(exc).__name__)
         raise HTTPException(502, "The event definition could not be embedded. Please retry; very long definitions may need shortening.") from None
     vector = response.data[0].embedding
-    if len(vector) != 3072 or any(not math.isfinite(value) for value in vector):
+    if len(vector) != event.dimensions or any(not math.isfinite(value) for value in vector):
         raise HTTPException(502, "The embedding service returned an invalid vector.")
     norm = math.sqrt(sum(value * value for value in vector))
     if norm < 1e-12:
         raise HTTPException(502, "The embedding service returned an empty vector.")
-    return {"vector": [value / norm for value in vector], "model": "text-embedding-3-large", "dimensions": 3072}
+    return {"vector": [value / norm for value in vector], "model": "text-embedding-3-large", "dimensions": event.dimensions}

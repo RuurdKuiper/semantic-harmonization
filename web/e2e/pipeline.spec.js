@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test';
 import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 
-for (const [provider, dtype] of [['minilm', 'int8'], ['minilm', 'fp32'], ['openai', 'fp32']]) test(`automatic public retrieval, weighting, retry, review and export (${provider}/${dtype})`, async ({ page, context }) => {
+for (const [provider, dtype] of [['minilm', 'int8'], ['minilm', 'fp32'], ['openai', 'fp32'], ['openai', 'int8']]) test(`automatic public retrieval, weighting, retry, review and export (${provider}/${dtype})`, async ({ page, context }) => {
   const count = 65;
   const packBase = 'https://api.example.test/api/assets/';
-  const dimensions = provider === 'openai' ? 3072 : 384;
+  const dimensions = provider === 'openai' ? (dtype === 'int8' ? 256 : 3072) : 384;
   const rows = Array.from({ length: count }, (_, i) => [`C${String(i).padStart(3, '0')}`, `Migraine candidate ${i}`]);
   const vectors = new Float32Array(count * dimensions);
   for (let i = 0; i < count; i++) vectors[i * dimensions] = 1;
@@ -37,7 +37,7 @@ for (const [provider, dtype] of [['minilm', 'int8'], ['minilm', 'fp32'], ['opena
     expect(route.request().headers().authorization).toBeUndefined();
     const name = new URL(route.request().url()).pathname.split('/').pop();
     if (name === 'manifest.json') {
-      const requestedOpenAI = route.request().url().includes('/openai/');
+      const requestedOpenAI = route.request().url().includes('/openai');
       const manifest = { ...pack, format: requestedOpenAI ? 'semantic-harmonization-openai-v1' : 'semantic-harmonization-minilm-v1' };
       return route.fulfill({ headers, body: JSON.stringify(manifest) });
     }
@@ -56,7 +56,7 @@ for (const [provider, dtype] of [['minilm', 'int8'], ['minilm', 'fp32'], ['opena
     expect(route.request().headers().authorization).toBeUndefined();
     const body = route.request().postDataJSON();
     expect(body.edf.preferred_name).toBe('Migraine');
-    if (route.request().url().endsWith('/embed')) { embeddingCalls++; return route.fulfill({ headers, body: JSON.stringify({ vector: Array.from({ length: 3072 }, (_, i) => i === 0 ? 1 : 0), model: 'text-embedding-3-large', dimensions: 3072 }) }); }
+    if (route.request().url().endsWith('/embed')) { expect(body.dimensions).toBe(dimensions); embeddingCalls++; return route.fulfill({ headers, body: JSON.stringify({ vector: Array.from({ length: dimensions }, (_, i) => i === 0 ? 1 : 0), model: 'text-embedding-3-large', dimensions }) }); }
     const review = route.request().url().endsWith('/review');
     if (review) reviewCalls++; else classificationCalls++;
     if (!review && classificationCalls === 2) return route.fulfill({ status: 502, headers, body: JSON.stringify({ detail: 'Temporary model failure; retry to continue.' }) });
