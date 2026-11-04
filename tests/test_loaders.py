@@ -39,7 +39,19 @@ def test_name_only_edf_supports_retrieval_and_classification(tmp_path, definitio
     edf = load_edf("custom", tmp_path)
     assert edf.to_lexical_query() == "Migraine"
     assert edf.to_embedding_query() == "Preferred name: Migraine"
+    assert edf.to_embedding_query(include_labels=False) == "Migraine"
     assert edf.to_prompt_context() == "Preferred name: Migraine"
+
+
+def test_values_only_semantic_query_preserves_fields_and_lexical_query():
+    from src.data.loaders import EventDefinitionForm
+    edf = EventDefinitionForm(name="example", preferred_name="A", narrow_definition="B", synonyms=["C"],
+                              narrow_decision_rules=["D"], candidate_anchor_codes=["E"], morphology="F", anatomical_location="G",
+                              definition="not for retrieval", exclusion_criteria=["excluded text"])
+    assert edf.to_embedding_query(include_labels=False) == "A\nB\nC\nD\nE\nF\nG"
+    assert edf.to_lexical_query() == "A C"
+    assert "Preferred name: A" in edf.to_prompt_context()
+    assert "excluded text" in edf.to_prompt_context()
 
 
 def test_edf_to_prompt_context_contains_key_sections():

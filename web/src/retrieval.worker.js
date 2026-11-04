@@ -1,4 +1,6 @@
 import { bm25, queries, rankScores, standardKey } from './core.js';
+import { prefetchOrdered } from './prefetch.js';
+import { decodeVectors } from './vector-format.js';
 
 let database;
 function db() {
@@ -28,6 +30,18 @@ async function writeCache(key, bytes) {
     tx.onabort = () => reject(tx.error);
   });
 }
+async function removeObsoleteVectors(hashes = []) {
+  if (!Array.isArray(hashes) || hashes.some(key => !/^[0-9a-f]{64}$/.test(key))) throw Error('Invalid cache upgrade metadata.');
+  if (!hashes.length) return;
+  try {
+    const database = await db();
+    await new Promise((resolve, reject) => {
+      const tx = database.transaction('assets', 'readwrite');
+      for (const key of hashes) tx.objectStore('assets').delete(key);
+      tx.oncomplete = resolve; tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error);
+    });
+  } catch { /* Retrieval still works if persistent browser storage is unavailable. */ }
+}
 async function hash(bytes) {
   return [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
 }
@@ -39,8 +53,8 @@ async function asset(descriptor, base, progress) {
   if (bytes && (bytes.byteLength !== descriptor.bytes || await hash(bytes) !== key)) bytes = null;
   if (!bytes) {
     progress(`Downloading ${Math.ceil(descriptor.bytes / 1024 / 1024)} MB of terminology data…`);
-    const response = await fetch(url, { headers: assetHeaders(url) });
-    if (response.status === 401) throw Error('The service access token is missing or invalid. Update Connections and retry.');
+    const response = await fetch(url);
+    if (response.status === 401) throw Error('The terminology service is unavailable. Please contact the tool administrator.');
     if (!response.ok) throw Error(`Terminology download failed (${response.status}). Check the asset host and its CORS settings.`);
     bytes = await response.arrayBuffer();
     if (bytes.byteLength !== descriptor.bytes || await hash(bytes) !== key) throw Error('A terminology download failed its integrity check. Please retry.');
@@ -54,24 +68,23 @@ async function jsonAsset(descriptor, base, progress) {
   return new Response(stream).json();
 }
 
-let encoder, rows = [], ranking, assetAuthorization;
-function assetHeaders(url) {
-  return assetAuthorization && new URL(url).origin === assetAuthorization.origin
-    ? { Authorization: `Bearer ${assetAuthorization.token}` } : {};
-}
+let encoder, rows = [], ranking;
 function rowAt(position) {
   const i = ranking.order[position];
   return { ...rows[i], rank: position + 1, lexical_score: ranking.lexical[i], embedding_score: ranking.semantic[i], retrieval_score: ranking.scores[i] };
 }
-async function retrieve({ edf, manifestUrl, vocabularies, weight, authorization }, progress) {
+async function retrieve({ edf, manifestUrl, vocabularies, weight, provider = 'minilm', embeddingVector }, progress) {
   rows = []; ranking = undefined;
-  assetAuthorization = authorization;
-  const response = await fetch(manifestUrl, { cache: 'no-cache', headers: assetHeaders(manifestUrl) });
-  if (response.status === 401) throw Error('Enter a valid service access token in Connections to download the terminology pack.');
-  if (!response.ok) throw Error('Cannot load the terminology manifest. Configure a published MiniLM pack URL in Connections.');
+  const response = await fetch(manifestUrl, { cache: 'no-cache' });
+  if (!response.ok) throw Error('Cannot load the terminology data. Please retry or contact the tool administrator.');
   const manifest = await response.json();
-  if (manifest.format !== 'semantic-harmonization-minilm-v1' || manifest.dimensions !== 384
-    || manifest.model !== 'Xenova/all-MiniLM-L6-v2' || manifest.dtype !== 'fp32' || manifest.maxLength !== 256) throw Error('This terminology pack is not compatible with the browser MiniLM encoder.');
+  const dimensions = provider === 'openai' ? 3072 : 384;
+  if (manifest.format !== `semantic-harmonization-${provider}-v1` || manifest.dimensions !== dimensions
+    || manifest.model !== (provider === 'openai' ? 'text-embedding-3-large' : 'Xenova/all-MiniLM-L6-v2')
+    || !['fp32', 'int8'].includes(manifest.dtype)
+    || (manifest.dtype === 'int8' && (provider !== 'minilm' || manifest.quantization !== 'symmetric-int8-unit-vectors-v1'))
+    || (provider === 'minilm' && manifest.maxLength !== 256)) throw Error('The terminology pack does not match the selected embedding model.');
+  if (manifest.dtype === 'int8') await removeObsoleteVectors(manifest.obsoleteVectorHashes);
   const selected = vocabularies.map(id => {
     const item = manifest.vocabularies.find(item => item.id === id);
     if (!item) throw Error(`The terminology pack does not include ${id}.`);
@@ -79,6 +92,11 @@ async function retrieve({ edf, manifestUrl, vocabularies, weight, authorization 
   });
   if (!selected.length) throw Error('Select at least one terminology.');
   const query = queries(edf);
+  let vector;
+  if (provider === 'openai') {
+    if (!Array.isArray(embeddingVector) || embeddingVector.length !== dimensions || embeddingVector.some(value => !Number.isFinite(value))) throw Error('The embedding service returned an invalid query vector.');
+    vector = embeddingVector;
+  } else {
   progress('Loading MiniLM on your computer. The model is downloaded on first use…');
   if (!encoder) {
     const { createMiniLMEncoder } = await import('./minilm-runtime.js');
@@ -86,38 +104,52 @@ async function retrieve({ edf, manifestUrl, vocabularies, weight, authorization 
       progress_callback: event => { if (event.status === 'progress') progress(`Loading MiniLM: ${Math.round(event.progress)}%`); } });
   }
   const embedding = await encoder(query.semantic, { pooling: 'mean', normalize: true, truncation: true, max_length: 256 });
-  const vector = embedding.data;
-  if (vector.length !== 384) throw Error('Unexpected MiniLM output dimensions.');
+  vector = embedding.data;
+  if (vector.length !== dimensions) throw Error('Unexpected MiniLM output dimensions.');
+  }
   const total = selected.reduce((sum, vocabulary) => sum + vocabulary.count, 0);
+  const totalFragments = selected.reduce((sum, vocabulary) => sum + vocabulary.chunks.length, 0);
   const lexical = new Float64Array(total), semantic = new Float64Array(total);
-  let cursor = 0;
+  let cursor = 0, loadedFragments = 0;
   for (const vocabulary of selected) {
-    progress(`Preparing ${vocabulary.id}…`, cursor / total);
-    const stats = await jsonAsset(vocabulary.lexical, manifestUrl, progress);
+    const fragmentProgress = message => progress(
+      `${loadedFragments} of ${totalFragments} fragments loaded · ${vocabulary.id} · ${message}`,
+      loadedFragments / totalFragments,
+    );
+    fragmentProgress('Preparing search statistics…');
+    const stats = await jsonAsset(vocabulary.lexical, manifestUrl, fragmentProgress);
     let vocabularyCount = 0;
-    for (const chunk of vocabulary.chunks) {
+    const fragments = prefetchOrdered(vocabulary.chunks, async chunk => {
+      const [metadata, bytes] = await Promise.all([
+        jsonAsset(chunk.rows, manifestUrl, fragmentProgress),
+        asset(chunk.vectors, manifestUrl, fragmentProgress),
+      ]);
+      if (metadata.length !== chunk.count) throw Error('Terminology rows and vectors do not match.');
+      const decoded = decodeVectors(bytes, manifest.dtype, chunk.count, dimensions);
+      loadedFragments++;
+      fragmentProgress('Loading up to 4 fragments in parallel…');
+      return { chunk, metadata, decoded };
+    });
+    for await (const { chunk, metadata, decoded } of fragments) {
       if (chunk.start !== vocabularyCount) throw Error('The terminology manifest has missing or overlapping chunks.');
-      const metadata = await jsonAsset(chunk.rows, manifestUrl, progress);
-      const bytes = await asset(chunk.vectors, manifestUrl, progress);
-      const vectors = new Float32Array(bytes);
-      if (metadata.length !== chunk.count || vectors.length !== chunk.count * 384) throw Error('Terminology rows and vectors do not match.');
+      const { values: vectors, normalizers } = decoded;
       for (let i = 0; i < chunk.count; i++) {
         const [code, description] = metadata[i];
         let cosine = 0;
-        for (let d = 0; d < 384; d++) cosine += vector[d] * vectors[i * 384 + d];
-        semantic[cursor] = cosine;
+        for (let d = 0; d < dimensions; d++) cosine += vector[d] * vectors[i * dimensions + d];
+        semantic[cursor] = normalizers ? cosine * normalizers[i] : cosine;
         lexical[cursor] = bm25(query.lexical, description, stats);
         rows.push({ code, description, vocabulary: vocabulary.id });
         cursor++;
       }
       vocabularyCount += chunk.count;
-      progress(`Scored ${cursor.toLocaleString()} of ${total.toLocaleString()} codes`, cursor / total);
+      fragmentProgress(`Scored ${cursor.toLocaleString()} of ${total.toLocaleString()} codes`);
     }
     if (vocabularyCount !== vocabulary.count) throw Error('Incomplete terminology pack.');
   }
   ranking = rankScores(lexical, semantic, weight);
   return { count: rows.length, queries: query, vocabularyVersions: selected.map(item => item.version),
-    model: manifest.model, dtype: manifest.dtype, maxLength: manifest.maxLength };
+    model: manifest.model, provider, dimensions, lexicalWeight: weight, dtype: manifest.dtype, maxLength: manifest.maxLength };
 }
 
 self.onmessage = async ({ data: { id, method, args } }) => {

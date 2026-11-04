@@ -1,4 +1,4 @@
 {
   "apiBaseUrl": "https://ruurd-semantic-harmonization-api.hf.space",
-  "manifestUrl": "https://ruurd-semantic-harmonization-api.hf.space/api/assets/manifest.json"
+  "manifestUrl": "https://ruurd-semantic-harmonization-api.hf.space/api/assets/minilm-int8/manifest.json"
 }

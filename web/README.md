@@ -1,45 +1,31 @@
-# Browser MiniLM pipeline
+# Browser pipeline
 
-Live frontend: https://ruurdkuiper.github.io/semantic-harmonization/
+Live app: https://ruurdkuiper.github.io/semantic-harmonization/
 
-Classification API: https://ruurd-semantic-harmonization-api.hf.space
+API: https://ruurd-semantic-harmonization-api.hf.space
 
-The terminology dataset is private under `Ruurd/semantic-harmonization-minilm`.
-Downloads and model requests require the application access token. To choose or
-rotate the colleague access code, update the Space secret `PIPELINE_API_TOKEN`.
-The published build is on the dedicated `browser-app-pages` branch.
+Visitors can use the app without signing in, configuring connections or entering
+access codes. They choose MiniLM or OpenAI for ranking. Lexical/semantic weights
+are applied automatically from the study's validation selection: 0.50/0.50 for
+MiniLM and 0.35/0.65 for OpenAI.
 
-The GitHub Pages frontend runs BM25, MiniLM EDF embedding, cosine scoring,
-normalization, ranking and reference scoring on the visitor's computer. A Web
-Worker keeps retrieval off the interface thread. It never generates terminology
-embeddings. The existing Streamlit application remains available separately.
+BM25, cosine scoring, normalization, ranking and reference scoring run in a Web
+Worker on the visitor's computer. MiniLM also embeds the EDF in the browser.
+OpenAI sends the EDF to the API to obtain a `text-embedding-3-large` query vector;
+Jev classification and GPT review send the EDF and the current candidate batch.
+Provider keys and the Hugging Face dataset credential stay on the server.
 
-Classification and GPT review use the Python API in `backend/`. Only the EDF and
-the current candidate batch go to that service. Provider credentials stay on the
-server; the frontend accepts an application access token, kept only in memory.
-The API has no vector index, model download or terminology storage requirement. It can also stream protected packs from a private Hugging Face dataset without storing them.
+The dataset `Ruurd/semantic-harmonization-minilm` remains private storage. With
+`PIPELINE_PUBLIC_ACCESS=true`, the Space exposes its terminology assets to anyone
+through the app's public download endpoints. It supplies temporary direct CDN links for vectors and streams metadata,
+without keeping a vector index or generating terminology embeddings. Both models use precomputed
+vectors for 617,077 codes across six terminologies. MiniLM packs total about
+236 MiB using 8-bit storage (previously 912 MiB); full-dimensional OpenAI packs total about 7.07 GiB. Only selected
+terminologies download. Hash-verified chunks are saved in IndexedDB for reuse;
+browser storage can be evicted. A bounded window prefetches up to four fragments in parallel; scoring preserves
+corpus order. Cached fragments are reused without another download.
 
 ## Run locally
-
-From the repository root, prepare the existing MiniLM vectors for the browser:
-
-```sh
-PYTHONPATH=. .venv/bin/python scripts/export_browser_embeddings.py
-```
-
-This reads the active corpus and its precomputed MiniLM caches. It refuses
-missing or mismatched vectors instead of creating new embeddings. It produces
-content-addressed, integrity-checked packs in `dist/browser-assets`, with vector
-chunks of at most 4,096 rows (6 MiB). The current six-terminology export contains
-617,077 entries and approximately 912 MiB. Nothing in that output is committed.
-
-Serve the packs in one terminal:
-
-```sh
-python3 scripts/serve_browser_assets.py
-```
-
-Run the frontend in another:
 
 ```sh
 cd web
@@ -47,115 +33,103 @@ npm ci
 npm run dev
 ```
 
-Open the printed address, normally `http://127.0.0.1:5173`. In **Connections**, set
-the terminology manifest URL to `http://127.0.0.1:8766/manifest.json`. Retrieval
-works without an API service or API key. Start with one terminology to reduce
-the first download; later searches reuse browser-cached, hash-verified chunks.
-Browser storage can be evicted, especially in private mode or when disk space is
-low. Only one vector chunk is needed in memory at a time. Metadata and ranking
-scores for the selected corpus remain in memory.
+Open the printed address, normally `http://127.0.0.1:5173`. The checked-in public
+configuration connects to the hosted API automatically. Start with one small
+terminology to reduce the initial download. Browser storage can be cleared in
+the collapsed footer control. EDFs and decisions are not persisted; save exports
+before closing the tab.
 
-To enable classification/review, install `backend/requirements.txt`, set its
-documented environment variables, and run from the repository root:
+Classification runs sequential batches of 20 with a minimum of three batches,
+ten consecutive zero-Narrow batches and a configurable 10,000-code ceiling.
+Successful batches survive later failures within the tab; retry continues from
+them. GPT review sends at most ten low-confidence decisions per batch. Step 4
+keeps initial decisions; step 5 shows reviewed decisions and previous labels.
+Changing the EDF, terminology selection or encoder invalidates results.
+
+## Export precomputed terminology packs
+
+From the repository root:
 
 ```sh
-.venv/bin/python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000
+PYTHONPATH=. .venv/bin/python scripts/export_browser_embeddings.py
+PYTHONPATH=. .venv/bin/python scripts/export_browser_embeddings.py --provider openai --output-dir dist/browser-openai-assets
 ```
 
-Set the classification service URL to `http://127.0.0.1:8000` and enter your
-`PIPELINE_API_TOKEN` in Connections. **Do not enter a provider API key there.**
-The API requires an application token and rejects requests if none is configured.
-Provider/model selection is fixed on the server. OpenAI is the default for both classification and GPT review; Jev remains selectable on the server. Both model calls use the existing EDF prompts.
+The exporter checks the active corpus against saved vectors and refuses missing
+or mismatched embeddings. It creates content-addressed packs, with 4,096-row
+MiniLM chunks or 2,048-row OpenAI chunks by default. It never calls a provider to
+generate corpus embeddings. MiniLM defaults to int8 packs in
+`dist/browser-minilm-int8-assets`; use `--dtype fp32` for the original format.
+Upload int8 MiniLM assets under `minilm-int8/` and OpenAI
+assets under `openai/`, preserving the manifest's paths and raw compressed bytes.
+Do not set `Content-Encoding: gzip` on `.json.gz` assets; the worker verifies their
+hashes before decompressing. Older full-precision MiniLM manifests stay at the
+dataset root for compatibility. The int8 manifest lists obsolete fp32 vector
+hashes so the browser can remove those cached vectors on upgrade, preserving
+shared metadata and OpenAI data.
 
-Classification runs sequential batches of 20 with the existing minimum of three
-batches, ten consecutive zero-Narrow batches and a configurable 10,000-code cap.
-Successful batches survive later request failures in the current tab; retry
-continues from them. GPT review selects the lowest-confidence initial decisions
-and sends at most ten per batch. Step 4 keeps initial decisions and step 5 shows
-reviewed decisions with previous labels/confidence in separate columns.
-Changing the EDF, terminology selection or retrieval weight invalidates results.
-Save downloads before closing the tab: EDFs and decisions are not persisted.
+## Hosting
 
-## Host the services on Hugging Face
+The frontend is published on the dedicated `browser-app-pages` branch. It
+contains the interface, examples and MiniLM runtime, without vectors or secrets.
+The GitHub Pages publishing source is GitHub Actions. Public build variables
+`PIPELINE_API_URL` and `PIPELINE_MANIFEST_URL` supply the API base URL and MiniLM
+manifest URL; the OpenAI manifest defaults to `/api/assets/openai/manifest.json`
+on that API. `web/public/config.json` provides defaults for local development.
 
-The supported Hugging Face setup keeps the terminology dataset **private** and
-runs the small API as a Docker Space. Classification and review use OpenAI. The
-Space's `OPENAI_API_KEY` and `HF_TOKEN` are secrets; only an application access
-token is given to intended users. Browser downloads go through the protected
-Space endpoint, which streams each file from the dataset without storing it.
-
-Prepare both repositories without creating or uploading anything:
+The API runs as a Docker Hugging Face Space. To prepare its source and the
+verified MiniLM dataset assets:
 
 ```sh
 PYTHONPATH=. .venv/bin/python scripts/prepare_huggingface_deployment.py --account YOUR_ACCOUNT
 ```
 
-This stages only the manifest's active, verified assets and the API's Python
-source, dependencies and Dockerfile. It does not copy environment files or write
-secrets. The generated Space uses port 7860.
+The generated Dockerfile uses port 7860. The helper's `--upload` option checks
+the intended account, uploads the listed files and sets configuration through
+the Hugging Face API. OpenAI packs are uploaded separately under `openai/`.
+Set `JEV_API_KEY`, `OPENAI_API_KEY` and a persistent read-only `HF_TOKEN` as Space secrets.
+Initial classification uses Jev (`jev-latest`); GPT review uses OpenAI.
+Configure these separately using `PIPELINE_CLASSIFIER_PROVIDER`,
+`PIPELINE_CLASSIFIER_MODEL` and `PIPELINE_REVIEW_MODEL`.
+Interactive OAuth login credentials are not copied into runtime secrets.
+Set `PIPELINE_HF_DATASET`, `PIPELINE_ALLOWED_ORIGINS` and
+`PIPELINE_PUBLIC_ACCESS=true` as Space variables. Existing tokens are unnecessary
+for visitors in public mode. Legacy authenticated deployments can instead set
+`PIPELINE_PUBLIC_ACCESS=false` and configure `PIPELINE_API_TOKEN`.
 
-After confirming the intended Hugging Face account, log in using that account,
-set `OPENAI_API_KEY` and a long random `PIPELINE_API_TOKEN` in the environment,
-and rerun with `--upload`. The script checks that the login matches the account,
-creates or reuses a private dataset, uploads only the listed assets, and creates
-a public Docker Space whose API and asset routes require the application token.
-It sets secrets through Hugging Face's secrets API. A dedicated read-only dataset
-token can be supplied through `PIPELINE_HF_READ_TOKEN`; otherwise a persistent personal access token can be used server-side. Interactive OAuth session credentials are not copied into Space secrets; when signed in through OAuth, add a persistent read-only `HF_TOKEN` directly in the Space settings. No token is printed or included in uploaded code.
+Anonymous paid endpoints have an in-process per-client limit of 60 requests per
+minute and a shared daily limit of 10,000 requests, configurable using
+`PIPELINE_MODEL_REQUESTS_PER_MINUTE` and `PIPELINE_DAILY_MODEL_REQUESTS`.
+Counters reset when the Space restarts; they are not a billing quota. The browser
+retries short rate-limit waits automatically. Provider/model choice for
+classification and review stays on the server.
 
-The script returns the API URL and protected manifest URL. Use those two public
-URLs for the GitHub Pages build variables below. The API URL will resemble
-`https://ACCOUNT-semantic-harmonization-api.hf.space`; its manifest is at
-`/api/assets/manifest.json`. Give authorized colleagues the application access
-token separately; they do not need your OpenAI or Hugging Face credentials.
-The Space must have an active runtime and outbound access to OpenAI and the Hub.
-Do not assume a particular hardware tier or billing arrangement is available
-until checked for the intended account.
+For a separate local API, install `backend/requirements.txt`, configure the
+variables in `backend/.env.example`, then run:
 
-## Publish on GitHub Pages
+```sh
+.venv/bin/python -m uvicorn backend.app:app --host 127.0.0.1 --port 8000
+```
 
-1. Publish the **contents** of `dist/browser-assets` on an HTTP object/static
-   host. Preserve all paths and serve `.f32` and `.json.gz` as raw bytes. Do not
-   set `Content-Encoding: gzip` for `.json.gz`: the worker decompresses it after
-   checking its compressed-byte hash. Configure `Access-Control-Allow-Origin`
-   for the Pages origin, and permit GET. Keep asset versions immutable;
-   serve `manifest.json` with revalidation. Use HTTPS. Publish only terminology
-   data you are authorized to distribute to the intended audience.
-2. Deploy the classification API independently. For a container, build from the
-   repository root with `docker build -f backend/Dockerfile -t phenotype-api .`.
-   Configure `JEV_API_KEY`, `OPENAI_API_KEY`, `PIPELINE_API_TOKEN`, and
-   `PIPELINE_ALLOWED_ORIGINS` on that host. The origin for this repository's
-   default Pages URL is `https://ruurdkuiper.github.io` (no repository path).
-   Provide the service access token to intended users separately. The service
-   is stateless, accepts at most 20 candidates per request (10 for review), and
-   never receives the full vector index. Add your hosting service's access and
-   request limits before opening a shared paid service to a larger audience.
-3. Set GitHub repository **Actions variables**, not secrets, for the public
-   URLs: `PIPELINE_MANIFEST_URL` (including `/manifest.json`) and
-   `PIPELINE_API_URL` (API base URL). Neither variable contains a credential.
-4. Select **GitHub Actions** as the Pages publishing source and run the
-   **Publish browser pipeline** workflow. It tests and builds `web/`, then
-   deploys only the frontend, examples and browser runtime. Vectors and backend
-   credentials are never included. Relative bundle paths support project Pages
-   URLs such as `/semantic-harmonization/`.
+Set development URLs in `web/public/config.json` when using that local service.
 
-The frontend can be built before either host exists, but production retrieval
-needs a working manifest URL, and classification needs the API URL and access
-token. Missing configuration is reported in Connections; it never falls back
-to building the corpus. There is no anonymous, unmetered proxy to provider keys.
+## Retrieval compatibility and checks
 
-## Retrieval compatibility
-
-The browser bundles only the BERT model and tokenizer components needed by MiniLM from the pinned Transformers.js version; unrelated generative model registries are excluded. The browser uses full-precision `Xenova/all-MiniLM-L6-v2` ONNX inference, mean
-pooling, L2 normalization and a 256-token limit. Corpus packs are converted from
-the saved Python MiniLM vectors into normalized little-endian float32 values.
-BM25 uses the Python tokenizer conventions, per-vocabulary IDF/length statistics
-and repeated query terms. Lexical and semantic scores are normalized across all
-selected vocabularies, combined and rounded to six decimals, with corpus-order
-ties. Query field selection matches the Python implementation. Backend/runtime
-floating-point differences in ONNX query vectors can alter very close ties;
-this is a new interface and is not represented as a rerun of the frozen study.
-
-## Checks
+MiniLM uses the pinned BERT-only Transformers.js runtime, full-precision
+`Xenova/all-MiniLM-L6-v2`, mean pooling, L2 normalization and 256-token truncation.
+Only stored corpus vectors are quantized: each row uses signed int8 components
+scaled to its largest absolute component, followed by a little-endian float32
+inverse norm. Cosine scores use the float32 query and normalized quantized row.
+This uses 388 bytes per 384-dimensional vector instead of 1,536 bytes.
+OpenAI uses normalized `text-embedding-3-large` vectors with 3,072 dimensions.
+BM25 follows the Python tokenizer, per-vocabulary statistics and repeated query
+terms. Score normalization spans all selected vocabularies; combined scores are
+rounded to six decimals, with corpus-order ties. EDF field selection matches the Python pipeline. Browser semantic queries contain
+field values without generated headings or bullet prefixes; lexical queries
+remain the preferred name and synonyms. Classification retains the full structured
+EDF. The Python renderer keeps its historical labeled default for frozen-study
+compatibility; browser OpenAI requests explicitly use `include_labels=False`. ONNX floating-point differences can alter close MiniLM ties;
+this interface is not represented as a rerun of the frozen study.
 
 ```sh
 cd web
@@ -164,7 +138,26 @@ npm run build
 npx playwright test
 ```
 
-Browser tests use controlled model/API responses so they do not download a model
-or incur provider charges. Real MiniLM inference can be checked separately with
-the locally served exported packs. Python exporter and API tests are in
-`tests/test_browser_export.py` and `tests/test_browser_api.py`.
+Browser tests use controlled model and API responses without provider charges.
+The inference check script can exercise either real encoder with the hosted
+service. Python exporter and API checks are in `tests/test_browser_export.py`
+and `tests/test_browser_api.py`.
+
+The seven-EDF check on the current 617,077-code browser corpus (fixed 50/50
+weighting, available Narrow references, validation EDFs only) found mean AP
+0.6293607 for fp32 and 0.6293766 for int8. Top-100 sets matched for every EDF;
+mean recall at 1,000 was 0.8768559 versus 0.8769131. This is a deployment check,
+separate from the frozen manuscript results. Reproduce it after exporting both
+formats with `PYTHONPATH=. .venv/bin/python scripts/validate_browser_quantization.py`.
+The report records per-EDF metrics, manifest hashes and acceptance thresholds.
+
+A separate seven-EDF query-label comparison used the same current corpus and
+fixed weights. MiniLM int8 MAP was 0.6293766 labeled versus 0.6296649 values-only;
+OpenAI fp32 MAP was 0.6516335 versus 0.6509634. Recall at 100 rose from 0.6501541
+to 0.6603606 for MiniLM and from 0.6616180 to 0.6709790 for OpenAI. Recall at
+1,000 fell from 0.8769131 to 0.8749818 and from 0.8776211 to 0.8746845. These are
+mixed, small aggregate effects; values-only queries follow the app's requested
+format. `scripts/compare_browser_query_labels.py` reproduces the comparison using
+existing corpus checkpoints, with 14 small query embeddings per encoder. Its
+report is separate from frozen study results. No corpus re-embedding or new
+terminology download is needed for this query-format change.

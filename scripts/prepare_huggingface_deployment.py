@@ -1,7 +1,7 @@
 """Prepare, and optionally upload, the browser pipeline's Hugging Face services.
 
 Default preparation makes no remote changes. --upload creates a private dataset
-and a public, token-protected Docker API Space. Secrets are sent only through the
+and a public Docker API Space. Secrets are sent only through the
 Hugging Face secrets API, never written to the staged source or printed.
 """
 from __future__ import annotations
@@ -60,19 +60,19 @@ def prepare(assets: Path, output: Path):
             os.link(source, destination)
         except OSError:
             shutil.copyfile(source, destination)
-    (dataset / ".gitattributes").write_text("*.f32 filter=lfs diff=lfs merge=lfs -text\n")
+    (dataset / ".gitattributes").write_text("*.f32 filter=lfs diff=lfs merge=lfs -text\n*.i8 filter=lfs diff=lfs merge=lfs -text\n")
     (dataset / "README.md").write_text(
         "---\npretty_name: Clinical terminology MiniLM browser packs\n---\n\n"
         "Precomputed MiniLM vectors and associated terminology descriptions for browser retrieval.\n\n"
         "Keep this repository private. Access to the source terminologies remains subject to their licenses. "
-        "The classification Space streams these assets to authorized users; it does not build embeddings.\n"
+        "The classification Space streams these assets to app visitors; it does not build embeddings.\n"
     )
     docker = (ROOT / "backend/Dockerfile").read_text().replace("ENV PORT=8000", "ENV PORT=7860").replace("EXPOSE 8000", "EXPOSE 7860")
     (space / "Dockerfile").write_text(docker)
     (space / "README.md").write_text(
         "---\ntitle: Clinical Codelist API\nsdk: docker\napp_port: 7860\n---\n\n"
-        "Token-protected classification and GPT review through OpenAI, plus streaming access to a private terminology dataset.\n\n"
-        "Configure OPENAI_API_KEY, PIPELINE_API_TOKEN and HF_TOKEN as Space secrets. "
+        "Public Jev classification, OpenAI GPT review and EDF embedding, plus direct CDN vector downloads and terminology metadata streaming.\n\n"
+        "Configure JEV_API_KEY, OPENAI_API_KEY and HF_TOKEN as Space secrets. Set PIPELINE_PUBLIC_ACCESS=true for anonymous app access. "
         "Configure PIPELINE_HF_DATASET and PIPELINE_ALLOWED_ORIGINS as variables. "
         "No terminology vectors are stored in the Space.\n"
     )
@@ -81,7 +81,7 @@ def prepare(assets: Path, output: Path):
         destination = space / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / relative, destination)
-    return {"dataset": dataset, "dataset_paths": ["manifest.json", ".gitattributes", "README.md", *paths],
+    return {"dataset_prefix": "minilm-int8" if manifest.get("dtype") == "int8" else "", "dataset": dataset, "dataset_paths": ["manifest.json", ".gitattributes", "README.md", *paths],
             "space": space, "space_paths": ["README.md", "Dockerfile", *code_paths],
             "count": sum(v["count"] for v in manifest["vocabularies"])}
 
@@ -93,9 +93,12 @@ def upload(prepared, account, dataset_name, space_name):
     token = get_token()
     if not token:
         raise ValueError("Log in to the intended Hugging Face account first")
-    for name in ("OPENAI_API_KEY", "PIPELINE_API_TOKEN"):
+    for name in ("OPENAI_API_KEY",):
         if not os.getenv(name, "").strip() or os.environ[name].startswith("replace-"):
             raise ValueError(f"Set {name} in the environment before uploading")
+    jev_key = (os.getenv("TYPESAFE_API_KEY") or os.getenv("JEV_API_KEY") or "").strip()
+    if not jev_key or jev_key.startswith("replace-"):
+        raise ValueError("Set JEV_API_KEY or TYPESAFE_API_KEY before uploading")
     api = HfApi()
     profile = api.whoami()
     if account != profile["name"]:
@@ -105,7 +108,7 @@ def upload(prepared, account, dataset_name, space_name):
         existing_space = api.space_info(space_id)
         variable = api.get_space_variables(space_id).get("PIPELINE_HF_DATASET")
         if existing_space.private or existing_space.sdk != "docker" or variable is None or variable.value != dataset_id:
-            raise ValueError("The target Space already exists and is not this public, token-protected API. Choose another Space name")
+            raise ValueError("The target Space already exists and is not this public API. Choose another Space name")
     except RepositoryNotFoundError:
         pass
     try:
@@ -115,20 +118,20 @@ def upload(prepared, account, dataset_name, space_name):
     except RepositoryNotFoundError:
         pass
     api.create_repo(dataset_id, repo_type="dataset", private=True, exist_ok=True)
-    api.upload_folder(repo_id=dataset_id, repo_type="dataset", folder_path=prepared["dataset"],
+    api.upload_folder(repo_id=dataset_id, repo_type="dataset", folder_path=prepared["dataset"], path_in_repo=prepared["dataset_prefix"],
                       allow_patterns=prepared["dataset_paths"], commit_message="Publish precomputed browser MiniLM packs")
     api.create_repo(space_id, repo_type="space", space_sdk="docker", space_hardware="cpu-basic", private=False, exist_ok=True)
     runtime_token = os.getenv("PIPELINE_HF_READ_TOKEN") or (token if profile.get("auth", {}).get("type") != "oauth" else None)
-    runtime_secrets = {"OPENAI_API_KEY": os.environ["OPENAI_API_KEY"], "PIPELINE_API_TOKEN": os.environ["PIPELINE_API_TOKEN"]}
+    runtime_secrets = {"OPENAI_API_KEY": os.environ["OPENAI_API_KEY"], "JEV_API_KEY": jev_key}
     if runtime_token:
         runtime_secrets["HF_TOKEN"] = runtime_token
     for key, value in runtime_secrets.items():
         api.add_space_secret(repo_id=space_id, key=key, value=value)
-    for key, value in {"PIPELINE_HF_DATASET": dataset_id, "PIPELINE_CLASSIFIER_PROVIDER": "openai",
+    for key, value in {"PIPELINE_HF_DATASET": dataset_id, "PIPELINE_CLASSIFIER_PROVIDER": "jev", "PIPELINE_CLASSIFIER_MODEL": "jev-latest", "PIPELINE_PUBLIC_ACCESS": "true",
                        "PIPELINE_ALLOWED_ORIGINS": "https://ruurdkuiper.github.io,http://127.0.0.1:5173"}.items():
         api.add_space_variable(repo_id=space_id, key=key, value=value)
     api.upload_folder(repo_id=space_id, repo_type="space", folder_path=prepared["space"],
-                      allow_patterns=prepared["space_paths"], commit_message="Deploy OpenAI classification and protected terminology streaming")
+                      allow_patterns=prepared["space_paths"], commit_message="Deploy public model endpoints and terminology streaming")
     host = api.space_info(space_id).host
     if not host:
         raise RuntimeError("The Space was uploaded but has not returned a runtime URL yet")
@@ -136,7 +139,7 @@ def upload(prepared, account, dataset_name, space_name):
         host = "https://" + host
     if not runtime_token:
         print("Dataset upload complete. Add a persistent read-only HF_TOKEN in the Space secrets to enable private downloads.")
-    return {"apiBaseUrl": host.rstrip("/"), "manifestUrl": host.rstrip("/") + "/api/assets/manifest.json"}
+    return {"apiBaseUrl": host.rstrip("/"), "manifestUrl": host.rstrip("/") + "/api/assets/" + (prepared["dataset_prefix"] + "/" if prepared["dataset_prefix"] else "") + "manifest.json"}
 
 
 def main():
@@ -144,7 +147,7 @@ def main():
     parser.add_argument("--account", required=True)
     parser.add_argument("--dataset-name", default="semantic-harmonization-minilm")
     parser.add_argument("--space-name", default="semantic-harmonization-api")
-    parser.add_argument("--assets-dir", type=Path, default=ROOT / "dist/browser-assets")
+    parser.add_argument("--assets-dir", type=Path, default=ROOT / "dist/browser-minilm-int8-assets")
     parser.add_argument("--output-dir", type=Path, default=ROOT / "dist/huggingface")
     parser.add_argument("--upload", action="store_true")
     args = parser.parse_args()
@@ -158,7 +161,7 @@ def main():
         urls = upload(prepared, args.account, args.dataset_name, args.space_name)
         (args.output_dir / "urls.json").write_text(json.dumps(urls, indent=2))
         print("Classification API:", urls["apiBaseUrl"])
-        print("Protected terminology manifest:", urls["manifestUrl"])
+        print("Terminology manifest:", urls["manifestUrl"])
     else:
         print("No repositories created and no files uploaded. Use --upload after confirming the account and access settings.")
 

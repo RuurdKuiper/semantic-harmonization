@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 import Papa from 'papaparse';
-import { normalizeEDF, queries, keyOf, selectReview, mergeReview, validateDecisions, evaluate } from './core.js';
+import { normalizeEDF, queries, keyOf, selectReview, mergeReview, validateDecisions, evaluate, rankingWeight } from './core.js';
 import './style.css';
 
 const $ = id => document.getElementById(id);
@@ -12,12 +12,6 @@ const state = { worker: null, requests: new Map(), sequence: 0, ranked: null, in
 function notice(message = '') { $('notice').textContent = message; }
 function edf() { return normalizeEDF(yaml.load($('edf-yaml').value)); }
 function selected() { return [...document.querySelectorAll('[name=vocabulary]:checked')].map(input => input.value); }
-function assetAuthorization() {
-  const { apiBaseUrl, manifestUrl } = state.config;
-  const token = $('api-token').value;
-  return apiBaseUrl && manifestUrl && token && new URL(apiBaseUrl, location.href).origin === new URL(manifestUrl, location.href).origin
-    ? { origin: new URL(apiBaseUrl, location.href).origin, token } : undefined;
-}
 function numeric(id, min, max) {
   const value = Number($(id).value);
   if (!Number.isFinite(value) || value < min || value > max) throw Error(`Enter a value from ${min} to ${max} for ${$(id).closest('label')?.firstChild.textContent.trim() || id}.`);
@@ -56,15 +50,15 @@ function showProgress(message, fraction) {
   else $('progress').removeAttribute('value');
 }
 function updateButtons() {
-  const hasAPI = !!state.config.apiBaseUrl && !!$('api-token').value.trim();
-  $('run-retrieval').disabled = state.busy;
+  const hasAPI = !!state.config.apiBaseUrl;
+  $('run-retrieval').disabled = state.busy || !state.pack;
   $('run-classification').disabled = state.busy || !state.ranked || !hasAPI;
   $('run-classification').textContent = state.initial.length ? 'Continue classification' : 'Run classification';
   $('run-review').disabled = state.busy || !state.initial.length || !hasAPI;
   $('run-evaluation').disabled = state.busy || !state.initial.length || !state.reference.length;
   for (const id of ['download-csv', 'download-json']) $(id).disabled = state.busy || !state.initial.length;
   $('cancel').hidden = !state.busy;
-  for (const control of document.querySelectorAll('#edf input, #edf select, #edf textarea, #terminologies input, #lexical-weight, #possible-category, #candidate-cap, #sparse-batches, #save-connections, #clear-cache, #confidence-threshold, #review-cap')) {
+  for (const control of document.querySelectorAll('#edf input, #edf select, #edf textarea, #terminologies input, #embedding-provider, #possible-category, #candidate-cap, #sparse-batches, #clear-cache, #confidence-threshold, #review-cap')) {
     control.disabled = state.busy || (control.name === 'vocabulary' && state.pack && !state.pack.vocabularies.some(item => item.id === control.value));
   }
 }
@@ -126,16 +120,28 @@ async function showPage() {
   $('next-page').disabled = (state.page + 1) * 100 >= page.total;
 }
 
-async function callAPI(stage, candidates) {
-  const stripped = candidates.map(({ code, vocabulary, description }) => ({ code, vocabulary, description }));
+async function postAPI(stage, payload, attempt = 0) {
   state.abort = new AbortController();
   const response = await fetch(`${state.config.apiBaseUrl.replace(/\/$/, '')}/api/${stage}`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${$('api-token').value}` },
-    body: JSON.stringify({ edf: edf(), candidates: stripped, use_possible_category: $('possible-category').checked }), signal: state.abort.signal,
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: state.abort.signal,
   });
-  let payload;
-  try { payload = await response.json(); } catch { throw Error(`The classification service returned an unreadable response (${response.status}).`); }
-  if (!response.ok) throw Error(typeof payload.detail === 'string' ? payload.detail : `Classification request failed (${response.status}). Check the service settings.`);
+  let body;
+  try { body = await response.json(); } catch { throw Error(`The model service returned an unreadable response (${response.status}).`); }
+  const retryAfter = Number(response.headers.get('Retry-After'));
+  if (response.status === 429 && retryAfter > 0 && retryAfter <= 60 && attempt < 3) {
+    showProgress('The model service is busy. Retrying shortly…');
+    await new Promise((resolve, reject) => {
+      const timer = setTimeout(resolve, retryAfter * 1000);
+      state.abort.signal.addEventListener('abort', () => { clearTimeout(timer); reject(new DOMException('Stopped', 'AbortError')); }, { once: true });
+    });
+    return postAPI(stage, payload, attempt + 1);
+  }
+  if (!response.ok) throw Error(typeof body.detail === 'string' ? body.detail : `Model request failed (${response.status}). Please retry.`);
+  return body;
+}
+async function callAPI(stage, candidates) {
+  const stripped = candidates.map(({ code, vocabulary, description }) => ({ code, vocabulary, description }));
+  const payload = await postAPI(stage, { edf: edf(), candidates: stripped, use_possible_category: $('possible-category').checked });
   return { ...payload, decisions: validateDecisions(candidates, payload.decisions, $('possible-category').checked) };
 }
 
@@ -201,40 +207,34 @@ function updateQueryPreview() {
   try { const q = queries(edf()); $('query-preview').textContent = `BM25\n${q.lexical}\n\nMiniLM\n${q.semantic}`; }
   catch { $('query-preview').textContent = 'Fill in preferred_name to preview the retrieval queries.'; }
 }
-async function connectionStatus() {
-  const manifest = $('manifest-url').value.trim();
-  const api = $('api-url').value.trim().replace(/\/$/, '');
-  for (const value of [manifest, api].filter(Boolean)) {
-    const url = new URL(value, location.href);
-    if (!['http:', 'https:'].includes(url.protocol)) throw Error('Connection URLs must use HTTPS or local HTTP.');
-    if (location.protocol === 'https:' && url.protocol !== 'https:' && !['localhost', '127.0.0.1'].includes(url.hostname)) throw Error('Use an HTTPS connection URL.');
+function selectedProvider() { return $('embedding-provider').value; }
+function manifestURL() {
+  const provider = selectedProvider();
+  const value = state.config.embeddingManifests?.[provider] || (provider === 'minilm' ? state.config.manifestUrl : `${state.config.apiBaseUrl}/api/assets/openai/manifest.json`);
+  if (!value) throw Error('The tool is not configured yet. Please contact its administrator.');
+  return new URL(value, location.href).href;
+}
+async function loadPack() {
+  state.pack = undefined; updateButtons();
+  let response;
+  try { response = await fetch(manifestURL(), { cache: 'no-cache' }); }
+  catch { throw Error('Could not connect to the terminology service. Please retry; it may be starting.'); }
+  if (!response.ok) throw Error('The terminology service is temporarily unavailable. Please retry or contact the tool administrator.');
+  const pack = await response.json();
+  if (pack.format !== `semantic-harmonization-${selectedProvider()}-v1`) throw Error('The terminology data is incompatible with the selected model.');
+  state.pack = pack;
+  const available = new Set(pack.vocabularies.map(row => row.id));
+  for (const input of document.querySelectorAll('[name=vocabulary]')) {
+    input.disabled = !available.has(input.value);
+    if (input.disabled) input.checked = false;
   }
-  state.config = { manifestUrl: manifest ? new URL(manifest, location.href).href : '', apiBaseUrl: api };
-  $('connection-summary').textContent = !manifest ? 'Terminology download URL needed' : !api ? 'Browser retrieval ready · classification service not configured' : 'Browser retrieval · classification service configured';
-  updateButtons();
-  if (manifest) {
-    try {
-      const authorization = assetAuthorization();
-      const response = await fetch(state.config.manifestUrl, { cache: 'no-cache',
-        headers: authorization ? { Authorization: `Bearer ${authorization.token}` } : {} });
-      if (response.status === 401) { $('connections').open = true; throw Error('Enter the service access token in Connections to download the terminology pack.'); }
-      if (!response.ok) throw Error('Cannot load the terminology manifest. Check the URL and CORS settings.');
-      const pack = await response.json();
-      if (pack.format !== 'semantic-harmonization-minilm-v1') throw Error('The manifest is not a MiniLM browser pack.');
-      state.pack = pack;
-      const available = new Set(pack.vocabularies.map(row => row.id));
-      for (const input of document.querySelectorAll('[name=vocabulary]')) {
-        input.disabled = !available.has(input.value);
-        if (input.disabled) input.checked = false;
-      }
-      updateEstimate();
-    } catch (error) { notice(error.message); }
-  }
+  updateEstimate(); updateButtons();
 }
 function updateEstimate() {
   if (!state.pack) return;
   const items = state.pack.vocabularies.filter(row => selected().includes(row.id));
-  $('download-estimate').textContent = `${items.reduce((n, row) => n + row.count, 0).toLocaleString()} codes · ${Math.ceil(items.reduce((n, row) => n + row.bytes, 0) / 1024 / 1024).toLocaleString()} MB on first use, plus the MiniLM model. Saved downloads are reused when browser storage is available.`;
+  const modelDownload = selectedProvider() === 'minilm' ? ', plus the MiniLM model' : '';
+  $('download-estimate').textContent = `${items.reduce((n, row) => n + row.count, 0).toLocaleString()} codes · ${Math.ceil(items.reduce((n, row) => n + row.bytes, 0) / 1024 / 1024).toLocaleString()} MB on first use${modelDownload}. Saved downloads are reused when browser storage is available.`;
 }
 
 for (const [id, name] of vocabularies) {
@@ -244,22 +244,24 @@ for (const [id, name] of vocabularies) {
   label.append(input, name); $('vocabularies').append(label);
 }
 $('edf-yaml').addEventListener('input', () => { invalidateRanking(); updateQueryPreview(); });
-$('lexical-weight').addEventListener('input', () => {
-  const weight = Math.round(Number($('lexical-weight').value) * 100);
-  $('weight-value').value = `${weight}% BM25 · ${100 - weight}% MiniLM`; invalidateRanking();
-});
+$('embedding-provider').addEventListener('change', () => action(async () => { invalidateRanking(); await loadPack(); }));
 $('possible-category').addEventListener('change', resetDecisions);
 $('reviewed-only').addEventListener('change', showDecisions);
-$('save-connections').addEventListener('click', () => { invalidateRanking(); connectionStatus().catch(error => notice(error.message)); });
-$('api-token').addEventListener('input', updateButtons);
 $('clear-cache').addEventListener('click', () => action(async () => { await request('clear'); notice('Downloaded terminology data cleared. The MiniLM model uses a separate browser cache.'); }));
 $('run-retrieval').addEventListener('click', () => action(async () => {
   const definition = edf();
-  if (!state.config.manifestUrl) { $('connections').open = true; throw Error('Set the published terminology manifest URL in Connections first.'); }
   if (!selected().length) throw Error('Select at least one terminology.');
   invalidateRanking();
-  state.ranked = await request('retrieve', { edf: definition, manifestUrl: state.config.manifestUrl,
-    vocabularies: selected(), weight: Number($('lexical-weight').value), authorization: assetAuthorization() });
+  const provider = selectedProvider();
+  let embeddingVector;
+  if (provider === 'openai') {
+    showProgress('Embedding your event definition with OpenAI…');
+    const result = await postAPI('embed', { edf: definition });
+    embeddingVector = result.vector;
+    state.abort = null;
+  }
+  state.ranked = await request('retrieve', { edf: definition, manifestUrl: manifestURL(), provider,
+    vocabularies: selected(), weight: rankingWeight(provider), embeddingVector });
   $('retrieval-summary').textContent = `Ranked ${state.ranked.count.toLocaleString()} codes on your computer.`;
   $('retrieval-results').hidden = false; state.page = 0; await showPage();
 }));
@@ -316,17 +318,17 @@ $('download-csv').addEventListener('click', () => {
   download('codelist-decisions.csv', Papa.unparse(rows, { escapeFormulae: true }), 'text/csv;charset=utf-8');
 });
 $('download-json').addEventListener('click', () => download('codelist-results.json', JSON.stringify({
-  edf: edf(), retrieval: state.ranked, lexicalWeight: Number($('lexical-weight').value),
+  edf: edf(), retrieval: state.ranked, lexicalWeight: rankingWeight(selectedProvider()),
   classifier: state.classifier, reviewer: state.reviewer, stoppingReason: state.stopReason,
   usePossibleCategory: $('possible-category').checked, initialDecisions: state.initial, decisions: finalDecisions(), metrics: state.metrics,
 }, null, 2), 'application/json'));
 
 async function init() {
   try {
-    const response = await fetch(new URL('config.json', document.baseURI));
+    const response = await fetch(new URL('config.json', document.baseURI), { cache: 'no-cache' });
     const config = response.ok ? await response.json() : {};
-    $('manifest-url').value = config.manifestUrl || ''; $('api-url').value = config.apiBaseUrl || '';
-    await connectionStatus();
+    state.config = config;
+    await loadPack();
     const examples = await fetch(new URL('examples/index.json', document.baseURI));
     if (examples.ok) for (const example of await examples.json()) {
       const option = document.createElement('option'); option.value = example.file; option.textContent = example.name;

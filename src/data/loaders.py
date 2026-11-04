@@ -97,8 +97,21 @@ class EventDefinitionForm:
         terms = [self.preferred_name.strip(), *(term.strip() for term in self.synonyms)]
         return " ".join(dict.fromkeys(term for term in terms if term))
 
-    def to_embedding_query(self) -> str:
-        """Render the EDF subset used for semantic embedding matching."""
+    def to_embedding_query(self, *, include_labels: bool = True) -> str:
+        """Render retrieval fields; retain labeled defaults for study compatibility."""
+        if not include_labels:
+            values = [self.preferred_name]
+            if self.narrow_definition:
+                values.append(self.narrow_definition)
+            if self.synonyms:
+                values.append(", ".join(self.synonyms))
+            values.extend(self.narrow_decision_rules)
+            values.extend(self.candidate_anchor_codes)
+            if self.morphology:
+                values.append(self.morphology)
+            if self.anatomical_location:
+                values.append(self.anatomical_location)
+            return "\n".join(str(value) for value in values)
         lines = [f"Preferred name: {self.preferred_name}"]
         if self.narrow_definition:
             lines.append(f"Narrow definition: {self.narrow_definition}")

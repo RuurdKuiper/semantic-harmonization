@@ -2,7 +2,7 @@
 
 Browser app: https://ruurdkuiper.github.io/semantic-harmonization/
 
-The new **browser MiniLM app** can run retrieval on the visitor's computer and
+The new **browser app with MiniLM or OpenAI ranking** can run retrieval on the visitor's computer and
 be hosted on GitHub Pages. It downloads precomputed terminology packs, never
 builds corpus embeddings, and uses a separate small API for classification and
 GPT review. See [browser app setup and deployment](web/README.md).

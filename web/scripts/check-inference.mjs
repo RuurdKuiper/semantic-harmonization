@@ -1,5 +1,6 @@
-// Optional integration check against real exported vectors and real browser MiniLM.
-// Start the built preview on 4173 and the asset server on 8766 (origin 4173).
+// Integration check against real vectors and the selected embedding provider.
+// Set PREVIEW_URL for the deployed site or a local preview, and optionally
+// EMBEDDING_PROVIDER=openai. No access token is needed for the public service.
 import { chromium } from '@playwright/test';
 
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
@@ -7,12 +8,19 @@ const page = await browser.newPage();
 page.on('pageerror', error => process.stderr.write(`Browser: ${error.message}\n`));
 page.on('requestfailed', request => process.stderr.write(`Request failed: ${new URL(request.url()).hostname}: ${request.failure()?.errorText}\n`));
 try {
+  if (process.env.MANIFEST_URL || process.env.API_URL) {
+    await page.route('**/config.json', route => route.fulfill({ json: {
+      manifestUrl: process.env.MANIFEST_URL || 'http://127.0.0.1:8766/manifest.json',
+      apiBaseUrl: process.env.API_URL || '',
+    } }));
+  }
   await page.goto(process.env.PREVIEW_URL || 'http://127.0.0.1:4173');
-  await page.locator('#connections summary').click();
-  await page.locator('#manifest-url').fill(process.env.MANIFEST_URL || 'http://127.0.0.1:8766/manifest.json');
-  if (process.env.API_URL) await page.locator('#api-url').fill(process.env.API_URL);
-  if (process.env.PIPELINE_API_TOKEN) await page.locator('#api-token').fill(process.env.PIPELINE_API_TOKEN);
-  await page.locator('#save-connections').click();
+  await page.locator('#run-retrieval').waitFor({ state: 'visible' });
+  await page.waitForFunction(() => !document.getElementById('run-retrieval').disabled);
+  if (process.env.EMBEDDING_PROVIDER === 'openai') {
+    await page.locator('#embedding-provider').selectOption('openai');
+    await page.waitForFunction(() => !document.getElementById('run-retrieval').disabled);
+  }
   if (process.env.VOCABULARIES !== 'all') for (const input of await page.locator('[name=vocabulary]').all()) {
     if (await input.inputValue() !== 'ICPC') await input.uncheck();
   }

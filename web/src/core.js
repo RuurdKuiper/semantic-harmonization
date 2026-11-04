@@ -3,6 +3,13 @@ export const listFields = new Set(['inclusion_criteria', 'exclusion_criteria', '
 export const textFields = new Set(['preferred_name', 'definition', 'narrow_definition', 'anatomical_location',
   'population_restrictions', 'temporal_characteristics', 'etiology', 'morphology', 'diagnostic_certainty', 'administrative_context']);
 
+// Selected by mean average precision in the seven-EDF validation comparison.
+export function rankingWeight(provider) {
+  if (provider === 'minilm') return 0.5;
+  if (provider === 'openai') return 0.35;
+  throw Error('Unsupported embedding model.');
+}
+
 export function normalizeEDF(value) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw Error('Enter an EDF with a preferred_name.');
   const result = {};
@@ -22,14 +29,14 @@ export function normalizeEDF(value) {
 
 export function queries(edf) {
   const lexical = [...new Set([edf.preferred_name, ...(edf.synonyms || [])].map(s => s.trim()).filter(Boolean))].join(' ');
-  const lines = [`Preferred name: ${edf.preferred_name}`];
-  if (edf.narrow_definition) lines.push(`Narrow definition: ${edf.narrow_definition}`);
-  if (edf.synonyms?.length) lines.push(`Synonyms: ${edf.synonyms.join(', ')}`);
-  for (const [key, label] of [['narrow_decision_rules', 'Narrow decision rules'], ['candidate_anchor_codes', 'Candidate anchor codes']]) {
-    if (edf[key]?.length) lines.push(`${label}:`, ...edf[key].map(item => `  - ${item}`));
+  const lines = [edf.preferred_name];
+  if (edf.narrow_definition) lines.push(edf.narrow_definition);
+  if (edf.synonyms?.length) lines.push(edf.synonyms.join(', '));
+  for (const key of ['narrow_decision_rules', 'candidate_anchor_codes']) {
+    if (edf[key]?.length) lines.push(...edf[key]);
   }
-  if (edf.morphology) lines.push(`Morphology/pathology: ${edf.morphology}`);
-  if (edf.anatomical_location) lines.push(`Anatomical location: ${edf.anatomical_location}`);
+  if (edf.morphology) lines.push(edf.morphology);
+  if (edf.anatomical_location) lines.push(edf.anatomical_location);
   return { lexical, semantic: lines.join('\n') };
 }
 

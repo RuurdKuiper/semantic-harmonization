@@ -1,4 +1,4 @@
-"""Export existing MiniLM vectors for browser retrieval; never call an encoder.
+"""Export saved MiniLM or OpenAI vectors for browser retrieval; never call an encoder.
 
 Run from the repository root with PYTHONPATH=. and the project Python.
 Output is deliberately outside the static website and Git-tracked files.
@@ -31,10 +31,24 @@ def json_gzip(value) -> bytes:
     return gzip.compress(json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode(), mtime=0)
 
 
-def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: str, chunk_rows=4096) -> dict:
+def quantize_unit_vectors(vectors):
+    """Symmetric per-row int8, followed by float32 inverse quantized norms.
+
+    Cosine scoring needs only the direction of each vector: its original scale
+    cancels when normalizing the quantized row. No calibration EDFs are used.
+    """
+    maximum = np.max(np.abs(vectors), axis=1, keepdims=True)
+    quantized = np.rint(vectors / maximum * 127).clip(-127, 127).astype(np.int8)
+    inverse_norms = np.asarray(1 / np.linalg.norm(quantized.astype(np.float64), axis=1), dtype="<f4")
+    return quantized.tobytes() + inverse_norms.tobytes()
+
+
+def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: str, chunk_rows=4096, dimensions=384, dtype="fp32") -> dict:
     """Require exact code/vocabulary/description matches with the saved vectors."""
-    if index.embeddings.ndim != 2 or index.embeddings.shape[1] != 384:
-        raise ValueError("Browser MiniLM packs require 384-dimensional vectors")
+    if index.embeddings.ndim != 2 or index.embeddings.shape[1] != dimensions:
+        raise ValueError(f"Browser packs require {dimensions}-dimensional vectors")
+    if dtype not in {"fp32", "int8"}:
+        raise ValueError("Unsupported vector storage format")
     lookup = {(code, vocab, desc): i for i, (code, vocab, desc) in
               enumerate(zip(index.codes, index.vocabularies, index.descriptions))}
     rows = list(corpus[["code", "vocabulary", "description"]].itertuples(index=False, name=None))
@@ -68,13 +82,13 @@ def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: s
             raise ValueError(f"Zero vectors in {vocabulary}")
         vectors = np.asarray(vectors / norms, dtype="<f4")
         metadata = json_gzip([[code, desc] for code, _, desc in selected])
-        binary = vectors.tobytes()
+        binary = quantize_unit_vectors(vectors) if dtype == "int8" else vectors.tobytes()
         digest.update(metadata)
         digest.update(binary)
         stem = f"{start:07d}"
         chunks.append({"start": start, "count": len(selected),
                        "rows": write_asset(staging / (stem + ".json.gz"), metadata),
-                       "vectors": write_asset(staging / (stem + ".f32"), binary)})
+                       "vectors": write_asset(staging / (stem + (".i8" if dtype == "int8" else ".f32")), binary)})
     identity = vocabulary + "-" + digest.hexdigest()[:20]
     destination = output / identity
     if destination.exists():
@@ -94,29 +108,56 @@ def export_vocabulary(corpus, index: EmbeddingIndex, output: Path, vocabulary: s
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", default="configs/default.yaml")
-    parser.add_argument("--output-dir", default="dist/browser-assets")
+    parser.add_argument("--output-dir")
     parser.add_argument("--vocabularies", nargs="+")
-    parser.add_argument("--chunk-rows", type=int, default=4096)
+    parser.add_argument("--provider", choices=["minilm", "openai"], default="minilm")
+    parser.add_argument("--dtype", choices=["fp32", "int8"])
+    parser.add_argument("--previous-manifest", type=Path, default=Path("dist/browser-assets/manifest.json"))
+    parser.add_argument("--chunk-rows", type=int)
     args = parser.parse_args()
-    if args.chunk_rows < 1:
+    chunk_rows = args.chunk_rows if args.chunk_rows is not None else (2048 if args.provider == "openai" else 4096)
+    if chunk_rows < 1:
         parser.error("--chunk-rows must be positive")
     config = load_config(args.config)
-    output = Path(args.output_dir)
+    dtype = args.dtype or ("int8" if args.provider == "minilm" else "fp32")
+    if args.provider == "openai" and dtype != "fp32":
+        parser.error("OpenAI packs currently require fp32 storage")
+    output = Path(args.output_dir or ("dist/browser-openai-assets" if args.provider == "openai" else "dist/browser-minilm-int8-assets" if dtype == "int8" else "dist/browser-assets"))
     output.mkdir(parents=True, exist_ok=True)
     vocabularies = args.vocabularies or config.retrieval.vocabularies
-    manifest = {"format": "semantic-harmonization-minilm-v1", "dimensions": 384,
-                "model": "Xenova/all-MiniLM-L6-v2", "dtype": "fp32", "maxLength": 256,
+    is_openai = args.provider == "openai"
+    dimensions = 3072 if is_openai else 384
+    manifest = {"format": f"semantic-harmonization-{args.provider}-v1", "dimensions": dimensions,
+                "model": "text-embedding-3-large" if is_openai else "Xenova/all-MiniLM-L6-v2", "dtype": dtype, "maxLength": 8192 if is_openai else 256,
                 "vocabularies": []}
+    if dtype == "int8":
+        manifest["quantization"] = "symmetric-int8-unit-vectors-v1"
     for vocabulary in vocabularies:
-        print(f"Exporting saved MiniLM vectors: {vocabulary}", flush=True)
+        print(f"Exporting saved {args.provider} vectors: {vocabulary}", flush=True)
         corpus = preprocess_corpus(load_code_system_corpus(
             [vocabulary], source_paths=config.paths.code_systems, cache_dir=config.paths.codes_parquet_dir))
-        cache = Path(config.paths.embeddings_dir) / f"embeddings_{vocabulary}_{embedding_cache_key('local', DEFAULT_LOCAL_EMBEDDING_MODEL)}.npz"
-        if not cache.exists():
-            raise FileNotFoundError(f"Precomputed MiniLM index is missing for {vocabulary}; export does not build embeddings")
-        index = EmbeddingIndex.load(cache, load_model=False)
-        manifest["vocabularies"].append(export_vocabulary(corpus, index, output, vocabulary, args.chunk_rows))
+        identity = embedding_cache_key('openai', 'text-embedding-3-large', 3072) if is_openai else embedding_cache_key('local', DEFAULT_LOCAL_EMBEDDING_MODEL)
+        cache = Path(config.paths.embeddings_dir) / f"embeddings_{vocabulary}_{identity}.npz"
+        if cache.exists():
+            index = EmbeddingIndex.load(cache, load_model=False)
+        elif is_openai:
+            checkpoint = Path('data/codes/embeddings/openai_text-embedding-3-large_3072_resumable') / vocabulary
+            state = json.loads((checkpoint / 'state.json').read_text())
+            if not state.get('complete') or state.get('dimensions') != 3072 or state.get('model') != 'text-embedding-3-large':
+                raise ValueError(f"The saved OpenAI checkpoint for {vocabulary} is incomplete or incompatible")
+            import pandas as pd
+            rows = pd.read_parquet(checkpoint / 'rows.parquet')
+            index = EmbeddingIndex(None, rows.description.tolist(), rows.code.tolist(), rows.vocabulary.tolist(),
+                                   np.load(checkpoint / 'vectors.npy', mmap_mode='r'))
+        else:
+            raise FileNotFoundError(f"Precomputed index is missing for {vocabulary}; export does not build embeddings")
+        manifest["vocabularies"].append(export_vocabulary(corpus, index, output, vocabulary, chunk_rows, dimensions, dtype))
         del index, corpus
+    if dtype == "int8" and args.previous_manifest.is_file():
+        previous = json.loads(args.previous_manifest.read_text())
+        if previous.get("format") == manifest["format"] and previous.get("dtype") == "fp32":
+            manifest["obsoleteVectorHashes"] = sorted({chunk["vectors"]["sha256"]
+                for vocabulary in previous["vocabularies"] for chunk in vocabulary["chunks"]})
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2))
     print(f"Exported {sum(v['count'] for v in manifest['vocabularies']):,} vectors; no embedding API calls.")
 
