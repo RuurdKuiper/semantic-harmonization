@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Build clinical codelists from event definitions, with MiniLM retrieval on your computer." />
     <title>Semantic Harmonization</title>
-    <script type="module" crossorigin src="./assets/index-C7mIRfDc.js"></script>
+    <script type="module" crossorigin src="./assets/index-BYDxjSnU.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BhDJHHef.css">
   </head>
   <body>
@@ -46,7 +46,7 @@ exclusion_criteria: []</textarea>
             <div id="retrieval-results" hidden><p id="retrieval-summary" class="result-summary"></p><label>Find a retrieved code<input id="search-retrieval" type="search" placeholder="Search code, description or terminology" /></label><div id="retrieval-table" class="table-wrap"></div><div class="pagination"><button id="previous-page" class="secondary">Previous</button><span id="page-label"></span><button id="next-page" class="secondary">Next</button></div></div>
           </section>
           <section id="classification" class="card">
-            <div class="step-heading"><span class="step-number">04</span><div><h2>Classify candidates</h2><p>Assess ranked candidates against the complete EDF.</p></div></div>
+            <div class="step-heading"><span class="step-number">04</span><div><h2>Classify candidates with Jev</h2><p>Assess ranked candidates against the complete EDF.</p></div></div>
             <div class="form-grid"><label>Candidate ceiling<input id="candidate-cap" type="number" min="20" max="10000" step="20" value="10000" /></label><label>Consecutive batches without Narrow<input id="sparse-batches" type="number" min="1" max="100" value="10" /></label></div>
             <label class="check"><input id="possible-category" type="checkbox" /> Enable the Possible category</label>
             <p class="hint">Batches of 20; at least three batches before adaptive stopping. Completed batches are kept if a later request fails.</p>
