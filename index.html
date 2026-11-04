@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Build clinical codelists from event definitions, with MiniLM retrieval on your computer." />
     <title>Semantic Harmonization</title>
-    <script type="module" crossorigin src="./assets/index-CRpHgHGv.js"></script>
+    <script type="module" crossorigin src="./assets/index-BJW0P4Mi.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BhDJHHef.css">
   </head>
   <body>
@@ -15,17 +15,6 @@
     </header>
     <main>
       <div class="intro"><p class="eyebrow">FROM CLINICAL DEFINITION TO CODELIST</p><h1>Build a clinical codelist.</h1><p>Describe the event, find matching codes, and review the decisions.</p></div>
-      <details id="connections" class="connections">
-        <summary>Connections <span id="connection-summary">Configure terminology downloads and classification</span></summary>
-        <div class="form-grid">
-          <label>Terminology manifest URL<input id="manifest-url" type="url" placeholder="https://…/manifest.json" /></label>
-          <label>Classification service URL<input id="api-url" type="url" placeholder="https://…" /></label>
-          <label>Service access token<input id="api-token" type="password" autocomplete="off" placeholder="Provided by your administrator" /></label>
-        </div>
-        <p class="hint">Retrieval runs on your computer. Classification and GPT review send the EDF and candidate codes to the configured service. The access token stays in this tab.</p>
-        <button id="save-connections" class="secondary">Apply connections</button>
-        <button id="clear-cache" class="text-button">Clear downloaded terminology data</button>
-      </details>
       <div id="notice" role="status" aria-live="polite"></div>
       <div class="workspace">
         <nav aria-label="Pipeline steps"><a href="#terminologies">01 <span>Terminologies</span></a><a href="#edf">02 <span>Event definition</span></a><a href="#retrieval">03 <span>Retrieve</span></a><a href="#classification">04 <span>Classify</span></a><a href="#review">05 <span>Review</span></a><a href="#evaluation">06 <span>Evaluate & export</span></a></nav>
@@ -49,9 +38,9 @@ exclusion_criteria: []</textarea>
             <details><summary>Fields used for retrieval</summary><div id="query-preview" class="query-preview"></div></details>
           </section>
           <section id="retrieval" class="card">
-            <div class="step-heading"><span class="step-number">03</span><div><h2>Find candidate codes</h2><p>Combine lexical matching with MiniLM semantic similarity.</p></div></div>
-            <label for="lexical-weight">Lexical weight <output id="weight-value">50% BM25 · 50% MiniLM</output></label>
-            <input id="lexical-weight" type="range" min="0" max="1" step="0.05" value="0.5" />
+            <div class="step-heading"><span class="step-number">03</span><div><h2>Find candidate codes</h2><p>Combine lexical matching with semantic similarity.</p></div></div>
+            <label>Embedding model<select id="embedding-provider"><option value="minilm">MiniLM — runs on your computer</option><option value="openai">OpenAI — text-embedding-3-large</option></select></label>
+            <p class="hint">Ranking weights are applied automatically. OpenAI sends the event definition to the embedding service; MiniLM processes it on your computer.</p>
             <div class="actions"><button id="run-retrieval">Run hybrid retrieval</button><button id="cancel" class="secondary" hidden>Stop</button></div>
             <div id="progress-box" hidden><progress id="progress" max="1"></progress><p id="progress-text" aria-live="polite"></p></div>
             <div id="retrieval-results" hidden><p id="retrieval-summary" class="result-summary"></p><label>Find a retrieved code<input id="search-retrieval" type="search" placeholder="Search code, description or terminology" /></label><div id="retrieval-table" class="table-wrap"></div><div class="pagination"><button id="previous-page" class="secondary">Previous</button><span id="page-label"></span><button id="next-page" class="secondary">Next</button></div></div>
@@ -80,7 +69,7 @@ exclusion_criteria: []</textarea>
           </section>
         </div>
       </div>
-      <footer>Clinical codelist construction · Results require expert review.</footer>
+      <footer><details class="storage-settings"><summary>Browser storage</summary><p>Terminology downloads are saved on this device to speed up later searches.</p><button id="clear-cache" class="secondary">Clear saved terminology data</button></details><p>Clinical codelist construction · Results require expert review.</p></footer>
     </main>
   </body>
 </html>
