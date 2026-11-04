@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Build clinical codelists from event definitions, with MiniLM retrieval on your computer." />
     <title>Semantic Harmonization</title>
-    <script type="module" crossorigin src="./assets/index-BYDxjSnU.js"></script>
+    <script type="module" crossorigin src="./assets/index-B-_BcniE.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BhDJHHef.css">
   </head>
   <body>
@@ -39,7 +39,7 @@ exclusion_criteria: []</textarea>
           </section>
           <section id="retrieval" class="card">
             <div class="step-heading"><span class="step-number">03</span><div><h2>Find candidate codes</h2><p>Combine lexical matching with semantic similarity.</p></div></div>
-            <label>Embedding model<select id="embedding-provider"><option value="minilm">MiniLM — runs on your computer</option><option value="openai">OpenAI — text-embedding-3-large</option></select></label>
+            <label>Embedding model<select id="embedding-provider"><option value="minilm">MiniLM — runs on your computer</option><option value="openai">OpenAI — compact (256 dimensions)</option></select></label>
             <p class="hint">Ranking weights are applied automatically. OpenAI sends the event definition to the embedding service; MiniLM processes it on your computer.</p>
             <div class="actions"><button id="run-retrieval">Run hybrid retrieval</button><button id="cancel" class="secondary" hidden>Stop</button></div>
             <div id="progress-box" hidden><progress id="progress" max="1"></progress><p id="progress-text" aria-live="polite"></p></div>
