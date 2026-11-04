@@ -55,7 +55,7 @@ exclusion_criteria: []</textarea>
           </section>
           <section id="review" class="card">
             <div class="step-heading"><span class="step-number">05</span><div><h2>Review uncertain decisions</h2><p>Ask GPT to reassess the lowest-confidence initial decisions.</p></div></div>
-            <div class="form-grid"><label>Confidence below<input id="confidence-threshold" type="number" min="0" max="1" step="0.05" value="0.3" /></label><label>Maximum decisions to review<input id="review-cap" type="number" min="1" max="300" value="300" /></label></div>
+            <div class="form-grid"><label>Confidence below<input id="confidence-threshold" type="number" min="0" max="1" step="0.05" value="0.7" /></label><label>Maximum decisions to review<input id="review-cap" type="number" min="1" max="300" value="300" /></label></div>
             <p class="hint">GPT confidence is self-reported and is not a calibrated probability of correctness.</p>
             <button id="run-review" disabled>Run GPT review</button><p id="review-status" aria-live="polite"></p>
             <label class="check"><input id="reviewed-only" type="checkbox" checked /> Show only GPT-reviewed decisions</label><div id="review-table" class="table-wrap"></div>
