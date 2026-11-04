@@ -293,7 +293,7 @@ def _load_corpus(vocabularies: tuple[str, ...]) -> pd.DataFrame:
     )
 
 
-@st.cache_resource(show_spinner="Building/loading embedding index (only happens once per corpus)...")
+@st.cache_resource(show_spinner="Preparing terminology embeddings...")
 def _load_embedding_index_cached(
     vocabularies: tuple[str, ...],
     provider: str,
@@ -305,13 +305,17 @@ def _load_embedding_index_cached(
     embedding_cache_dir: str,
 ) -> EmbeddingIndex:
     codes = _load_corpus_cached(vocabularies, source_paths, corpus_cache_dir)
-    model = create_embedding_model(
-        provider,
-        model_name,
-        dimensions=dimensions,
-        batch_size=batch_size,
-    )
-    return EmbeddingIndex.load_for_vocabularies(
+    progress = st.progress(0.0, text="Preparing terminology embeddings...")
+    status = st.empty()
+    model = _load_query_model(provider, model_name, dimensions, batch_size)
+
+    def update_progress(completed: int, total: int) -> None:
+        progress.progress(
+            completed / total if total else 1.0,
+            text=f"Terminology embeddings: {completed}/{total} coding systems prepared",
+        )
+
+    index = EmbeddingIndex.load_for_vocabularies(
         codes,
         vocabularies=vocabularies,
         cache_dir=embedding_cache_dir,
@@ -319,7 +323,12 @@ def _load_embedding_index_cached(
         model=model,
         provider=provider,
         dimensions=dimensions,
+        progress_callback=update_progress,
+        status_callback=status.caption,
     )
+    progress.empty()
+    status.empty()
+    return index
 
 
 def _load_embedding_index(

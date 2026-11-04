@@ -209,14 +209,14 @@ class EmbeddingIndex:
         load_model: bool = True,
     ) -> "EmbeddingIndex":
         """Load a previously-saved embedding index from disk."""
-        data = np.load(path, allow_pickle=True)
-        return cls(
-            model=model or (_create_local_embedding_model(model_name) if load_model else None),
-            descriptions=list(data["descriptions"]),
-            codes=list(data["codes"]),
-            vocabularies=list(data["vocabularies"]),
-            embeddings=np.asarray(data["embeddings"], dtype=np.float32),
-        )
+        with np.load(path, allow_pickle=True) as data:
+            return cls(
+                model=model or (_create_local_embedding_model(model_name) if load_model else None),
+                descriptions=list(data["descriptions"]),
+                codes=list(data["codes"]),
+                vocabularies=list(data["vocabularies"]),
+                embeddings=np.asarray(data["embeddings"], dtype=np.float32),
+            )
 
     @classmethod
     def from_cache_or_build(
@@ -227,6 +227,7 @@ class EmbeddingIndex:
         model: EmbeddingEncoder | None = None,
         load_model: bool = True,
         show_progress_bar: bool = False,
+        status_callback: Callable[[str], None] | None = None,
     ) -> "EmbeddingIndex":
         """Load a cached embedding index if present, otherwise build it from
         *codes* and cache the result for subsequent runs.
@@ -275,6 +276,11 @@ class EmbeddingIndex:
                 )
                 subset.save(cache_path)
                 return subset
+        if status_callback is not None:
+            status_callback(
+                f"Creating embeddings for {len(codes):,} descriptions; no matching saved index. "
+                "The first run can take several minutes."
+            )
         index = cls.from_codes(
             codes,
             model_name=model_name,
@@ -306,7 +312,7 @@ class EmbeddingIndex:
             descriptions=descriptions,
             codes=codes,
             vocabularies=vocabularies,
-            embeddings=np.vstack(embeddings).astype(np.float32)
+            embeddings=(embeddings[0] if len(embeddings) == 1 else np.vstack(embeddings)).astype(np.float32, copy=False)
             if embeddings
             else np.empty((0, 0), dtype=np.float32),
         )
@@ -322,6 +328,7 @@ class EmbeddingIndex:
         provider: str = "local",
         dimensions: int | None = None,
         progress_callback: Callable[[int, int], None] | None = None,
+        status_callback: Callable[[str], None] | None = None,
     ) -> "EmbeddingIndex":
         """Load per-vocabulary embedding caches and concatenate them.
 
@@ -342,11 +349,20 @@ class EmbeddingIndex:
                 continue
             cache_identity = embedding_cache_key(provider, model_name, dimensions)
             cache_path = cache_dir / f"embeddings_{vocabulary}_{cache_identity}.npz"
+            if status_callback is not None:
+                status_callback(f"Preparing embeddings for {vocabulary} ({len(vocab_df):,} descriptions)...")
             # Existing release assets contain the legacy local MiniLM indexes.
             # OpenAI indexes are private, paid-to-generate local artifacts and
             # must not be mistaken for downloadable release assets.
             if provider.strip().lower() == "local":
                 _ensure_embedding_asset(cache_path)
+            if status_callback is not None:
+                status_callback(
+                    f"Loading and checking saved embeddings for {vocabulary}..."
+                    if cache_path.exists()
+                    else f"Creating embeddings for {vocabulary} ({len(vocab_df):,} descriptions). "
+                    "The first run can take several minutes."
+                )
             indexes.append(
                 cls.from_cache_or_build(
                     vocab_df,
@@ -355,18 +371,23 @@ class EmbeddingIndex:
                     model=model,
                     load_model=False,
                     show_progress_bar=progress_callback is not None,
+                    status_callback=(
+                        (lambda message, vocabulary=vocabulary: status_callback(f"{vocabulary}: {message}"))
+                        if status_callback is not None else None
+                    ),
                 )
             )
             if progress_callback is not None:
                 progress_callback(position, total)
+        if status_callback is not None:
+            status_callback("Combining terminology embeddings...")
+        matrices = [np.asarray(index.embeddings, dtype=np.float32) for index in indexes]
         return cls(
             model=None,
             descriptions=[d for index in indexes for d in index.descriptions],
             codes=[c for index in indexes for c in index.codes],
             vocabularies=[v for index in indexes for v in index.vocabularies],
-            embeddings=np.vstack(
-                [np.asarray(index.embeddings, dtype=np.float32) for index in indexes]
-            ).astype(np.float32)
+            embeddings=(matrices[0] if len(matrices) == 1 else np.vstack(matrices))
             if indexes
             else np.empty((0, 0), dtype=np.float32),
         )

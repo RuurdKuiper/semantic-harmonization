@@ -33,6 +33,15 @@ def test_load_edf_missing_raises():
         load_edf("nonexistent_phenotype")
 
 
+@pytest.mark.parametrize("definition_field", ["", 'definition: ""\n', "definition:\n"])
+def test_name_only_edf_supports_retrieval_and_classification(tmp_path, definition_field):
+    (tmp_path / "custom.yaml").write_text("preferred_name: Migraine\n" + definition_field)
+    edf = load_edf("custom", tmp_path)
+    assert edf.to_lexical_query() == "Migraine"
+    assert edf.to_embedding_query() == "Preferred name: Migraine"
+    assert edf.to_prompt_context() == "Preferred name: Migraine"
+
+
 def test_edf_to_prompt_context_contains_key_sections():
     edf = load_edf("myocarditis")
     context = edf.to_prompt_context()

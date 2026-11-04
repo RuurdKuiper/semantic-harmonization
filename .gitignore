@@ -35,6 +35,12 @@ dist/
 .mypy_cache/
 .ruff_cache/
 .ipynb_checkpoints/
+node_modules/
+/web/dist/
+/web/public/examples/
+/web/public/assets/
+/web/test-results/
+/web/playwright-report/
 
 # Logs
 *.log

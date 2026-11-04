@@ -1,5 +1,12 @@
 # Semantic Harmonization Pipeline
 
+Browser app: https://ruurdkuiper.github.io/semantic-harmonization/
+
+The new **browser MiniLM app** can run retrieval on the visitor's computer and
+be hosted on GitHub Pages. It downloads precomputed terminology packs, never
+builds corpus embeddings, and uses a separate small API for classification and
+GPT review. See [browser app setup and deployment](web/README.md).
+
 An AI-assisted pipeline for finding clinical terminology codes that match a
 medical condition and reducing the amount of expert code review required.
 

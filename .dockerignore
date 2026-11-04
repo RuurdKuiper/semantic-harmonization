@@ -1,0 +1,12 @@
+.git
+.venv*
+.env
+**/.env
+**/node_modules
+data
+dist
+results
+artifacts
+manuscript
+web
+tests

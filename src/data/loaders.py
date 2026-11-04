@@ -14,7 +14,7 @@ class EventDefinitionForm:
 
     name: str
     preferred_name: str
-    definition: str
+    definition: str = ""
     inclusion_criteria: list[str] = field(default_factory=list)
     narrow_definition: str = ""
     exclusion_criteria: list[str] = field(default_factory=list)
@@ -39,10 +39,9 @@ class EventDefinitionForm:
         Possible rules are never discarded. In binary mode they define cases
         that are insufficient for Narrow and therefore map to Exclude.
         """
-        lines = [
-            f"Preferred name: {self.preferred_name}",
-            f"Definition: {self.definition}",
-        ]
+        lines = [f"Preferred name: {self.preferred_name}"]
+        if self.definition:
+            lines.append(f"Definition: {self.definition}")
         if self.narrow_definition:
             lines.append(f"Narrow definition: {self.narrow_definition}")
         if self.inclusion_criteria:

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Build clinical codelists from event definitions, with MiniLM retrieval on your computer." />
+    <title>Semantic Harmonization</title>
+  </head>
+  <body>
+    <header class="masthead">
+      <a class="brand" href="#"><span class="brand-icon" aria-hidden="true">≋</span> Semantic Harmonization</a>
+      <span class="mode">MiniLM · browser retrieval</span>
+    </header>
+    <main>
+      <div class="intro"><p class="eyebrow">FROM CLINICAL DEFINITION TO CODELIST</p><h1>Build a clinical codelist.</h1><p>Describe the event, find matching codes, and review the decisions.</p></div>
+      <details id="connections" class="connections">
+        <summary>Connections <span id="connection-summary">Configure terminology downloads and classification</span></summary>
+        <div class="form-grid">
+          <label>Terminology manifest URL<input id="manifest-url" type="url" placeholder="https://…/manifest.json" /></label>
+          <label>Classification service URL<input id="api-url" type="url" placeholder="https://…" /></label>
+          <label>Service access token<input id="api-token" type="password" autocomplete="off" placeholder="Provided by your administrator" /></label>
+        </div>
+        <p class="hint">Retrieval runs on your computer. Classification and GPT review send the EDF and candidate codes to the configured service. The access token stays in this tab.</p>
+        <button id="save-connections" class="secondary">Apply connections</button>
+        <button id="clear-cache" class="text-button">Clear downloaded terminology data</button>
+      </details>
+      <div id="notice" role="status" aria-live="polite"></div>
+      <div class="workspace">
+        <nav aria-label="Pipeline steps"><a href="#terminologies">01 <span>Terminologies</span></a><a href="#edf">02 <span>Event definition</span></a><a href="#retrieval">03 <span>Retrieve</span></a><a href="#classification">04 <span>Classify</span></a><a href="#review">05 <span>Review</span></a><a href="#evaluation">06 <span>Evaluate & export</span></a></nav>
+        <div class="steps">
+          <section id="terminologies" class="card">
+            <div class="step-heading"><span class="step-number">01</span><div><h2>Select terminologies</h2><p>Choose the coding systems relevant to your work.</p></div></div>
+            <div id="vocabularies" class="vocabulary-grid"></div>
+            <p id="download-estimate" class="hint">Selected terminology vectors download on first use and are cached in your browser when storage is available.</p>
+          </section>
+          <section id="edf" class="card">
+            <div class="step-heading"><span class="step-number">02</span><div><h2>Define your event</h2><p>Start with an example or use your own EDF. Only the preferred name is required.</p></div></div>
+            <div class="form-grid"><label>Example EDF<select id="example"><option value="">Choose an example…</option></select></label><label>Upload EDF YAML<input id="upload-edf" type="file" accept=".yaml,.yml" /></label></div>
+            <label class="editor-label" for="edf-yaml">Event Definition Form (YAML)</label>
+            <textarea id="edf-yaml" rows="11" spellcheck="false">preferred_name: ""
+definition: ""
+narrow_definition: ""
+synonyms: []
+narrow_decision_rules: []
+exclusion_criteria: []</textarea>
+            <p class="hint">Keep the field names and replace the content. Blank text fields and empty lists are accepted.</p>
+            <details><summary>Fields used for retrieval</summary><div id="query-preview" class="query-preview"></div></details>
+          </section>
+          <section id="retrieval" class="card">
+            <div class="step-heading"><span class="step-number">03</span><div><h2>Find candidate codes</h2><p>Combine lexical matching with MiniLM semantic similarity.</p></div></div>
+            <label for="lexical-weight">Lexical weight <output id="weight-value">50% BM25 · 50% MiniLM</output></label>
+            <input id="lexical-weight" type="range" min="0" max="1" step="0.05" value="0.5" />
+            <div class="actions"><button id="run-retrieval">Run hybrid retrieval</button><button id="cancel" class="secondary" hidden>Stop</button></div>
+            <div id="progress-box" hidden><progress id="progress" max="1"></progress><p id="progress-text" aria-live="polite"></p></div>
+            <div id="retrieval-results" hidden><p id="retrieval-summary" class="result-summary"></p><label>Find a retrieved code<input id="search-retrieval" type="search" placeholder="Search code, description or terminology" /></label><div id="retrieval-table" class="table-wrap"></div><div class="pagination"><button id="previous-page" class="secondary">Previous</button><span id="page-label"></span><button id="next-page" class="secondary">Next</button></div></div>
+          </section>
+          <section id="classification" class="card">
+            <div class="step-heading"><span class="step-number">04</span><div><h2>Classify candidates</h2><p>Assess ranked candidates against the complete EDF.</p></div></div>
+            <div class="form-grid"><label>Candidate ceiling<input id="candidate-cap" type="number" min="20" max="10000" step="20" value="10000" /></label><label>Consecutive batches without Narrow<input id="sparse-batches" type="number" min="1" max="100" value="10" /></label></div>
+            <label class="check"><input id="possible-category" type="checkbox" /> Enable the Possible category</label>
+            <p class="hint">Batches of 20; at least three batches before adaptive stopping. Completed batches are kept if a later request fails.</p>
+            <button id="run-classification" disabled>Run classification</button>
+            <p id="classification-status" aria-live="polite"></p><div id="classification-table" class="table-wrap"></div>
+          </section>
+          <section id="review" class="card">
+            <div class="step-heading"><span class="step-number">05</span><div><h2>Review uncertain decisions</h2><p>Ask GPT to reassess the lowest-confidence initial decisions.</p></div></div>
+            <div class="form-grid"><label>Confidence below<input id="confidence-threshold" type="number" min="0" max="1" step="0.05" value="0.3" /></label><label>Maximum decisions to review<input id="review-cap" type="number" min="1" max="300" value="300" /></label></div>
+            <p class="hint">GPT confidence is self-reported and is not a calibrated probability of correctness.</p>
+            <button id="run-review" disabled>Run GPT review</button><p id="review-status" aria-live="polite"></p>
+            <label class="check"><input id="reviewed-only" type="checkbox" checked /> Show only GPT-reviewed decisions</label><div id="review-table" class="table-wrap"></div>
+          </section>
+          <section id="evaluation" class="card">
+            <div class="step-heading"><span class="step-number">06</span><div><h2>Evaluate & export</h2><p>Check the results against your reference and save them for expert assessment.</p></div></div>
+            <label>Reference codelist CSV (optional)<input id="upload-reference" type="file" accept=".csv" /></label>
+            <p class="hint">Columns: code, vocabulary (or coding_system), and label (or tags). Labels: Narrow, Possible, Exclude.</p>
+            <button id="run-evaluation" class="secondary" disabled>Calculate metrics</button><div id="metrics" class="metric-grid"></div>
+            <div class="actions"><button id="download-csv" disabled>Download decisions CSV</button><button id="download-json" class="secondary" disabled>Download results JSON</button></div>
+          </section>
+        </div>
+      </div>
+      <footer>Clinical codelist construction · Results require expert review.</footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

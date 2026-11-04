@@ -1,0 +1,64 @@
+{
+  "descriptions": [
+    "acute myocarditis diagnosis",
+    "history of myocarditis",
+    "acute myocardial infarction",
+    "myocarditis",
+    "eczema skin rash",
+    "acute myocarditis diagnosis"
+  ],
+  "query": "acute myocarditis myocarditis",
+  "lexical": {
+    "count": 6,
+    "avgdl": 2.6666666666666665,
+    "averageIdf": 0.9094980888911826,
+    "frequencies": {
+      "acute": 3,
+      "diagnosis": 2,
+      "myocarditis": 4,
+      "history": 1,
+      "of": 1,
+      "myocardial": 1,
+      "infarction": 1,
+      "skin": 1,
+      "eczema": 1,
+      "rash": 1
+    },
+    "k1": 1.5,
+    "b": 0.75,
+    "epsilon": 0.25
+  },
+  "lexicalScores": [
+    0.430532,
+    0.430532,
+    0.0,
+    0.632694,
+    0.0,
+    0.430532
+  ],
+  "semanticScores": [
+    0.8,
+    0.6,
+    0.4,
+    0.9,
+    0.1,
+    0.8
+  ],
+  "weight": 0.5,
+  "scores": [
+    0.777737,
+    0.652737,
+    0.1875,
+    1.0,
+    0.0,
+    0.777737
+  ],
+  "order": [
+    3,
+    0,
+    5,
+    1,
+    2,
+    4
+  ]
+}
